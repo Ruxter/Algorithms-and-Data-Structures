@@ -30,14 +30,14 @@ namespace ADSLibrary
 					int m_count;
 
 				private:
-					void Resize(int size);				
-					
+					void Resize(int size);
+
 				};
 
 				template<typename T> DynamicArray<T>::DynamicArray(int size) : m_count(0)
 				{
 					if (size > 0) m_size = size;
-					m_list = new T[m_size];						
+					m_list = new T[m_size];
 				}
 
 				template <class T> int DynamicArray<T>::LastItem(void) const
@@ -66,7 +66,7 @@ namespace ADSLibrary
 				template <class T> int DynamicArray<T>::Size(void) const
 				{					return m_size;				}
 
-				template<typename T> void DynamicArray<T>::Resize(int size) 
+				template<typename T> void DynamicArray<T>::Resize(int size)
 				{
 					if (size <= 0) cout << "Invalid array size";
 					if (size == m_size)	cout << "Size is OK";;

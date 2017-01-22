@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\DynamicArray.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Stack.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Queue.h" />
@@ -148,7 +149,6 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
-    <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="TestClass.h" />
   </ItemGroup>
   <ItemGroup>
