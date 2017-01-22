@@ -49,6 +49,7 @@ namespace ADSLibrary
 				template<typename T> DynamicArray<T>::~DynamicArray()
 				{
 					delete[] m_list;
+					//aaaa
 				}
 
 				template <class T> T& DynamicArray<T>::operator[] (const int index)
