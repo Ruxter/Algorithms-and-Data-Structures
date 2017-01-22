@@ -19,19 +19,31 @@ namespace ADSLibrary
 					* Destuktor
 					*/
 					~DynamicArray();
+					/**
+					 * Pøetížení operátoru []
+					 */
 					T& operator[](const int index);
+					/**
+					 * Metoda pro vložení prvku
+					 */
 					void Insert(const T Item);
+					/**
+					 *
+					 */
 					int Size(void) const;
-
+					/**
+					 * Metoda pro zjištìní posledního vloženého prvku
+					 */
 					int LastItem(void) const;
-
+					/**
+					 * Tyto prvky jsou zatím v rámci testování v bloku public, pozdìji pøijdou do bloku private
+					 */
 					T* m_list;
 					int m_size;
 					int m_count;
 
 				private:
 					void Resize(int size);
-
 				};
 
 				template<typename T> DynamicArray<T>::DynamicArray(int size) : m_count(0)
@@ -39,22 +51,15 @@ namespace ADSLibrary
 					if (size > 0) m_size = size;
 					m_list = new T[m_size];
 				}
-
-				template <class T> int DynamicArray<T>::LastItem(void) const
-				{
-					int tmp2 = m_list[m_count - 1];
-					return tmp2;
-				}
-
+				
 				template<typename T> DynamicArray<T>::~DynamicArray()
 				{
 					delete[] m_list;
-					//aaaa
 				}
 
 				template <class T> T& DynamicArray<T>::operator[] (const int index)
 				{
-					return m_list[index]; // returned as a reference
+					return m_list[index];
 				}
 
 				template<typename T> void DynamicArray<T>::Insert(const T Item)
@@ -64,7 +69,9 @@ namespace ADSLibrary
 				}
 
 				template <class T> int DynamicArray<T>::Size(void) const
-				{					return m_size;				}
+				{
+					return m_size;
+				}
 
 				template<typename T> void DynamicArray<T>::Resize(int size)
 				{
@@ -80,6 +87,11 @@ namespace ADSLibrary
 					delete[] m_list;
 					m_list = newlist;
 					m_size = size;
+				}
+				template <class T> int DynamicArray<T>::LastItem(void) const
+				{
+					int tmp = m_list[m_count - 1];
+					return tmp;
 				}
 			}
 		}

@@ -6,7 +6,7 @@
 #include "ADSLibrary/DataStructures/LinkedStructures/OOP/Queue.h"
 #include <gtest/gtest.h>
 #include "ADSLibrary/DataStructures/ArrayBasedStructures/OOP/Stack.h"
-#include "DynamicArray.h"
+#include "ADSLibrary/DataStructures/ArrayBasedStructures/OOPTemplate/DynamicArray.h"
 
 /**
 * Struktura pro test kompilace šablon.
