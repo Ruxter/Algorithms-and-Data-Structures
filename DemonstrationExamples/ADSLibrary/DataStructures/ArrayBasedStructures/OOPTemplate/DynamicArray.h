@@ -28,16 +28,17 @@ namespace ADSLibrary
 					 */
 					void Insert(const T Item);
 					/**
-					 *
+					 *Vrací velikost pole
 					 */
-					int Size(void) const;
+					int Size() const;
 					/**
 					 * Metoda pro zjištìní posledního vloženého prvku
 					 */
-					int LastItem(void) const;
+					int LastItem() const;
 					/**
 					 * Tyto prvky jsou zatím v rámci testování v bloku public, pozdìji pøijdou do bloku private
 					 */
+					void Clear();
 					T* m_list;
 					int m_size;
 					int m_count;
@@ -68,7 +69,7 @@ namespace ADSLibrary
 					m_list[m_count++] = Item;
 				}
 
-				template <class T> int DynamicArray<T>::Size(void) const
+				template <class T> int DynamicArray<T>::Size() const
 				{
 					return m_size;
 				}
@@ -88,10 +89,15 @@ namespace ADSLibrary
 					m_list = newlist;
 					m_size = size;
 				}
-				template <class T> int DynamicArray<T>::LastItem(void) const
+				template <class T> int DynamicArray<T>::LastItem() const
 				{
 					int tmp = m_list[m_count - 1];
 					return tmp;
+				}
+
+				template<class T> void DynamicArray<T>::Clear()
+				{
+					m_count = 0;
 				}
 			}
 		}

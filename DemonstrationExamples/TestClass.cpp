@@ -226,6 +226,10 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTest)
 	EXPECT_EQ(8, list->LastItem());
 	list->Insert(10);
 	EXPECT_EQ(10, list->LastItem());
+	list->Clear();
+	EXPECT_EQ(0, list->m_count);
+	list->Insert(4);
+	EXPECT_EQ(4, list->LastItem());
 }
 
 TestClass::TestClass()
