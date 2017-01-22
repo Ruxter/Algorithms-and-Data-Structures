@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ADSLibrary">
+      <UniqueIdentifier>{ee458ca5-0200-4713-be00-fe1ca1779523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\Algorithms">
+      <UniqueIdentifier>{3a116afc-3e03-4cd6-8e79-1e7fda458d0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\DataStructures">
+      <UniqueIdentifier>{cff944d2-d878-4400-b9c2-5bd12047aca2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\DataStructures\ArrayBasedStructures">
+      <UniqueIdentifier>{20d1509c-e9ba-49ba-a63c-6a7cd7aadb20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\DataStructures\LinkedStructures">
+      <UniqueIdentifier>{2a67dade-9459-4671-b710-50446e328598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural">
+      <UniqueIdentifier>{5ddd94be-25a8-4e73-bdd8-f000c9b8a5ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\DataStructures\LinkedStructures\Procedural">
+      <UniqueIdentifier>{916bc602-0807-47b5-ba2d-a5be89877acd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate">
+      <UniqueIdentifier>{fe061a91-d934-4109-afeb-0e16a2269bb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\DataStructures\LinkedStructures\OOP">
+      <UniqueIdentifier>{b07dbfd4-7289-4811-90a2-b34b45c8cfe1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP">
+      <UniqueIdentifier>{fce3f03c-60d5-4fdd-a91d-76cf7c4da2ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate">
+      <UniqueIdentifier>{bd1a132a-b7b0-44aa-8588-70985542c7b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSLibrary\Algorithms\ArraysAndPointers">
+      <UniqueIdentifier>{dc96d496-831b-4667-aff8-f231ab2649a8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.cpp">
+      <Filter>ADSLibrary\Algorithms\ArraysAndPointers</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\List.cpp">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\Procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Queue.cpp">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\Procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.cpp">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\Procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Queue.cpp">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Stack.cpp">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\List.cpp">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\Procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\List.cpp">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\ListWithSentinel.cpp">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.cpp">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\Procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Stack.cpp">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Queue.cpp">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\Procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Queue.cpp">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.cpp">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.cpp">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="TestClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h">
+      <Filter>ADSLibrary\Algorithms\ArraysAndPointers</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\List.h">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Queue.h">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.h">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Stack.h">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Queue.h">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\OOP</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Stack.h">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\OOP</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\List.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\List.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\ListWithSentinel.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Stack.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Stack.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOPTemplate</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Queue.h">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Queue.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Queue.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Queue.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOPTemplate</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
+    </ClInclude>
+    <ClInclude Include="TestClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicArray.h">
+      <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Licence.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

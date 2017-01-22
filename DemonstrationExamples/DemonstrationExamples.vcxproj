@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{56BB045C-D8E1-4287-A2F3-032394E9E5E1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>DemonstrationExamples</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <NuGetPackageImportStamp>a13ae0da</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <Linkage-gtest>static</Linkage-gtest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\Algorithms\ArraysAndPointers\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Queue.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\ArrayBasedStructures\OOP\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Stack.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\ArrayBasedStructures\OOP\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\List.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Queue.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\OOP\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\OOP\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\List.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\OOP\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\ListWithSentinel.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\OOP\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Queue.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\OOP\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Stack.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\OOP\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\List.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\Procedural\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Queue.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\Procedural\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\Procedural\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestClass.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Queue.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Stack.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Queue.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Stack.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\List.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Queue.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Queue.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Stack.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\List.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\ListWithSentinel.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Queue.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Stack.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\List.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Queue.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
+    <ClInclude Include="DynamicArray.h" />
+    <ClInclude Include="TestClass.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Licence.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\gtest.1.7.0\build\native\gtest.targets" Condition="Exists('..\packages\gtest.1.7.0\build\native\gtest.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\gtest.1.7.0\build\native\gtest.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gtest.1.7.0\build\native\gtest.targets'))" />
+  </Target>
+</Project>
