@@ -201,13 +201,15 @@ TEST_F(StackArrayOOP, QueueArrayOOPTest2)
 	stack->Clear();
 	EXPECT_EQ(true, stack->IsEmpty());
 }
-
+/*
+ * Struktura ArrayBasedStructures::OOPTemplate::DynamicArray pro integer s prázdným konstruktorem
+ */
 struct DynamicArrayOOPTemplate : testing::Test
 {
 	ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<int> *list;
 	DynamicArrayOOPTemplate()
 	{
-		list = new ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<int>(5);
+		list = new ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<int>();
 	}
 
 	~DynamicArrayOOPTemplate()
@@ -216,21 +218,136 @@ struct DynamicArrayOOPTemplate : testing::Test
 	}
 };
 
-TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTest)
+/*
+* Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
+* Insert, Size, m_count, LastItem, Clear
+* @param DynamicArrayOOPTemplate název struktury,
+* @param DynamicArrayOOPTemplateTestWithoutParameter název unit testu
+*/
+TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 {
+	EXPECT_EQ(true, list->IsEmpty());
 	list->Insert(5);
-	EXPECT_EQ(5, list->Size());	
+	EXPECT_EQ(10, list->Size());	
 	EXPECT_EQ(1, list->m_count);
 	list->Insert(8);
 	EXPECT_EQ(2, list->m_count);
+	EXPECT_EQ(10, list->Size());
 	EXPECT_EQ(8, list->LastItem());
 	list->Insert(10);
 	EXPECT_EQ(10, list->LastItem());
+	EXPECT_EQ(10, list->Size());
 	list->Clear();
 	EXPECT_EQ(0, list->m_count);
+	EXPECT_EQ(0, list->Size());
+	EXPECT_EQ(true, list->IsEmpty());
 	list->Insert(4);
 	EXPECT_EQ(4, list->LastItem());
+	EXPECT_EQ(10, list->Size());
+	list->Insert(25);
+	EXPECT_EQ(2, list->m_count);
+	EXPECT_EQ(25, list->LastItem());
+	EXPECT_EQ(10, list->Size());
+	for(int i = 0; i<8; i++)
+	{
+		list->Insert(25);
+	}
+	EXPECT_EQ(10, list->Size());
+	list->Insert(25);
+	EXPECT_EQ(20, list->Size());
+	EXPECT_EQ(11, list->m_count);
 }
+/*
+* Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
+* Insert, Size, m_count, LastItem, Clear
+* @param DynamicArrayOOPTemplate název struktury,
+* @param DynamicArrayOOPTemplateTestWithParameter název unit testu
+*/
+TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameterLoop)
+{
+	for(int i = 0; i <15001; i++)
+	{
+		list->Insert(i);
+	}	
+	EXPECT_EQ(15010, list->Size());
+	EXPECT_EQ(15001, list->m_count);
+	EXPECT_EQ(15000, list->LastItem());
+}
+
+/*
+* Struktura ArrayBasedStructures::OOPTemplate::DynamicArray pro integer s parametrem
+*/
+struct DynamicArrayOOPTemplateWithParameter : testing::Test
+{
+	ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<int> *list;
+	DynamicArrayOOPTemplateWithParameter()
+	{
+		list = new ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<int>(2);
+	}
+
+	~DynamicArrayOOPTemplateWithParameter()
+	{
+		delete list;
+	}
+};
+
+/*
+* Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
+* Insert, Size, m_count, LastItem, Clear
+* @param DynamicArrayOOPTemplate název struktury,
+* @param DynamicArrayOOPTemplateTestWithoutParameter název unit testu
+*/
+
+TEST_F(DynamicArrayOOPTemplateWithParameter, DynamicArrayOOPTemplateTestWithParameter)
+{	
+	EXPECT_EQ(true, list->IsEmpty());
+	list->Insert(5);
+	EXPECT_EQ(2, list->Size());
+	EXPECT_EQ(1, list->m_count);
+	list->Insert(8);
+	EXPECT_EQ(2, list->m_count);
+	EXPECT_EQ(2, list->Size());
+	EXPECT_EQ(8, list->LastItem());
+	list->Insert(10);
+	EXPECT_EQ(10, list->LastItem());
+	EXPECT_EQ(12, list->Size());
+	list->Clear();
+	EXPECT_EQ(0, list->m_count);
+	EXPECT_EQ(0, list->Size());
+	list->Insert(4);
+	EXPECT_EQ(4, list->LastItem());
+	EXPECT_EQ(10, list->Size());
+	list->Insert(25);
+	EXPECT_EQ(2, list->m_count);
+	EXPECT_EQ(25, list->LastItem());
+	EXPECT_EQ(10, list->Size());
+	for (int i = 0; i<8; i++)
+	{
+		list->Insert(25);
+	}
+	EXPECT_EQ(10, list->Size());
+	list->Insert(25);
+	EXPECT_EQ(20, list->Size());
+	EXPECT_EQ(11, list->m_count);
+}
+/*
+* Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
+* Insert, Size, m_count, LastItem, Clear
+* @param DynamicArrayOOPTemplate název struktury,
+* @param DynamicArrayOOPTemplateTestWithParameter název unit testu
+*/
+TEST_F(DynamicArrayOOPTemplateWithParameter, DynamicArrayOOPTemplateTestWithParameterLoop)
+{
+	for (int i = 0; i <15001; i++)
+	{
+		list->Insert(i);
+	}
+	EXPECT_EQ(15002, list->Size());
+	EXPECT_EQ(15001, list->m_count);
+	EXPECT_EQ(15000, list->LastItem());
+}
+
+
 
 TestClass::TestClass()
 {

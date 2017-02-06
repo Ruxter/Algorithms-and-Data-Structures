@@ -12,7 +12,11 @@ namespace ADSLibrary
 				{
 				public:
 					/**
-					* Konstruktor
+					 * Konstruktor
+					 */
+					DynamicArray();
+					/**
+					* Konstruktor s parametrem size
 					*/
 					DynamicArray(int size);
 					/**
@@ -36,9 +40,21 @@ namespace ADSLibrary
 					 */
 					int LastItem() const;
 					/**
-					 * Tyto prvky jsou zatím v rámci testování v bloku public, pozdìji pøijdou do bloku private
+					 * Metoda pro vymazání prvkù, avšak bez destrukce struktury
 					 */
 					void Clear();
+					/**
+					 * Metoda pro zjištìní zda je struktura prázdná
+					 */
+					bool IsEmpty() const;
+					/**
+					* Metoda pro zjištìní zda je struktura plná
+					*/
+					bool IsFull() const;
+
+					/**
+					* Tyto prvky jsou zatím v rámci testování v bloku public, pozdìji pøijdou do bloku private
+					*/
 					T* m_list;
 					int m_size;
 					int m_count;
@@ -47,6 +63,12 @@ namespace ADSLibrary
 					void Resize(int size);
 				};
 
+				template<typename T> DynamicArray<T>::DynamicArray()
+				{					
+					m_count = 0;
+					m_size = 0;
+					m_list = new T[m_size];
+				}
 				template<typename T> DynamicArray<T>::DynamicArray(int size) : m_count(0)
 				{
 					if (size > 0) m_size = size;
@@ -75,11 +97,8 @@ namespace ADSLibrary
 				}
 
 				template<typename T> void DynamicArray<T>::Resize(int size)
-				{
-					if (size <= 0) cout << "Invalid array size";
-					if (size == m_size)	cout << "Size is OK";;
+				{			
 					T* newlist = new T[size];
-					if (newlist == nullptr) cout << "Memory allocation error";;
 					int n = (m_count <= m_size) ? m_count : m_size;
 					while (n--)
 					{
@@ -89,15 +108,27 @@ namespace ADSLibrary
 					m_list = newlist;
 					m_size = size;
 				}
+
 				template <class T> int DynamicArray<T>::LastItem() const
 				{
-					int tmp = m_list[m_count - 1];
-					return tmp;
+					return m_list[m_count - 1];
 				}
 
 				template<class T> void DynamicArray<T>::Clear()
 				{
 					m_count = 0;
+					Resize(m_count);
+				}
+
+				template <class T> bool DynamicArray<T>::IsEmpty() const
+				{
+					return m_count == 0;
+				}
+
+				template <class T> bool DynamicArray<T>::IsFull() const
+				{
+					int a;
+					return m_count == m_size;
 				}
 			}
 		}
