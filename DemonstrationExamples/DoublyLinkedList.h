@@ -169,6 +169,7 @@ namespace ADSLibrary
 				{
 					Node* node = tail;							
 					return node->m_value;
+					//hh
 				}
 
 			}
