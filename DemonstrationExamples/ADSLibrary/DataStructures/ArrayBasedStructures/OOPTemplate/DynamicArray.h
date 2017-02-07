@@ -26,7 +26,7 @@ namespace ADSLibrary
 					/**
 					 * Pøetížení operátoru []
 					 */
-					T& operator[](const int index);
+					T& operator[](const int index);					
 					/**
 					 * Metoda pro vložení prvku
 					 */
@@ -38,7 +38,7 @@ namespace ADSLibrary
 					/**
 					 * Metoda pro zjištìní posledního vloženého prvku
 					 */
-					int LastItem() const;
+					T LastItem();
 					/**
 					 * Metoda pro vymazání prvkù, avšak bez destrukce struktury
 					 */
@@ -109,8 +109,9 @@ namespace ADSLibrary
 					m_size = size;
 				}
 
-				template <class T> int DynamicArray<T>::LastItem() const
-				{
+				template <class T> T DynamicArray<T>::LastItem()
+				{					
+					if (IsEmpty()) return NULL;
 					return m_list[m_count - 1];
 				}
 
@@ -127,7 +128,6 @@ namespace ADSLibrary
 
 				template <class T> bool DynamicArray<T>::IsFull() const
 				{
-					int a;
 					return m_count == m_size;
 				}
 			}

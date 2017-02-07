@@ -102,6 +102,12 @@
     <ClCompile Include="TestClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DummyClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicArrayTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h">
@@ -166,6 +172,15 @@
     </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\DynamicArray.h">
       <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicArrayTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DoublyLinkedList.h">
+      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOPTemplate</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

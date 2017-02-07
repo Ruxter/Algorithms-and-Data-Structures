@@ -125,6 +125,8 @@
     <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.cpp">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\Procedural\</ObjectFileName>
     </ClCompile>
+    <ClCompile Include="DummyClass.cpp" />
+    <ClCompile Include="DynamicArrayTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestClass.cpp" />
   </ItemGroup>
@@ -149,6 +151,9 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
+    <ClInclude Include="DoublyLinkedList.h" />
+    <ClInclude Include="DummyClass.h" />
+    <ClInclude Include="DynamicArrayTest.h" />
     <ClInclude Include="TestClass.h" />
   </ItemGroup>
   <ItemGroup>
