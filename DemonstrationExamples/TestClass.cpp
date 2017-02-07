@@ -6,10 +6,8 @@
 #include "ADSLibrary/DataStructures/LinkedStructures/OOP/Queue.h"
 #include <gtest/gtest.h>
 #include "ADSLibrary/DataStructures/ArrayBasedStructures/OOP/Stack.h"
-#include "ADSLibrary/DataStructures/ArrayBasedStructures/OOPTemplate/DynamicArray.h"
-#include "DummyClass.h"
-#include "DoublyLinkedList.h"
 #include <stack>
+#include "ADSLibrary/DataStructures/LinkedStructures/OOPTemplate/DoublyLinkedList.h"
 
 /**
 * Struktura pro test kompilace šablon.

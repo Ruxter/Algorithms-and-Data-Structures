@@ -179,7 +179,7 @@
     <ClInclude Include="DynamicArrayTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DoublyLinkedList.h">
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\DoublyLinkedList.h">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOPTemplate</Filter>
     </ClInclude>
   </ItemGroup>

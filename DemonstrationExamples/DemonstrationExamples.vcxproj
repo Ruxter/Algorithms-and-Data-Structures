@@ -140,6 +140,7 @@
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\DoublyLinkedList.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Stack.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.h" />
@@ -151,7 +152,6 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
-    <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="DummyClass.h" />
     <ClInclude Include="DynamicArrayTest.h" />
     <ClInclude Include="TestClass.h" />

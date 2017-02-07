@@ -53,7 +53,7 @@ namespace ADSLibrary
 					* @return Funkce vrací true pokud je seznam prázdná, jinak false.
 					*/
 					bool IsEmpty() const;
-					
+
 					/**
 					* Spoèítá prvky
 					*
@@ -80,7 +80,7 @@ namespace ADSLibrary
 						* Ukazatel na pøedchozí položku. Pokud taková položka neexistuje ukazatel má hodnotu NULL.
 						*/
 						Node* m_prev;
-					};	
+					};
 					/**
 					* Nejpøednìjší prvek seznamu
 					*/
@@ -104,14 +104,14 @@ namespace ADSLibrary
 
 				template<typename T> DoublyLinkedList<T>::~DoublyLinkedList()
 				{
-					
+
 				}
 
 				template <typename T> void DoublyLinkedList<T>::InsertBegin(int value)
 				{
 					Node* node = new Node();
 					node->m_value = value;
-					if(head ==NULL)
+					if (head == NULL)
 					{
 						head = node;
 						tail = node;
@@ -122,14 +122,14 @@ namespace ADSLibrary
 						node->m_next = head;
 						head = node;
 					}
-					m_size++;					
+					m_size++;
 				}
 
 				template <typename T> void DoublyLinkedList<T>::InsertEnd(int value)
 				{
 					Node* node = new Node();
-					node ->m_value = value;
-					if (tail == NULL) 
+					node->m_value = value;
+					if (tail == NULL)
 					{
 						head = node;
 						tail = node;
@@ -157,17 +157,17 @@ namespace ADSLibrary
 				{
 					Node* node = head;
 					int count = 0;
-					while(node != NULL)
+					while (node != NULL)
 					{
 						count++;
 						node = node->m_next;
 					}
-					return count;					
+					return count;
 				}
 
 				template<typename T> T DoublyLinkedList<T>::LastItem() const
 				{
-					Node* node = tail;							
+					Node* node = tail;
 					return node->m_value;
 				}
 
