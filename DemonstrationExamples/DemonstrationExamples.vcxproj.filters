@@ -99,13 +99,16 @@
     <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.cpp">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
     </ClCompile>
-    <ClCompile Include="TestClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DummyClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DynamicArrayTest.cpp">
+    <ClCompile Include="Tests\DoublyLinkedListTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\DynamicArrayTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\TestClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,20 +170,23 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.h">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
     </ClInclude>
-    <ClInclude Include="TestClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\DynamicArray.h">
       <Filter>ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate</Filter>
     </ClInclude>
     <ClInclude Include="DummyClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DynamicArrayTest.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\DoublyLinkedList.h">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOPTemplate</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\DoublyLinkedListTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\DynamicArrayTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\TestClass.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
