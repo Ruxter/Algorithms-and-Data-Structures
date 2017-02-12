@@ -1,5 +1,5 @@
 #pragma once
-#include <stdio.h>
+#include "../../../../DummyClass.h"
 
 namespace ADSLibrary
 {
@@ -18,51 +18,69 @@ namespace ADSLibrary
 					* Konstruktor
 					*/
 					DoublyLinkedList();
+					
 					/**
 					* Destuktor
 					*/
 					~DoublyLinkedList();
+
 					/**
 					* Vložení prvku na zaèátek seznamu.
 					*
 					*/
 					void InsertBegin(T value);
+
 					/**
 					* Vložení prvku na konec seznamu.
 					*
 					*/
 					void InsertEnd(T value);
+
 					/**
 					* Nalezení prvku v listu.
 					* @return Funkce vrací true pokud je daný element v seznamu, jinak false.
 					*/
-					bool SearchItem(T Item) const;					
+					bool Search(T Item);
+
 					/**
-					* Odebrání prvního prvku ze seznamu-
+					* Odebrání prvního prvku ze seznamu - head.	
 					*
 					*/
 					void RemoveFirstItem();
+
 					/**
-					* Odebrání posledního prvku ze seznamu-
+					* Odebrání posledního prvku ze seznamu - tail.
 					*
 					*/
 					void RemoveLastItem();
+
 					/**
 					* Test, je-li seznam prázdný.
 					*
 					* @return Funkce vrací true pokud je seznam prázdný, jinak false.
 					*/
 					bool IsEmpty() const;
+
 					/**
 					* Spoèítá prvky
 					*
 					*/
 					int Count() const;
+
 					/**
 					* @return Funkce vrací poslední prvek ze seznamu.
 					*/
-					T LastItem() const;
+					T LastItem();
 
+					/**
+					* @return Funkce vrací první prvek ze seznamu.
+					*/
+					T FirstItem();
+
+					/**
+					* Smaže obsah seznamu.
+					*
+					*/
 					void Clear();
 
 				private:
@@ -75,23 +93,28 @@ namespace ADSLibrary
 						* Hodnota obsažená v položce.
 						*/
 						T m_value;
+
 						/**
 						* Ukazatel na další položku. Pokud taková položka neexistuje ukazatel má hodnotu NULL.
 						*/
-						Node* m_next;
+						Node* m_next = NULL;
+
 						/**
 						* Ukazatel na pøedchozí položku. Pokud taková položka neexistuje ukazatel má hodnotu NULL.
 						*/
-						Node* m_prev;
+						Node* m_prev = NULL;
 					};
+
 					/**
 					* Nejpøednìjší prvek seznamu
 					*/
 					Node* head;
+
 					/**
 					* Nejzadnìjší prvek seznamu
 					*/
 					Node* tail;
+
 					/**
 					* Velikost seznamu
 					*/
@@ -110,7 +133,7 @@ namespace ADSLibrary
 
 				}
 
-				template<typename T> bool DoublyLinkedList<T>::SearchItem(T value) const
+				template<typename T> bool DoublyLinkedList<T>::Search(T value)
 				{
 					if (!IsEmpty())
 					{
@@ -178,16 +201,12 @@ namespace ADSLibrary
 				{
 					if (!IsEmpty())
 					{
-						if (head == tail) head = NULL;	
-						
+						if (head == tail) head = NULL;							
 						tail = tail->m_prev;
 						tail->m_next = NULL;
 						m_size--;
 					}
-
 				}
-
-
 
 				template<typename T> bool DoublyLinkedList<T>::IsEmpty() const
 				{
@@ -203,7 +222,7 @@ namespace ADSLibrary
 				{
 					Node* node = head;
 					int count = 0;
-					while (node != NULL)
+					while (node)
 					{
 						count++;
 						node = node->m_next;
@@ -211,10 +230,14 @@ namespace ADSLibrary
 					return count;
 				}
 
-				template<typename T> T DoublyLinkedList<T>::LastItem() const
+				template<typename T> T DoublyLinkedList<T>::LastItem()
 				{
-					Node* node = tail;
-					return node->m_value;
+					return tail->m_value;
+				}
+
+				template<typename T> T DoublyLinkedList<T>::FirstItem()
+				{
+					return head->m_value;
 				}
 
 				template<typename T> void DoublyLinkedList<T>::Clear()
@@ -227,8 +250,8 @@ namespace ADSLibrary
 						node = head;
 					}					
 					tail = head = NULL;
-					m_size = Count();
-				}			
+					m_size = 0;
+				}					
 			}
 		}
 	}

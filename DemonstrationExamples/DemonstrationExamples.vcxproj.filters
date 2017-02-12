@@ -111,6 +111,9 @@
     <ClCompile Include="Tests\TestClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tests\OOPTemplateListTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h">
@@ -186,6 +189,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tests\TestClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\OOPTemplateListTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

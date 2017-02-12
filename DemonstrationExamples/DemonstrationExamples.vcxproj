@@ -128,6 +128,7 @@
     <ClCompile Include="DummyClass.cpp" />
     <ClCompile Include="Tests\DynamicArrayTest.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tests\OOPTemplateListTest.cpp" />
     <ClCompile Include="Tests\TestClass.cpp" />
     <ClCompile Include="Tests\DoublyLinkedListTest.cpp" />
   </ItemGroup>
@@ -142,6 +143,7 @@
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\DoublyLinkedList.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Stack.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.h" />
@@ -155,6 +157,7 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
     <ClInclude Include="DummyClass.h" />
     <ClInclude Include="Tests\DynamicArrayTest.h" />
+    <ClInclude Include="Tests\OOPTemplateListTest.h" />
     <ClInclude Include="Tests\TestClass.h" />
     <ClInclude Include="Tests\DoublyLinkedListTest.h" />
   </ItemGroup>
