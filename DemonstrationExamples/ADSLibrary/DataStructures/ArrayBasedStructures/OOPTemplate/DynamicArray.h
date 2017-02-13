@@ -11,44 +11,69 @@ namespace ADSLibrary
 				template <class T> class DynamicArray
 				{
 				public:
+
 					/**
 					 * Konstruktor
 					 */
 					DynamicArray();
+
 					/**
 					* Konstruktor s parametrem size
 					*/
 					DynamicArray(int size);
+
 					/**
 					* Destuktor
 					*/
 					~DynamicArray();
+
 					/**
 					 * Pøetížení operátoru []
 					 */
-					T& operator[](const int index);					
+					T& operator[](const int index);	
+					
 					/**
 					 * Metoda pro vložení prvku
 					 */
 					void Insert(const T Item);
+
 					/**
-					 *Vrací velikost pole
+					 * Metoda pro zjištìní velikosti datové struktury
+					 * @return vrací velikost pole
 					 */
 					int Size() const;
+
 					/**
-					 * Metoda pro zjištìní posledního vloženého prvku
+					* Vyhledá daný prvek.
+					* @return true pokud je prvek nalezen
+					*/
+					bool Search(T value) const;
+
+					/**
+					* Vyhledá a odstraní daný prvek.
+					*/
+					void Remove(T value);
+
+					/**					 
+					 * Metoda pro zjištìní posledního vloženého prvku.
+					 * @return vrací poslední vložený prvek
 					 */
 					T LastItem();
+
 					/**
-					 * Metoda pro vymazání prvkù, avšak bez destrukce struktury
+					 * Metoda pro vymazání prvkù, avšak bez destrukce struktury.
 					 */
 					void Clear();
+
 					/**
-					 * Metoda pro zjištìní zda je struktura prázdná
+					 * Metoda pro zjištìní zda je struktura prázdná.
+					 * @return vrací true pokud je prázdná
 					 */
 					bool IsEmpty() const;
+
 					/**
-					* Metoda pro zjištìní zda je struktura plná
+					* Metoda pro zjištìní zda je struktura plná.
+					* @return prakticky vrací vždy flase, jelikož plného stavu nemùže skoro dosáhnout
 					*/
 					bool IsFull() const;
 
@@ -96,6 +121,40 @@ namespace ADSLibrary
 					return m_size;
 				}
 
+				template <class T> bool DynamicArray<T>::Search(T value) const
+				{
+					if(!IsEmpty())
+					{
+						for (int i = 0; i < m_count; i++)
+						{
+							if (m_list[i] == value)
+							{
+								return true;
+							}
+						}
+						return false;
+					}	
+					return false;
+				}
+
+				template <class T> void DynamicArray<T>::Remove(T value)
+				{
+					int position = 0;
+					if(!IsEmpty())
+					{
+						for (position; position < m_count; position++)
+						{
+							if (m_list[position] == value) break;							
+						}
+						for(int i = position; i<m_count; i++)
+						{
+							m_list[i] = m_list[i + 1];
+						}
+						m_count--;
+						if (m_count <= m_size - 10) Resize(m_size - 10);
+					}					
+				}
+
 				template<typename T> void DynamicArray<T>::Resize(int size)
 				{			
 					T* newlist = new T[size];
@@ -127,7 +186,8 @@ namespace ADSLibrary
 				}
 
 				template <class T> bool DynamicArray<T>::IsFull() const
-				{
+				{		
+					if (m_count == 0 && m_size == 0) return false;
 					return m_count == m_size;
 				}
 			}

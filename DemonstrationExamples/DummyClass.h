@@ -4,7 +4,5 @@ class DummyClass
 public:
 	DummyClass();
 	~DummyClass();
-
-	int VratValue();
 };
 

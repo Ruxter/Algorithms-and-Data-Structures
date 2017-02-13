@@ -1,17 +1,16 @@
 #include "DummyClass.h"
-#include <string>
 
+class Dummy
+{
+	int a = 5;
+	int b = 10;
+};
 
 DummyClass::DummyClass()
 {
 	int a = 5;
-	char greeting[] = "Hello";	
+	int b = 10;
 }
-
-	int VratValue()
-	{
-		return 0;
-	}
 
 
 DummyClass::~DummyClass()

@@ -135,10 +135,11 @@ namespace ADSLibrary
 
 				template<typename T> void List<T>::RemoveFirstItem()
 				{
-					Node *n = head;
-					head = head->m_next;
-					delete n;
-					m_size--;
+					if(!IsEmpty())
+					{
+						head = head->m_next;
+						m_size--;
+					}					
 				}				
 
 				template<typename T> bool List<T>::Search(const T value)

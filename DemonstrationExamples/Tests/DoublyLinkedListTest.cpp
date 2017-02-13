@@ -9,6 +9,7 @@ struct DoublyLinkedListOOPTemplate : testing::Test
 	ADSLibrary::DataStructures::LinkedStructures::OOPTemplate::DoublyLinkedList<char> *dbllist2;
 	ADSLibrary::DataStructures::LinkedStructures::OOPTemplate::DoublyLinkedList<DummyClass> *dbllist3;
 	ADSLibrary::DataStructures::LinkedStructures::OOPTemplate::DoublyLinkedList<std::string> *dbllist4;
+	
 
 	DoublyLinkedListOOPTemplate()
 	{
@@ -25,6 +26,7 @@ struct DoublyLinkedListOOPTemplate : testing::Test
 		delete dbllist3;
 		delete dbllist4;
 	}
+	
 };
 
 /*
@@ -133,6 +135,10 @@ TEST_F(DoublyLinkedListOOPTemplate, DoubleLinkedListOOPTemplateTestDummyAndStrin
 	DummyClass *a, *b;
 	a = new DummyClass();
 	b = new DummyClass();
+
+	DummyClass c;
+	DummyClass d;
+
 	EXPECT_EQ(true, dbllist3->IsEmpty());
 
 	dbllist3->InsertBegin(*a);

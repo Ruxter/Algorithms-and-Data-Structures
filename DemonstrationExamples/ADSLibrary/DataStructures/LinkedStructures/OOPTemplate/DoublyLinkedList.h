@@ -1,5 +1,6 @@
 #pragma once
-#include "../../../../DummyClass.h"
+
+class DummyClass;
 
 namespace ADSLibrary
 {
@@ -9,7 +10,6 @@ namespace ADSLibrary
 		{
 			namespace OOPTemplate
 			{
-
 				template <typename T>
 				class DoublyLinkedList
 				{
@@ -40,8 +40,8 @@ namespace ADSLibrary
 					* Nalezení prvku v listu.
 					* @return Funkce vrací true pokud je daný element v seznamu, jinak false.
 					*/
-					bool Search(T Item);
-
+					bool Search(T value);
+															
 					/**
 					* Odebrání prvního prvku ze seznamu - head.	
 					*
@@ -83,6 +83,7 @@ namespace ADSLibrary
 					*/
 					void Clear();
 
+
 				private:
 					/**
 					* \brief Struktura reprezentující element seznamu
@@ -121,6 +122,7 @@ namespace ADSLibrary
 					int m_size;
 				};
 
+
 				template<typename T> DoublyLinkedList<T>::DoublyLinkedList()
 				{
 					head = NULL;
@@ -147,6 +149,7 @@ namespace ADSLibrary
 					}
 					return false;
 				}
+							
 
 				template <typename T> void DoublyLinkedList<T>::InsertBegin(T value)
 				{

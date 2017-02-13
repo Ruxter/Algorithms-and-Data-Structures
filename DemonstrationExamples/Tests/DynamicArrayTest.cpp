@@ -35,7 +35,7 @@ struct DynamicArrayOOPTemplate : testing::Test
 
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
-* Insert, Size, m_count, LastItem, Clear
+* Insert, Size, m_count, LastItem, Clear, Search
 * @param DynamicArrayOOPTemplate název struktury,
 * @param DynamicArrayOOPTemplateTestWithoutParameter název unit testu
 */
@@ -45,6 +45,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	list->Insert(5);
 	EXPECT_EQ(10, list->Size());
 	EXPECT_EQ(1, list->m_count);
+	EXPECT_EQ(true, list->Search(5));
 	list->Insert(8);
 	EXPECT_EQ(2, list->m_count);
 	EXPECT_EQ(10, list->Size());
@@ -53,6 +54,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	EXPECT_EQ(10, list->LastItem());
 	EXPECT_EQ(10, list->Size());
 	list->Clear();
+	EXPECT_EQ(false, list->Search(5));
 	EXPECT_EQ(0, list->m_count);
 	EXPECT_EQ(0, list->Size());
 	EXPECT_EQ(true, list->IsEmpty());
@@ -63,6 +65,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	EXPECT_EQ(2, list->m_count);
 	EXPECT_EQ(25, list->LastItem());
 	EXPECT_EQ(10, list->Size());
+	EXPECT_EQ(true, list->Search(4));
 	for (int i = 0; i<8; i++)
 	{
 		list->Insert(25);
@@ -87,6 +90,74 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameterLoop)
 	EXPECT_EQ(15010, list->Size());
 	EXPECT_EQ(15001, list->m_count);
 	EXPECT_EQ(15000, list->LastItem());
+	EXPECT_EQ(true, list->Search(125));
+
+	list->Remove(125);
+	EXPECT_EQ(15000, list->Size());
+	EXPECT_EQ(15000, list->m_count);
+	EXPECT_EQ(15000, list->LastItem());
+	EXPECT_EQ(false, list->Search(125));
+	EXPECT_EQ(true, list->Search(12468));
+}
+
+/*
+* Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
+* Insert, Size, m_count, LastItem, Clear
+* @param DynamicArrayOOPTemplate název struktury,
+* @param DynamicArrayOOPTemplateTestWithoutParameterLoop název unit testu
+*/
+TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameterLoopRemove)
+{
+	for (int i = 0; i <11; i++)
+	{
+		list->Insert(i);
+	}
+	EXPECT_EQ(20, list->Size());
+	EXPECT_EQ(11, list->m_count);
+	EXPECT_EQ(10, list->LastItem());
+	EXPECT_EQ(true, list->Search(5));
+
+	list->Remove(5);
+	EXPECT_EQ(10, list->Size());
+	EXPECT_EQ(10, list->m_count);
+	EXPECT_EQ(10, list->LastItem());
+	EXPECT_EQ(false, list->Search(5));
+	for(int j = 0; j < list->m_count; j++)
+	{
+		if(j != 5)
+		{
+			EXPECT_EQ(true, list->Search(j));
+		}		
+	}
+
+	list->Remove(9);
+	list->Remove(1);
+	list->Remove(3);
+	EXPECT_EQ(10, list->Size());
+	EXPECT_EQ(7, list->m_count);
+	EXPECT_EQ(10, list->LastItem());
+	EXPECT_EQ(false, list->Search(5));
+
+	list->Remove(2);
+	list->Remove(4);
+	list->Remove(6);
+	EXPECT_EQ(10, list->Size());
+	EXPECT_EQ(4, list->m_count);
+	EXPECT_EQ(true, list->Search(8));
+
+	list->Remove(7);
+	list->Remove(8);
+	EXPECT_EQ(10, list->Size());
+	EXPECT_EQ(2, list->m_count);
+	EXPECT_EQ(true, list->Search(0));
+	EXPECT_EQ(true, list->Search(10));
+
+	list->Remove(0);
+	list->Remove(10);
+	EXPECT_EQ(0, list->Size());
+	EXPECT_EQ(0, list->m_count);
+	EXPECT_EQ(true, list->IsEmpty());
+	EXPECT_EQ(false, list->IsFull());
 }
 
 
@@ -116,7 +187,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameter)
 	EXPECT_EQ(0, list2->m_count);
 	EXPECT_EQ(0, list2->Size());
 	EXPECT_EQ(true, list2->IsEmpty());
-	EXPECT_EQ(true, list2->IsFull());
+	EXPECT_EQ(false, list2->IsFull());
 	EXPECT_EQ(NULL, list2->LastItem());
 	list2->Insert(4);
 	EXPECT_EQ(4, list2->LastItem());
@@ -166,10 +237,43 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 	EXPECT_EQ(1, list3->m_count);
 	EXPECT_EQ(10, list3->Size());
 
+	EXPECT_EQ(true, list4->IsEmpty());
+	EXPECT_EQ(false, list4->Search("A"));
 	list4->Insert("A");
 	list4->Insert("B");
+	list4->Insert("C");
+	list4->Insert("D");
 
-	EXPECT_EQ("B", list4->LastItem());
+	EXPECT_EQ("D", list4->LastItem());
+	EXPECT_EQ(true, list4->Search("A"));
+	EXPECT_EQ(false, list4->IsEmpty());
+	EXPECT_EQ(4, list4->m_count);
+	EXPECT_EQ(10, list4->Size());
+
+	for(int i = 0; i < 8; i++)
+	{
+		list4->Insert(std::to_string(i));
+	}
+
+	EXPECT_EQ(12, list4->m_count);
+	EXPECT_EQ(20, list4->Size());
+	EXPECT_EQ("7", list4->LastItem());
+
+	EXPECT_EQ(true, list4->Search("4"));
+	list4->Remove("4");
+	EXPECT_EQ(false, list4->Search("4"));
+
+	EXPECT_EQ(11, list4->m_count);
+	EXPECT_EQ(20, list4->Size());
+	EXPECT_EQ("7", list4->LastItem());
+
+	EXPECT_EQ(true, list4->Search("3"));
+	list4->Remove("3");
+	EXPECT_EQ(false, list4->Search("3"));
+
+	EXPECT_EQ(10, list4->m_count);
+	EXPECT_EQ(10, list4->Size());
+	EXPECT_EQ("7", list4->LastItem());
 
 }
 
