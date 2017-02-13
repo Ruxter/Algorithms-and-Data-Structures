@@ -61,7 +61,7 @@ namespace ADSLibrary
 					T LastItem();
 
 					/**
-					 * Metoda pro vymazání prvkù, avšak bez destrukce struktury.
+					 * Metoda pro vymazání prvkù z pole.
 					 */
 					void Clear();
 
@@ -73,7 +73,7 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro zjištìní zda je struktura plná.
-					* @return prakticky vrací vždy flase, jelikož plného stavu nemùže skoro dosáhnout
+					* @return prakticky vrací vždy false, jelikož plného stavu nemùže takøka dosáhnout
 					*/
 					bool IsFull() const;
 
