@@ -1,5 +1,6 @@
 #pragma once
 
+//Insert, RemoveAt, BinarySearch, Sort, Reverse, Kopírovací kons
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -20,7 +21,12 @@ namespace ADSLibrary
 					/**
 					* Konstruktor s parametrem size
 					*/
-					DynamicArray(int size);
+					DynamicArray(const int size);
+
+					/**
+					* Kopírovací konstruktor
+					*/
+					DynamicArray(const DynamicArray& array);
 
 					/**
 					* Destuktor
@@ -30,12 +36,18 @@ namespace ADSLibrary
 					/**
 					 * Pøetížení operátoru []
 					 */
-					T& operator[](const int index);	
+					const T& operator[](const int index);	
+					// chybí pro r-value
 					
 					/**
-					 * Metoda pro vložení prvku
+					 * Metoda pro vložení prvku na konec posloupnosti v poli.
 					 */
-					void Insert(const T Item);
+					void Add(const T Item);
+
+					/**
+					* Metoda pro vložení prvku na konec posloupnosti v poli.
+					*/
+					void Insert(const int index, const T Item);
 
 					/**
 					 * Metoda pro zjištìní velikosti datové struktury
@@ -47,19 +59,13 @@ namespace ADSLibrary
 					* Vyhledá daný prvek.
 					* @return true pokud je prvek nalezen
 					*/
-					bool Search(T value) const;
+					bool Contains(const T& value) const;
 
 					/**
 					* Vyhledá a odstraní daný prvek.
 					*/
-					void Remove(T value);
-
-					/**					 
-					 * Metoda pro zjištìní posledního vloženého prvku.
-					 * @return vrací poslední vložený prvek
-					 */
-					T LastItem();
-
+					void Remove(const T& value);
+										
 					/**
 					 * Metoda pro vymazání prvkù z pole.
 					 */
@@ -72,11 +78,11 @@ namespace ADSLibrary
 					bool IsEmpty() const;
 
 					/**
-					* Metoda pro zjištìní zda je struktura plná.
-					* @return prakticky vrací vždy false, jelikož plného stavu nemùže takøka dosáhnout
+					* Metoda pro spoèítání prvkù v poli.
+					* @return vrací poèet prvkù v poli
 					*/
-					bool IsFull() const;
-
+					int Count() const;
+										
 					/**
 					* Tyto prvky jsou zatím v rámci testování v bloku public, pozdìji pøijdou do bloku private
 					*/
@@ -85,19 +91,42 @@ namespace ADSLibrary
 					int m_count;
 
 				private:
+					/**
+					* Metoda používaná pro rozšiøování, èi redukci velikosti pole
+					*/
 					void Resize(int size);
+
+					/**
+					* Seznam bude mít vždy tuto minimální velikost
+					*/
+					const int DefaultMinimalSize = 10;
+
+					/**
+					* Promìnná používaná pøi rozšiøování, èi redukci velikosti pole
+					*/
+					const int AllocationDelta = 16;
 				};
 
-				template<typename T> DynamicArray<T>::DynamicArray()
-				{					
-					m_count = 0;
-					m_size = 0;
+				template<typename T> DynamicArray<T>::DynamicArray() :m_count(0)
+				{		
+					m_size = DefaultMinimalSize;
 					m_list = new T[m_size];
 				}
-				template<typename T> DynamicArray<T>::DynamicArray(int size) : m_count(0)
+				template<typename T> DynamicArray<T>::DynamicArray(const int size) : m_count(0)
 				{
-					if (size > 0) m_size = size;
+					if (size > DefaultMinimalSize) m_size = size;
+					else m_size = DefaultMinimalSize;
 					m_list = new T[m_size];
+				}
+
+				template<typename T> DynamicArray<T>::DynamicArray(const DynamicArray& array) :m_count(array.m_count)
+				{
+					m_size = array.m_size;
+					T* newlist = new T[m_size];
+					for(int i = 0; i < m_count; i++)
+					{
+						newlist[i] = array[i];
+					}
 				}
 				
 				template<typename T> DynamicArray<T>::~DynamicArray()
@@ -105,14 +134,20 @@ namespace ADSLibrary
 					delete[] m_list;
 				}
 
-				template <class T> T& DynamicArray<T>::operator[] (const int index)
+				template <class T> const T& DynamicArray<T>::operator[] (const int index)
 				{
 					return m_list[index];
 				}
 
-				template<typename T> void DynamicArray<T>::Insert(const T Item)
+				template<typename T> void DynamicArray<T>::Add(const T Item)
 				{
-					if (m_count == m_size) Resize(m_size + 10);
+					if (m_count == m_size) Resize(m_size + AllocationDelta);
+					m_list[m_count++] = Item;
+				}
+
+				template<typename T> void DynamicArray<T>::Insert(const int index, const T Item)
+				{
+					if (m_count == m_size) Resize(m_size + AllocationDelta);
 					m_list[m_count++] = Item;
 				}
 
@@ -121,23 +156,19 @@ namespace ADSLibrary
 					return m_size;
 				}
 
-				template <class T> bool DynamicArray<T>::Search(T value) const
+				template <class T> bool DynamicArray<T>::Contains(const T& value) const
 				{
-					if(!IsEmpty())
+					for (int i = 0; i < m_count; i++)
 					{
-						for (int i = 0; i < m_count; i++)
+						if (m_list[i] == value)
 						{
-							if (m_list[i] == value)
-							{
-								return true;
-							}
+							return true;
 						}
-						return false;
-					}	
+					}
 					return false;
 				}
 
-				template <class T> void DynamicArray<T>::Remove(T value)
+				template <class T> void DynamicArray<T>::Remove(const T& value)
 				{
 					int position = 0;
 					if(!IsEmpty())
@@ -151,7 +182,7 @@ namespace ADSLibrary
 							m_list[i] = m_list[i + 1];
 						}
 						m_count--;
-						if (m_count <= m_size - 10) Resize(m_size - 10);
+						if (m_count <= m_size - AllocationDelta) Resize(m_size - AllocationDelta);
 					}					
 				}
 
@@ -166,18 +197,13 @@ namespace ADSLibrary
 					delete[] m_list;
 					m_list = newlist;
 					m_size = size;
-				}
-
-				template <class T> T DynamicArray<T>::LastItem()
-				{					
-					if (IsEmpty()) return NULL;
-					return m_list[m_count - 1];
-				}
+				}				
 
 				template<class T> void DynamicArray<T>::Clear()
 				{
 					m_count = 0;
-					Resize(m_count);
+					m_size = DefaultMinimalSize;
+					Resize(m_size);
 				}
 
 				template <class T> bool DynamicArray<T>::IsEmpty() const
@@ -185,10 +211,18 @@ namespace ADSLibrary
 					return m_count == 0;
 				}
 
-				template <class T> bool DynamicArray<T>::IsFull() const
-				{		
-					if (m_count == 0 && m_size == 0) return false;
-					return m_count == m_size;
+				template <class T> int DynamicArray<T>::Count() const
+				{					
+					int count = 0;
+					for(int i = 0; i < m_size; i++)
+					{
+						count++;
+						if(i == NULL)
+						{
+							break;
+						}
+					}
+					return count;
 				}
 			}
 		}

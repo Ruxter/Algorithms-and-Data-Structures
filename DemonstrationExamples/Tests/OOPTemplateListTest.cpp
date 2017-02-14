@@ -64,27 +64,3 @@ TEST_F(LinkedListOOPTemplate, LinkedListOOPTemplateTest)
 	list->Clear();
 	EXPECT_EQ(true, list->IsEmpty());
 }
-/*
-* Unit test ArrayBasedStructures::OOPTemplate::DoublyLinkedList pro int
-* InsertBegin, InsertEnd, IsEmpty, Count. RemoveLastItem, SearchItem
-* @param StackArrayOOP název struktury,
-* @param QueueArrayOOPTest2 název unit testu
-*/
-TEST_F(LinkedListOOPTemplate, LinkedListOOPTemplateTest2)
-{
-	EXPECT_EQ(true, list->IsEmpty());
-	EXPECT_EQ(0, list->Count());
-
-	list->Insert(5);
-	EXPECT_EQ(1, list->Count());
-	EXPECT_EQ(5, list->FirstItem());
-
-	list->Insert(10);
-	EXPECT_EQ(2, list->Count());
-	EXPECT_EQ(10, list->FirstItem());
-
-	list->Insert(20);
-	EXPECT_EQ(3, list->Count());
-	EXPECT_EQ(20, list->FirstItem());
-
-}
