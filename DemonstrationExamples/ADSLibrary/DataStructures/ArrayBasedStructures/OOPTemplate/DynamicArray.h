@@ -1,7 +1,7 @@
 #pragma once
 
-// Waiting: Insert, RemoveAt, BinarySearch, Sort, Reverse
-// Done?: Copy ctor
+// Waiting: Insert, RemoveAt, Reverse
+// Done?: Copy ctor, Sort (except: number of elements for different alg?), BinarySearch
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -83,7 +83,25 @@ namespace ADSLibrary
 					* @return vrací poèet prvkù v poli
 					*/
 					int Count() const;
-										
+
+					/**
+					* Metoda pro sort pole, vybírá dva rùzné øadící algoritmy podle velikosti dat.
+					*/
+					void Sort();
+
+					/**
+					* Metoda pro vyhledávání prvku v poli
+					* @param startIndex levá hranice(index) pro vyhledávání v poli
+					* @param endIndex pravá hranice(index) pro vyhledávání v poli
+					* @param item vyhledávaný prvek
+					*/
+					int BinarySearch(int startIndex, int endIndex, const T& item);
+
+					/**
+					* Metoda pro výpis 
+					*/
+					void Report();
+															
 					/**
 					* Tyto prvky jsou zatím v rámci testování v bloku public, pozdìji pøijdou do bloku private
 					*/
@@ -106,7 +124,25 @@ namespace ADSLibrary
 					* Promìnná používaná pøi rozšiøování, èi redukci velikosti pole
 					*/
 					const int AllocationDelta = 16;
+
+					/**
+					* Øadící algoritmus Insertion Sort
+					*/
+					void InsertionSort();
+
+					/**
+					* Øadící algoritmus Quick Sort. Pivot je nastaven implicitnì na nultý prvek pole
+					* @param left levá hranice(index) pro setøídìní
+					* @param right pravá hranice(index) pro setøídìní
+					*/
+					void QuickSort(int left, int right);
+
+					/**
+					* Pomocná metoda pro Quick Sort, prohodí dva prvky
+					*/
+					void Swap(T m_array[], int left, int right);										
 				};
+
 
 				template<typename T> DynamicArray<T>::DynamicArray() :m_count(0)
 				{		
@@ -216,16 +252,78 @@ namespace ADSLibrary
 
 				template <class T> int DynamicArray<T>::Count() const
 				{					
-					int count = 0;
-					for(int i = 0; i < m_size; i++)
-					{
-						count++;
-						if(i == NULL)
-						{
-							break;
+					return m_count;
+				}
+
+				template <class T> void DynamicArray<T>::Sort() 
+				{
+					//InsertionSort();
+					QuickSort(0, m_count);
+				}
+
+				template <class T> void DynamicArray<T>::InsertionSort()
+				{
+					T temp;
+					int j;
+					for (int i = 1; i <= (m_count - 1); i++) {
+						temp = m_array[i];
+						j = i - 1;
+						while ((j >= 0) && (m_array[j] > temp)) {
+							m_array[j + 1] = m_array[j];
+							j--;
 						}
+						m_array[j + 1] = temp;
 					}
-					return count;
+				}
+
+				template<class T> void DynamicArray<T>::Swap(T m_array[], int left, int right)
+				{
+					int tmp = m_array[right];
+					m_array[right] = m_array[left];
+					m_array[left] = tmp;
+				}
+					
+				template <class T> void DynamicArray<T>::QuickSort(int left, int right)
+				{
+					if (left < right) {
+						int pivot = left;
+						for (int i = left + 1; i < right; i++) {
+							if (m_array[i] < m_array[left]) {
+								Swap(m_array, i, ++pivot);
+							}
+						}
+						Swap(m_array, left, pivot);
+						QuickSort(left, pivot);
+						QuickSort(pivot + 1, right);
+					}
+				}
+
+				template <class T> int DynamicArray<T>::BinarySearch(int startIndex, int endIndex, const T& item)
+				{
+					Sort();						
+					if (startIndex > endIndex)
+					{
+						return -1;
+					}
+					const int middle = startIndex + ((endIndex - startIndex) / 2);
+
+					if (m_array[middle] == item)
+					{
+						return middle;
+					}
+					if (m_array[middle] > item)
+					{
+						return BinarySearch(startIndex, middle-1, item);
+					}
+					return BinarySearch(middle + 1, endIndex, item);
+				}
+
+				template <class T> void DynamicArray<T>::Report()
+				{
+					for(int i = 0; i < m_count; i++)
+					{
+						cout << m_array[i] << endl;
+					}
 				}
 			}
 		}

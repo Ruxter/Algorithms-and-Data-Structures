@@ -15,6 +15,7 @@ struct DynamicArrayOOPTemplate : testing::Test
 	ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<int> *list2;
 	ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<DummyClass> *list3;
 	ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<string> *list4;
+	ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<char> *list5;
 
 	DynamicArrayOOPTemplate()
 	{
@@ -22,6 +23,7 @@ struct DynamicArrayOOPTemplate : testing::Test
 		list2 = new ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<int>(12);
 		list3 = new ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<DummyClass>();
 		list4 = new ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<string>();
+		list5 = new ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate::DynamicArray<char>();
 	}
 
 	~DynamicArrayOOPTemplate()
@@ -49,10 +51,14 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 
 	list->Add(8);
 	EXPECT_EQ(2, list->m_count);
+	EXPECT_EQ(8, list->m_array[1]);
 	EXPECT_EQ(10, list->Size());
 	
 	list->Add(10);	
 	EXPECT_EQ(10, list->Size());
+	list->Add(4);
+	list->Add(25);
+
 	list->Clear();
 	EXPECT_EQ(false, list->Contains(5));
 	EXPECT_EQ(0, list->m_count);
@@ -63,17 +69,30 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	EXPECT_EQ(10, list->Size());
 	list->Add(25);
 	EXPECT_EQ(2, list->m_count);
-	
+	list->Add(10);
+	list->Add(12);
+	list->Add(2);
+	list->Add(32);
+
+
+	list->Report();
+	list->Sort();
+	list->Report();
+
+	EXPECT_EQ(1, list->BinarySearch(0, list->Count(), 4));
+	EXPECT_EQ(3, list->BinarySearch(0, list->Count(), 12));
+	EXPECT_EQ(5, list->BinarySearch(0, list->Count(), 32));
 	EXPECT_EQ(10, list->Size());
+	
 	EXPECT_EQ(true, list->Contains(4));
 	for (int i = 0; i<8; i++)
 	{
 		list->Add(25);
 	}
-	EXPECT_EQ(10, list->Size());
+	EXPECT_EQ(26, list->Size());
 	list->Add(25);
 	EXPECT_EQ(26, list->Size());
-	EXPECT_EQ(11, list->m_count);
+	EXPECT_EQ(15, list->m_count);
 }
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
@@ -205,6 +224,8 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameter)
 	list2->Add(25);
 	EXPECT_EQ(26, list2->Size());
 	EXPECT_EQ(11, list2->m_count);
+
+	
 }
 
 /*
@@ -219,8 +240,8 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameterLoop)
 	{
 		list2->Add(i);
 	}
-	EXPECT_EQ(15004, list2->Size());
-	EXPECT_EQ(15001, list2->m_count);	
+	EXPECT_EQ(15004, list2->Size());	
+	EXPECT_EQ(15001, list2->Count());	
 
 	for (int i = 0; i <14000; i++)
 	{
@@ -237,19 +258,36 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameterLoop)
 */
 TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 {
-	DummyClass *a;
+	DummyClass *a, *b, *c;	
 	a = new DummyClass();
+	a->a = 5;
+	a->b = 10;
+	b = new DummyClass();
+	b->a = 10;
+	b->b = 20;
+	c = new DummyClass();
+	c->a = 15;
+	c->b = 30;
 	list3->Add(*a);
-	EXPECT_EQ(1, list3->m_count);
+	list3->Add(*b);
+	list3->Add(*c);
+
+
+
+	EXPECT_EQ(3, list3->m_count);
 	EXPECT_EQ(10, list3->Size());
 
 	EXPECT_EQ(true, list4->IsEmpty());
 	EXPECT_EQ(false, list4->Contains("A"));
+	/*list4->Add("A");
+	list4->Add("C");
+	list4->Add("B");
+	list4->Add("D");*/
 	list4->Add("A");
 	list4->Add("B");
 	list4->Add("C");
 	list4->Add("D");
-	
+
 	EXPECT_EQ(true, list4->Contains("A"));
 	EXPECT_EQ(false, list4->IsEmpty());
 	EXPECT_EQ(4, list4->m_count);
@@ -284,6 +322,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 
 DynamicArrayTest::DynamicArrayTest()
 {
+	
 }
 
 

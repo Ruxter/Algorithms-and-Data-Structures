@@ -2,6 +2,9 @@
 class DummyClass
 {
 public:
+
+	int a;
+	int b;
 	DummyClass();
 	~DummyClass();
 };
