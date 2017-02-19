@@ -1,7 +1,7 @@
 #pragma once
 
-// Waiting: Insert, RemoveAt, Reverse
-// Done?: Copy ctor, Sort (except: number of elements for different alg?), BinarySearch
+// Waiting: r-val overload operator[]
+// Done?: Copy ctor, Sort (except: number of elements for different alg?), BinarySearch, Reverse, Insert, RemoveAt
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -43,12 +43,12 @@ namespace ADSLibrary
 					/**
 					 * Metoda pro vložení prvku na konec posloupnosti v poli.
 					 */
-					void Add(const T Item);
+					void Add(const T& Item);
 
 					/**
-					* Metoda pro vložení prvku na konec posloupnosti v poli.
+					* Metoda pro vložení prvku do pole na urèený index.
 					*/
-					void Insert(const int index, const T Item);
+					void InsertAt(const int index, const T& Item);
 
 					/**
 					 * Metoda pro zjištìní velikosti datové struktury
@@ -97,6 +97,10 @@ namespace ADSLibrary
 					*/
 					int BinarySearch(int startIndex, int endIndex, const T& item);
 
+					void Reverse();
+
+					bool RemoveAt(int index);
+
 					/**
 					* Metoda pro výpis 
 					*/
@@ -143,7 +147,6 @@ namespace ADSLibrary
 					void Swap(T m_array[], int left, int right);										
 				};
 
-
 				template<typename T> DynamicArray<T>::DynamicArray() :m_count(0)
 				{		
 					m_size = DefaultMinimalSize;
@@ -178,16 +181,28 @@ namespace ADSLibrary
 					return m_array[index];
 				}
 
-				template<typename T> void DynamicArray<T>::Add(const T Item)
+				template<typename T> void DynamicArray<T>::Add(const T& Item)
 				{
 					if (m_count == m_size) Resize(m_size + AllocationDelta);
 					m_array[m_count++] = Item;
 				}
 
-				template<typename T> void DynamicArray<T>::Insert(const int index, const T Item)
+				template<typename T> void DynamicArray<T>::InsertAt(const int index, const T& Item)
 				{
-					if (m_count == m_size) Resize(m_size + AllocationDelta);
-					m_array[m_count++] = Item;
+					T* newArray = new T[m_size];
+					if (index <= m_count)
+					{
+						m_count++;
+						if (m_count <= m_size - AllocationDelta) Resize(m_size - AllocationDelta);
+						for (int i = 0; i <= m_count; ++i)
+						{
+							if (i < index)newArray[i] = m_array[i];
+							if (i == index)newArray[i] = Item;
+							if (i > index) newArray[i] = m_array[i - 1];
+						}
+						delete[] m_array;
+						m_array = newArray;
+					}
 				}
 
 				template <class T> int DynamicArray<T>::Size() const
@@ -256,7 +271,7 @@ namespace ADSLibrary
 				}
 
 				template <class T> void DynamicArray<T>::Sort() 
-				{
+				{				
 					//InsertionSort();
 					QuickSort(0, m_count);
 				}
@@ -316,6 +331,33 @@ namespace ADSLibrary
 						return BinarySearch(startIndex, middle-1, item);
 					}
 					return BinarySearch(middle + 1, endIndex, item);
+				}
+
+				template<class T> void DynamicArray<T>::Reverse()
+				{
+					T temp;
+					int i;
+					for (i = 0; i < m_count / 2; ++i) {
+						temp = m_array[m_count - i - 1];
+						m_array[m_count - i - 1] = m_array[i];
+						m_array[i] = temp;
+					}
+				}
+
+				template<class T> bool DynamicArray<T>::RemoveAt(int index)
+				{
+					if(!IsEmpty() && index<=m_count)
+					{
+						m_array[index] = NULL;
+						for (int i = index; i < m_count; i++)
+						{
+							m_array[i] = m_array[i + 1];
+						}
+						m_count--;
+						if (m_count <= m_size - AllocationDelta) Resize(m_size - AllocationDelta);
+						return true;
+					}
+					return false;
 				}
 
 				template <class T> void DynamicArray<T>::Report()

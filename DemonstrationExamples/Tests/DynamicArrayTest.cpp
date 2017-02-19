@@ -73,15 +73,19 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	list->Add(12);
 	list->Add(2);
 	list->Add(32);
-
+	list->InsertAt(2, 1000);
 
 	list->Report();
-	list->Sort();
+	//EXPECT_EQ(4, list->BinarySearch(0, list->Count(), 2));
+
+	list->InsertAt(4, 2000);
 	list->Report();
 
-	EXPECT_EQ(1, list->BinarySearch(0, list->Count(), 4));
-	EXPECT_EQ(3, list->BinarySearch(0, list->Count(), 12));
-	EXPECT_EQ(5, list->BinarySearch(0, list->Count(), 32));
+	//list->Reverse();
+
+	EXPECT_EQ(0, list->BinarySearch(0, list->Count(), 4));
+	EXPECT_EQ(-1, list->BinarySearch(0, list->Count(), 12));
+	EXPECT_EQ(4, list->BinarySearch(0, list->Count(), 32));
 	EXPECT_EQ(10, list->Size());
 	
 	EXPECT_EQ(true, list->Contains(4));
@@ -92,7 +96,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	EXPECT_EQ(26, list->Size());
 	list->Add(25);
 	EXPECT_EQ(26, list->Size());
-	EXPECT_EQ(15, list->m_count);
+	EXPECT_EQ(14, list->m_count);
 }
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
@@ -109,6 +113,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameterLoop)
 	EXPECT_EQ(15002, list->Size());
 	EXPECT_EQ(15001, list->m_count);	
 	EXPECT_EQ(true, list->Contains(125));
+
 
 	list->Remove(125);
 	EXPECT_EQ(15002, list->Size());
@@ -224,8 +229,6 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameter)
 	list2->Add(25);
 	EXPECT_EQ(26, list2->Size());
 	EXPECT_EQ(11, list2->m_count);
-
-	
 }
 
 /*
@@ -278,15 +281,15 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 	EXPECT_EQ(10, list3->Size());
 
 	EXPECT_EQ(true, list4->IsEmpty());
-	EXPECT_EQ(false, list4->Contains("A"));
-	/*list4->Add("A");
-	list4->Add("C");
-	list4->Add("B");
-	list4->Add("D");*/
+	EXPECT_EQ(false, list4->Contains("A"));	
 	list4->Add("A");
 	list4->Add("B");
 	list4->Add("C");
 	list4->Add("D");
+
+	list4->Report();
+	list4->Reverse();
+	list4->Report();
 
 	EXPECT_EQ(true, list4->Contains("A"));
 	EXPECT_EQ(false, list4->IsEmpty());
@@ -318,6 +321,22 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 	list4->Clear();
 	EXPECT_EQ(0, list4->m_count);
 	EXPECT_EQ(10, list4->Size());
+}
+
+TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTest2)
+{
+	for (int i = 0; i <150; i++)
+	{
+		list->Add(i);
+	}
+	EXPECT_EQ(154, list->Size());
+	EXPECT_EQ(150, list->Count());
+
+	for (int i = 0; i <110; i++)
+	{
+		list->Remove(i);
+	}
+	EXPECT_EQ(42, list->Size());
 }
 
 DynamicArrayTest::DynamicArrayTest()
