@@ -310,8 +310,8 @@ namespace ADSLibrary
 
 				template <class T> void DynamicArray<T>::Sort()
 				{
-					if (m_count <= 9000) InsertionSort();
-					else QuickSort(0, m_count);
+					//InsertionSort();
+					QuickSort(0, m_count);
 				}
 
 				template <class T> void DynamicArray<T>::InsertionSort()
@@ -342,9 +342,7 @@ namespace ADSLibrary
 						int pivot = left;
 						for (int i = left + 1; i < right; i++) {
 							if (m_array[i] < m_array[left]) {
-								T tmp = m_array[i];
-								m_array[i] = m_array[left];
-								m_array[left] = tmp;
+								Swap(m_array, i, ++pivot);
 							}
 						}
 						Swap(m_array, left, pivot);

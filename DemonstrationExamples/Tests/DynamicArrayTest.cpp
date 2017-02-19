@@ -79,13 +79,13 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	list->Add(32);
 	list->RemoveAt(1);
 	list->RemoveAt(5);
-	list->Report();
 
 	list->InsertAt(2, 100);
 	list->InsertAt(2, 100);
 	list->InsertAt(2, 100);
 	list->InsertAt(2, 100);
-	list->Report();
+
+	list->Sort();
 	
 }
 /*
@@ -344,12 +344,12 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestInsertAt)
 	list->Add(25);
 	list->Add(0);
 	list->Add(6);
+	list->Sort();
 	EXPECT_EQ(0, list->BinarySearch(0, list->Count(), 0));
 	EXPECT_EQ(4, list->BinarySearch(0, list->Count(), 25));
 	EXPECT_EQ(2, list->BinarySearch(0, list->Count(), 5));
 	EXPECT_EQ(1, list->BinarySearch(0, list->Count(), 4));
-	EXPECT_EQ(3, list->BinarySearch(0, list->Count(), 6));
-	
+	EXPECT_EQ(3, list->BinarySearch(0, list->Count(), 6));	
 }
 
 DynamicArrayTest::DynamicArrayTest()
