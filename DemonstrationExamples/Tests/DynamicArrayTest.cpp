@@ -37,7 +37,7 @@ struct DynamicArrayOOPTemplate : testing::Test
 
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
-* Add, Size, m_count, LastItem, Clear, Contains
+* Add, Size, Count(), LastItem, Clear, Contains
 * @param DynamicArrayOOPTemplate název struktury,
 * @param DynamicArrayOOPTemplateTestWithoutParameter název unit testu
 */
@@ -46,11 +46,11 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	EXPECT_EQ(true, list->IsEmpty());
 	list->Add(5);
 	EXPECT_EQ(10, list->Size());
-	EXPECT_EQ(1, list->m_count);
+	EXPECT_EQ(1, list->Count());
 	EXPECT_EQ(true, list->Contains(5));
 
 	list->Add(8);
-	EXPECT_EQ(2, list->m_count);
+	EXPECT_EQ(2, list->Count());
 	EXPECT_EQ(8, list->m_array[1]);
 	EXPECT_EQ(10, list->Size());
 	
@@ -61,46 +61,36 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 
 	list->Clear();
 	EXPECT_EQ(false, list->Contains(5));
-	EXPECT_EQ(0, list->m_count);
+	EXPECT_EQ(0, list->Count());
 	EXPECT_EQ(10, list->Size());
 	EXPECT_EQ(true, list->IsEmpty());
 
 	list->Add(4);	
 	EXPECT_EQ(10, list->Size());
 	list->Add(25);
-	EXPECT_EQ(2, list->m_count);
+	EXPECT_EQ(2, list->Count());
 	list->Add(10);
 	list->Add(12);
 	list->Add(2);
 	list->Add(32);
-	list->InsertAt(2, 1000);
-
+	list->Add(10);
+	list->Add(12);
+	list->Add(2);
+	list->Add(32);
+	list->RemoveAt(1);
+	list->RemoveAt(5);
 	list->Report();
-	//EXPECT_EQ(4, list->BinarySearch(0, list->Count(), 2));
 
-	list->InsertAt(4, 2000);
+	list->InsertAt(2, 100);
+	list->InsertAt(2, 100);
+	list->InsertAt(2, 100);
+	list->InsertAt(2, 100);
 	list->Report();
-
-	//list->Reverse();
-
-	EXPECT_EQ(0, list->BinarySearch(0, list->Count(), 4));
-	EXPECT_EQ(-1, list->BinarySearch(0, list->Count(), 12));
-	EXPECT_EQ(4, list->BinarySearch(0, list->Count(), 32));
-	EXPECT_EQ(10, list->Size());
 	
-	EXPECT_EQ(true, list->Contains(4));
-	for (int i = 0; i<8; i++)
-	{
-		list->Add(25);
-	}
-	EXPECT_EQ(26, list->Size());
-	list->Add(25);
-	EXPECT_EQ(26, list->Size());
-	EXPECT_EQ(14, list->m_count);
 }
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
-* Add, Size, m_count, LastItem, Clear
+* Add, Size, Count(), LastItem, Clear
 * @param DynamicArrayOOPTemplate název struktury,
 * @param DynamicArrayOOPTemplateTestWithoutParameterLoop název unit testu
 */
@@ -111,19 +101,18 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameterLoop)
 		list->Add(i);
 	}
 	EXPECT_EQ(15002, list->Size());
-	EXPECT_EQ(15001, list->m_count);	
+	EXPECT_EQ(15001, list->Count());	
 	EXPECT_EQ(true, list->Contains(125));
-
 
 	list->Remove(125);
 	EXPECT_EQ(15002, list->Size());
-	EXPECT_EQ(15000, list->m_count);
+	EXPECT_EQ(15000, list->Count());
 	for (int i = 0; i <16; i++)
 	{
 		list->Remove(i*10);
 	}
 	EXPECT_EQ(14986, list->Size());
-	EXPECT_EQ(14984, list->m_count);	
+	EXPECT_EQ(14984, list->Count());	
 	
 	EXPECT_EQ(false, list->Contains(125));
 	EXPECT_EQ(true, list->Contains(12468));
@@ -131,7 +120,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameterLoop)
 
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
-* Add, Size, m_count, LastItem, Clear
+* Add, Size, Count(), LastItem, Clear
 * @param DynamicArrayOOPTemplate název struktury,
 * @param DynamicArrayOOPTemplateTestWithoutParameterLoop název unit testu
 */
@@ -142,16 +131,16 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameterLoopR
 		list->Add(i);
 	}
 	EXPECT_EQ(26, list->Size());
-	EXPECT_EQ(11, list->m_count);
+	EXPECT_EQ(11, list->Count());
 	
 	EXPECT_EQ(true, list->Contains(5));
 
 	list->Remove(5);
 	EXPECT_EQ(10, list->Size());
-	EXPECT_EQ(10, list->m_count);
+	EXPECT_EQ(10, list->Count());
 	
 	EXPECT_EQ(false, list->Contains(5));
-	for(int j = 0; j < list->m_count; j++)
+	for(int j = 0; j < list->Count(); j++)
 	{
 		if(j != 5)
 		{
@@ -163,7 +152,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameterLoopR
 	list->Remove(1);
 	list->Remove(3);
 	EXPECT_EQ(10, list->Size());
-	EXPECT_EQ(7, list->m_count);
+	EXPECT_EQ(7, list->Count());
 	
 	EXPECT_EQ(false, list->Contains(5));
 
@@ -171,54 +160,53 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameterLoopR
 	list->Remove(4);
 	list->Remove(6);
 	EXPECT_EQ(10, list->Size());
-	EXPECT_EQ(4, list->m_count);
+	EXPECT_EQ(4, list->Count());
 	EXPECT_EQ(true, list->Contains(8));
 
 	list->Remove(7);
 	list->Remove(8);
 	EXPECT_EQ(10, list->Size());
-	EXPECT_EQ(2, list->m_count);
+	EXPECT_EQ(2, list->Count());
 	EXPECT_EQ(true, list->Contains(0));
 	EXPECT_EQ(true, list->Contains(10));
 
 	list->Remove(0);
 	list->Remove(10);
 	EXPECT_EQ(10, list->Size());
-	EXPECT_EQ(0, list->m_count);
+	EXPECT_EQ(0, list->Count());
 	EXPECT_EQ(true, list->IsEmpty());	
 }
 
 
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
-* Add, Size, m_count, LastItem, Clear, IsEmpty, IsFull
+* Add, Size, Count(), LastItem, Clear, IsEmpty, IsFull
 * @param DynamicArrayOOPTemplate název struktury,
 * @param DynamicArrayOOPTemplateTestWithParameter název unit testu
 */
 
 TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameter)
 {
-
 	EXPECT_EQ(true, list2->IsEmpty());
 	
 	list2->Add(5);
 	EXPECT_EQ(12, list2->Size());
-	EXPECT_EQ(1, list2->m_count);
+	EXPECT_EQ(1, list2->Count());
 	list2->Add(8);
-	EXPECT_EQ(2, list2->m_count);
+	EXPECT_EQ(2, list2->Count());
 	EXPECT_EQ(12, list2->Size());
 	
 	list2->Add(10);	
 	EXPECT_EQ(12, list2->Size());
 	list2->Clear();
-	EXPECT_EQ(0, list2->m_count);
+	EXPECT_EQ(0, list2->Count());
 	EXPECT_EQ(10, list2->Size());
 	EXPECT_EQ(true, list2->IsEmpty());
 	
 	list2->Add(4);	
 	EXPECT_EQ(10, list2->Size());
 	list2->Add(25);
-	EXPECT_EQ(2, list2->m_count);
+	EXPECT_EQ(2, list2->Count());
 	
 	EXPECT_EQ(10, list2->Size());
 	for (int i = 0; i<8; i++)
@@ -228,12 +216,12 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameter)
 	EXPECT_EQ(10, list2->Size());
 	list2->Add(25);
 	EXPECT_EQ(26, list2->Size());
-	EXPECT_EQ(11, list2->m_count);
+	EXPECT_EQ(11, list2->Count());
 }
 
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
-* Add, Size, m_count, LastItem
+* Add, Size, Count(), LastItem
 * @param DynamicArrayOOPTemplate název struktury,
 * @param DynamicArrayOOPTemplateTestWithParameterLoop název unit testu
 */
@@ -255,30 +243,35 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameterLoop)
 
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro DummyClass a string
-* Add, Size, m_count, LastItem
+* Add, Size, Count(), LastItem
 * @param DynamicArrayOOPTemplate název struktury,
 * @param DynamicArrayOOPTemplateTestObjects název unit testu
 */
 TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 {
-	DummyClass *a, *b, *c;	
-	a = new DummyClass();
-	a->a = 5;
-	a->b = 10;
-	b = new DummyClass();
-	b->a = 10;
-	b->b = 20;
-	c = new DummyClass();
-	c->a = 15;
-	c->b = 30;
-	list3->Add(*a);
-	list3->Add(*b);
-	list3->Add(*c);
+	DummyClass* d1 = new DummyClass(10, 10);
+	DummyClass* d2 = new DummyClass(11, 10);
+	DummyClass* d3 = new DummyClass(5, 10);
+	DummyClass* d4 = new DummyClass(4, 10);
+	DummyClass* d5 = new DummyClass(15, 10);
 
+	list3->Add(*d1);
+	list3->Add(*d2);
+	list3->Add(*d3);
+	list3->Add(*d4);
+	list3->Add(*d5);
 
-
-	EXPECT_EQ(3, list3->m_count);
+	DummyComparer *comparer = new DummyComparer();
+	IComparable<DummyClass> *cmp = (IComparable<DummyClass>*) comparer;
+	EXPECT_EQ(5, list3->Count());
 	EXPECT_EQ(10, list3->Size());
+
+	list3->QuickSortObjects(0, list3->Count(), cmp);
+
+	for (int i = 0; i < list3->Count(); i++)
+	{
+		cout << list3->m_array[i].x << endl;
+	}
 
 	EXPECT_EQ(true, list4->IsEmpty());
 	EXPECT_EQ(false, list4->Contains("A"));	
@@ -293,7 +286,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 
 	EXPECT_EQ(true, list4->Contains("A"));
 	EXPECT_EQ(false, list4->IsEmpty());
-	EXPECT_EQ(4, list4->m_count);
+	EXPECT_EQ(4, list4->Count());
 	EXPECT_EQ(10, list4->Size());
 
 	for(int i = 0; i < 8; i++)
@@ -301,42 +294,62 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 		list4->Add(std::to_string(i));
 	}
 
-	EXPECT_EQ(12, list4->m_count);
+	EXPECT_EQ(12, list4->Count());
 	EXPECT_EQ(26, list4->Size());
 	
 	EXPECT_EQ(true, list4->Contains("4"));
 	list4->Remove("4");
 	EXPECT_EQ(false, list4->Contains("4"));
 
-	EXPECT_EQ(11, list4->m_count);
+	EXPECT_EQ(11, list4->Count());
 	EXPECT_EQ(26, list4->Size());	
 
 	EXPECT_EQ(true, list4->Contains("3"));
 	list4->Remove("3");
 	EXPECT_EQ(false, list4->Contains("3"));
 
-	EXPECT_EQ(10, list4->m_count);
+	EXPECT_EQ(10, list4->Count());
 	EXPECT_EQ(10, list4->Size());	
 
 	list4->Clear();
-	EXPECT_EQ(0, list4->m_count);
+	EXPECT_EQ(0, list4->Count());
 	EXPECT_EQ(10, list4->Size());
 }
 
-TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTest2)
+TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestBinarySearch)
 {
-	for (int i = 0; i <150; i++)
-	{
-		list->Add(i);
-	}
-	EXPECT_EQ(154, list->Size());
-	EXPECT_EQ(150, list->Count());
+	list->Add(4);	
+	list->Add(5);	
+	list->Add(25);	
+	list->Add(0);	
+	list->Add(6);
+	EXPECT_EQ(0, list->BinarySearch(0, list->Count(), 0));
+	EXPECT_EQ(4, list->BinarySearch(0, list->Count(), 25));
+	EXPECT_EQ(2, list->BinarySearch(0, list->Count(), 5));
+	EXPECT_EQ(1, list->BinarySearch(0, list->Count(), 4));
+	EXPECT_EQ(3, list->BinarySearch(0, list->Count(), 6));
+	list->Report();
 
-	for (int i = 0; i <110; i++)
-	{
-		list->Remove(i);
-	}
-	EXPECT_EQ(42, list->Size());
+	EXPECT_EQ(-1, list->BinarySearch(0, list->Count(), 1000));
+	
+	cout << "\n";
+	list->RemoveAt(4);
+	list->Report();
+}
+
+TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestInsertAt)
+{
+	list->Add(4);
+	list->Add(5);
+	list->Add(25);
+	list->Add(0);
+	list->Add(6);
+	EXPECT_EQ(0, list->BinarySearch(0, list->Count(), 0));
+	EXPECT_EQ(4, list->BinarySearch(0, list->Count(), 25));
+	EXPECT_EQ(2, list->BinarySearch(0, list->Count(), 5));
+	EXPECT_EQ(1, list->BinarySearch(0, list->Count(), 4));
+	EXPECT_EQ(3, list->BinarySearch(0, list->Count(), 6));
+	
 }
 
 DynamicArrayTest::DynamicArrayTest()

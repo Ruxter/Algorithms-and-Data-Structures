@@ -2,10 +2,10 @@
 class DummyClass
 {
 public:
-
-	int a;
-	int b;
 	DummyClass();
+	DummyClass(int x, int y);
 	~DummyClass();
+	int x, y;
+private:
 };
 

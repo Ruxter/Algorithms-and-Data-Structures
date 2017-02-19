@@ -159,6 +159,7 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
     <ClInclude Include="DummyClass.h" />
+    <ClInclude Include="IComparer.h" />
     <ClInclude Include="Tests\DynamicArrayTest.h" />
     <ClInclude Include="Tests\OOPTemplateListTest.h" />
     <ClInclude Include="Tests\TestClass.h" />

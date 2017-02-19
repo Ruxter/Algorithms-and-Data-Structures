@@ -197,6 +197,9 @@
     <ClInclude Include="DummyClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IComparer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Licence.txt" />

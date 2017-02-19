@@ -1,7 +1,8 @@
 #pragma once
+#include "../../../../IComparer.h"
 
-// Waiting: r-val overload operator[]
-// Done?: Copy ctor, Sort (except: number of elements for different alg?), BinarySearch, Reverse, Insert, RemoveAt
+// Waiting: 
+// Done?: Copy ctor, Sort (except: number of elements for different alg?), BinarySearch, Reverse, Insert, RemoveAt, r-val overload operator[]
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -15,8 +16,8 @@ namespace ADSLibrary
 				public:
 
 					/**
-					 * Konstruktor
-					 */
+					* Konstruktor
+					*/
 					DynamicArray();
 
 					/**
@@ -35,14 +36,18 @@ namespace ADSLibrary
 					~DynamicArray();
 
 					/**
-					 * Pøetížení operátoru []
-					 */
-					const T& operator[](const int index);	
-					// chybí pro r-value
-					
+					* Pøetížení operátoru []
+					*/
+					const T& operator[](const int index);
+
 					/**
-					 * Metoda pro vložení prvku na konec posloupnosti v poli.
-					 */
+					* Pøetížení operátoru [] pro r-value
+					*/
+					const T& operator[](const int index) const;
+
+					/**
+					* Metoda pro vložení prvku na konec posloupnosti v poli.
+					*/
 					void Add(const T& Item);
 
 					/**
@@ -51,9 +56,9 @@ namespace ADSLibrary
 					void InsertAt(const int index, const T& Item);
 
 					/**
-					 * Metoda pro zjištìní velikosti datové struktury
-					 * @return vrací velikost pole
-					 */
+					* Metoda pro zjištìní velikosti datové struktury
+					* @return vrací velikost pole
+					*/
 					int Size() const;
 
 					/**
@@ -66,16 +71,21 @@ namespace ADSLibrary
 					* Vyhledá a odstraní daný prvek.
 					*/
 					void Remove(const T& value);
-										
+
 					/**
-					 * Metoda pro vymazání prvkù z pole.
-					 */
+					* Vyhledá a odstraní prvek na daném indexu.
+					*/
+					bool RemoveAt(int index);
+
+					/**
+					* Metoda pro vymazání prvkù z pole.
+					*/
 					void Clear();
 
 					/**
-					 * Metoda pro zjištìní zda je struktura prázdná.
-					 * @return vrací true pokud je prázdná
-					 */
+					* Metoda pro zjištìní zda je struktura prázdná.
+					* @return vrací true pokud je prázdná
+					*/
 					bool IsEmpty() const;
 
 					/**
@@ -90,22 +100,32 @@ namespace ADSLibrary
 					void Sort();
 
 					/**
-					* Metoda pro vyhledávání prvku v poli
+					* Øadící algoritmus Quick Sort pro objekty. Pivot je nastaven implicitnì na nultý prvek pole
+					* @param left levá hranice(index) pro setøídìní
+					* @param right pravá hranice(index) pro setøídìní
+					* @param cmp pomocný interface IComparable pro porovnávání hodnot objektu
+					*/
+					void QuickSortObjects(int left, int right, IComparable<T> *cmp);
+
+					/**
+					* Metoda pro vyhledávání prvku v poli. Pole musí být pøed zavoláním BinarySearch setøízené.
 					* @param startIndex levá hranice(index) pro vyhledávání v poli
 					* @param endIndex pravá hranice(index) pro vyhledávání v poli
 					* @param item vyhledávaný prvek
+					* @return -1 pokud daný prvek neexistuje, jinak index v poli
 					*/
 					int BinarySearch(int startIndex, int endIndex, const T& item);
 
+					/**
+					* Metoda pro "pøeklopení" pole. 
+					*/
 					void Reverse();
 
-					bool RemoveAt(int index);
-
 					/**
-					* Metoda pro výpis 
+					* Metoda pro výpis
 					*/
 					void Report();
-															
+
 					/**
 					* Tyto prvky jsou zatím v rámci testování v bloku public, pozdìji pøijdou do bloku private
 					*/
@@ -120,7 +140,7 @@ namespace ADSLibrary
 					void Resize(int size);
 
 					/**
-					* Seznam bude mít vždy tuto minimální velikost
+					* Pole bude mít vždy tuto minimální velikost
 					*/
 					const int DefaultMinimalSize = 10;
 
@@ -144,11 +164,11 @@ namespace ADSLibrary
 					/**
 					* Pomocná metoda pro Quick Sort, prohodí dva prvky
 					*/
-					void Swap(T m_array[], int left, int right);										
+					void Swap(T m_array[], int left, int right);
 				};
 
 				template<typename T> DynamicArray<T>::DynamicArray() :m_count(0)
-				{		
+				{
 					m_size = DefaultMinimalSize;
 					m_array = new T[m_size];
 				}
@@ -163,20 +183,25 @@ namespace ADSLibrary
 				{
 					m_size = array.m_size;
 					T* newArray = new T[m_size];
-					for(int i = 0; i < m_count; i++)
+					for (int i = 0; i < m_count; i++)
 					{
 						newArray[i] = array[i];
 					}
-					
+
 					m_array = newArray;
 				}
-				
+
 				template<typename T> DynamicArray<T>::~DynamicArray()
 				{
 					delete[] m_array;
 				}
 
 				template <class T> const T& DynamicArray<T>::operator[] (const int index)
+				{
+					return m_array[index];
+				}
+
+				template <class T> const T& DynamicArray<T>::operator[] (const int index) const
 				{
 					return m_array[index];
 				}
@@ -188,21 +213,18 @@ namespace ADSLibrary
 				}
 
 				template<typename T> void DynamicArray<T>::InsertAt(const int index, const T& Item)
-				{
+				{					
 					T* newArray = new T[m_size];
-					if (index <= m_count)
+					m_count++;
+					if (m_count == m_size) Resize(m_size + AllocationDelta);					
+					for (int i = 0; i <= m_count; ++i)
 					{
-						m_count++;
-						if (m_count <= m_size - AllocationDelta) Resize(m_size - AllocationDelta);
-						for (int i = 0; i <= m_count; ++i)
-						{
-							if (i < index)newArray[i] = m_array[i];
-							if (i == index)newArray[i] = Item;
-							if (i > index) newArray[i] = m_array[i - 1];
-						}
-						delete[] m_array;
-						m_array = newArray;
+						if (i < index)newArray[i] = m_array[i];
+						if (i == index)newArray[i] = Item;
+						if (i > index) newArray[i] = m_array[i - 1];
 					}
+					delete[] m_array;
+					m_array = newArray;					
 				}
 
 				template <class T> int DynamicArray<T>::Size() const
@@ -225,23 +247,39 @@ namespace ADSLibrary
 				template <class T> void DynamicArray<T>::Remove(const T& value)
 				{
 					int position = 0;
-					if(!IsEmpty())
+					if (!IsEmpty())
 					{
 						for (position; position < m_count; position++)
 						{
-							if (m_array[position] == value) break;							
+							if (m_array[position] == value) break;
 						}
-						for(int i = position; i<m_count; i++)
+						for (int i = position; i<m_count; i++)
 						{
 							m_array[i] = m_array[i + 1];
 						}
 						m_count--;
 						if (m_count <= m_size - AllocationDelta) Resize(m_size - AllocationDelta);
-					}					
+					}
+				}
+
+				template<class T> bool DynamicArray<T>::RemoveAt(int index)
+				{
+					if (!IsEmpty() && index <= m_count)
+					{
+						m_array[index] = NULL;
+						for (int i = index; i < m_count; i++)
+						{
+							m_array[i] = m_array[i + 1];
+						}
+						m_count--;
+						if (m_count <= m_size - AllocationDelta) Resize(m_size - AllocationDelta);
+						return true;
+					}
+					return false;
 				}
 
 				template<typename T> void DynamicArray<T>::Resize(int size)
-				{			
+				{
 					T* newArray = new T[size];
 					int n = (m_count <= m_size) ? m_count : m_size;
 					while (n--)
@@ -251,7 +289,7 @@ namespace ADSLibrary
 					delete[] m_array;
 					m_array = newArray;
 					m_size = size;
-				}				
+				}
 
 				template<class T> void DynamicArray<T>::Clear()
 				{
@@ -266,14 +304,14 @@ namespace ADSLibrary
 				}
 
 				template <class T> int DynamicArray<T>::Count() const
-				{					
+				{
 					return m_count;
 				}
 
-				template <class T> void DynamicArray<T>::Sort() 
-				{				
-					//InsertionSort();
-					QuickSort(0, m_count);
+				template <class T> void DynamicArray<T>::Sort()
+				{
+					if (m_count <= 9000) InsertionSort();
+					else QuickSort(0, m_count);
 				}
 
 				template <class T> void DynamicArray<T>::InsertionSort()
@@ -293,18 +331,20 @@ namespace ADSLibrary
 
 				template<class T> void DynamicArray<T>::Swap(T m_array[], int left, int right)
 				{
-					int tmp = m_array[right];
+					T tmp = m_array[right];
 					m_array[right] = m_array[left];
 					m_array[left] = tmp;
 				}
-					
+
 				template <class T> void DynamicArray<T>::QuickSort(int left, int right)
 				{
 					if (left < right) {
 						int pivot = left;
 						for (int i = left + 1; i < right; i++) {
 							if (m_array[i] < m_array[left]) {
-								Swap(m_array, i, ++pivot);
+								T tmp = m_array[i];
+								m_array[i] = m_array[left];
+								m_array[left] = tmp;
 							}
 						}
 						Swap(m_array, left, pivot);
@@ -313,13 +353,27 @@ namespace ADSLibrary
 					}
 				}
 
+				template <class T> void DynamicArray<T>::QuickSortObjects(int left, int right, IComparable<T> *cmp)
+				{
+					if (left < right) {
+						int pivot = left;
+						for (int i = left + 1; i < right; i++) {
+							if (!cmp->IsFirtsBigger(&m_array[i], &m_array[left])) {
+								T tmp = m_array[i];
+								m_array[i] = m_array[left];
+								m_array[left] = tmp;
+							}
+						}
+						Swap(m_array, left, pivot);
+						QuickSortObjects(left, pivot, cmp);
+						QuickSortObjects(pivot + 1, right, cmp);
+					}
+				}
+
 				template <class T> int DynamicArray<T>::BinarySearch(int startIndex, int endIndex, const T& item)
 				{
-					Sort();						
-					if (startIndex > endIndex)
-					{
-						return -1;
-					}
+					if (startIndex > endIndex) return -1;
+
 					const int middle = startIndex + ((endIndex - startIndex) / 2);
 
 					if (m_array[middle] == item)
@@ -328,7 +382,7 @@ namespace ADSLibrary
 					}
 					if (m_array[middle] > item)
 					{
-						return BinarySearch(startIndex, middle-1, item);
+						return BinarySearch(startIndex, middle - 1, item);
 					}
 					return BinarySearch(middle + 1, endIndex, item);
 				}
@@ -342,29 +396,13 @@ namespace ADSLibrary
 						m_array[m_count - i - 1] = m_array[i];
 						m_array[i] = temp;
 					}
-				}
-
-				template<class T> bool DynamicArray<T>::RemoveAt(int index)
-				{
-					if(!IsEmpty() && index<=m_count)
-					{
-						m_array[index] = NULL;
-						for (int i = index; i < m_count; i++)
-						{
-							m_array[i] = m_array[i + 1];
-						}
-						m_count--;
-						if (m_count <= m_size - AllocationDelta) Resize(m_size - AllocationDelta);
-						return true;
-					}
-					return false;
-				}
+				}				
 
 				template <class T> void DynamicArray<T>::Report()
 				{
-					for(int i = 0; i < m_count; i++)
+					for (int i = 0; i < m_count; i++)
 					{
-						cout << m_array[i] << endl;
+						cout << i << " : " << m_array[i] << endl;
 					}
 				}
 			}
