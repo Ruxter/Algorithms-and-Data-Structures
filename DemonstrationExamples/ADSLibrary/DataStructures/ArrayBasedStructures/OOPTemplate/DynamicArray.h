@@ -65,12 +65,12 @@ namespace ADSLibrary
 					* Vyhledá daný prvek.
 					* @return true pokud je prvek nalezen
 					*/
-					bool Contains(const T& value) const;
+					bool Contains(const T& Item) const;
 
 					/**
 					* Vyhledá a odstraní daný prvek.
 					*/
-					void Remove(const T& value);
+					void Remove(const T& Item);
 
 					/**
 					* Vyhledá a odstraní prvek na daném indexu.
@@ -111,10 +111,10 @@ namespace ADSLibrary
 					* Metoda pro vyhledávání prvku v poli. Pole musí být pøed zavoláním BinarySearch setøízené.
 					* @param startIndex levá hranice(index) pro vyhledávání v poli
 					* @param endIndex pravá hranice(index) pro vyhledávání v poli
-					* @param item vyhledávaný prvek
+					* @param Item vyhledávaný prvek
 					* @return -1 pokud daný prvek neexistuje, jinak index v poli
 					*/
-					int BinarySearch(int startIndex, int endIndex, const T& item);
+					int BinarySearch(int startIndex, int endIndex, const T& Item);
 
 					/**
 					* Metoda pro "pøeklopení" pole. 
@@ -232,11 +232,11 @@ namespace ADSLibrary
 					return m_size;
 				}
 
-				template <class T> bool DynamicArray<T>::Contains(const T& value) const
+				template <class T> bool DynamicArray<T>::Contains(const T& Item) const
 				{
 					for (int i = 0; i < m_count; i++)
 					{
-						if (m_array[i] == value)
+						if (m_array[i] == Item)
 						{
 							return true;
 						}
@@ -244,14 +244,14 @@ namespace ADSLibrary
 					return false;
 				}
 
-				template <class T> void DynamicArray<T>::Remove(const T& value)
+				template <class T> void DynamicArray<T>::Remove(const T& Item)
 				{
 					int position = 0;
 					if (!IsEmpty())
 					{
 						for (position; position < m_count; position++)
 						{
-							if (m_array[position] == value) break;
+							if (m_array[position] == Item) break;
 						}
 						for (int i = position; i<m_count; i++)
 						{
@@ -370,21 +370,21 @@ namespace ADSLibrary
 					}
 				}
 
-				template <class T> int DynamicArray<T>::BinarySearch(int startIndex, int endIndex, const T& item)
+				template <class T> int DynamicArray<T>::BinarySearch(int startIndex, int endIndex, const T& Item)
 				{
 					if (startIndex > endIndex) return -1;
 
 					const int middle = startIndex + ((endIndex - startIndex) / 2);
 
-					if (m_array[middle] == item)
+					if (m_array[middle] == Item)
 					{
 						return middle;
 					}
-					if (m_array[middle] > item)
+					if (m_array[middle] > Item)
 					{
-						return BinarySearch(startIndex, middle - 1, item);
+						return BinarySearch(startIndex, middle - 1, Item);
 					}
-					return BinarySearch(middle + 1, endIndex, item);
+					return BinarySearch(middle + 1, endIndex, Item);
 				}
 
 				template<class T> void DynamicArray<T>::Reverse()
