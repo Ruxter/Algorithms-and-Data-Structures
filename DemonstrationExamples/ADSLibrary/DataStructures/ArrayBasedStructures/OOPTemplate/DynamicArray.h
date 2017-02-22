@@ -1,5 +1,4 @@
 #pragma once
-#include "../../../../IComparer.h"
 
 // Waiting: 
 // Done?: Copy ctor, Sort (except: number of elements for different alg?), BinarySearch, Reverse, Insert, RemoveAt, r-val overload operator[]
@@ -38,7 +37,7 @@ namespace ADSLibrary
 					/**
 					* Pøetížení operátoru []
 					*/
-					const T& operator[](const int index);
+					T& operator[](const int index);
 
 					/**
 					* Pøetížení operátoru [] pro r-value
@@ -105,7 +104,7 @@ namespace ADSLibrary
 					* @param right pravá hranice(index) pro setøídìní
 					* @param cmp pomocný interface IComparable pro porovnávání hodnot objektu
 					*/
-					void QuickSortObjects(int left, int right, IComparable<T> *cmp);
+					//void QuickSortObjects(int left, int right, IComparable<T> *cmp);
 
 					/**
 					* Metoda pro vyhledávání prvku v poli. Pole musí být pøed zavoláním BinarySearch setøízené.
@@ -163,6 +162,9 @@ namespace ADSLibrary
 
 					/**
 					* Pomocná metoda pro Quick Sort, prohodí dva prvky
+					* @param m_array pole, které je procházeno quicksortem
+					* @param left
+					* @param right
 					*/
 					void Swap(T m_array[], int left, int right);
 				};
@@ -196,7 +198,7 @@ namespace ADSLibrary
 					delete[] m_array;
 				}
 
-				template <class T> const T& DynamicArray<T>::operator[] (const int index)
+				template <class T> T& DynamicArray<T>::operator[] (const int index)
 				{
 					return m_array[index];
 				}
@@ -351,7 +353,7 @@ namespace ADSLibrary
 					}
 				}
 
-				template <class T> void DynamicArray<T>::QuickSortObjects(int left, int right, IComparable<T> *cmp)
+				/*template <class T> void DynamicArray<T>::QuickSortObjects(int left, int right, IComparable<T> *cmp)
 				{
 					if (left < right) {
 						int pivot = left;
@@ -366,7 +368,7 @@ namespace ADSLibrary
 						QuickSortObjects(left, pivot, cmp);
 						QuickSortObjects(pivot + 1, right, cmp);
 					}
-				}
+				}*/
 
 				template <class T> int DynamicArray<T>::BinarySearch(int startIndex, int endIndex, const T& Item)
 				{

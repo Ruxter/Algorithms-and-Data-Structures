@@ -114,6 +114,9 @@
     <ClCompile Include="DummyClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tests\SortedSetTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h">
@@ -198,6 +201,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IComparer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\ISet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\HashSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\SortedSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\SortedSetTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\IDictionary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\Dictionary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\SortedDictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

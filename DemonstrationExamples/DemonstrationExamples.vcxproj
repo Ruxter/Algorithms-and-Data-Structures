@@ -132,6 +132,7 @@
     <ClCompile Include="Tests\DynamicArrayTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tests\OOPTemplateListTest.cpp" />
+    <ClCompile Include="Tests\SortedSetTest.cpp" />
     <ClCompile Include="Tests\TestClass.cpp" />
     <ClCompile Include="Tests\DoublyLinkedListTest.cpp" />
   </ItemGroup>
@@ -145,6 +146,12 @@
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\Dictionary.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\IDictionary.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\SortedDictionary.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\HashSet.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\ISet.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\SortedSet.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\DoublyLinkedList.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Queue.h" />
@@ -162,6 +169,7 @@
     <ClInclude Include="IComparer.h" />
     <ClInclude Include="Tests\DynamicArrayTest.h" />
     <ClInclude Include="Tests\OOPTemplateListTest.h" />
+    <ClInclude Include="Tests\SortedSetTest.h" />
     <ClInclude Include="Tests\TestClass.h" />
     <ClInclude Include="Tests\DoublyLinkedListTest.h" />
   </ItemGroup>

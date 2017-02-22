@@ -261,12 +261,12 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 	list3->Add(*d4);
 	list3->Add(*d5);
 
-	DummyComparer *comparer = new DummyComparer();
-	IComparable<DummyClass> *cmp = (IComparable<DummyClass>*) comparer;
+	/*DummyComparer *comparer = new DummyComparer();
+	IComparable<DummyClass> *cmp = (IComparable<DummyClass>*) comparer;*/
 	EXPECT_EQ(5, list3->Count());
 	EXPECT_EQ(10, list3->Size());
 
-	list3->QuickSortObjects(0, list3->Count(), cmp);
+	//list3->QuickSortObjects(0, list3->Count(), cmp);
 
 	for (int i = 0; i < list3->Count(); i++)
 	{
@@ -323,6 +323,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestBinarySearch)
 	list->Add(25);	
 	list->Add(0);	
 	list->Add(6);
+	list->Sort();
 	EXPECT_EQ(0, list->BinarySearch(0, list->Count(), 0));
 	EXPECT_EQ(4, list->BinarySearch(0, list->Count(), 25));
 	EXPECT_EQ(2, list->BinarySearch(0, list->Count(), 5));
