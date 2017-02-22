@@ -203,9 +203,6 @@
     <ClInclude Include="IComparer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\ISet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\HashSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -213,9 +210,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tests\SortedSetTest.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\IDictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\Dictionary.h">
