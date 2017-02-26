@@ -160,10 +160,22 @@ namespace ADSLibrary
 					*/
 					Node* FindMax(Node* node);
 
+					/**
+					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí inorder
+					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					*/
 					void InOrder(const Node* node);
 
+					/**
+					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí preoder
+					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					*/
 					void PreOrder(const Node* node);
 
+					/**
+					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí postorder
+					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					*/
 					void PostOrder(const Node* node);
 				};
 
@@ -212,7 +224,7 @@ namespace ADSLibrary
 
 				template<typename T> typename SortedSet<T>::Node* SortedSet<T>::Insert(Node* node, const T& Key)
 				{
-					if (node == NULL) {
+					if (node == nullptr) {
 						node = new Node();
 						node->Key = Key;
 						node->Left = node->Right = NULL;
@@ -233,7 +245,7 @@ namespace ADSLibrary
 
 				template<typename T> typename SortedSet<T>::Node* SortedSet<T>::Remove(Node* node, const T& Key)
 				{
-					if (node == NULL) return node;
+					if (node == nullptr) return node;
 					if (Key < node->Key) node->Left = Remove(node->Left, Key);
 					else if (Key > node->Key) node->Right = Remove(node->Right, Key);
 					else{
@@ -266,7 +278,7 @@ namespace ADSLibrary
 
 				template <typename T> typename SortedSet<T>::Node* SortedSet<T>::FindMax(Node* root)
 				{
-					if (root == NULL) return NULL;
+					if (root == nullptr) return nullptr;
 					while (root->Right != NULL)
 					{
 						root = root->Right;
@@ -303,7 +315,7 @@ namespace ADSLibrary
 
 				template<typename T> bool SortedSet<T>::IsEmpty() const
 				{
-					return m_root == NULL;
+					return m_root == nullptr;
 				}
 
 				template<typename T> void SortedSet<T>::Clear()

@@ -23,13 +23,13 @@ struct SortedDictionaryOOPTemplate : testing::Test
 TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTest)
 {
 	EXPECT_EQ(true, dic->IsEmpty());
-	EXPECT_EQ(false, dic->ContainsKey(4));
+	EXPECT_EQ(false, dic->Contains(4));
 	dic->Add(5, 1000);
 	dic->Add(4, 2000);
 	dic->Add(6, 3000);
 	dic->Add(3, 4000);
 	dic->Add(7, 5000);
-	EXPECT_EQ(true, dic->ContainsKey(5));
+	EXPECT_EQ(true, dic->Contains(5));
 	EXPECT_EQ(5, dic->Size());
 	EXPECT_EQ(false, dic->IsEmpty());
 	dic->Clear();
@@ -68,8 +68,8 @@ TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTestRemove)
 
 	dic->Remove(40);
 	EXPECT_EQ(11, dic->Size());
-	EXPECT_EQ(false, dic->ContainsKey(40));
-	EXPECT_EQ(true, dic->ContainsKey(50));
+	EXPECT_EQ(false, dic->Contains(40));
+	EXPECT_EQ(true, dic->Contains(50));
 	dic->Clear();
 	EXPECT_EQ(true, dic->IsEmpty());
 }
