@@ -41,7 +41,7 @@ namespace ADSLibrary
 					* Metoda pro odebrání prvku do množiny
 					* @param key hodnota odebíraného prvku
 					*/
-					void Remove(const T& key);
+					void Remove(const T& key);					
 
 					/**
 					* Metoda pro zjištìní velikosti množiny
@@ -112,17 +112,17 @@ namespace ADSLibrary
 
 					/**
 					* Privátní rekurzivní metoda pro zkopírování množiny
-					* @param thisRoot reprezentuje nový element
-					* @param sourceRoot reprezentuje zdrojový element
+					* @param newNode reprezentuje nový element
+					* @param sourceNode reprezentuje zdrojový element
 					*/
-					void CopyTree(Node*& thisRoot, Node*& sourceRoot);
+					void CopyTree(Node*& newNode, Node*& sourceNode);
 
 					/**
 					* Privátní rekurzivní metoda pro vložení prvku na správné místo v množinì
 					* @param key reprezentuje hodnotu prvku
-					* @param element reprezentuje element, který se rekurzivnì pøedává
+					* @param root reprezentuje element, který se rekurzivnì pøedává
 					*/
-					void Insert(const T& key, Node* element);
+					Node* Insert(Node* root, const T& key);
 
 					/**
 					* Privátní rekurzivní metoda pro odebrání prvku z množiny a nahrazení tohoto místa vhodným prvkem 
@@ -130,13 +130,7 @@ namespace ADSLibrary
 					* @param key reprezentuje hodnotu prvku 
 					* @return Node* vrací výsledný prvek, který se dále rekurzivnì pøedává
 					*/
-					Node* Remove(Node* node, const T& key);
-				
-					/**
-					* Metoda pro korektní odebrání koøene stromu(strom se musí chovat jako množina)
-					* @param node reprezentuje element, který se rekurzivnì pøedává
-					*/
-					void ReplaceRoot(Node* node);
+					Node* Remove(Node* node, const T& key);				
 
 					/**
 					* Privátní rekurzivní metoda pro korektní odebrání všech prkù z množiny a jejich dealokace
@@ -160,11 +154,11 @@ namespace ADSLibrary
 					bool Contains(const Node* node, const T& key);
 
 					/**
-					* Privátní rekurzivní metoda pro zjištìní nejlevìjšího prvku v podstromu
+					* Privátní rekurzivní metoda pro zjištìní nejpravìjšího prvku v levém podstromu
 					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					* @return prvek nutný pro další rekurze
 					*/
-					Node* FindMin(Node* node);
+					Node* FindMax(Node* node);
 
 					void InOrder(const Node* node);
 
@@ -200,12 +194,13 @@ namespace ADSLibrary
 				
 				template<typename T> SortedSet<T>::~SortedSet()
 				{
+					Clear(m_root);
 				}
 
 				template<typename T> void SortedSet<T>::Insert(const T& key)
 				{
 					if (m_root != nullptr)
-						Insert(key, m_root);
+						Insert(m_root, key);
 					else
 					{
 						m_root = new Node();
@@ -215,74 +210,69 @@ namespace ADSLibrary
 					}
 				}
 
-				template<typename T> void SortedSet<T>::Insert(const T& key, Node* node)
+				template<typename T> typename SortedSet<T>::Node* SortedSet<T>::Insert(Node* node, const T& Key)
 				{
-					if (key < node->Key)
-					{
-						if (node->Left != NULL)
-							Insert(key, node->Left);
-						else
-						{
-							node->Left = new Node();
-							node->Left->Key = key;
-							node->Left->Left = NULL;
-							node->Left->Right = NULL; 
-						}
+					if (node == NULL) {
+						node = new Node();
+						node->Key = Key;
+						node->Left = node->Right = NULL;
 					}
-					else if (key >= node->Key)
-					{
-						if (node->Right != NULL)
-							Insert(key, node->Right);
-						else
-						{
-							node->Right = new Node();
-							node->Right->Key = key;
-							node->Right->Left = NULL; 
-							node->Right->Right = NULL;
-						}
+					else if (Key <= node->Key) {
+						node->Left = Insert(node->Left, Key);
 					}
+					else {
+						node->Right = Insert(node->Right, Key);
+					}
+					return node;
 				}	
 				
-				template<typename T> void SortedSet<T>::Remove(const T& key)
+				template<typename T> void SortedSet<T>::Remove(const T& Key)
 				{
-					Remove(m_root, key);
+					Remove(m_root, Key);
 				}
 
 				template<typename T> typename SortedSet<T>::Node* SortedSet<T>::Remove(Node* node, const T& Key)
 				{
-					Node* temp;
-					if (node == NULL) return NULL;
+					if (node == NULL) return node;
 					if (Key < node->Key) node->Left = Remove(node->Left, Key);
-					if (Key > node->Key) node->Right = Remove(node->Right, Key);
-					if (node->Left && node->Right)
-					{
-						temp = FindMin(node->Right);
-						node->Key = temp->Key;
-						node->Right = Remove(node->Right, node->Key);
-					}
-					else
-					{
-						temp = node;
-						if (node->Left == NULL) node = node->Right;
-						else if (node->Right == NULL) node = node->Left;
-						delete temp;
+					else if (Key > node->Key) node->Right = Remove(node->Right, Key);
+					else{
+						if (node->Right == NULL && node->Left == NULL) // Bez potomka
+						{
+							delete node;
+							node = NULL;
+						}
+						else if (node->Right == NULL) // Jen levý potomek
+						{
+							Node* temp = node;
+							node = node->Left;
+							delete temp;
+						}
+						else if (node->Left == NULL) // Jen pravý potomek
+						{
+							Node* temp = node;
+							node = node->Right;
+							delete temp;
+						}
+						else
+						{ // Oba potomci
+							Node* temp = FindMax(node->Left);
+							node->Key = temp->Key;
+							node->Left = Remove(node->Left, temp->Key);
+						}
 					}
 					return node;
-				}
+				}				
 
-
-				template <class T> typename SortedSet<T>::Node* SortedSet<T>::FindMin(Node* t)
+				template <class T> typename SortedSet<T>::Node* SortedSet<T>::FindMax(Node* root)
 				{
-					if (t == NULL)	return NULL;
-					if (t->Left == NULL) return t;
-					return FindMin(t->Left);
+					if (root == NULL) return NULL;
+					while (root->Right != NULL)
+					{
+						root = root->Right;
+					}
+					return root;
 				}
-
-				template<typename T> void SortedSet<T>::ReplaceRoot(Node* node)
-				{	
-
-				}
-				
 
 				template<typename T> bool SortedSet<T>::Contains(const T& key)
 				{
@@ -297,7 +287,7 @@ namespace ADSLibrary
 					return Contains(node->Right, key);
 				}
 
-				template<typename T> int  SortedSet<T>::Size()
+				template<typename T> int SortedSet<T>::Size()
 				{
 					return Size(m_root);
 				}
@@ -373,10 +363,6 @@ namespace ADSLibrary
 						std::cout << node->Key << " ";
 					}
 				}
-
-
-				
-
 			}
 		}
 	}

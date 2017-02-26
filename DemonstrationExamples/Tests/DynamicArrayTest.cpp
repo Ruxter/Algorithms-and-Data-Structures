@@ -51,7 +51,6 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 
 	list->Add(8);
 	EXPECT_EQ(2, list->Count());
-	EXPECT_EQ(8, list->m_array[1]);
 	EXPECT_EQ(10, list->Size());
 	
 	list->Add(10);	
@@ -263,15 +262,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 
 	/*DummyComparer *comparer = new DummyComparer();
 	IComparable<DummyClass> *cmp = (IComparable<DummyClass>*) comparer;*/
-	EXPECT_EQ(5, list3->Count());
-	EXPECT_EQ(10, list3->Size());
-
-	//list3->QuickSortObjects(0, list3->Count(), cmp);
-
-	for (int i = 0; i < list3->Count(); i++)
-	{
-		cout << list3->m_array[i].x << endl;
-	}
+	
 
 	EXPECT_EQ(true, list4->IsEmpty());
 	EXPECT_EQ(false, list4->Contains("A"));	

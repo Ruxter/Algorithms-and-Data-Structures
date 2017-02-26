@@ -215,9 +215,6 @@
     <ClInclude Include="Tests\SortedSetTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\Dictionary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\SortedDictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>

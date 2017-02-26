@@ -1,8 +1,5 @@
 #pragma once
-#include "../../ArrayBasedStructures/OOPTemplate/DynamicArray.h"
 #include <wchar.h>
-#include <iostream>
-using namespace ADSLibrary::DataStructures::ArrayBasedStructures::OOPTemplate;
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -10,13 +7,13 @@ namespace ADSLibrary
 		namespace CollectionsGenerics
 		{
 			namespace Dictionary
-			{
+			{				
 				template <class K, class T> class SortedDictionary
 				{
 				public:
 					SortedDictionary();
 					~SortedDictionary();
-					void Add(const T& Key, const T& Value);
+					void Add(const K& Key, const T& Value);
 
 				private:
 					
@@ -33,7 +30,7 @@ namespace ADSLibrary
 
 					Pair* m_root;
 
-					void Add(Pair* root, const T& Key, const T& Value);
+					Pair* Add(Pair* pair, const K& Key, const T& Value);
 				};
 
 				template<typename K, typename T> SortedDictionary<K, T>::SortedDictionary()
@@ -46,7 +43,7 @@ namespace ADSLibrary
 
 				}
 
-				template<typename K, typename T> void SortedDictionary<K, T>::Add(const T& Key, const T& Value)
+				template<typename K, typename T> void SortedDictionary<K, T>::Add(const K& Key, const T& Value)
 				{
 					if (m_root != nullptr)
 						Add(m_root, Key, Value);
@@ -60,34 +57,20 @@ namespace ADSLibrary
 					}
 				}
 
-				template<typename K, typename T> void SortedDictionary<K, T>::Add(Pair* node, const T& Key, const T& Value)
+				template<typename K, typename T> typename SortedDictionary<T, K>::Pair* SortedDictionary<K, T>::Add(Pair* pair, const K& Key, const T& Value)
 				{
-					if (Key < node->Key)
-					{
-						if (node->Left != NULL)
-							Add(node->Left, Key, Value);
-						else
-						{
-							node->Left = new Pair();
-							node->Left->Key = Key;
-							node->Left->Value = Value;
-							node->Left->Left = NULL;
-							node->Left->Right = NULL;
-						}
+					if (pair == NULL) {
+						pair = new Pair();
+						pair->Key = Key;
+						pair->Left = pair->Right = NULL;
 					}
-					else if (Key >= node->Key)
-					{
-						if (node->Right != NULL)
-							Add(node->Right, Key, Value);
-						else
-						{
-							node->Right = new Pair();
-							node->Right->Key = Key;
-							node->Right->Value = Value;
-							node->Right->Left = NULL;
-							node->Right->Right = NULL;
-						}
+					else if (Key <= pair->Key) {
+						pair->Left = Insert(pair->Left, Key);
 					}
+					else {
+						pair->Right = Insert(pair->Right, Key);
+					}
+					return pair;
 				}
 			}
 		}

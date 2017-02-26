@@ -99,14 +99,6 @@ namespace ADSLibrary
 					void Sort();
 
 					/**
-					* Øadící algoritmus Quick Sort pro objekty. Pivot je nastaven implicitnì na nultý prvek pole
-					* @param left levá hranice(index) pro setøídìní
-					* @param right pravá hranice(index) pro setøídìní
-					* @param cmp pomocný interface IComparable pro porovnávání hodnot objektu
-					*/
-					//void QuickSortObjects(int left, int right, IComparable<T> *cmp);
-
-					/**
 					* Metoda pro vyhledávání prvku v poli. Pole musí být pøed zavoláním BinarySearch setøízené.
 					* @param startIndex levá hranice(index) pro vyhledávání v poli
 					* @param endIndex pravá hranice(index) pro vyhledávání v poli
@@ -125,14 +117,23 @@ namespace ADSLibrary
 					*/
 					void Report();
 
+				private:
+
 					/**
-					* Tyto prvky jsou zatím v rámci testování v bloku public, pozdìji pøijdou do bloku private
+					* Reprezentuje pole
 					*/
 					T* m_array;
-					int m_size;
-					int m_count;
 
-				private:
+					/**
+					* Promìnná reprezentující kapacitu seznamu
+					*/
+					int m_size;
+
+					/**
+					* Promìnná reprezentující poèet prvkù v seznamu
+					*/
+
+					int m_count;
 					/**
 					* Metoda používaná pro rozšiøování, èi redukci velikosti pole
 					*/

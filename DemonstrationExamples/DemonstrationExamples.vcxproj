@@ -147,7 +147,6 @@
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.h" />
-    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\Dictionary.h" />
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\SortedDictionary.h" />
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\HashSet.h" />
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\SortedSet.h" />
