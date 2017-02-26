@@ -264,7 +264,7 @@ namespace ADSLibrary
 					return node;
 				}				
 
-				template <class T> typename SortedSet<T>::Node* SortedSet<T>::FindMax(Node* root)
+				template <typename T> typename SortedSet<T>::Node* SortedSet<T>::FindMax(Node* root)
 				{
 					if (root == NULL) return NULL;
 					while (root->Right != NULL)
