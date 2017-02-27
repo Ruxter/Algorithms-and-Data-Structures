@@ -129,6 +129,7 @@
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\Procedural\</ObjectFileName>
     </ClCompile>
     <ClCompile Include="DummyClass.cpp" />
+    <ClCompile Include="Tests\DictionaryTest.cpp" />
     <ClCompile Include="Tests\DynamicArrayTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tests\OOPTemplateListTest.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\Dictionary.h" />
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\SortedDictionary.h" />
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\HashSet.h" />
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\SortedSet.h" />
@@ -165,6 +167,7 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
     <ClInclude Include="DummyClass.h" />
     <ClInclude Include="IComparer.h" />
+    <ClInclude Include="Tests\DictionaryTest.h" />
     <ClInclude Include="Tests\DynamicArrayTest.h" />
     <ClInclude Include="Tests\OOPTemplateListTest.h" />
     <ClInclude Include="Tests\SortedDictionaryTest.h" />

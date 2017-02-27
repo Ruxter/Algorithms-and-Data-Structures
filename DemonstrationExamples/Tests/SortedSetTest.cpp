@@ -23,11 +23,11 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTest)
 {
 	EXPECT_EQ(true, set->IsEmpty());
 	EXPECT_EQ(false, set->Contains(4));
-	set->Insert(5);
-	set->Insert(4);
-	set->Insert(6);
-	set->Insert(3);
-	set->Insert(7);
+	set->Add(5);
+	set->Add(4);
+	set->Add(6);
+	set->Add(3);
+	set->Add(7);
 	EXPECT_EQ(true, set->Contains(4));
 	EXPECT_EQ(5, set->Size());
 	EXPECT_EQ(false, set->IsEmpty());
@@ -37,11 +37,11 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTest)
 
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestOrders)
 {
-	set->Insert(30);
-	set->Insert(10);
-	set->Insert(20);
-	set->Insert(40);
-	set->Insert(50);
+	set->Add(30);
+	set->Add(10);
+	set->Add(20);
+	set->Add(40);
+	set->Add(50);
 
 	set->InOrder();
 	std::cout << "\n";
@@ -52,18 +52,18 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestOrders)
 
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestRemove)
 {
-	set->Insert(50);
-	set->Insert(40);
-	set->Insert(45);
-	set->Insert(42);
-	set->Insert(35);
-	set->Insert(55);
-	set->Insert(52);
-	set->Insert(100);
-	set->Insert(72);
-	set->Insert(37);
-	set->Insert(34);
-	set->Insert(101);
+	set->Add(50);
+	set->Add(40);
+	set->Add(45);
+	set->Add(42);
+	set->Add(35);
+	set->Add(55);
+	set->Add(52);
+	set->Add(100);
+	set->Add(72);
+	set->Add(37);
+	set->Add(34);
+	set->Add(101);
 
 	set->Remove(40);
 	EXPECT_EQ(11, set->Size());
@@ -75,35 +75,35 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestRemove)
 
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestRemove2)
 {
-	set->Insert(50);
-	set->Insert(40);
-	set->Insert(45);
-	set->Insert(42);
-	set->Insert(35);
-	set->Insert(55);
-	set->Insert(52);
-	set->Insert(100);
-	set->Insert(72);
-	set->Insert(37);
-	set->Insert(34);
-	set->Insert(101);
+	set->Add(50);
+	set->Add(40);
+	set->Add(45);
+	set->Add(42);
+	set->Add(35);
+	set->Add(55);
+	set->Add(52);
+	set->Add(100);
+	set->Add(72);
+	set->Add(37);
+	set->Add(34);
+	set->Add(101);
 
 	set->Remove(50);
 	set->Remove(55);
 
-	set->Insert(51);
-	set->Insert(48);
+	set->Add(51);
+	set->Add(48);
 }
 
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateNotIntTest)
 {
-	set2->Insert("M");
-	set2->Insert("G");
-	set2->Insert("R");
-	set2->Insert("B");
-	set2->Insert("I"); 
-	set2->Insert("H");
-	set2->Insert("X");
+	set2->Add("M");
+	set2->Add("G");
+	set2->Add("R");
+	set2->Add("B");
+	set2->Add("I"); 
+	set2->Add("H");
+	set2->Add("X");
 
 	set2->Remove("M");
 }

@@ -35,7 +35,7 @@ namespace ADSLibrary
 					* Metoda pro vkládání prvku do množiny
 					* @param key hodnota vkládaného prvku
 					*/
-					void Insert(const T& key);
+					void Add(const T& key);
 
 					/**
 					* Metoda pro odebrání prvku do množiny
@@ -122,7 +122,7 @@ namespace ADSLibrary
 					* @param key reprezentuje hodnotu prvku
 					* @param root reprezentuje element, který se rekurzivnì pøedává
 					*/
-					Node* Insert(Node* root, const T& key);
+					Node* Add(Node* root, const T& key);
 
 					/**
 					* Privátní rekurzivní metoda pro odebrání prvku z množiny a nahrazení tohoto místa vhodným prvkem 
@@ -209,10 +209,10 @@ namespace ADSLibrary
 					Clear(m_root);
 				}
 
-				template<typename T> void SortedSet<T>::Insert(const T& key)
+				template<typename T> void SortedSet<T>::Add(const T& key)
 				{
 					if (m_root != nullptr)
-						Insert(m_root, key);
+						Add(m_root, key);
 					else
 					{
 						m_root = new Node();
@@ -222,7 +222,7 @@ namespace ADSLibrary
 					}
 				}
 
-				template<typename T> typename SortedSet<T>::Node* SortedSet<T>::Insert(Node* node, const T& Key)
+				template<typename T> typename SortedSet<T>::Node* SortedSet<T>::Add(Node* node, const T& Key)
 				{
 					if (node == nullptr) {
 						node = new Node();
@@ -230,10 +230,10 @@ namespace ADSLibrary
 						node->Left = node->Right = NULL;
 					}
 					else if (Key <= node->Key) {
-						node->Left = Insert(node->Left, Key);
+						node->Left = Add(node->Left, Key);
 					}
 					else {
-						node->Right = Insert(node->Right, Key);
+						node->Right = Add(node->Right, Key);
 					}
 					return node;
 				}	

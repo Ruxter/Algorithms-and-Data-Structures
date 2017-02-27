@@ -1,5 +1,6 @@
 #pragma once
-#include "ISet.h"
+#include <memory>
+
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -8,27 +9,26 @@ namespace ADSLibrary
 		{
 			namespace Set
 			{
-				template <class T> class HashSet : public Iset<T>
+				template <class T> class HashSet
 				{
 				public:
 					HashSet();
 					~HashSet();
-					void Add(const T& Item) override;
-					bool Remove(const T& Item) override;
-					bool Contains(const T& Item) override;
-					int Size() override;
-					bool IsEmpty() override;
-					bool Clear() override;
+					void Add(const T& Item);
+					bool Remove(const T& Item);
+					bool Contains(const T& Item);
+					int Size();
+					bool IsEmpty();
+					bool Clear();
 
 				private:
 
-					T<HashSet> set;
-					
+					int hashFunc(const T& neco);
 				};
 
 				template<typename T> HashSet<T>::HashSet()
 				{
-					
+						
 				}
 
 				template<typename T> HashSet<T>::~HashSet()
@@ -53,7 +53,7 @@ namespace ADSLibrary
 
 				template<typename T> int HashSet<T>::Size()
 				{
-					return set.size();
+					return 0;
 				}
 
 				template<typename T> bool HashSet<T>::IsEmpty()
@@ -64,6 +64,9 @@ namespace ADSLibrary
 				template<typename T> bool HashSet<T>::Clear()
 				{
 					return true;
+				}
+				template<typename T> int HashSet<T>::hashFunc(const T& neco)
+				{
 				}
 			}
 		}
