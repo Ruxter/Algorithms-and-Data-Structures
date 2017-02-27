@@ -95,6 +95,14 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestRemove2)
 	set->Add(48);
 }
 
+TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTest3)
+{
+	set->Add(40);
+	set->Add(30);
+	set->Add(50);
+	set->Add(50);
+}
+
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateNotIntTest)
 {
 	set2->Add("M");

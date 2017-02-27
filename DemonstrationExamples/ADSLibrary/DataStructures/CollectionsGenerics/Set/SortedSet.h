@@ -229,7 +229,8 @@ namespace ADSLibrary
 						node->Key = Key;
 						node->Left = node->Right = NULL;
 					}
-					else if (Key <= node->Key) {
+					else if (Key == node->Key) return node;
+					else if (Key < node->Key) {
 						node->Left = Add(node->Left, Key);
 					}
 					else {

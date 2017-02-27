@@ -223,7 +223,8 @@ namespace ADSLibrary
 						pair->Value = Value;
 						pair->Left = pair->Right = NULL;
 					}
-					else if (Key <= pair->Key) {
+					else if (Key == pair->Key) return pair;
+					else if (Key < pair->Key) {
 						pair->Left = Add(pair->Left, Key, Value);
 					}
 					else {

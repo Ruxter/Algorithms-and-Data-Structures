@@ -96,6 +96,15 @@ TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTestRemove2)
 	dic->Add(48, 963);
 }
 
+TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTest3)
+{
+	dic->Add(40, 500);
+	dic->Add(30, 1000);
+	dic->Add(50, 1500); 
+	dic->Add(50, 1500);
+	dic->Add(30, 1000);
+}
+
 TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateNotIntTest)
 {
 	dic2->Add("M", 1);
