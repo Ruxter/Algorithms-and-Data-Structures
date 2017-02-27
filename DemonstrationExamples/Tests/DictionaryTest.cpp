@@ -41,7 +41,9 @@ TEST_F(DictionaryOOPTemplate, DictionarOOPTemplateTest)
 	dic->Insert(257, 1000);
 	dic->Insert(4, 2000);
 
-	EXPECT_EQ(2000, dic->Get(4));
+	EXPECT_EQ(2000, dic->Get(4)); 
+	dic->Remove(257);
+	EXPECT_EQ(-1, dic->Get(257));
 	
 }
 
