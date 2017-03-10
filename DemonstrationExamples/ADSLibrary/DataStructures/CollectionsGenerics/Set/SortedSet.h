@@ -82,6 +82,11 @@ namespace ADSLibrary
 					*/
 					void PostOrder();
 
+					/**
+					* Metoda pro vypsání množiny v poøadí inorder
+					*/
+					void Intersect(SortedSet& set);
+
 				private:
 					
 					/**
@@ -375,6 +380,11 @@ namespace ADSLibrary
 						PostOrder(node->Right);
 						std::cout << node->Key << " ";
 					}
+				}
+
+				template <class T> void SortedSet<T>::Intersect(SortedSet& set)
+				{
+					
 				}
 			}
 		}

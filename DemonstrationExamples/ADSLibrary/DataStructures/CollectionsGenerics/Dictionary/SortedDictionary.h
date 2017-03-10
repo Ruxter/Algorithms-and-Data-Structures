@@ -107,7 +107,7 @@ namespace ADSLibrary
 					* @param Key reprezentuje klíè prvku
 					* @param Value reprezentuje hodnotu prvku
 					*/
-					Pair* Add(Pair* pair, const K& Key, const V& Value);
+					Pair* Add(Pair*& pair, const K& Key, const V& Value);
 
 					/**
 					* Privátní rekurzivní metoda pro zkopírování slovníku
@@ -215,9 +215,9 @@ namespace ADSLibrary
 					}
 				}
 
-				template<typename K, typename V> typename SortedDictionary<K, V>::Pair* SortedDictionary<K, V>::Add(Pair* pair, const K& Key, const V& Value)
+				template<typename K, typename V> typename SortedDictionary<K, V>::Pair* SortedDictionary<K, V>::Add(Pair*& pair, const K& Key, const V& Value)
 				{
-					if (pair == NULL) {
+					if (pair == nullptr) {
 						pair = new Pair();
 						pair->Key = Key;
 						pair->Value = Value;
@@ -240,7 +240,7 @@ namespace ADSLibrary
 
 				template<typename K, typename V> typename SortedDictionary<K, V>::Pair* SortedDictionary<K, V>::Remove(Pair* pair, const K& Key)
 				{
-					if (pair == NULL) return pair;
+					if (pair == nullptr) return pair;
 					if (Key < pair->Key) pair->Left = Remove(pair->Left, Key);
 					else if (Key > pair->Key) pair->Right = Remove(pair->Right, Key);
 					else {
@@ -273,7 +273,7 @@ namespace ADSLibrary
 
 				template <typename K, typename V> typename SortedDictionary<K, V>::Pair* SortedDictionary<K, V>::FindMax(Pair* root)
 				{
-					if (root == NULL) return NULL;
+					if (root == nullptr) return nullptr;
 					while (root->Right != NULL)
 					{
 						root = root->Right;
@@ -307,7 +307,7 @@ namespace ADSLibrary
 
 				template<typename K, typename V> bool SortedDictionary<K, V>::IsEmpty() const
 				{
-					return m_root == NULL;
+					return m_root == nullptr;
 				}
 
 				template<typename K, typename V> void SortedDictionary<K, V>::Clear()
