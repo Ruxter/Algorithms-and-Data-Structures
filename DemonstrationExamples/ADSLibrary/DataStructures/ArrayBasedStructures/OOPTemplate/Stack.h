@@ -73,9 +73,35 @@ namespace ADSLibrary
 					bool IsFull() const;
 
 					/**
+					* Metoda pro zjištìní velikosti zásobníku
+					*
+					* @return Funkce vrací poèet všech slotù v zásobníku.
+					*/
+					int Size() const;
+
+					/**
+					* Metoda pro zjištìní poètu prvkù v zásobníku
+					*
+					* @return Funkce vrací poèet všech prvk§ v zásobníku.
+					*/
+					int Count() const;
+
+					/**
 					 * Smazání celého obsahu zásobníku.
 					 */
 					void Clear();
+
+					/**
+					* Pøetížení operátoru []
+					*/
+					T& operator[](const int index);
+
+					/**
+					* Pøetížení operátoru [] pro r-value
+					*/
+					const T& operator[](const int index) const;
+
+
 
 				private:
 					/**
@@ -94,9 +120,15 @@ namespace ADSLibrary
 					int StackPointer;
 
 					/**
+					* Poèet prvkù
+					*/
+					int Counter = 0;
+
+					/**
 					 * Výchozí (default) velikost zásobníku.
 					 */
 					static const int DefaultStackSize = 100;
+
 				};
 
 
@@ -126,17 +158,29 @@ namespace ADSLibrary
 				{
 					this->Items[this->StackPointer] = X;
 					this->StackPointer += 1;
+					Counter++;
 				}
 
 				template <typename T> T Stack<T>::Pop()
 				{
 					this->StackPointer -= 1;
+					Counter--;
 					return this->Items[this->StackPointer];
 				}
 
 				template <typename T> T Stack<T>::Top() const
 				{					
 					return this->Items[this->StackPointer - 1];
+				}
+
+				template <typename T> int Stack<T>::Size() const
+				{
+					return this->StackSize;
+				}
+
+				template <typename T> int Stack<T>::Count() const
+				{
+					return this->Counter;
 				}
 
 				template <typename T> bool Stack<T>::IsEmpty() const
@@ -153,6 +197,17 @@ namespace ADSLibrary
 				{
 					this->StackPointer = 0;
 				}
+				
+				template <class T> T& Stack<T>::operator[] (const int index)
+				{
+					return Items[index];
+				}
+
+				template <class T> const T& Stack<T>::operator[] (const int index) const
+				{
+					return Items[index];
+				}
+
 			}
 		}
 	}

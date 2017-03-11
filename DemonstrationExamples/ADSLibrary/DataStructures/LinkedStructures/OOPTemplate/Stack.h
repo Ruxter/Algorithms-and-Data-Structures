@@ -62,6 +62,11 @@ namespace ADSLibrary
 					 */
 					void Clear();
 
+					T getValue()
+					{
+						return Item.Value;
+					}
+
 				private:
 					/**
 					 * \brief Struktura reprezentující položku v zásobníku.
@@ -76,7 +81,7 @@ namespace ADSLibrary
 						 * Ukazatel na pøedchozí položku. Pokud taková položka neexistuje ukazatel má hodnotu nullptr.
 						 */
 						StackItem* Prev;
-					};
+					}Item;
 
 					/**
 					 * Ukazatel zásobníku.

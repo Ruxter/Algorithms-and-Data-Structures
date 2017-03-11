@@ -1,4 +1,5 @@
 #pragma once
+#include<iostream>
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -85,6 +86,9 @@ namespace ADSLibrary
 
 				private:
 					
+					/**
+					 * Reprezentuje jeden element slovníku
+					 */
 					struct Pair
 					{
 						K Key;
@@ -174,18 +178,18 @@ namespace ADSLibrary
 
 				template<typename K, typename V> SortedDictionary<K, V>::SortedDictionary()
 				{
-					m_root = NULL;
+					m_root = nullptr;
 				}
 
 				template<typename K, typename V> SortedDictionary<K, V>::SortedDictionary(const SortedDictionary& dic)
 				{
-					if (dic->m_root == nullptr) m_root = NULL;
+					if (dic->m_root == nullptr) m_root = nullptr;
 					else CopyTree(this->m_root, dic->m_root);
 				}
 
 				template<typename K, typename V> void SortedDictionary<K, V>::CopyTree(Pair*& newNode, Pair*& sourceNode)
 				{
-					if (sourceNode == nullptr) newNode = NULL;
+					if (sourceNode == nullptr) newNode = nullptr;
 					else
 					{
 						newNode = new Pair();
@@ -210,8 +214,8 @@ namespace ADSLibrary
 						m_root = new Pair();
 						m_root->Key = Key;
 						m_root->Value = Value;
-						m_root->Left = NULL;
-						m_root->Right = NULL;
+						m_root->Left = nullptr;
+						m_root->Right = nullptr;
 					}
 				}
 
@@ -221,7 +225,7 @@ namespace ADSLibrary
 						pair = new Pair();
 						pair->Key = Key;
 						pair->Value = Value;
-						pair->Left = pair->Right = NULL;
+						pair->Left = pair->Right = nullptr;
 					}
 					else if (Key == pair->Key) return pair;
 					else if (Key < pair->Key) {
@@ -244,18 +248,18 @@ namespace ADSLibrary
 					if (Key < pair->Key) pair->Left = Remove(pair->Left, Key);
 					else if (Key > pair->Key) pair->Right = Remove(pair->Right, Key);
 					else {
-						if (pair->Right == NULL && pair->Left == NULL) // Bez potomka
+						if (pair->Right == nullptr && pair->Left == nullptr) // Bez potomka
 						{
 							delete pair;
-							pair = NULL;
+							pair = nullptr;
 						}
-						else if (pair->Right == NULL) // Jen levý potomek
+						else if (pair->Right == nullptr) // Jen levý potomek
 						{
 							Pair* temp = pair;
 							pair = pair->Left;
 							delete temp;
 						}
-						else if (pair->Left == NULL) // Jen pravý potomek
+						else if (pair->Left == nullptr) // Jen pravý potomek
 						{
 							Pair* temp = pair;
 							pair = pair->Right;
@@ -274,7 +278,7 @@ namespace ADSLibrary
 				template <typename K, typename V> typename SortedDictionary<K, V>::Pair* SortedDictionary<K, V>::FindMax(Pair* root)
 				{
 					if (root == nullptr) return nullptr;
-					while (root->Right != NULL)
+					while (root->Right != nullptr)
 					{
 						root = root->Right;
 					}
@@ -313,7 +317,7 @@ namespace ADSLibrary
 				template<typename K, typename V> void SortedDictionary<K, V>::Clear()
 				{
 					Clear(m_root);
-					m_root = NULL;
+					m_root = nullptr;
 				}
 
 				template<typename K, typename V> void SortedDictionary<K, V>::Clear(const Pair* pair)

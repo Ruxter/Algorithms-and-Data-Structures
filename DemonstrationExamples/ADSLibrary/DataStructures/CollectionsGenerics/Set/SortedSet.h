@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+#include <stack>
 
 namespace ADSLibrary
 {
@@ -38,7 +40,7 @@ namespace ADSLibrary
 					void Add(const T& key);
 
 					/**
-					* Metoda pro odebrání prvku do množiny
+					* Metoda pro odebrání prvku množiny
 					* @param key hodnota odebíraného prvku
 					*/
 					void Remove(const T& key);					
@@ -54,7 +56,7 @@ namespace ADSLibrary
 					* @param key hodnota vyhledávaného prvku
 					* @return true pokud existuje, jinak false
 					*/
-					bool Contains(const T& key);
+					bool Contains(const T& key) const;
 
 					/**
 					* Metoda pro zjištìní, zda je množina prázdná
@@ -83,9 +85,18 @@ namespace ADSLibrary
 					void PostOrder();
 
 					/**
-					* Metoda pro vypsání množiny v poøadí inorder
+					* Metoda pro prùnik dvou množin
+					* @param set je vstupní množina, se kterou se provede prùnik
+					* @param setOut je výstupní množina po provedení operace
 					*/
-					void Intersect(SortedSet& set);
+					void Intersect(const SortedSet* set, SortedSet* setOut);
+
+					/**
+					* Metoda pro sjednocení dvou množin
+					* @param set je vstupní množina, se kterou se provede prùnik
+					* @param setOut je výstupní množina po provedení operace
+					*/
+					void Union(SortedSet* set,  SortedSet* setOut);
 
 				private:
 					
@@ -156,7 +167,7 @@ namespace ADSLibrary
 					* @param key hodnota prvku v množinì
 					* @return true pokud prvek existuje, false nikoliv
 					*/
-					bool Contains(const Node* node, const T& key);
+					bool Contains(const Node* node, const T& key) const;
 
 					/**
 					* Privátní rekurzivní metoda pro zjištìní nejpravìjšího prvku v levém podstromu
@@ -169,8 +180,8 @@ namespace ADSLibrary
 					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí inorder
 					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
-					void InOrder(const Node* node);
-
+					void InOrder(Node* node);
+					
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí preoder
 					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
@@ -182,24 +193,29 @@ namespace ADSLibrary
 					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void PostOrder(const Node* node);
+
+					/**
+					* Pomocný zásobník pro práci s množinami
+					*/
+					std::stack<T> stack;
 				};
 
 				template<typename T> SortedSet<T>::SortedSet()
 				{
-					m_root = NULL;
+					m_root = nullptr;
 				}
 
 				template<typename T> SortedSet<T>::SortedSet(const SortedSet& set)
 				{
 					if (set->m_root == nullptr)
-						m_root = NULL;
+						m_root = nullptr;
 					else
 						CopyTree(this->m_root, set->m_root);
 				}
 
 				template<typename T> void SortedSet<T>::CopyTree(Node *& newNode, Node *& sourceNode)
 				{
-					if (sourceNode == nullptr) newNode = NULL;
+					if (sourceNode == nullptr) newNode = nullptr;
 					else
 					{
 						newNode = new Node();
@@ -222,8 +238,8 @@ namespace ADSLibrary
 					{
 						m_root = new Node();
 						m_root->Key = key;
-						m_root->Left = NULL;
-						m_root->Right = NULL;
+						m_root->Left = nullptr;
+						m_root->Right = nullptr;
 					}
 				}
 
@@ -232,7 +248,7 @@ namespace ADSLibrary
 					if (node == nullptr) {
 						node = new Node();
 						node->Key = Key;
-						node->Left = node->Right = NULL;
+						node->Left = node->Right = nullptr;
 					}
 					else if (Key == node->Key) return node;
 					else if (Key < node->Key) {
@@ -255,18 +271,18 @@ namespace ADSLibrary
 					if (Key < node->Key) node->Left = Remove(node->Left, Key);
 					else if (Key > node->Key) node->Right = Remove(node->Right, Key);
 					else{
-						if (node->Right == NULL && node->Left == NULL) // Bez potomka
+						if (node->Right == nullptr && node->Left == nullptr) // Bez potomka
 						{
 							delete node;
-							node = NULL;
+							node = nullptr;
 						}
-						else if (node->Right == NULL) // Jen levý potomek
+						else if (node->Right == nullptr) // Jen levý potomek
 						{
 							Node* temp = node;
 							node = node->Left;
 							delete temp;
 						}
-						else if (node->Left == NULL) // Jen pravý potomek
+						else if (node->Left == nullptr) // Jen pravý potomek
 						{
 							Node* temp = node;
 							node = node->Right;
@@ -285,19 +301,19 @@ namespace ADSLibrary
 				template <typename T> typename SortedSet<T>::Node* SortedSet<T>::FindMax(Node* root)
 				{
 					if (root == nullptr) return nullptr;
-					while (root->Right != NULL)
+					while (root->Right != nullptr)
 					{
 						root = root->Right;
 					}
 					return root;
 				}
 
-				template<typename T> bool SortedSet<T>::Contains(const T& key)
+				template<typename T> bool SortedSet<T>::Contains(const T& key) const
 				{
 					return Contains(m_root, key);
 				}
 
-				template<typename T> bool SortedSet<T>::Contains(const Node* node, const T& key)
+				template<typename T> bool SortedSet<T>::Contains(const Node* node, const T& key) const
 				{
 					if (node == nullptr) return false;
 					if (key == node->Key) return true;
@@ -327,7 +343,7 @@ namespace ADSLibrary
 				template<typename T> void SortedSet<T>::Clear()
 				{
 					Clear(m_root);
-					m_root = NULL;
+					m_root = nullptr;
 				}
 
 				template<typename T> void SortedSet<T>::Clear(const Node* node)
@@ -345,8 +361,8 @@ namespace ADSLibrary
 					InOrder(m_root);
 				}
 
-				template <class T> void SortedSet<T>::InOrder(const Node* node)
-				{
+				template <class T> void SortedSet<T>::InOrder(Node* node)
+				{					
 					if (node) {
 						InOrder(node->Left);
 						std::cout << node->Key << " ";
@@ -363,6 +379,7 @@ namespace ADSLibrary
 				{
 					if (node) {
 						std::cout << node->Key << " ";
+						stack.push(node->Key); // Slouží k Intersection a Union množin
 						PreOrder(node->Left);
 						PreOrder(node->Right);
 					}
@@ -382,9 +399,38 @@ namespace ADSLibrary
 					}
 				}
 
-				template <class T> void SortedSet<T>::Intersect(SortedSet& set)
+				template <class T> void SortedSet<T>::Intersect(const SortedSet* set, SortedSet* setOut)
 				{
-					
+					PreOrder(m_root);
+					T tmp; 
+					for (unsigned int i = 0; i < stack.size(); i++)
+					{
+						tmp = stack.top();
+						if (set->Contains(tmp))
+						{
+							setOut->Add(tmp);
+							stack.pop();
+							i--;
+						}
+						else {
+							stack.pop();
+							i--;
+						}
+					}
+				}
+
+				template <class T> void SortedSet<T>::Union(SortedSet* set, SortedSet* newTable)
+				{
+					PreOrder(m_root);
+					T tmp;
+					CopyTree(newTable->m_root, set->m_root);
+					for (unsigned int i = 0; i < stack.size(); i++)
+					{
+						tmp = stack.top();
+						newTable->Add(tmp);
+						stack.pop();
+						i--;
+					}
 				}
 			}
 		}

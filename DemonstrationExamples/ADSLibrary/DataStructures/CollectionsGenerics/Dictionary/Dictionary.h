@@ -38,8 +38,9 @@ namespace ADSLibrary
 				};
 
 				/**
-				 * Dictionary reprezentovaný skrze HashTable
-				 */
+				* Dictionary je NEuspoøádaný slovník/mapa realizován/a jako hashtable.
+				* Jeden element nazván HashNode v sobì nese nejen klíè, ale i hodnotu, proto Dictionary<K, V>
+				*/
 				template <class K, class V> class Dictionary
 				{
 				public:
@@ -59,7 +60,6 @@ namespace ADSLibrary
 					 * @param Value Hodnota vkládaného prvku
 					 */
 					void Insert(const K& Key, const V& Value);
-
 					
 					/**
 					 * Metoda pro získání hodnoty HashNode podle daného klíèe
@@ -105,6 +105,9 @@ namespace ADSLibrary
 					*/
 					int HashFunc(const K& Key);
 
+					/**
+					* Reprezentuje hašovací tabulku
+					*/
 					HashNode<K, V>** table;
 				};	
 

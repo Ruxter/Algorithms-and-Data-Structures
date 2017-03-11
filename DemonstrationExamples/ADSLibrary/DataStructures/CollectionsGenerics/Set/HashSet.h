@@ -111,6 +111,9 @@ namespace ADSLibrary
 					*/
 					int HashFunc(const T& Key) const;
 
+					/**
+					* Reprezentuje hašovací tabulku
+					*/
 					HashNode<T>** table;
 				};
 
