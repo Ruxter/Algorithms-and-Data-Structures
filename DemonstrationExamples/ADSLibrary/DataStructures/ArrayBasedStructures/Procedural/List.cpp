@@ -1,4 +1,5 @@
 #include "List.h"
+#include <iostream>
 
 namespace ADSLibrary
 {
@@ -122,7 +123,7 @@ namespace ADSLibrary
 						L.Free = L.Data[L.Free].Next;
 						return p;
 					}
-					cerr << "List is full" << endl;
+					std::cerr << "List is full" << std::endl;
 					return Nil;
 				}
 
@@ -134,28 +135,28 @@ namespace ADSLibrary
 
 				void Report(const List& L)
 				{
-					cout << endl;
-					cout << "List report" << endl;
-					cout << "--------------------------" << endl;
-					cout << "Head: " << L.Head << endl;
-					cout << "Current: " << L.Current << endl;
-					cout << "Free: " << L.Free << endl;
-					cout << "--------------------------" << endl;
-					cout << "Index\tValue\tPrev\tNext" << endl;
+					std::cout << std::endl;
+					std::cout << "List report" << std::endl;
+					std::cout << "--------------------------" << std::endl;
+					std::cout << "Head: " << L.Head << std::endl;
+					std::cout << "Current: " << L.Current << std::endl;
+					std::cout << "Free: " << L.Free << std::endl;
+					std::cout << "--------------------------" << std::endl;
+					std::cout << "Index\tValue\tPrev\tNext" << std::endl;
 					for (int i = 0; i < ListSize; i++)
 					{
-						cout << i << "\t" << L.Data[i].Value << "\t" << L.Data[i].Prev << "\t" << L.Data[i].Next << endl;
+						std::cout << i << "\t" << L.Data[i].Value << "\t" << L.Data[i].Prev << "\t" << L.Data[i].Next << std::endl;
 					}
-					cout << "--------------------------" << endl;
-					cout << "Garbage collector: ";
+					std::cout << "--------------------------" << std::endl;
+					std::cout << "Garbage collector: ";
 					int p = L.Free;
 					while (p != Nil)
 					{
-						cout << p << ", ";
+						std::cout << p << ", ";
 						p = L.Data[p].Next;
 					}
-					cout << endl << "--------------------------" << endl;
-					cout << endl;
+					std::cout << std::endl << "--------------------------" << std::endl;
+					std::cout << std::endl;
 				}
 
 			}

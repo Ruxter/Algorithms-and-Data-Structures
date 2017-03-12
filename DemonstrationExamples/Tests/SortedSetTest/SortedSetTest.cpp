@@ -1,6 +1,6 @@
 #include "SortedSetTest.h"
 #include <gtest/gtest.h>
-#include "../ADSLibrary/DataStructures/CollectionsGenerics/Set/SortedSet.h"
+#include "../../ADSLibrary/DataStructures/CollectionsGenerics/Set/SortedSet.h"
 
 struct SortedSetOOPTemplate : testing::Test
 {

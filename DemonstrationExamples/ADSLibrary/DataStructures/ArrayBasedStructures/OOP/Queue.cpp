@@ -1,4 +1,5 @@
 #include "Queue.h"
+#include <iostream>
 
 namespace ADSLibrary
 {
@@ -61,7 +62,7 @@ namespace ADSLibrary
 
 				bool Queue::IsFull()
 				{
-					return this->Head == (this->Tail + 1) % this->QueueSize;
+					return this->Head == (this->Tail) % this->QueueSize;
 				}
 
 				void Queue::Clear()

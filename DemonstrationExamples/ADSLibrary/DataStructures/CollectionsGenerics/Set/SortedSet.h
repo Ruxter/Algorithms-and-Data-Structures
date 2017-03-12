@@ -10,13 +10,12 @@ namespace ADSLibrary
 		{
 			namespace Set
 			{
-				template <class T>
-				class SortedSet
+				/**
+				* SortedSet je uspoøádaná množina realizována jako binární vyhledávací strom.
+				*/
+				template <class T> class SortedSet
 				{
-				public:
-					/**
-					 * SortedSet je uspoøádaná množina realizována jako binární vyhledávací strom.
-					 */
+				public:					
 
 					/**
 					 * Konstruktor

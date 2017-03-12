@@ -19,9 +19,6 @@ namespace ADSLibrary
 				 * Implementace fronty v poli jako kruhový buffer.
 				 * Implementace v poli znamená, že ukazatel je v tomto pøípadì realizován jako èíslo typu int
 				 * a ukazatel je tudíž bìžný index v poli.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				template <typename T>
 				class Queue
@@ -167,7 +164,7 @@ namespace ADSLibrary
 
 				template<typename T> bool Queue<T>::IsFull()
 				{
-					return this->Head == (this->Tail + 1) % this->QueueSize;
+					return this->Head == (this->Tail) % this->QueueSize;
 				}
 
 				template<typename T> void Queue<T>::Clear()

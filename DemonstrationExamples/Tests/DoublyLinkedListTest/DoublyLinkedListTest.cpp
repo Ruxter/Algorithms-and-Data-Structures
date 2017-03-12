@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../ADSLibrary/DataStructures/LinkedStructures/OOPTemplate/DoublyLinkedList.h"
-#include "../DummyClass.h"
+#include "../../ADSLibrary/DataStructures/LinkedStructures/OOPTemplate/DoublyLinkedList.h"
+#include "../../DummyClass.h"
 #include <list>
 
 struct DoublyLinkedListOOPTemplate : testing::Test

@@ -8,14 +8,14 @@ namespace ADSLibrary
 		{
 			namespace Dictionary
 			{				
+				/**
+				* SortedDictionary je uspoøádaný slovník/mapa realizován/a jako binární vyhledávací strom.
+				* Jeden element nazván Pair v sobì nese nejen klíè, ale i hodnotu, proto SortedDictionary<K, V>
+				*/
 				template <class K, class V> class SortedDictionary
 				{
 				public:
-					/**
-					* SortedDictionary je uspoøádaný slovník/mapa realizován/a jako binární vyhledávací strom.
-					* Jeden element nazván Pair v sobì nese nejen klíè, ale i hodnotu, proto SortedDictionary<K, V>
-					*/
-
+					
 					/**
 					 * Konstruktor
 					 */

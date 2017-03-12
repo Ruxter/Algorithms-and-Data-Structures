@@ -1,7 +1,5 @@
 #pragma once
 
-// Waiting: 
-// Done?: Copy ctor, Sort (except: number of elements for different alg?), BinarySearch, Reverse, Insert, RemoveAt, r-val overload operator[]
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -10,6 +8,9 @@ namespace ADSLibrary
 		{
 			namespace OOPTemplate
 			{
+				/**
+				 * DynamicArray je generické dynamické pole, které se zvìtšuje èi zmenšuje na základì poètu prvkù v nìm.
+				 */
 				template <class T> class DynamicArray
 				{
 				public:
@@ -55,13 +56,15 @@ namespace ADSLibrary
 					void InsertAt(const int index, const T& Item);
 
 					/**
-					* Metoda pro zjištìní velikosti datové struktury
+					* Metoda pro zjištìní velikosti datové struktury.
+					* 
 					* @return vrací velikost pole
 					*/
 					int Size() const;
 
 					/**
 					* Vyhledá daný prvek.
+					* 
 					* @return true pokud je prvek nalezen
 					*/
 					bool Contains(const T& Item) const;
@@ -83,12 +86,14 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro zjištìní zda je struktura prázdná.
+					* 
 					* @return vrací true pokud je prázdná
 					*/
 					bool IsEmpty() const;
 
 					/**
 					* Metoda pro spoèítání prvkù v poli.
+					* 
 					* @return vrací poèet prvkù v poli
 					*/
 					int Count() const;
@@ -99,7 +104,8 @@ namespace ADSLibrary
 					void Sort();
 
 					/**
-					* Metoda pro vyhledávání prvku v poli. Pole musí být pøed zavoláním BinarySearch setøízené.
+					* Metoda pro vyhledávání prvku v poli. Pole MUSÍ být pøed zavoláním BinarySearch setøízené pomocí Sort().
+					* 
 					* @param startIndex levá hranice(index) pro vyhledávání v poli
 					* @param endIndex pravá hranice(index) pro vyhledávání v poli
 					* @param Item vyhledávaný prvek
@@ -113,56 +119,58 @@ namespace ADSLibrary
 					void Reverse();
 
 					/**
-					* Metoda pro výpis
+					* Metoda pro výpis.
 					*/
 					void Report();
 
 				private:
 
 					/**
-					* Reprezentuje pole
+					* Reprezentuje pole.
 					*/
 					T* m_array;
 
 					/**
-					* Promìnná reprezentující kapacitu seznamu
+					* Promìnná reprezentující kapacitu seznamu.
 					*/
 					int m_size;
 
 					/**
-					* Promìnná reprezentující poèet prvkù v seznamu
+					* Promìnná reprezentující poèet prvkù v seznamu.
 					*/
 
 					int m_count;
 					/**
-					* Metoda používaná pro rozšiøování, èi redukci velikosti pole
+					* Metoda používaná pro rozšiøování, èi redukci velikosti pole.
 					*/
 					void Resize(int size);
 
 					/**
-					* Pole bude mít vždy tuto minimální velikost
+					* Pole bude mít vždy tuto minimální velikost.
 					*/
 					const int DefaultMinimalSize = 10;
 
 					/**
-					* Promìnná používaná pøi rozšiøování, èi redukci velikosti pole
+					* Promìnná používaná pøi rozšiøování, èi redukci velikosti pole.
 					*/
 					const int AllocationDelta = 16;
 
 					/**
-					* Øadící algoritmus Insertion Sort
+					* Øadící algoritmus Insertion Sort.
 					*/
 					void InsertionSort();
 
 					/**
-					* Øadící algoritmus Quick Sort. Pivot je nastaven implicitnì na nultý prvek pole
+					* Øadící algoritmus Quick Sort. Pivot je nastaven implicitnì na nultý prvek pole.
+					* 
 					* @param left levá hranice(index) pro setøídìní
 					* @param right pravá hranice(index) pro setøídìní
 					*/
 					void QuickSort(int left, int right);
 
 					/**
-					* Pomocná metoda pro Quick Sort, prohodí dva prvky
+					* Pomocná metoda pro Quick Sort, prohodí dva prvky.
+					* 
 					* @param m_array pole, které je procházeno quicksortem
 					* @param left
 					* @param right
@@ -313,8 +321,8 @@ namespace ADSLibrary
 
 				template <class T> void DynamicArray<T>::Sort()
 				{
-					//InsertionSort();
-					QuickSort(0, m_count);
+					if (m_count < 6000)InsertionSort();
+					else QuickSort(0, m_count);
 				}
 
 				template <class T> void DynamicArray<T>::InsertionSort()
@@ -403,7 +411,7 @@ namespace ADSLibrary
 				{
 					for (int i = 0; i < m_count; i++)
 					{
-						cout << i << " : " << m_array[i] << endl;
+						std::cout << i << " : " << m_array[i] << std::endl;
 					}
 				}
 			}

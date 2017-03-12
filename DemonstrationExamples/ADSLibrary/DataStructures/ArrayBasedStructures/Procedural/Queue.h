@@ -1,10 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -16,7 +11,7 @@ namespace ADSLibrary
 				/**
 				 * Velikost kruhového bufferu ve kterém je fronta implementována.
 				 */
-				const int CircularBufferSize = 5;
+				const int CircularBufferSize = 10;
 
 				/**
 				 * Maximální velikost fronty.
@@ -29,9 +24,6 @@ namespace ADSLibrary
 				 * Implementace fronty v poli.
 				 * Implementace v poli znamená, že ukazatel je v tomto pøípadì realizován jako èíslo typu int
 				 * a ukazatel je tudíž bìžný index v poli.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				struct Queue
 				{
@@ -48,7 +40,7 @@ namespace ADSLibrary
 					 * Ocas fronty. Tento ukazatel bìžnì ukazuje na poslední prvek ve frontì.
 					 * Pøi implementaci pomocí kruhového bufferu v poli, je výhodnìjší, aby tento
 					 * ukazatel ukazoval až za poslední prvek ve frontì. Ocas fronty bude tak ukazovat
-					 * na první volný prvek v poli {@link #Data}.
+					 * na první volný prvek v poli {@link #Data\endlink}.
 					 */
 					int Tail;
 				};

@@ -10,13 +10,11 @@ namespace ADSLibrary
 			{
 				/**
 				 * \brief Zásobník implementovaný v poli s využitím %OOP
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				class Stack
 				{
 				public:
+
 					/**
 					 * Konstruktor. Velikost zásobníku bude nastavena na výchozí velikost.
 					 */

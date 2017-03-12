@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "SortedDictionaryTest.h"
-#include "../ADSLibrary/DataStructures/CollectionsGenerics/Dictionary/SortedDictionary.h"
+#include "../../ADSLibrary/DataStructures/CollectionsGenerics/Dictionary/SortedDictionary.h"
 
 struct SortedDictionaryOOPTemplate : testing::Test
 {

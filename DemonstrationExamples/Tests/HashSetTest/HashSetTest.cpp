@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../../ADSLibrary/DataStructures/CollectionsGenerics/Set/HashSet.h"
 #include "HashSetTest.h"
+#include "../../ADSLibrary/DataStructures/CollectionsGenerics/Set/HashSet.h"
 
 struct HashSetOOPTemplate : testing::Test
 {

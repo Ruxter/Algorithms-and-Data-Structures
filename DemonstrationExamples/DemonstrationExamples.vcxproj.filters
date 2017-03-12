@@ -99,31 +99,34 @@
     <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.cpp">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
     </ClCompile>
-    <ClCompile Include="Tests\DoublyLinkedListTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tests\DynamicArrayTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tests\TestClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tests\OOPTemplateListTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DummyClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tests\SortedSetTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tests\SortedDictionaryTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tests\DictionaryTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tests\HashSetTest\HashSetTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\DictionaryTest\DictionaryTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\DoublyLinkedListTest\DoublyLinkedListTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\SortedSetTest\SortedSetTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\SortedDictionaryTest\SortedDictionaryTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\OOPTemplateListTest\OOPTemplateListTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\ArrayBasedTest\ArrayBasedTestcpp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -191,19 +194,10 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\DoublyLinkedList.h">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOPTemplate</Filter>
     </ClInclude>
-    <ClInclude Include="Tests\DoublyLinkedListTest.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tests\DynamicArrayTest.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Tests\TestClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\List.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tests\OOPTemplateListTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DummyClass.h">
@@ -218,22 +212,34 @@
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\SortedSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tests\SortedSetTest.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\SortedDictionary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tests\SortedDictionaryTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\Dictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tests\DictionaryTest.h">
+    <ClInclude Include="Tests\HashSetTest\HashSetTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tests\HashSetTest\HashSetTest.h">
+    <ClInclude Include="Tests\DictionaryTest\DictionaryTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\DoublyLinkedListTest\DoublyLinkedListTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\DynamicArrayTest\DynamicArrayTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\SortedSetTest\SortedSetTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\SortedDictionaryTest\SortedDictionaryTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\OOPTemplateListTest\OOPTemplateListTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\ArrayBasedTest\ArrayBasedTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

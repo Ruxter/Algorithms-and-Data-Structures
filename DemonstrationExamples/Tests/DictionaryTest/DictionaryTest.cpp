@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include "DictionaryTest.h"
-#include "../ADSLibrary/DataStructures/CollectionsGenerics/Dictionary/Dictionary.h"
-#include "../ADSLibrary/DataStructures/LinkedStructures/Procedural/List.h"
+#include "../../ADSLibrary/DataStructures/CollectionsGenerics/Dictionary/Dictionary.h"
 
 struct DictionaryOOPTemplate : testing::Test
 {

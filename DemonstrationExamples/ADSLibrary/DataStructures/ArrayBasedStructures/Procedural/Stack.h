@@ -11,13 +11,10 @@ namespace ADSLibrary
 				/**
 				 * Velikost zásobníku.
 				 */
-				const int StackSize = 100;
+				const int StackSize = 10;
 				
 				/**
 				 * \brief Zásobník implementovaný v poli procedurálním zpùsobem.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				struct Stack
 				{

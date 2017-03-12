@@ -10,9 +10,6 @@ namespace ADSLibrary
 			{
 				Stack::Stack()
 				{
-					/*
-					 * Uprava konstruktoru. StackSize.
-					 */
 					this->StackSize = DefaultStackSize;
 					this->Items = new char[DefaultStackSize];
 					this->StackPointer = 0;

@@ -11,7 +11,7 @@ namespace ADSLibrary
 			namespace Set
 			{
 				/**
-				* Tøída reprezentující prvek ve množinì
+				* Tøída reprezentující vnitøní strukturu prvku v množinì
 				*/
 				template <typename T>
 				struct HashNode {
@@ -34,9 +34,13 @@ namespace ADSLibrary
 					}
 				};
 
+				/**
+				* HashSet je NEuspoøádaná množina realizována jako hashtable bez mapovaných hodnot.
+				*/
 				template <class T> class HashSet
 				{
 				public:
+
 					/**
 					* Konstruktor
 					*/

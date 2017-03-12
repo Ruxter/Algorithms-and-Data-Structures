@@ -1,4 +1,5 @@
 #include "Queue.h"
+#include <iostream>
 
 namespace ADSLibrary
 {
@@ -45,21 +46,21 @@ namespace ADSLibrary
 
 				bool IsFull(const Queue& Q)
 				{
-					return Q.Head == (Q.Tail + 1) % CircularBufferSize;
+					return Q.Head == (Q.Tail) % CircularBufferSize;
 				}
 
 				void Report(const Queue& Q)
 				{
-					cout << "Queue report" << endl;
-					cout << "--------------------------" << endl;
-					cout << "Head: " << Q.Head << endl;
-					cout << "Tail: " << Q.Tail << endl;
+					std::cout << "Queue report" << std::endl;
+					std::cout << "--------------------------" << std::endl;
+					std::cout << "Head: " << Q.Head << std::endl;
+					std::cout << "Tail: " << Q.Tail << std::endl;
 					for (int i = 0; i < CircularBufferSize; i++)
 					{
-						cout << i << "   " << Q.Items[i] << endl;
+						std::cout << i << "   " << Q.Items[i] << std::endl;
 					}
-					cout << "--------------------------" << endl;
-					cout << endl;
+					std::cout << "--------------------------" << std::endl;
+					std::cout << std::endl;
 				}
 			}
 		}

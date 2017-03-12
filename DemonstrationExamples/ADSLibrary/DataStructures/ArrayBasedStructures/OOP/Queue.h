@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <iomanip>
 
 using namespace std;
@@ -19,20 +18,19 @@ namespace ADSLibrary
 				 * Implementace fronty v poli jako kruhový buffer.
 				 * Implementace v poli znamená, že ukazatel je v tomto pøípadì realizován jako èíslo typu int
 				 * a ukazatel je tudíž bìžný index v poli.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
+				 * 
 				 */
 				class Queue
 				{
 				public:
+
 					/**
 					 * Konstruktor. Velikost fronty bude nastavena na výchozí velikost.
 					 */
 					Queue();
 
 					/**
-					 * Konstruktor
+					 * Konstruktor.
 					 *
 					 * @param QueueSize Velikost fronty
 					 */
@@ -75,7 +73,7 @@ namespace ADSLibrary
 					/**
 					 * Test je-li fronta plná, tj. nelze vložit další prvek.
 					 *
-					 * @return Funkce vrací true pokud je fronta plná, jinak false.
+					 * @return Funkce vrací true pokud je fronta plná, jinak false
 					 */
 					bool IsFull();
 
@@ -101,12 +99,12 @@ namespace ADSLibrary
 					int* Items;
 
 					/**
-					 * Hlava fronty tj. ukazatel na první prvek fronty v poli {@link #mData}.
+					 * Hlava fronty tj. ukazatel na první prvek fronty v poli {@link #mData\endlink}.
 					 */
 					int Head;
 
 					/**
-					 * Ocas fronty tj. ukazatel na první volný prvek za koncem fronty v poli {@link #mData}.
+					 * Ocas fronty tj. ukazatel na první volný prvek za koncem fronty v poli {@link #mData\endlink}.
 					 */
 					int Tail;
 

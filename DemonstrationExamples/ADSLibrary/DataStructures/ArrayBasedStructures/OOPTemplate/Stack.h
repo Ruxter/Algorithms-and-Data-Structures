@@ -11,9 +11,6 @@ namespace ADSLibrary
 			{
 				/**
 				 * \brief Zásobník implementovaný v poli jako šablona (template) %OOP
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				template <typename T>
 				class Stack
@@ -101,8 +98,6 @@ namespace ADSLibrary
 					*/
 					const T& operator[](const int index) const;
 
-
-
 				private:
 					/**
 					 * Pole obsahující data uložená do zásobníku.
@@ -128,9 +123,7 @@ namespace ADSLibrary
 					 * Výchozí (default) velikost zásobníku.
 					 */
 					static const int DefaultStackSize = 100;
-
 				};
-
 
 				template <typename T> Stack<T>::Stack()
 				{

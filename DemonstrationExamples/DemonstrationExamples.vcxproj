@@ -129,15 +129,16 @@
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\Procedural\</ObjectFileName>
     </ClCompile>
     <ClCompile Include="DummyClass.cpp" />
-    <ClCompile Include="Tests\DictionaryTest.cpp" />
-    <ClCompile Include="Tests\DynamicArrayTest.cpp" />
+    <ClCompile Include="Tests\ArrayBasedTest\ArrayBasedTestcpp.cpp" />
+    <ClCompile Include="Tests\DictionaryTest\DictionaryTest.cpp" />
+    <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tests\HashSetTest\HashSetTest.cpp" />
-    <ClCompile Include="Tests\OOPTemplateListTest.cpp" />
-    <ClCompile Include="Tests\SortedDictionaryTest.cpp" />
-    <ClCompile Include="Tests\SortedSetTest.cpp" />
+    <ClCompile Include="Tests\OOPTemplateListTest\OOPTemplateListTest.cpp" />
+    <ClCompile Include="Tests\SortedDictionaryTest\SortedDictionaryTest.cpp" />
+    <ClCompile Include="Tests\SortedSetTest\SortedSetTest.cpp" />
     <ClCompile Include="Tests\TestClass.cpp" />
-    <ClCompile Include="Tests\DoublyLinkedListTest.cpp" />
+    <ClCompile Include="Tests\DoublyLinkedListTest\DoublyLinkedListTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h" />
@@ -168,14 +169,15 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
     <ClInclude Include="DummyClass.h" />
     <ClInclude Include="IComparer.h" />
-    <ClInclude Include="Tests\DictionaryTest.h" />
-    <ClInclude Include="Tests\DynamicArrayTest.h" />
+    <ClInclude Include="Tests\ArrayBasedTest\ArrayBasedTests.h" />
+    <ClInclude Include="Tests\DictionaryTest\DictionaryTest.h" />
+    <ClInclude Include="Tests\DynamicArrayTest\DynamicArrayTest.h" />
     <ClInclude Include="Tests\HashSetTest\HashSetTest.h" />
-    <ClInclude Include="Tests\OOPTemplateListTest.h" />
-    <ClInclude Include="Tests\SortedDictionaryTest.h" />
-    <ClInclude Include="Tests\SortedSetTest.h" />
+    <ClInclude Include="Tests\OOPTemplateListTest\OOPTemplateListTest.h" />
+    <ClInclude Include="Tests\SortedDictionaryTest\SortedDictionaryTest.h" />
+    <ClInclude Include="Tests\SortedSetTest\SortedSetTest.h" />
     <ClInclude Include="Tests\TestClass.h" />
-    <ClInclude Include="Tests\DoublyLinkedListTest.h" />
+    <ClInclude Include="Tests\DoublyLinkedListTest\DoublyLinkedListTest.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Licence.txt" />

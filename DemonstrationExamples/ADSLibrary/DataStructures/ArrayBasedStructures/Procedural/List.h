@@ -1,10 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
 namespace ADSLibrary
 {
 	namespace DataStructures
@@ -16,7 +11,7 @@ namespace ADSLibrary
 				/**
 				 * Maximální velikost seznamu.
 				 */
-				const int ListSize = 5;
+				const int ListSize = 10;
 
 				/**
 				 * Ukazatel neukazující na žádnou položku.
@@ -24,7 +19,7 @@ namespace ADSLibrary
 				const int Nil = -1;
 
 				/**
-				 * \brief Struktura reprezentující položku v seznamu {@link #ADSLibrary::DataStructures::ArrayBasedStructures::Procedural::List}
+				 * \brief Struktura reprezentující položku v seznamu {@link #ADSLibrary::DataStructures::ArrayBasedStructures::Procedural::List\endlink}
 				 */
 				struct ListItem
 				{
@@ -33,11 +28,11 @@ namespace ADSLibrary
 					 */
 					int Value;
 					/**
-					 * Ukazatel na pøedchozí položku. Pokud taková položka neexistuje ukazatel má hodnotu {@link #Nil}.
+					 * Ukazatel na pøedchozí položku. Pokud taková položka neexistuje ukazatel má hodnotu {@link #Nil\endlink}.
 					 */
 					int Prev;
 					/**
-					 * Ukazatel na následující  položku. Pokud taková položka neexistuje ukazatel má hodnotu {@link #Nil}.
+					 * Ukazatel na následující  položku. Pokud taková položka neexistuje ukazatel má hodnotu {@link #Nil\endlink}.
 					 */
 					int Next;
 				};
@@ -47,9 +42,6 @@ namespace ADSLibrary
 				 *
 				 * Implementace obousmìrného seznamu v poli. V seznamu je implementován garbage collector a jednoduchý iterátor.
 				 * Implementace v poli znamená, že ukazatel je v tomto pøípadì realizován jako èíslo typu int a ukazatel je de-facto index v poli.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				struct List
 				{
@@ -58,11 +50,11 @@ namespace ADSLibrary
 					 */
 					ListItem Data[ListSize];
 					/**
-					 * Hlava seznamu tj. ukazatel na první položku seznamu v poli {@link #Data}.
+					 * Hlava seznamu tj. ukazatel na první položku seznamu v poli {@link #Data\endlink}.
 					 */
 					int Head;
 					/**
-					 * Ukazatel na první volnou položku v poli {@link #Data}. Pokud taková položka neexistuje, má ukazatel hodnotu Nil.
+					 * Ukazatel na první volnou položku v poli {@link #Data\endlink}. Pokud taková položka neexistuje, má ukazatel hodnotu Nil.
 					 * Tento ukazatel je využíván garbage collectorem.
 					 */
 					int Free;
