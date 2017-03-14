@@ -129,10 +129,10 @@
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\Procedural\</ObjectFileName>
     </ClCompile>
     <ClCompile Include="DummyClass.cpp" />
-    <ClCompile Include="Tests\ArrayBasedTest\ArrayBasedTestcpp.cpp" />
+    <ClCompile Include="Tests\ArrayBasedTest\ArrayBasedTests.cpp" />
     <ClCompile Include="Tests\DictionaryTest\DictionaryTest.cpp" />
-    <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp" />
     <ClCompile Include="Tests\HashSetTest\HashSetTest.cpp" />
     <ClCompile Include="Tests\OOPTemplateListTest\OOPTemplateListTest.cpp" />
     <ClCompile Include="Tests\SortedDictionaryTest\SortedDictionaryTest.cpp" />

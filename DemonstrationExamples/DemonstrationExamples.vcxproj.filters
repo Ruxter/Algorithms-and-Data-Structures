@@ -114,9 +114,6 @@
     <ClCompile Include="Tests\DoublyLinkedListTest\DoublyLinkedListTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tests\SortedSetTest\SortedSetTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -126,7 +123,10 @@
     <ClCompile Include="Tests\OOPTemplateListTest\OOPTemplateListTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tests\ArrayBasedTest\ArrayBasedTestcpp.cpp">
+    <ClCompile Include="Tests\ArrayBasedTest\ArrayBasedTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
