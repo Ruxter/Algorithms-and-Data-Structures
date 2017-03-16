@@ -10,9 +10,6 @@ namespace ADSLibrary
 			{
 				/**
 				 * \brief Fronta implementovaná pomocí spojových struktur jako šablona (template) %OOP.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				template <typename T>
 				class Queue
@@ -100,7 +97,12 @@ namespace ADSLibrary
 
 				template<typename T> Queue<T>::~Queue()
 				{
-					this->Clear();
+					while (this->IsEmpty() && this->Head != nullptr)
+					{
+						this->Dequeue();
+					}
+					this->Head = nullptr;
+					this->Tail = nullptr;
 				}
 
 				template<typename T> void Queue<T>::Enqueue(const T X)

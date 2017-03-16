@@ -14,13 +14,11 @@ namespace ADSLibrary
 			namespace OOP
 			{
 				/**
-	 * Implementace binárního vyhledávacího stromu.
-	 * Strom je implementován jako nevyvážený, tudíž mùže zdegenerovat do seznamu.
-	 * Ve stromu je maximálnì využito rekurze, veøejné metody tvoøí vìtšinou jen "obálku" pro volání privátních rekurzívních metod.
-	 * Tyto veøejné "obálky" jsou proto implementovány jako inline.
-	 *
-	 * @author      Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-	 */
+				 * Implementace binárního vyhledávacího stromu.
+				 * Strom je implementován jako nevyvážený, tudíž mùže zdegenerovat do seznamu.
+				 * Ve stromu je maximálnì využito rekurze, veøejné metody tvoøí vìtšinou jen "obálku" pro volání privátních rekurzívních metod.
+				 * Tyto veøejné "obálky" jsou proto implementovány jako inline.
+				 */
 				class BinarySearchTree
 				{
 				public:

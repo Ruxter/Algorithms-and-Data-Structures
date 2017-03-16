@@ -15,9 +15,6 @@ namespace ADSLibrary
 			{
 				/**
 				 * \brief Fronta implementovaná pomocí spojových struktur s využitím %OOP.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				class Queue
 				{

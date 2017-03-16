@@ -134,6 +134,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp" />
     <ClCompile Include="Tests\HashSetTest\HashSetTest.cpp" />
+    <ClCompile Include="Tests\LinkedStructuresTest\LinkedStructuresTest.cpp" />
     <ClCompile Include="Tests\OOPTemplateListTest\OOPTemplateListTest.cpp" />
     <ClCompile Include="Tests\SortedDictionaryTest\SortedDictionaryTest.cpp" />
     <ClCompile Include="Tests\SortedSetTest\SortedSetTest.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Tests\DictionaryTest\DictionaryTest.h" />
     <ClInclude Include="Tests\DynamicArrayTest\DynamicArrayTest.h" />
     <ClInclude Include="Tests\HashSetTest\HashSetTest.h" />
+    <ClInclude Include="Tests\LinkedStructuresTest\LinkedStructuresTest.h" />
     <ClInclude Include="Tests\OOPTemplateListTest\OOPTemplateListTest.h" />
     <ClInclude Include="Tests\SortedDictionaryTest\SortedDictionaryTest.h" />
     <ClInclude Include="Tests\SortedSetTest\SortedSetTest.h" />

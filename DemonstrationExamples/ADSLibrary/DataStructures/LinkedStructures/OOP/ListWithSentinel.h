@@ -19,9 +19,6 @@ namespace ADSLibrary
 				 *
 				 * Implementace obousmìrného seznamu pomocí spojových struktur s využitím %OOP a techniky zarážky.
 				 * V seznamu je implementován jednoduchý iterátor.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				class ListWithSentinel
 				{

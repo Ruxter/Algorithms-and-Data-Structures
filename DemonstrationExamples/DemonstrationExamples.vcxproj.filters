@@ -129,6 +129,9 @@
     <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tests\LinkedStructuresTest\LinkedStructuresTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h">
@@ -240,6 +243,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tests\ArrayBasedTest\ArrayBasedTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\LinkedStructuresTest\LinkedStructuresTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

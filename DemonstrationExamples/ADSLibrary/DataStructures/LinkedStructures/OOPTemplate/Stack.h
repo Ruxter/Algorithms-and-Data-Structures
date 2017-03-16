@@ -10,9 +10,6 @@ namespace ADSLibrary
 			{
 				/**
 				 * \brief Zásobník implementovaný pomocí spojových struktur jako šablona (template) %OOP.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				template <typename T>
 				class Stack

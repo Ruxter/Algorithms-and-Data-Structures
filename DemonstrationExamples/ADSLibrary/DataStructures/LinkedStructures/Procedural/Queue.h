@@ -30,9 +30,6 @@ namespace ADSLibrary
 
 				/**
 				 * \brief Fronta implementovaná pomocí spojových struktur procedurálním zpùsobem.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				struct Queue
 				{

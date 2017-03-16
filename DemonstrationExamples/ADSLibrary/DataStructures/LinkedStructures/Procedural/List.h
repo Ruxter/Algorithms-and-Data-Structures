@@ -1,7 +1,4 @@
 #pragma once
-
-#include <cstdlib>
-#include <iostream>
 #include <iomanip>
 
 using namespace std;
@@ -15,7 +12,7 @@ namespace ADSLibrary
 			namespace Procedural
 			{
 				/**
-				 * \brief Struktura reprezentující položku v seznamu {@link #ADSLibrary::DataStructures::LinkedStructures::Procedural::List}
+				 * \brief Struktura reprezentující položku v seznamu {@link #ADSLibrary::DataStructures::LinkedStructures::Procedural::List\endlink}
 				 */
 				struct ListItem
 				{
@@ -38,9 +35,6 @@ namespace ADSLibrary
 				 *
 				 * Implementace obousmìrného seznamu pomocí spojových struktur.
 				 * V seznamu je implementován jednoduchý iterátor.
-				 *
-				 * @author	Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-				 * @date	2010 - 2015
 				 */
 				struct List
 				{

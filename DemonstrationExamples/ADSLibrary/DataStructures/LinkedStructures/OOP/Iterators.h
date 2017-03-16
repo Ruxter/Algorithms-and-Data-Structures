@@ -11,13 +11,12 @@ namespace ADSLibrary
 			namespace OOP
 			{
 				/**
-	 * Abstraktní tøída reprezentující iterátor v binárním stromu.
-	 * Iterátor je založen na využití zásobníku, který de-facto simuluje rekurzívní prùchod stromem Inorder.
-	 * Na rozdíl od rekurze jsme ale v tomto pøípadì vykonávání prùchodu stromem schopni
-	 * "pozdržet", vrátit data z aktuálního uzlu a potom pokraèovat dále v prùchodu stromem.
-	 *
-	 * @author      Jiøí Dvorský <jiri.dvorsky@vsb.cz>
-	 */
+				 * Abstraktní tøída reprezentující iterátor v binárním stromu.
+				 * Iterátor je založen na využití zásobníku, který de-facto simuluje rekurzívní prùchod stromem Inorder.
+				 * Na rozdíl od rekurze jsme ale v tomto pøípadì vykonávání prùchodu stromem schopni
+				 * "pozdržet", vrátit data z aktuálního uzlu a potom pokraèovat dále v prùchodu stromem.
+				 *
+				 */
 				class BinaryTreeIteratorBase
 				{
 				public:
