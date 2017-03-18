@@ -132,6 +132,12 @@
     <ClCompile Include="Tests\LinkedStructuresTest\LinkedStructuresTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ADSLibrary\Algorithms\SortingAlgorithms\SortingAlgorithms.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSLibrary\Algorithms\ArraySearchingAlgorithms\ArraySearchingAlgorithms.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h">
@@ -246,6 +252,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tests\LinkedStructuresTest\LinkedStructuresTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\Algorithms\SortingAlgorithms\SortingAlgorithms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\Algorithms\ArraySearchingAlgorithms\ArraySearchingAlgorithms.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

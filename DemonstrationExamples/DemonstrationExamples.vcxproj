@@ -86,6 +86,8 @@
     <ClCompile Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.cpp">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\Algorithms\ArraysAndPointers\</ObjectFileName>
     </ClCompile>
+    <ClCompile Include="ADSLibrary\Algorithms\ArraySearchingAlgorithms\ArraySearchingAlgorithms.cpp" />
+    <ClCompile Include="ADSLibrary\Algorithms\SortingAlgorithms\SortingAlgorithms.cpp" />
     <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Queue.cpp">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\ArrayBasedStructures\OOP\</ObjectFileName>
     </ClCompile>
@@ -143,6 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h" />
+    <ClInclude Include="ADSLibrary\Algorithms\ArraySearchingAlgorithms\ArraySearchingAlgorithms.h" />
+    <ClInclude Include="ADSLibrary\Algorithms\SortingAlgorithms\SortingAlgorithms.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\DynamicArray.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Stack.h" />
