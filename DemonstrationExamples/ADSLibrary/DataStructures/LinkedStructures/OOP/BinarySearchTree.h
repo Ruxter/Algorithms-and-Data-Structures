@@ -14,7 +14,7 @@ namespace ADSLibrary
 			namespace OOP
 			{
 				/**
-				 * Implementace binárního vyhledávacího stromu. 
+				 * Implementace binárního vyhledávacího stromu.
 				 * Strom je implementován jako nevyvážený, tudíž mùže zdegenerovat do seznamu.
 				 * Ve stromu je maximálnì využito rekurze, veøejné metody tvoøí vìtšinou jen "obálku" pro volání privátních rekurzívních metod.
 				 * Tyto veøejné "obálky" jsou proto implementovány jako inline.
