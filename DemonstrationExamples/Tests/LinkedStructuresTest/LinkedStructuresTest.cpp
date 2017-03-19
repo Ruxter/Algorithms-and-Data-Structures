@@ -12,12 +12,15 @@
 #include "../../ADSLibrary/DataStructures/LinkedStructures/OOP/BinarySearchTree.h"
 
 /*
-* Tøída slouící k testování LinkedStructures (OOP, OOPTemplate, Procedural)
+* Soubor slouící k testování LinkedStructures (OOP, OOPTemplate, Procedural)
 * Tøídy List a DoublyLinkedList ze jmenného prostoru OOPTemplate jsou testovány zvláš
 * 
 * BST v LinkedStructures se liší od implementace BST v CollectionsGenerics. Bylo potøeba pøizpùsobit strukturu pro potøeby mnoiny a slovníku.
 */
 
+/*
+* Pomocná struktura pro testování
+*/
 struct LinkedStructuresStruct : testing::Test
 {
 	ADSLibrary::DataStructures::LinkedStructures::Procedural::Stack *stack;

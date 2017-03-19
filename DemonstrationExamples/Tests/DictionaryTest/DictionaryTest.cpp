@@ -2,6 +2,14 @@
 #include "DictionaryTest.h"
 #include "../../ADSLibrary/DataStructures/CollectionsGenerics/Dictionary/Dictionary.h"
 
+
+/*
+* Soubor sloužící k testování neuspoøadného slovníku
+*/
+
+/*
+* Pomocná struktura pro testování
+*/
 struct DictionaryOOPTemplate : testing::Test
 {
 	ADSLibrary::DataStructures::CollectionsGenerics::Dictionary::Dictionary<int, int> *dic;

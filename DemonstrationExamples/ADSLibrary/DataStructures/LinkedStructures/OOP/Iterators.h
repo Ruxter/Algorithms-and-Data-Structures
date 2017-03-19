@@ -1,5 +1,4 @@
 #pragma once
-
 #include "BinarySearchTree.h"
 
 namespace ADSLibrary
@@ -12,7 +11,7 @@ namespace ADSLibrary
 			{
 				/**
 				 * Abstraktní tøída reprezentující iterátor v binárním stromu.
-				 * Iterátor je založen na využití zásobníku, který de-facto simuluje rekurzívní prùchod stromem Inorder.
+				 * Iterátor je založen na využití zásobníku, který simuluje rekurzívní prùchod stromem Inorder.
 				 * Na rozdíl od rekurze jsme ale v tomto pøípadì vykonávání prùchodu stromem schopni
 				 * "pozdržet", vrátit data z aktuálního uzlu a potom pokraèovat dále v prùchodu stromem.
 				 *
@@ -85,8 +84,6 @@ namespace ADSLibrary
 				/**
 				 * Tøída implementující iterátor v binárním stromu.
 				 * Iterace probíhá podle uspoøádání prvkù ve stromu, jinak øeèeno prvky jsou iterovány od nejmenšího prvku ve stromu k nejvìtšímu.
-				 *
-				 * @author      Jiøí Dvorský <jiri.dvorsky@vsb.cz>
 				 */
 				class BinaryTreeIterator : public BinaryTreeIteratorBase
 				{
@@ -114,8 +111,6 @@ namespace ADSLibrary
 				 * Tøída implementující iterátor v binárním stromu.
 				 * Iterace probíhá proti smìru uspoøádání prvkù ve stromu, jinak øeèeno prvky jsou iterovány od nejvìtšího prvku ve stromu k nejmenšímu.
 				 * Iterátor pracuje zrcadlovì vùèi iterátoru BinaryTreeIterator.
-				 *
-				 * @author      Jiøí Dvorský <jiri.dvorsky@vsb.cz>
 				 */
 				class BinaryTreeReverseIterator : public BinaryTreeIteratorBase
 				{

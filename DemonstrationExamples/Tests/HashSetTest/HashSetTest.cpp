@@ -2,6 +2,14 @@
 #include "HashSetTest.h"
 #include "../../ADSLibrary/DataStructures/CollectionsGenerics/Set/HashSet.h"
 
+
+/*
+* Soubor sloužící k testování neuspoøádané množiny
+*/
+
+/*
+* Pomocná struktura pro testování
+*/
 struct HashSetOOPTemplate : testing::Test
 {
 	ADSLibrary::DataStructures::CollectionsGenerics::Set::HashSet<int> *set;

@@ -2,6 +2,13 @@
 #include "SortedDictionaryTest.h"
 #include "../../ADSLibrary/DataStructures/CollectionsGenerics/Dictionary/SortedDictionary.h"
 
+/*
+* Soubor sloužící k testování setøízeného slovníku
+*/
+
+/*
+* Pomocná struktura pro testování
+*/
 struct SortedDictionaryOOPTemplate : testing::Test
 {
 	ADSLibrary::DataStructures::CollectionsGenerics::Dictionary::SortedDictionary<int, int> *dic;

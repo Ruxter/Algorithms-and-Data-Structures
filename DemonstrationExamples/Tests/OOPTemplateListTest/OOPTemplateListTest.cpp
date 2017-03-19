@@ -2,6 +2,13 @@
 #include "../../ADSLibrary/DataStructures/LinkedStructures/OOPTemplate/List.h"
 #include "../../DummyClass.h"
 
+/*
+* Soubor sloužící k testování spojového seznamu OOPTemplate
+*/
+
+/*
+* Pomocná struktura pro testování
+*/
 struct LinkedListOOPTemplate : testing::Test
 {
 	ADSLibrary::DataStructures::LinkedStructures::OOPTemplate::List<int> *list;

@@ -4,10 +4,12 @@
 #include "../../ADSLibrary/DataStructures/ArrayBasedStructures/OOPTemplate/DynamicArray.h"
 #include "../../DummyClass.h"
 
+/*
+* Soubor sloužící k testování dynamického pole
+*/
 
 /*
-* Struktura ArrayBasedStructures::OOPTemplate::DynamicArray pro integer s prázdným konstruktorem
-* integer s konstruktorem (int), DummyClass, string
+* Pomocná struktura pro testování
 */
 struct DynamicArrayOOPTemplate : testing::Test
 {

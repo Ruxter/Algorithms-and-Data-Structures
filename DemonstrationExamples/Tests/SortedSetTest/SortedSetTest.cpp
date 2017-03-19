@@ -2,6 +2,13 @@
 #include <gtest/gtest.h>
 #include "../../ADSLibrary/DataStructures/CollectionsGenerics/Set/SortedSet.h"
 
+/*
+* Soubor sloužící k testování setøízené množiny 
+*/
+
+/*
+* Pomocná struktura pro testování
+*/
 struct SortedSetOOPTemplate : testing::Test
 {
 	ADSLibrary::DataStructures::CollectionsGenerics::Set::SortedSet<int> *set;

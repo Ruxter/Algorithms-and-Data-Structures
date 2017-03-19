@@ -9,7 +9,7 @@
 #include "../../ADSLibrary/DataStructures/ArrayBasedStructures/Procedural/List.h"
 
 /*
-* Tøída sloužící k testování ArrayBasedStructures (OOP, OOPTemplate, Procedural)
+* Soubor sloužící k testování ArrayBasedStructures (OOP, OOPTemplate, Procedural)
 * Tøída DynamicArray je testována ve složce DynamicArrayTest
 */
 

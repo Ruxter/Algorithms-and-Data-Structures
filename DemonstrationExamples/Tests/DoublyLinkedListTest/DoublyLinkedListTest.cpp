@@ -3,6 +3,14 @@
 #include "../../DummyClass.h"
 #include <list>
 
+
+/*
+* Soubor sloužící k testování obousmìrného seznamu
+*/
+
+/*
+* Pomocná struktura pro testování
+*/
 struct DoublyLinkedListOOPTemplate : testing::Test
 {
 	ADSLibrary::DataStructures::LinkedStructures::OOPTemplate::DoublyLinkedList<int> *dbllist;
