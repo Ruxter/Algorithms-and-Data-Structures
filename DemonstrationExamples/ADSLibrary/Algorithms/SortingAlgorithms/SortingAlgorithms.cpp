@@ -4,7 +4,7 @@ namespace ADSLibrary
 {
 	namespace Algorithms
 	{
-		namespace ArraysAndPointers
+		namespace SortingAlgorithms
 		{
 			inline void Exchange(int & x, int& y)
 			{

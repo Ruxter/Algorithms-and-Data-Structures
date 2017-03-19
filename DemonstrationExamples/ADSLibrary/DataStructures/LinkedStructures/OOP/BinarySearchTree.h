@@ -144,7 +144,7 @@ namespace ADSLibrary
 					/**
 					 * Rekurzívní metoda pro smazání klíèe ze stromu, uzel q má dva potomky, hledáme nejpravìjšího potomka z levého podstromu uzlu q.
 					 * Jinak øeèeno hledáme nejbližší menší klíè.
-					 * @param p Aktuální uzel stromu.
+					 * @param r Aktuální uzel stromu.
 					 * @param q Uzel který se bude rušit.
 					 */
 					void InternalDeleteRightmostFromLeftSubtree(Node*& r, Node*& q);

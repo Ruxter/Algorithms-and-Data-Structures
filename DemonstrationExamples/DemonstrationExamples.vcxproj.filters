@@ -138,6 +138,9 @@
     <ClCompile Include="ADSLibrary\Algorithms\ArraySearchingAlgorithms\ArraySearchingAlgorithms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tests\AlgorithmsTest\AlgorithmsTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h">
@@ -258,6 +261,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ADSLibrary\Algorithms\ArraySearchingAlgorithms\ArraySearchingAlgorithms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\AlgorithmsTest\AlgorithmsTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

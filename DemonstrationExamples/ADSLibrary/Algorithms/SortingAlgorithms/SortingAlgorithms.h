@@ -7,7 +7,7 @@ namespace ADSLibrary
 		/**
 		* Tøídící algoritmy v poli.
 		*/
-		namespace ArraysAndPointers
+		namespace SortingAlgorithms
 		{
 			/**
 			 * Selection sort

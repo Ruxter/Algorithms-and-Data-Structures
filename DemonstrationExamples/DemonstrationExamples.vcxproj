@@ -131,6 +131,7 @@
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\Procedural\</ObjectFileName>
     </ClCompile>
     <ClCompile Include="DummyClass.cpp" />
+    <ClCompile Include="Tests\AlgorithmsTest\AlgorithmsTest.cpp" />
     <ClCompile Include="Tests\ArrayBasedTest\ArrayBasedTests.cpp" />
     <ClCompile Include="Tests\DictionaryTest\DictionaryTest.cpp" />
     <ClCompile Include="main.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
     <ClInclude Include="DummyClass.h" />
     <ClInclude Include="IComparer.h" />
+    <ClInclude Include="Tests\AlgorithmsTest\AlgorithmsTest.h" />
     <ClInclude Include="Tests\ArrayBasedTest\ArrayBasedTests.h" />
     <ClInclude Include="Tests\DictionaryTest\DictionaryTest.h" />
     <ClInclude Include="Tests\DynamicArrayTest\DynamicArrayTest.h" />

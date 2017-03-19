@@ -8,10 +8,14 @@
 #include "../../ADSLibrary/DataStructures/LinkedStructures/OOP/Stack.h"
 #include "../../ADSLibrary/DataStructures/LinkedStructures/OOP/Queue.h"
 #include "../../ADSLibrary/DataStructures/LinkedStructures/OOP/List.h"
+#include "../../ADSLibrary/DataStructures/LinkedStructures/OOP/ListWithSentinel.h"
+#include "../../ADSLibrary/DataStructures/LinkedStructures/OOP/BinarySearchTree.h"
 
 /*
 * Tøída sloužící k testování LinkedStructures (OOP, OOPTemplate, Procedural)
 * Tøídy List a DoublyLinkedList ze jmenného prostoru OOPTemplate jsou testovány zvláš
+* 
+* BST v LinkedStructures se liší od implementace BST v CollectionsGenerics. Bylo potøeba pøizpùsobit strukturu pro potøeby množiny a slovníku.
 */
 
 struct LinkedStructuresStruct : testing::Test
@@ -24,6 +28,8 @@ struct LinkedStructuresStruct : testing::Test
 	ADSLibrary::DataStructures::LinkedStructures::OOP::Stack *stack3;
 	ADSLibrary::DataStructures::LinkedStructures::OOP::Queue *queue3;
 	ADSLibrary::DataStructures::LinkedStructures::OOP::List *list3;
+	ADSLibrary::DataStructures::LinkedStructures::OOP::ListWithSentinel *list4;
+	ADSLibrary::DataStructures::LinkedStructures::OOP::BinarySearchTree *bst;
 
 	LinkedStructuresStruct()
 	{
@@ -35,6 +41,8 @@ struct LinkedStructuresStruct : testing::Test
 		stack3 = new ADSLibrary::DataStructures::LinkedStructures::OOP::Stack();
 		queue3 = new ADSLibrary::DataStructures::LinkedStructures::OOP::Queue();
 		list3 = new ADSLibrary::DataStructures::LinkedStructures::OOP::List();
+		list4 = new ADSLibrary::DataStructures::LinkedStructures::OOP::ListWithSentinel();
+		bst = new ADSLibrary::DataStructures::LinkedStructures::OOP::BinarySearchTree();
 
 	}
 
@@ -48,6 +56,8 @@ struct LinkedStructuresStruct : testing::Test
 		delete stack3;
 		delete queue3;
 		delete list3;
+		delete list4;
+		delete bst;
 	}
 };
 
@@ -141,6 +151,60 @@ TEST_F(LinkedStructuresStruct, LinkedStructuresTest)
 	list3->Clear();
 	EXPECT_EQ(true, list3->IsEmpty());
 	EXPECT_EQ(0, list3->Count());
+
+	//List with sentinel
+	EXPECT_EQ(true, list4->IsEmpty());
+	list4->Insert(1);
+	list4->Insert(2);
+	list4->Insert(3);
+	list4->Insert(4);
+	list4->Insert(5);
+	EXPECT_EQ(false, list4->IsEmpty());
+	list4->Insert(6);
+	list4->Insert(7);
+	list4->Insert(8);
+	list4->Insert(9);
+	list4->Insert(10);
+	EXPECT_EQ(10, list4->Count());
+
+	EXPECT_EQ(true, list4->Search(2));
+	list4->Delete(2);
+	EXPECT_EQ(false, list4->Search(2));
+	EXPECT_EQ(9, list4->Count());
+	list4->Delete(4);
+	EXPECT_EQ(8, list4->Count());
+	EXPECT_EQ(false, list4->Search(4));
+	EXPECT_EQ(true, list4->Search(9));
+	list4->Clear();
+	EXPECT_EQ(true, list4->IsEmpty());
+	EXPECT_EQ(0, list4->Count());
+
+	//Binary search tree
+	EXPECT_EQ(true, bst->IsEmpty());
+	bst->Insert("a");
+	bst->Insert("b");
+	bst->Insert("c");
+	bst->Insert("d");
+	bst->Insert("e");
+	EXPECT_EQ(false, bst->IsEmpty());
+	bst->Insert("f");
+	bst->Insert("g");
+	bst->Insert("h");
+	bst->Insert("i");
+	bst->Insert("j");
+	EXPECT_EQ(10, bst->Count());
+
+	EXPECT_EQ(true, bst->Search("b"));
+	bst->Delete("b");
+	EXPECT_EQ(false, bst->Search("b"));
+	EXPECT_EQ(9, bst->Count());
+	bst->Delete("d");
+	EXPECT_EQ(8, bst->Count());
+	EXPECT_EQ(false, bst->Search("d"));
+	EXPECT_EQ(true, bst->Search("i"));
+	bst->Clear();
+	EXPECT_EQ(true, bst->IsEmpty());
+	EXPECT_EQ(0, bst->Count());
 }
 /*
 * Unit test LinkedStructures::OOPTemplate::Queue a LinkedStructures::OOPTemplate::Stack

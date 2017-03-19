@@ -109,11 +109,11 @@ namespace ADSLibrary
 						 */
 						int Value;
 						/**
-						 * Ukazatel na pøedchozí položku. Pokud taková položka neexistuje ukazatel má hodnotu {@link #mNil}.
+						 * Ukazatel na pøedchozí položku. Pokud taková položka neexistuje ukazatel má hodnotu {@link #mNil\endlink}.
 						 */
 						ListItem* Prev;
 						/**
-						 * Ukazatel na následující  položku. Pokud taková položka neexistuje ukazatel má hodnotu {@link #mNil}.
+						 * Ukazatel na následující  položku. Pokud taková položka neexistuje ukazatel má hodnotu {@link #mNil\endlink}.
 						 */
 						ListItem* Next;
 					};
