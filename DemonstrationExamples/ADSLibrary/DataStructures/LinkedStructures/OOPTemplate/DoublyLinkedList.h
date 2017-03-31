@@ -26,44 +26,41 @@ namespace ADSLibrary
 
 					/**
 					* Vložení prvku na zaèátek seznamu.
-					*
+					* @param value vkládaná hodnota
 					*/
 					void InsertBegin(T value);
 
 					/**
 					* Vložení prvku na konec seznamu.
-					*
+					* @param value vkládaná hodnota
 					*/
 					void InsertEnd(T value);
 
 					/**
 					* Nalezení prvku v listu.
-					* @return Funkce vrací true pokud je daný element v seznamu, jinak false.
+					* @param value hodnota kterou chceme zjistit
+					* @return vrací true pokud je daný element v seznamu, jinak false.
 					*/
 					bool Search(T value);
 															
 					/**
 					* Odebrání prvního prvku ze seznamu - head.	
-					*
 					*/
 					void RemoveFirstItem();
 
 					/**
 					* Odebrání posledního prvku ze seznamu - tail.
-					*
 					*/
 					void RemoveLastItem();
 
 					/**
 					* Test, je-li seznam prázdný.
-					*
 					* @return Funkce vrací true pokud je seznam prázdný, jinak false.
 					*/
 					bool IsEmpty() const;
 
 					/**
 					* Spoèítá prvky
-					*
 					*/
 					int Count() const;
 
@@ -79,7 +76,6 @@ namespace ADSLibrary
 
 					/**
 					* Smaže obsah seznamu.
-					*
 					*/
 					void Clear();
 

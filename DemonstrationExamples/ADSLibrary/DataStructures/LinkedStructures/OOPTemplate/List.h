@@ -25,23 +25,28 @@ namespace ADSLibrary
 
 					/**
 					* Vložení prvku do seznamu. Prvek je vložen pøed souèasnou hlavu seznamu tj. stane se novou hlavou seznamu.
+					* 
 					* @param value Vkládaný prvek
 					*/
 					void Insert(T value);
 
 					/**
-					* @return Funkce vrací head ze seznamu.
+					* Vrací hlavu seznamu
+					*
+					* @return Hlava seznamu
 					*/
 					T FirstItem();
 					
 					/**
 					* Test je-li seznam prázdný.
+					* 
 					* @return Funkce vrací true pokud je seznam prázdný, jinak false.
 					*/
 					bool IsEmpty() const;
 
 					/**
 					* Funkce vrací poèet prvkù v seznamu.
+					* 
 					* @return Poèet prvkù v seznamu.
 					*/
 					int Count() const;
@@ -53,6 +58,7 @@ namespace ADSLibrary
 
 					/**
 					* Hledání prvku v seznamu.
+					* 
 					* @param value Hledaný prvek
 					* @return Funkce vrací true v pøípadì, že je prvek X nalezen, jinak vrací false.
 					*/

@@ -21,9 +21,15 @@ namespace ADSLibrary
 				public:
 					/**
 					 * Konstruktor.
+					 * 
 					 * @param Tree Strom, pøes který se bude iterovat
 					 */
 					BinaryTreeIteratorBase(BinarySearchTree* Tree);
+
+					/**
+					 * Destruktor
+					 */
+					virtual ~BinaryTreeIteratorBase();
 
 					/**
 					 * Reset iterátoru. Potomci, pøekrývající tuto metodu musí odpovídajícím zpùsobem inicializovat iterátor (naplnit zásobník uzly stromu)
@@ -32,6 +38,7 @@ namespace ADSLibrary
 
 					/**
 					 * Test ukonèení èinnosti iterátoru. Tento test je pro všechny iterátory shodný.
+					 * 
 					 * @return Funkce vrací true pokud je iterace stromem ukonèena, jinak false.
 					 */
 					bool IsEnd() const;
@@ -43,6 +50,7 @@ namespace ADSLibrary
 
 					/**
 					 * Vrácení klíèe z aktuálního uzlu ve stromu.
+					 * 
 					 * @return Funkce vrací klíè z aktuálního uzlu ve stromu.
 					 */
 					string Current() const;

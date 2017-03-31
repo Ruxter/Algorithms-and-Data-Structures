@@ -34,18 +34,21 @@ namespace ADSLibrary
 
 					/**
 					 * Vložení klíèe do stromu.
+					 * 
 					 * @param Key Vkládaný klíè
 					 */
 					void Insert(const string Key);
 
 					/**
 					 * Odebrání klíèe ze stromu.
+					 * 
 					 * @param Key Odebíraný klíè
 					 */
 					void Delete(const string Key);
 
 					/**
 					 * Hledání klíèe ve stromu s využitím rekurze.
+					 * 
 					 * @param Key Hledaný klíè
 					 * @return Funkce vrací true v pøípadì, že je prvek Key nalezen, jinak vrací false.
 					 */
@@ -53,6 +56,7 @@ namespace ADSLibrary
 
 					/**
 					 * Hledání prvku ve stromu s využitím cyklu.
+					 * 
 					 * @param Key Hledaný klíè
 					 * @return Funkce vrací true v pøípadì, že je klíè Key nalezen, jinak vrací false.
 					 */
@@ -65,12 +69,14 @@ namespace ADSLibrary
 
 					/**
 					 * Test je-li strom prázdný.
+					 * 
 					 * @return Funkce vrací true pokud je seznam prázdný, jinak false.
 					 */
 					bool IsEmpty() const;
 
 					/**
 					 * Funkce vrací poèet uzlù ve stromu.
+					 * 
 					 * @return Poèet uzlù ve stromu.
 					 */
 					int Count() const;
@@ -129,6 +135,7 @@ namespace ADSLibrary
 
 					/**
 					 * Rekurzívní metoda pro vkládání klíèe do stromu.
+					 * 
 					 * @param p Aktuální uzel stromu.
 					 * @param Key Vkládaný klíè.
 					 */
@@ -136,6 +143,7 @@ namespace ADSLibrary
 
 					/**
 					 * Rekurzívní metoda pro smazání klíèe ze stromu.
+					 * 
 					 * @param p Aktuální uzel stromu.
 					 * @param Key Odebíraný klíè.
 					 */
@@ -144,6 +152,7 @@ namespace ADSLibrary
 					/**
 					 * Rekurzívní metoda pro smazání klíèe ze stromu, uzel q má dva potomky, hledáme nejpravìjšího potomka z levého podstromu uzlu q.
 					 * Jinak øeèeno hledáme nejbližší menší klíè.
+					 * 
 					 * @param r Aktuální uzel stromu.
 					 * @param q Uzel který se bude rušit.
 					 */
@@ -151,6 +160,7 @@ namespace ADSLibrary
 
 					/**
 					 * Rekurzívní metoda pro hledání klíèe ze stromu.
+					 * 
 					 * @param p Aktuální uzel stromu.
 					 * @param Key Hledaný klíè.
 					 */
@@ -158,12 +168,14 @@ namespace ADSLibrary
 
 					/**
 					 * Rekurzívní metoda pro postupné smazání celého stromu.
+					 * 
 					 * @param p Aktuální uzel stromu.
 					 */
 					void InternalClear(const Node* p);
 
 					/**
 					 * Rekurzívní metoda pro poèítání uzlù ve stromu.
+					 * 
 					 * @param p Aktuální uzel stromu.
 					 * @return Funkce vrací poèet uzlù ve stromu s koøenem p.
 					 */
@@ -171,24 +183,28 @@ namespace ADSLibrary
 
 					/**
 					 * Rekurzívní metoda pro prùchod stromem zpùsobem in order.
+					 * 
 					 * @param p Aktuální uzel stromu.
 					 */
 					void InternalInorderTraversal(Node* p);
 
 					/**
 					 * Rekurzívní metoda pro prùchod stromem zpùsobem pre order.
+					 * 
 					 * @param p Aktuální uzel stromu.
 					 */
 					void InternalPreorderTraversal(Node* p);
 
 					/**
 					 * Rekurzívní metoda pro prùchod stromem zpùsobem post order.
+					 * 
 					 * @param p Aktuální uzel stromu.
 					 */
 					void InternalPostorderTraversal(Node* p);
 
 					/**
 					 * Rekurzívní metoda pro vypisování interní struktury stromu.
+					 * 
 					 * @param p Aktuální uzel stromu.
 					 * @param Indentation Odsazení od levého okraje, poèet tabulátorù.
 					 */
@@ -196,6 +212,7 @@ namespace ADSLibrary
 
 					/**
 					 * Metoda demonstruje akci provádìnou s uzlem pøi prùchodu stromem. V tomto pøípadì vypisuje klíè na standardní výstup.
+					 * 
 					 * @param p Aktuální uzel stromu
 					 */
 					void DoSomeAction(Node* p) const;

@@ -40,18 +40,21 @@ namespace ADSLibrary
 
 					/**
 					 * Vložení prvku do seznamu. Prvek je vložen pøed souèasnou hlavu seznamu tj. stane se novou hlavou seznamu.
+					 * 
 					 * @param X Vkládaný prvek
 					 */
 					void Insert(const int X);
 
 					/**
 					 * Odebrání prvku ze seznamu. Prvek X je nejprve v seznamu nalezen a poté je odpovídající položka ze seznamu vymazána.
+					 * 
 					 * @param X Odebíraný prvek
 					 */
 					void Delete(const int X);
 
 					/**
 					 * Hledání prvku v seznamu.
+					 * 
 					 * @param X Hledaný prvek
 					 * @return Funkce vrací true v pøípadì, že je prvek X nalezen, jinak vrací false.
 					 */
@@ -65,6 +68,7 @@ namespace ADSLibrary
 
 					/**
 					 * Funkce vrací poèet prvkù v seznamu.
+					 * 
 					 * @return Poèet prvkù v seznamu.
 					 */
 					int Count();
@@ -76,6 +80,7 @@ namespace ADSLibrary
 
 					/**
 					 * Test ukonèení èinnosti iterátoru.
+					 * 
 					 * @return Funkce vrací true pokud je iterace seznamem ukonèena, jinak false.
 					 */
 					bool IsEnd();
@@ -87,6 +92,7 @@ namespace ADSLibrary
 
 					/**
 					 * Vrácení prvku z aktuální položky seznamu pøi iteraci.
+					 * 
 					 * @return Funkce vrací prvek z aktuální položky seznamu pøi iteraci.
 					 */
 					int Current();

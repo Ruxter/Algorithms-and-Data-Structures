@@ -24,6 +24,10 @@ struct AlgStructTest : testing::Test
 	}
 };
 
+
+/**
+* Test pro pole o sudém poètu prvkù.
+*/
 TEST_F(AlgStructTest, SearchingAlgTest)
 {
 	const int numOfElements = 10;
@@ -93,6 +97,80 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 	EXPECT_EQ(5, BinarySearchRecursive3(a, 0, numOfElements - 1, 47));
 	EXPECT_EQ(-5, BinarySearchRecursive3(a, 0, numOfElements - 1, 33));
 }
+
+/**
+ * Test pro pole o lichém poètu prvkù.
+ */
+TEST_F(AlgStructTest, SearchingAlgTest2)
+{
+	const int numOfElements = 13;
+	int b[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874, 4, 75, 49 };
+	EXPECT_EQ(true, LinearSearch1(b, numOfElements, 2));
+	EXPECT_EQ(true, LinearSearch1(b, numOfElements, 1));
+	EXPECT_EQ(false, LinearSearch1(b, numOfElements, 33));
+	EXPECT_EQ(true, LinearSearch1(b, numOfElements, 68));
+
+	EXPECT_EQ(1, LinearSearch2(b, numOfElements, 2));
+	EXPECT_EQ(8, LinearSearch2(b, numOfElements, 1));
+	EXPECT_EQ(-1, LinearSearch2(b, numOfElements, 33)); // -1 prvek není v daném poli
+	EXPECT_EQ(5, LinearSearch2(b, numOfElements, 68));
+
+	EXPECT_EQ(true, LinearSearchRecursive1(b, numOfElements, 2, 0));
+	EXPECT_EQ(true, LinearSearchRecursive1(b, numOfElements, 1, 0));
+	EXPECT_EQ(false, LinearSearchRecursive1(b, numOfElements, 33, 0));
+	EXPECT_EQ(true, LinearSearchRecursive1(b, numOfElements, 68, 0));
+
+	EXPECT_EQ(1, LinearSearchRecursive2(b, numOfElements, 2, 0));
+	EXPECT_EQ(8, LinearSearchRecursive2(b, numOfElements, 1, 0));
+	EXPECT_EQ(-1, LinearSearchRecursive2(b, numOfElements, 33, 0));
+	EXPECT_EQ(5, LinearSearchRecursive2(b, numOfElements, 68, 0));
+
+
+	int numOfComparisons, numOfExchanges;
+	ADSLibrary::Algorithms::SortingAlgorithms::InsertSort(b, numOfElements, numOfComparisons, numOfExchanges); //sort potøebný pro binární vyhledávání
+
+	EXPECT_EQ(true, BinarySearch1(b, numOfElements, 2));
+	EXPECT_EQ(true, BinarySearch1(b, numOfElements, 1));
+	EXPECT_EQ(false, BinarySearch1(b, numOfElements, 33));
+	EXPECT_EQ(true, BinarySearch1(b, numOfElements, 68));
+
+	EXPECT_EQ(1, BinarySearch2(b, numOfElements, 2));
+	EXPECT_EQ(0, BinarySearch2(b, numOfElements, 1));
+	EXPECT_EQ(12, BinarySearch2(b, numOfElements, 12071));
+	EXPECT_EQ(6, BinarySearch2(b, numOfElements, 47));
+	EXPECT_EQ(-1, BinarySearch2(b, numOfElements, 33));
+	EXPECT_EQ(8, BinarySearch2(b, numOfElements, 68));
+
+	EXPECT_EQ(1, BinarySearch3(b, numOfElements, 2));
+	EXPECT_EQ(0, BinarySearch3(b, numOfElements, 1));
+	EXPECT_EQ(12, BinarySearch3(b, numOfElements, 12071));
+	EXPECT_EQ(6, BinarySearch3(b, numOfElements, 47));
+	EXPECT_EQ(-6, BinarySearch3(b, numOfElements, 33)); //vrací záporné èíslo, jež je bitovým doplòkem indexu v poli, kam mùže být prvek vložen bez narušení posloupnosti
+
+	EXPECT_EQ(true, BinarySearchRecursive1(b, 0, numOfElements - 1, 2));
+	EXPECT_EQ(true, BinarySearchRecursive1(b, 0, numOfElements - 1, 1));
+	EXPECT_EQ(false, BinarySearchRecursive1(b, 0, numOfElements - 1, 33));
+	EXPECT_EQ(true, BinarySearchRecursive1(b, 0, numOfElements - 1, 68));
+
+	EXPECT_EQ(true, BinarySearchRecursive1a(b, 0, numOfElements - 1, 2));
+	EXPECT_EQ(true, BinarySearchRecursive1a(b, 0, numOfElements - 1, 1));
+	EXPECT_EQ(false, BinarySearchRecursive1a(b, 0, numOfElements - 1, 33));
+	EXPECT_EQ(true, BinarySearchRecursive1(b, 0, numOfElements - 1, 68));
+
+	EXPECT_EQ(1, BinarySearchRecursive2(b, 0, numOfElements - 1, 2));
+	EXPECT_EQ(0, BinarySearchRecursive2(b, 0, numOfElements - 1, 1));
+	EXPECT_EQ(12, BinarySearchRecursive2(b, 0, numOfElements - 1, 12071));
+	EXPECT_EQ(6, BinarySearchRecursive2(b, 0, numOfElements - 1, 47));
+	EXPECT_EQ(-1, BinarySearchRecursive2(b, 0, numOfElements - 1, 33));
+	EXPECT_EQ(8, BinarySearchRecursive2(b, 0, numOfElements - 1, 68));
+
+	EXPECT_EQ(1, BinarySearchRecursive3(b, 0, numOfElements - 1, 2));
+	EXPECT_EQ(0, BinarySearchRecursive3(b, 0, numOfElements - 1, 1));
+	EXPECT_EQ(12, BinarySearchRecursive3(b, 0, numOfElements - 1, 12071));
+	EXPECT_EQ(6, BinarySearchRecursive3(b, 0, numOfElements - 1, 47));
+	EXPECT_EQ(-6, BinarySearchRecursive3(b, 0, numOfElements - 1, 33));
+}
+
 TEST_F(AlgStructTest, SelectionSortTest)
 {
 	using namespace ADSLibrary::Algorithms::SortingAlgorithms;
