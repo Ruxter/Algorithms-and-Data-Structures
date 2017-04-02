@@ -141,7 +141,6 @@
     <ClCompile Include="Tests\OOPTemplateListTest\OOPTemplateListTest.cpp" />
     <ClCompile Include="Tests\SortedDictionaryTest\SortedDictionaryTest.cpp" />
     <ClCompile Include="Tests\SortedSetTest\SortedSetTest.cpp" />
-    <ClCompile Include="Tests\TestClass.cpp" />
     <ClCompile Include="Tests\DoublyLinkedListTest\DoublyLinkedListTest.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,7 +173,6 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\Procedural\Stack.h" />
     <ClInclude Include="DummyClass.h" />
-    <ClInclude Include="IComparer.h" />
     <ClInclude Include="Tests\AlgorithmsTest\AlgorithmsTest.h" />
     <ClInclude Include="Tests\ArrayBasedTest\ArrayBasedTests.h" />
     <ClInclude Include="Tests\DictionaryTest\DictionaryTest.h" />
@@ -184,7 +182,6 @@
     <ClInclude Include="Tests\OOPTemplateListTest\OOPTemplateListTest.h" />
     <ClInclude Include="Tests\SortedDictionaryTest\SortedDictionaryTest.h" />
     <ClInclude Include="Tests\SortedSetTest\SortedSetTest.h" />
-    <ClInclude Include="Tests\TestClass.h" />
     <ClInclude Include="Tests\DoublyLinkedListTest\DoublyLinkedListTest.h" />
   </ItemGroup>
   <ItemGroup>

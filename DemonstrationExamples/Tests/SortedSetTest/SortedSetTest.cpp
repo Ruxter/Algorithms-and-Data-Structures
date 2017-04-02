@@ -38,6 +38,13 @@ struct SortedSetOOPTemplate : testing::Test
 		delete setout2;
 	}
 };
+
+/*
+* Unit test CollectionsGenerics::Set::SortedSet
+* Add, Size, Contains, Clear, IsEmpty
+* @param SortedSetOOPTemplate název struktury,
+* @param SortedSetOOPTemplateTest název unit testu
+*/
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTest)
 {
 	EXPECT_EQ(true, set->IsEmpty());
@@ -54,6 +61,12 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTest)
 	EXPECT_EQ(true, set->IsEmpty());	
 }
 
+/*
+* Unit test CollectionsGenerics::Set::SortedSet
+* Add, InOrder, PreOrder, PostOrder
+* @param SortedSetOOPTemplate název struktury,
+* @param SortedSetOOPTemplateTestOrders název unit testu
+*/
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestOrders)
 {
 	set->Add(30);
@@ -69,6 +82,12 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestOrders)
 	set->PostOrder();
 }
 
+/*
+* Unit test CollectionsGenerics::Set::SortedSet
+* Add, Remove, Size, Contains, IsEmpty, Clear
+* @param SortedSetOOPTemplate název struktury,
+* @param SortedSetOOPTemplateTestRemove název unit testu
+*/
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestRemove)
 {
 	set->Add(50);
@@ -92,6 +111,13 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestRemove)
 	EXPECT_EQ(true, set->IsEmpty());
 }
 
+/*
+* Unit test CollectionsGenerics::Set::SortedSet
+* Add, Remove
+* Použito zejména v debug modu
+* @param SortedSetOOPTemplate název struktury,
+* @param SortedSetOOPTemplateTestRemove2 název unit testu
+*/
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestRemove2)
 {
 	set->Add(50);
@@ -114,6 +140,13 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestRemove2)
 	set->Add(48);
 }
 
+/*
+* Unit test CollectionsGenerics::Set::SortedSet
+* Add
+* Použito zejména v debug modu
+* @param SortedSetOOPTemplate název struktury,
+* @param SortedSetOOPTemplateTestRemove2 název unit testu
+*/
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTest3)
 {
 	set->Add(40);
@@ -122,6 +155,13 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTest3)
 	set->Add(50);
 }
 
+/*
+* Unit test CollectionsGenerics::Set::SortedSet
+* Add, Intersect
+* Použito zejména v debug modu
+* @param SortedSetOOPTemplate název struktury,
+* @param SortedSetOOPTemplateIntersection název unit testu
+*/
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateIntersection)
 {
 	set->Add(10);
@@ -146,6 +186,13 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateIntersection)
 	set->Intersect(set3, setout);
 }
 
+/*
+* Unit test CollectionsGenerics::Set::SortedSet
+* Add, Union
+* Použito zejména v debug modu
+* @param SortedSetOOPTemplate název struktury,
+* @param SortedSetOOPTemplateUnion název unit testu
+*/
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateUnion)
 {
 	set->Add(1);
@@ -160,6 +207,13 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateUnion)
 	set->Union(set3, setout);
 }
 
+/*
+* Unit test CollectionsGenerics::Set::SortedSet
+* Add, Union
+* Použito zejména v debug modu
+* @param SortedSetOOPTemplate název struktury,
+* @param SortedSetOOPTemplateNotIntTest název unit testu
+*/
 TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateNotIntTest)
 {
 	set2->Add("A");

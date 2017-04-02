@@ -27,6 +27,12 @@ struct SortedDictionaryOOPTemplate : testing::Test
 	}
 };
 
+/*
+* Unit test CollectionsGenerics::Dictionary::SortedDictionary
+* Add, IsEmpty, Clear, Contains, Size
+* @param SortedDictionaryOOPTemplate název struktury,
+* @param SortedDictionarOOPTemplateTest název unit testu
+*/
 TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTest)
 {
 	EXPECT_EQ(true, dic->IsEmpty());
@@ -43,6 +49,12 @@ TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTest)
 	EXPECT_EQ(true, dic->IsEmpty());
 }
 
+/*
+* Unit test CollectionsGenerics::Dictionary::SortedDictionary
+* Add, InOrder, PreOrder, PostOrder
+* @param SortedDictionaryOOPTemplate název struktury,
+* @param SortedDictionarOOPTemplateTestOrders název unit testu
+*/
 TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTestOrders)
 {
 	dic->Add(30, 1000);
@@ -58,6 +70,12 @@ TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTestOrders)
 	dic->PostOrder();
 }
 
+/*
+* Unit test CollectionsGenerics::Dictionary::SortedDictionary
+* Add, Remove, Size, Contains, Clear, IsEmpty
+* @param SortedDictionaryOOPTemplate název struktury,
+* @param SortedDictionarOOPTemplateTestRemove název unit testu
+*/
 TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTestRemove)
 {
 	dic->Add(50, 500);
@@ -81,6 +99,13 @@ TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTestRemove)
 	EXPECT_EQ(true, dic->IsEmpty());
 }
 
+/*
+* Unit test CollectionsGenerics::Dictionary::SortedDictionary
+* Add, Remove
+* Použito jen v debug modu
+* @param SortedDictionaryOOPTemplate název struktury,
+* @param SortedDictionarOOPTemplateTestRemove název unit testu
+*/
 TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTestRemove2)
 {
 	dic->Add(50, 500);
@@ -103,6 +128,13 @@ TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTestRemove2)
 	dic->Add(48, 963);
 }
 
+/*
+* Unit test CollectionsGenerics::Dictionary::SortedDictionary
+* Add
+* Použito jen v debug modu
+* @param SortedDictionaryOOPTemplate název struktury,
+* @param SortedDictionarOOPTemplateTestRemove název unit testu
+*/
 TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTest3)
 {
 	dic->Add(40, 500);
@@ -112,6 +144,13 @@ TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateTest3)
 	dic->Add(30, 1000);
 }
 
+/*
+* Unit test CollectionsGenerics::Dictionary::SortedDictionary
+* Add, Remove
+* Použito jen v debug modu
+* @param SortedDictionaryOOPTemplate název struktury,
+* @param SortedDictionarOOPTemplateTestRemove název unit testu
+*/
 TEST_F(SortedDictionaryOOPTemplate, SortedDictionarOOPTemplateNotIntTest)
 {
 	dic2->Add("M", 1);

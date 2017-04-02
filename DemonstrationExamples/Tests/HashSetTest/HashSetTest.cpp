@@ -33,15 +33,18 @@ struct HashSetOOPTemplate : testing::Test
 		delete setout;
 	}
 };
+
 TEST_F(HashSetOOPTemplate, HashSetOOPTemplateTest)
 {
 	EXPECT_EQ(false, set->Contains(5));
+	EXPECT_EQ(true, set->IsEmpty());
 	set->Add(5);
 	set->Add(6);
 	set->Add(7);
 	set->Add(8);
 	set->Add(5);
 
+	EXPECT_EQ(false, set->IsEmpty());
 	EXPECT_EQ(4, set->Count());
 	EXPECT_EQ(true, set->Contains(5));
 	EXPECT_EQ(true, set->Contains(7));

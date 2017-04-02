@@ -99,9 +99,6 @@
     <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.cpp">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
     </ClCompile>
-    <ClCompile Include="Tests\TestClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DummyClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -206,16 +203,10 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\DoublyLinkedList.h">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOPTemplate</Filter>
     </ClInclude>
-    <ClInclude Include="Tests\TestClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DummyClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IComparer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\HashSet.h">

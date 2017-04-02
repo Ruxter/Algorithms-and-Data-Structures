@@ -262,10 +262,6 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestObjects)
 	list3->Add(*d4);
 	list3->Add(*d5);
 
-	/*DummyComparer *comparer = new DummyComparer();
-	IComparable<DummyClass> *cmp = (IComparable<DummyClass>*) comparer;*/
-
-
 	EXPECT_EQ(true, list4->IsEmpty());
 	EXPECT_EQ(false, list4->Contains("A"));
 	list4->Add("A");

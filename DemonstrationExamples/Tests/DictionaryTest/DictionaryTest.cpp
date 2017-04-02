@@ -28,6 +28,12 @@ struct DictionaryOOPTemplate : testing::Test
 	}
 };
 
+/*
+* Unit test CollectionsGenerics::Dictionary::Dictionary
+* Insert, IsEmpty, Count, Get, Remove
+* @param DictionaryOOPTemplate název struktury,
+* @param DictionarOOPTemplateTest název unit testu
+*/
 TEST_F(DictionaryOOPTemplate, DictionarOOPTemplateTest)
 {
 	EXPECT_EQ(true, dic->IsEmpty());
@@ -60,6 +66,12 @@ TEST_F(DictionaryOOPTemplate, DictionarOOPTemplateTest)
 	//dic->Report();	
 }
 
+/*
+* Unit test CollectionsGenerics::Dictionary::Dictionary
+* Insert, Get
+* @param DictionaryOOPTemplate název struktury,
+* @param DictionarOOPTemplateTestString název unit testu
+*/
 TEST_F(DictionaryOOPTemplate, DictionarOOPTemplateTestString)
 {
 	dic2->Insert("Neco", 1000);
@@ -72,6 +84,12 @@ TEST_F(DictionaryOOPTemplate, DictionarOOPTemplateTestString)
 	//dic2->Report();
 }
 
+/*
+* Unit test CollectionsGenerics::Dictionary::Dictionary
+* Insert, Get, Count
+* @param DictionaryOOPTemplate název struktury,
+* @param DictionarOOPTemplateTest2 název unit testu
+*/
 TEST_F(DictionaryOOPTemplate, DictionarOOPTemplateTest2)
 {
 	dic->Insert(1, 1000);

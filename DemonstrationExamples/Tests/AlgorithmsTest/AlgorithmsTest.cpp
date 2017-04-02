@@ -25,8 +25,13 @@ struct AlgStructTest : testing::Test
 };
 
 
-/**
-* Test pro pole o sudém poètu prvkù.
+/*
+* Unit test Algorithms::ArraySearchingAlgorithms::ArraySearchingAlgorithms a Algorithms::SortingAlgorithms::SortingAlgorithms.h
+* Test algoritmù pro pole o sudém poètu prvkù.
+* LinearSearch1, LinearSearch2, LinearSearchRecursive1, LinearSearchRecursive2, InsertSort, BinarySearch1, BinarySearch2, BinarySearch3
+* BinarySearchRecursive1, BinarySearchRecursive2, BinarySearchRecursive3
+* @param AlgStructTest název struktury,
+* @param SearchingAlgTest název unit testu
 */
 TEST_F(AlgStructTest, SearchingAlgTest)
 {
@@ -98,9 +103,14 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 	EXPECT_EQ(-5, BinarySearchRecursive3(a, 0, numOfElements - 1, 33));
 }
 
-/**
- * Test pro pole o lichém poètu prvkù.
- */
+/*
+* Unit test Algorithms::ArraySearchingAlgorithms::ArraySearchingAlgorithms a Algorithms::SortingAlgorithms::SortingAlgorithms.h
+* Test algoritmù pro pole o lichém poètu prvkù.
+* LinearSearch1, LinearSearch2, LinearSearchRecursive1, LinearSearchRecursive2, InsertSort, BinarySearch1, BinarySearch2, BinarySearch3
+* BinarySearchRecursive1, BinarySearchRecursive2, BinarySearchRecursive3
+* @param AlgStructTest název struktury,
+* @param SearchingAlgTest2 název unit testu
+*/
 TEST_F(AlgStructTest, SearchingAlgTest2)
 {
 	const int numOfElements = 13;
@@ -171,9 +181,16 @@ TEST_F(AlgStructTest, SearchingAlgTest2)
 	EXPECT_EQ(-6, BinarySearchRecursive3(b, 0, numOfElements - 1, 33));
 }
 
+using namespace ADSLibrary::Algorithms::SortingAlgorithms;
+/*
+* Unit test  Algorithms::SortingAlgorithms::SortingAlgorithms.h
+* SelectSort
+* Test algoritmù tøídìní pole.
+* @param AlgStructTest název struktury,
+* @param SelectionSortTest název unit testu
+*/
 TEST_F(AlgStructTest, SelectionSortTest)
-{
-	using namespace ADSLibrary::Algorithms::SortingAlgorithms;
+{	
 	const int numOfElements = 10;
 	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
@@ -182,9 +199,15 @@ TEST_F(AlgStructTest, SelectionSortTest)
 	ReportArray(a, numOfElements);
 }
 
+/*
+* Unit test  Algorithms::SortingAlgorithms::SortingAlgorithms.h
+* InsertSort
+* Test algoritmù tøídìní pole.
+* @param AlgStructTest název struktury,
+* @param InsertionsSortTest název unit testu
+*/
 TEST_F(AlgStructTest, InsertionsSortTest)
-{
-	using namespace ADSLibrary::Algorithms::SortingAlgorithms;
+{	
 	const int numOfElements = 10;
 	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
@@ -193,27 +216,53 @@ TEST_F(AlgStructTest, InsertionsSortTest)
 	ReportArray(a, numOfElements);
 }
 
+/*
+* Unit test  Algorithms::SortingAlgorithms::SortingAlgorithms.h
+* BubbleSort0, BubbleSort1, BubbleSort2, BubbleSort3, BubbleSort4
+* Test algoritmù tøídìní pole.
+* @param AlgStructTest název struktury,
+* @param BubbleSortsTest název unit testu
+*/
 TEST_F(AlgStructTest, BubbleSortsTest)
-{
-	using namespace ADSLibrary::Algorithms::SortingAlgorithms;
+{	
 	const int numOfElements = 10;
 	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
+	int b[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
+	int c[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
+	int d[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
+	int e[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
+
 	ReportArray(a, numOfElements);
 	BubbleSort0(a, numOfElements, numOfComparisons, numOfExchanges);
 	ReportArray(a, numOfElements);
-	BubbleSort1(a, numOfElements, numOfComparisons, numOfExchanges);
-	ReportArray(a, numOfElements);
-	BubbleSort2(a, numOfElements, numOfComparisons, numOfExchanges);
-	ReportArray(a, numOfElements);
-	BubbleSort3(a, numOfElements, numOfComparisons, numOfExchanges);
-	ReportArray(a, numOfElements);
-	BubbleSort4(a, numOfElements, numOfComparisons, numOfExchanges);
+
+	ReportArray(b, numOfElements);
+	BubbleSort1(b, numOfElements, numOfComparisons, numOfExchanges);
+	ReportArray(b, numOfElements);
+
+	ReportArray(c, numOfElements);
+	BubbleSort2(c, numOfElements, numOfComparisons, numOfExchanges);
+	ReportArray(c, numOfElements);
+
+	ReportArray(d, numOfElements);
+	BubbleSort3(d, numOfElements, numOfComparisons, numOfExchanges);
+	ReportArray(d, numOfElements);
+
+	ReportArray(e, numOfElements);
+	BubbleSort4(e, numOfElements, numOfComparisons, numOfExchanges);
+	ReportArray(e, numOfElements);
 }
 
+/*
+* Unit test  Algorithms::SortingAlgorithms::SortingAlgorithms.h
+* ShakerSort
+* Test algoritmù tøídìní pole.
+* @param AlgStructTest název struktury,
+* @param InsertionsSortTest název unit testu
+*/
 TEST_F(AlgStructTest, ShakerSortTest)
 {
-	using namespace ADSLibrary::Algorithms::SortingAlgorithms;
 	const int numOfElements = 10;
 	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
@@ -222,9 +271,15 @@ TEST_F(AlgStructTest, ShakerSortTest)
 	ReportArray(a, numOfElements);
 }
 
+/*
+* Unit test  Algorithms::SortingAlgorithms::SortingAlgorithms.h
+* QuickSort
+* Test algoritmù tøídìní pole.
+* @param AlgStructTest název struktury,
+* @param InsertionsSortTest název unit testu
+*/
 TEST_F(AlgStructTest, QuickSortTest)
 {
-	using namespace ADSLibrary::Algorithms::SortingAlgorithms;
 	const int numOfElements = 10;
 	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
@@ -233,10 +288,15 @@ TEST_F(AlgStructTest, QuickSortTest)
 	ReportArray(a, numOfElements);
 }
 
-
+/*
+* Unit test  Algorithms::SortingAlgorithms::SortingAlgorithms.h
+* HeapSort
+* Test algoritmù tøídìní pole.
+* @param AlgStructTest název struktury,
+* @param InsertionsSortTest název unit testu
+*/
 TEST_F(AlgStructTest, HeapSortTest)
 {	
-	using namespace ADSLibrary::Algorithms::SortingAlgorithms;
 	const int numOfElements = 10;
 	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
@@ -244,8 +304,6 @@ TEST_F(AlgStructTest, HeapSortTest)
 	HeapSort(a, numOfElements, numOfComparisons, numOfExchanges);
 	ReportArray(a, numOfElements);
 }
-
-
 
 AlgorithmsTest::AlgorithmsTest()
 {
