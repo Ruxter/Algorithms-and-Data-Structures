@@ -9,7 +9,7 @@ namespace ADSLibrary
 			namespace Procedural
 			{
 				/**
-				 * \brief Struktura reprezentující položku v zásobníku {@link #ADSLibrary::DataStructures::LinkedStructures::Procedural::Stack}
+				 * \brief Struktura reprezentující položku v zásobníku {@link #ADSLibrary::DataStructures::LinkedStructures::Procedural::Stack\endlink}
 				 */
 				struct StackItem
 				{

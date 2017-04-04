@@ -10,7 +10,7 @@ namespace ADSLibrary
 			{
 				void Init(Stack& S)
 				{
-					S.StackPointer = 0;
+					S.StackPointer = 0;					
 				}
 
 				void Push(Stack& S, const char X)
@@ -21,7 +21,7 @@ namespace ADSLibrary
 
 				char Pop(Stack& S)
 				{
-					S.StackPointer -= 1;
+					S.StackPointer -= 1;					
 					return S.Items[S.StackPointer];
 				}
 
@@ -38,6 +38,11 @@ namespace ADSLibrary
 				bool IsFull(const Stack& S)
 				{
 					return S.StackPointer == StackSize;
+				}
+
+				int Count(const Stack& S)
+				{
+					return S.StackPointer;
 				}
 				
 				void Clear(Stack& S)

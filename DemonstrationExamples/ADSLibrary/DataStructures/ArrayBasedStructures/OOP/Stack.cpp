@@ -42,11 +42,11 @@ namespace ADSLibrary
 
 				char Stack::Pop()
 				{
-					this->StackPointer -= 1;
+					this->StackPointer -= 1;					
 					return this->Items[this->StackPointer];
 				}
 
-				char Stack::Top()
+				char Stack::Top() const
 				{
 					return this->Items[this->StackPointer - 1];
 				}
@@ -59,6 +59,11 @@ namespace ADSLibrary
 				bool Stack::IsFull() const
 				{
 					return this->StackPointer >= this->StackSize;
+				}
+
+				int Stack::Count() const
+				{
+					return this->StackPointer;
 				}
 
 				void Stack::Clear()

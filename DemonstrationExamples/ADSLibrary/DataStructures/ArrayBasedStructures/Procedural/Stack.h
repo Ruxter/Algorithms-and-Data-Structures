@@ -11,8 +11,8 @@ namespace ADSLibrary
 				/**
 				 * Velikost zásobníku.
 				 */
-				const int StackSize = 10;
-				
+				const int StackSize = 10;				
+
 				/**
 				 * \brief Zásobník implementovaný v poli procedurálním zpùsobem.
 				 */
@@ -76,6 +76,13 @@ namespace ADSLibrary
 				 * @return Funkce vrací true pokud je zásobník zaplnìný, jinak false.
 				 */
 				bool IsFull(const Stack& S);
+
+				/**
+				* Metoda pro zjištìní poètu prvkù v zásobníku
+				*
+				* @return Funkce vrací poèet všech prvkù v zásobníku.
+				*/
+				int Count(const Stack& S);
 
 				/**
 				 * Smazání celého obsahu zásobníku.

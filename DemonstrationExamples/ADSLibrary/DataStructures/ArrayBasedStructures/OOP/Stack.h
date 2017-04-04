@@ -52,7 +52,7 @@ namespace ADSLibrary
 					*
 					* @return Prvek z vrcholu zásobníku
 					*/
-					char Top();
+					char Top() const;
 
 					/**
 					 * Test, je-li zásobník prázdný.
@@ -67,6 +67,13 @@ namespace ADSLibrary
 					 * @return Funkce vrací true pokud je zásobník zaplnìný, jinak false.
 					 */
 					bool IsFull() const;
+
+					/**
+					* Metoda pro zjištìní poètu prvkù v zásobníku
+					*
+					* @return Funkce vrací poèet všech prvkù v zásobníku.
+					*/
+					int Count() const;
 
 					/**
 					 * Smazání celého obsahu zásobníku.

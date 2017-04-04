@@ -57,12 +57,7 @@ namespace ADSLibrary
 					/**
 					 * Smazání celého obsahu zásobníku.
 					 */
-					void Clear();
-
-					T getValue()
-					{
-						return Item.Value;
-					}
+					void Clear();					
 
 				private:
 					/**

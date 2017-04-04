@@ -2,7 +2,6 @@
 #include "HashSetTest.h"
 #include "../../ADSLibrary/DataStructures/CollectionsGenerics/Set/HashSet.h"
 
-
 /*
 * Soubor sloužící k testování neuspoøádané množiny
 */

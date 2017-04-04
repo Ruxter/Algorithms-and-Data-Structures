@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 namespace ADSLibrary
 {
@@ -112,12 +111,7 @@ namespace ADSLibrary
 					/**
 					 * Ukazatel zásobníku.
 					 */
-					int StackPointer;
-
-					/**
-					* Poèet prvkù
-					*/
-					int Counter = 0;
+					int StackPointer;					
 
 					/**
 					 * Výchozí (default) velikost zásobníku.
@@ -126,10 +120,7 @@ namespace ADSLibrary
 				};
 
 				template <typename T> Stack<T>::Stack()
-				{
-					/*
-					 * Uprava konstruktoru. StackSize.
-					 */
+				{					
 					this->StackSize = DefaultStackSize;
 					this->Items = new T[DefaultStackSize];
 					this->StackPointer = 0;
@@ -151,13 +142,11 @@ namespace ADSLibrary
 				{
 					this->Items[this->StackPointer] = X;
 					this->StackPointer += 1;
-					Counter++;
 				}
 
 				template <typename T> T Stack<T>::Pop()
 				{
 					this->StackPointer -= 1;
-					Counter--;
 					return this->Items[this->StackPointer];
 				}
 
@@ -173,7 +162,7 @@ namespace ADSLibrary
 
 				template <typename T> int Stack<T>::Count() const
 				{
-					return this->Counter;
+					return this->StackPointer;
 				}
 
 				template <typename T> bool Stack<T>::IsEmpty() const

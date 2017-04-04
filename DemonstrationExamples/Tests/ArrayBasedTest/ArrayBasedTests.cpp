@@ -50,7 +50,7 @@ struct ArrayBasedTest : testing::Test
 };
 
 /*
-* Unit test ArrayBasedStructures::OOPTemplate::Queue a ArrayBasedStructures::OOPTemplate::Stack
+* Unit test ArrayBasedStructures::OOP::Queue a ArrayBasedStructures::OOP::Stack
 * Init, Push, Pop, Top, IsEmpty, IsFull, Enqueue, Dequeue, Clear
 * @param ArrayBasedTest název struktury,
 * @param ArrayBasedTest1 název unit testu
@@ -59,9 +59,11 @@ TEST_F(ArrayBasedTest, ArrayBasedTest1)
 {
 	//Stack
 	EXPECT_EQ(true, stack->IsEmpty());
+	EXPECT_EQ(0, stack->Count());
 	stack->Push('a');
 	stack->Push('b');
 	stack->Push('c');
+	EXPECT_EQ(3, stack->Count());
 	EXPECT_EQ(false, stack->IsFull());
 	stack->Push('d');
 	stack->Push('e');
@@ -73,17 +75,25 @@ TEST_F(ArrayBasedTest, ArrayBasedTest1)
 	stack->Push('h');
 	stack->Push('i');
 	stack->Push('j');
+	EXPECT_EQ(10, stack->Count());
 	EXPECT_EQ(true, stack->IsFull());
 
 	EXPECT_EQ('j', stack->Pop());
 	EXPECT_EQ('i', stack->Pop());
 	EXPECT_EQ('h', stack->Top());
+	EXPECT_EQ(8, stack->Count());
 	stack->Pop();
+	EXPECT_EQ(7, stack->Count());
 	EXPECT_EQ('g', stack->Pop());
 	EXPECT_EQ('f', stack->Pop());
 	EXPECT_EQ(false, stack->IsEmpty());
 	stack->Clear();
+	EXPECT_EQ(0, stack->Count());
 	EXPECT_EQ(true, stack->IsEmpty());
+	stack->Push('h');
+	EXPECT_EQ(1, stack->Count());
+	stack->Pop();
+	EXPECT_EQ(0, stack->Count());
 
 	//Queue
 	EXPECT_EQ(true, queue->IsEmpty());
@@ -114,7 +124,7 @@ TEST_F(ArrayBasedTest, ArrayBasedTest1)
 }
 
 /*
-* Unit test ArrayBasedStructures::OOP::Queue a ArrayBasedStructures::OOP::Stack
+* Unit test ArrayBasedStructures::OOPTemplate::Queue a ArrayBasedStructures::OOPTemplate::Stack
 * Init, Push, Pop, Top, IsEmpty, IsFull, Enqueue, Dequeue, Clear
 * @param ArrayBasedTest název struktury,
 * @param ArrayBasedTest2 název unit testu
@@ -123,10 +133,12 @@ TEST_F(ArrayBasedTest, ArrayBasedTest2)
 {
 	//Stack
 	EXPECT_EQ(true, stack2->IsEmpty());
+	EXPECT_EQ(0, stack2->Count());
 	stack2->Push('a');
 	stack2->Push('b');
 	stack2->Push('c');
 	EXPECT_EQ(false, stack2->IsFull());
+	EXPECT_EQ(3, stack2->Count());
 	stack2->Push('d');
 	stack2->Push('e');
 	EXPECT_EQ(false, stack2->IsEmpty());
@@ -137,17 +149,25 @@ TEST_F(ArrayBasedTest, ArrayBasedTest2)
 	stack2->Push('h');
 	stack2->Push('i');
 	stack2->Push('j');
+	EXPECT_EQ(10, stack2->Count());
 	EXPECT_EQ(true, stack2->IsFull());
 
 	EXPECT_EQ('j', stack2->Pop());
 	EXPECT_EQ('i', stack2->Pop());
 	EXPECT_EQ('h', stack2->Top());
+	EXPECT_EQ(8, stack2->Count());	
 	stack2->Pop();
+	EXPECT_EQ(7, stack2->Count());
 	EXPECT_EQ('g', stack2->Pop());
 	EXPECT_EQ('f', stack2->Pop());
 	EXPECT_EQ(false, stack2->IsEmpty());
 	stack2->Clear();
+	EXPECT_EQ(0, stack2->Count());
 	EXPECT_EQ(true, stack2->IsEmpty());
+	stack2->Push('h');
+	EXPECT_EQ(1, stack2->Count());
+	stack2->Pop();
+	EXPECT_EQ(0, stack2->Count());
 
 	//Queue
 	EXPECT_EQ(true, queue2->IsEmpty());
@@ -194,27 +214,37 @@ TEST_F(ArrayBasedTest, ArrayBasedTest3)
 	Push(*stack3, 'c');
 	EXPECT_EQ(false, IsEmpty(*stack3));
 	EXPECT_EQ(false, IsFull(*stack3));
+	EXPECT_EQ(3, Count(*stack3));
 	Push(*stack3, 'd');
 	Push(*stack3, 'e');
 	EXPECT_EQ(false, IsFull(*stack3));
 	EXPECT_EQ(false, IsEmpty(*stack3));
+	EXPECT_EQ(5, Count(*stack3));
 	Push(*stack3, 'f');
 	Push(*stack3, 'g');
 	EXPECT_EQ(false, IsFull(*stack3));
 	Push(*stack3, 'h');
 	Push(*stack3, 'i');
 	Push(*stack3, 'j');
+	EXPECT_EQ(10, Count(*stack3));
 	EXPECT_EQ(true, IsFull(*stack3));
 
 	EXPECT_EQ('j', Pop(*stack3));
 	EXPECT_EQ('i', Pop(*stack3));
 	EXPECT_EQ('h', Top(*stack3));
+	EXPECT_EQ(8, Count(*stack3));
 	Pop(*stack3);
+	EXPECT_EQ(7, Count(*stack3));
 	EXPECT_EQ('g', Pop(*stack3));
 	EXPECT_EQ('f', Pop(*stack3));
 	EXPECT_EQ(false, IsEmpty(*stack3));
 	Clear(*stack3);
+	EXPECT_EQ(0, Count(*stack3));
 	EXPECT_EQ(true, IsEmpty(*stack3));
+	Push(*stack3, 'i');
+	EXPECT_EQ(1, Count(*stack3));
+	Pop(*stack3);
+	EXPECT_EQ(0, Count(*stack3));
 
 	Init(*queue3);
 	EXPECT_EQ(true, IsEmpty(*queue3));
