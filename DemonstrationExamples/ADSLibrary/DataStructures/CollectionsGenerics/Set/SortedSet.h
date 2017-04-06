@@ -277,15 +277,11 @@ namespace ADSLibrary
 						}
 						else if (node->Right == nullptr) // Jen levý potomek
 						{
-							Node* temp = node;
 							node = node->Left;
-							delete temp;
 						}
 						else if (node->Left == nullptr) // Jen pravý potomek
 						{
-							Node* temp = node;
 							node = node->Right;
-							delete temp;
 						}
 						else
 						{ // Oba potomci

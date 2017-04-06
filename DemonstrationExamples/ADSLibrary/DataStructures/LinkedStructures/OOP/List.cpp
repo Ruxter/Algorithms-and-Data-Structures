@@ -10,8 +10,8 @@ namespace ADSLibrary
 			{
 				List::List()
 				{
-					mHead = NULL;
-					mCurrent = NULL;
+					mHead = nullptr;
+					mCurrent = nullptr;
 				}
 
 				List::~List()
@@ -21,22 +21,22 @@ namespace ADSLibrary
 
 				void List::Clear()
 				{
-					while (mHead != NULL)
+					while (mHead != nullptr)
 					{
 						ListItem* p = mHead;
 						mHead = mHead->Next;
 						delete p;
 					};
-					mCurrent = NULL;
+					mCurrent = nullptr;
 				}
 
 				void List::Insert(const int X)
 				{
 					ListItem* n = new ListItem;
 					n->Value = X;
-					n->Prev = NULL;
+					n->Prev = nullptr;
 					n->Next = mHead;
-					if (mHead != NULL)
+					if (mHead != nullptr)
 					{
 						mHead->Prev = n;
 					}
@@ -46,18 +46,18 @@ namespace ADSLibrary
 				void List::Delete(const int X)
 				{
 					ListItem* p;
-					for (p = mHead; p != NULL; p = p->Next)
+					for (p = mHead; p != nullptr; p = p->Next)
 					{
 						if (p->Value == X)
 						{
 							break;
 						}
 					}
-					if (p == NULL)
+					if (p == nullptr)
 					{
 						return;
 					}
-					if (p->Prev != NULL)
+					if (p->Prev != nullptr)
 					{
 						p->Prev->Next = p->Next;
 					}
@@ -65,17 +65,17 @@ namespace ADSLibrary
 					{
 						mHead = p->Next;
 					}
-					if (p->Next != NULL)
+					if (p->Next != nullptr)
 					{
 						p->Next->Prev = p->Prev;
-					}
+					}					
 					delete p;
 				}
 
-				bool List::Search(const int X)
+				bool List::Search(const int X) const
 				{
 					ListItem* p = mHead;
-					while (p != NULL)
+					while (p != nullptr)
 					{
 						if (p->Value == X)
 							return true;
@@ -84,15 +84,15 @@ namespace ADSLibrary
 					return false;
 				}
 
-				bool List::IsEmpty()
+				bool List::IsEmpty() const
 				{
-					return mHead == NULL;
+					return mHead == nullptr;
 				}
 
-				int List::Count()
+				int List::Count() const
 				{
 					int counter = 0;
-					for (ListItem* p = mHead; p != NULL; p = p->Next)
+					for (ListItem* p = mHead; p != nullptr; p = p->Next)
 					{
 						counter += 1;
 					}
@@ -104,9 +104,9 @@ namespace ADSLibrary
 					mCurrent = mHead;
 				}
 
-				bool List::IsEnd()
+				bool List::IsEnd() const
 				{
-					return mCurrent == NULL;
+					return mCurrent == nullptr;
 				}
 
 				void List::MoveNext()
@@ -114,7 +114,7 @@ namespace ADSLibrary
 					mCurrent = mCurrent->Next;
 				}
 
-				int List::Current()
+				int List::Current() const
 				{
 					return mCurrent->Value;
 				}
@@ -125,7 +125,7 @@ namespace ADSLibrary
 					cout << "--------------------------" << endl;
 					cout << "Head: " << mHead << endl;
 					cout << "Current: " << mCurrent << endl;
-					for (ListItem* p = mHead; p != NULL; p = p->Next)
+					for (ListItem* p = mHead; p != nullptr; p = p->Next)
 					{
 						cout << p->Value << "\t" << p->Prev << "\t" << p->Next << endl;
 					}

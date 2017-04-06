@@ -65,7 +65,7 @@ struct LinkedStructuresStruct : testing::Test
 };
 
 /*
-* Unit test LinkedStructures::OOP::Queue, LinkedStructures::OOP::Stack, LinkedStructures::OOP::List, LinkedStructures::OOP::ListWithSentinel, 
+* Unit test LinkedStructures::OOPTemplate::Queue, LinkedStructures::OOPTemplate::Stack, LinkedStructures::OOP::List, LinkedStructures::OOP::ListWithSentinel, 
 * LinkedStructures::OOP::BinarySearchTree
 * Init, Push, Pop, Top, IsEmpty, IsFull, Enqueue, Dequeue, Clear, Count, Insert, Delete
 * @param LinkedStructuresStruct název struktury,
@@ -100,6 +100,33 @@ TEST_F(LinkedStructuresStruct, LinkedStructuresTest)
 	stack2->Clear();
 	EXPECT_EQ(true, stack2->IsEmpty());
 
+	//Stack
+	EXPECT_EQ(true, stack3->IsEmpty());
+	stack3->Push('a');
+	stack3->Push('b');
+	stack3->Push('c');
+	EXPECT_EQ('c', stack3->Top());
+	stack3->Push('d');
+	stack3->Push('e');
+	EXPECT_EQ(false, stack3->IsEmpty());
+	stack3->Push('f');
+	stack3->Push('g');
+	stack3->Push('h');
+	EXPECT_EQ('h', stack3->Top());
+	stack3->Push('i');
+	stack3->Push('j');
+	EXPECT_EQ('j', stack3->Top());
+
+	EXPECT_EQ('j', stack3->Pop());
+	EXPECT_EQ('i', stack3->Pop());
+	EXPECT_EQ('h', stack3->Top());
+	stack3->Pop();
+	EXPECT_EQ('g', stack3->Pop());
+	EXPECT_EQ('f', stack3->Pop());
+	EXPECT_EQ(false, stack3->IsEmpty());
+	stack3->Clear();
+	EXPECT_EQ(true, stack3->IsEmpty());
+
 	//Queue
 	EXPECT_EQ(true, queue2->IsEmpty());
 	queue2->Enqueue(1);
@@ -127,6 +154,32 @@ TEST_F(LinkedStructuresStruct, LinkedStructuresTest)
 	queue2->Clear();
 	EXPECT_EQ(true, queue2->IsEmpty());
 
+	//Queue
+	EXPECT_EQ(true, queue3->IsEmpty());
+	queue3->Enqueue(1);
+	queue3->Enqueue(2);
+	queue3->Enqueue(3);
+	EXPECT_EQ(1, queue3->Peek());
+	queue3->Enqueue(4);
+	queue3->Enqueue(5);
+	EXPECT_EQ(false, queue3->IsEmpty());
+	queue3->Enqueue(6);
+	queue3->Enqueue(7);
+	EXPECT_EQ(1, queue3->Peek());
+	queue3->Enqueue(8);
+	queue3->Enqueue(9);
+	queue3->Enqueue(10);
+
+	EXPECT_EQ(1, queue3->Dequeue());
+	EXPECT_EQ(2, queue3->Dequeue());
+	EXPECT_EQ(3, queue3->Peek());
+	EXPECT_EQ(3, queue3->Dequeue());
+	EXPECT_EQ(4, queue3->Dequeue());
+	EXPECT_EQ(5, queue3->Peek());
+	EXPECT_EQ(5, queue3->Dequeue());
+	EXPECT_EQ(false, queue3->IsEmpty());
+	queue3->Clear();
+	EXPECT_EQ(true, queue3->IsEmpty());
 
 	//List
 	EXPECT_EQ(true, list3->IsEmpty());
@@ -209,64 +262,18 @@ TEST_F(LinkedStructuresStruct, LinkedStructuresTest)
 	EXPECT_EQ(true, bst->IsEmpty());
 	EXPECT_EQ(0, bst->Count());
 }
-/*
-* Unit test LinkedStructures::OOPTemplate::Queue a LinkedStructures::OOPTemplate::Stack
-* Init, Push, Pop, Top, IsEmpty, IsFull, Enqueue, Dequeue, Clear
-* @param LinkedStructuresStruct název struktury,
-* @param LinkedStructuresTest2 název unit testu
-*/
+
 TEST_F(LinkedStructuresStruct, LinkedStructuresTest2)
 {
-	//Stack
-	EXPECT_EQ(true, stack2->IsEmpty());
-	stack2->Push('a');
-	stack2->Push('b');
-	stack2->Push('c');
-	EXPECT_EQ('c', stack2->Top());
-	stack2->Push('d');
-	stack2->Push('e');
-	EXPECT_EQ(false, stack2->IsEmpty());
-	stack2->Push('f');
-	stack2->Push('g');
-	stack2->Push('h');
-	EXPECT_EQ('h', stack2->Top());
-	stack2->Push('i');
-	stack2->Push('j');
-	EXPECT_EQ('j', stack2->Top());
+	list3->Insert(1);
+	list3->Insert(2);
+	list3->Insert(3);
+	list3->Insert(4);
+	list3->Insert(5);
 
-	EXPECT_EQ('j', stack2->Pop());
-	EXPECT_EQ('i', stack2->Pop());
-	EXPECT_EQ('h', stack2->Top());
-	stack2->Pop();
-	EXPECT_EQ('g', stack2->Pop());
-	EXPECT_EQ('f', stack2->Pop());
-	EXPECT_EQ(false, stack2->IsEmpty());
-	stack2->Clear();
-	EXPECT_EQ(true, stack2->IsEmpty());
+	list3->Delete(1);
 
-	//Queue
-	EXPECT_EQ(true, queue2->IsEmpty());
-	queue2->Enqueue(1);
-	queue2->Enqueue(2);
-	queue2->Enqueue(3);
-	queue2->Enqueue(4);
-	queue2->Enqueue(5);
-	EXPECT_EQ(false, queue2->IsEmpty());
-	queue2->Enqueue(6);
-	queue2->Enqueue(7);
-	queue2->Enqueue(8);
-	queue2->Enqueue(9);
-	queue2->Enqueue(10);
-
-	EXPECT_EQ(1, queue2->Dequeue());
-	EXPECT_EQ(2, queue2->Dequeue());
-	EXPECT_EQ(3, queue2->Dequeue());
-	EXPECT_EQ(4, queue2->Dequeue());
-	EXPECT_EQ(5, queue2->Dequeue());
-	EXPECT_EQ(false, queue2->IsEmpty());
-	queue2->Clear();
-	EXPECT_EQ(true, queue2->IsEmpty());
-
+	EXPECT_EQ(false, list3->Search(1));
 }
 
 /*

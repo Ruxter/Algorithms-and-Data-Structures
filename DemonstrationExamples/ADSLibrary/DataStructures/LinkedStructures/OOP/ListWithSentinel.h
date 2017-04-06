@@ -43,14 +43,14 @@ namespace ADSLibrary
 					 * 
 					 * @param X Vkládaný prvek
 					 */
-					void Insert(const int X);
+					void Insert(const int X) const;
 
 					/**
 					 * Odebrání prvku ze seznamu. Prvek X je nejprve v seznamu nalezen a poté je odpovídající položka ze seznamu vymazána.
 					 * 
 					 * @param X Odebíraný prvek
 					 */
-					void Delete(const int X);
+					void Delete(const int X) const;
 
 					/**
 					 * Hledání prvku v seznamu.
@@ -58,7 +58,7 @@ namespace ADSLibrary
 					 * @param X Hledaný prvek
 					 * @return Funkce vrací true v pøípadì, že je prvek X nalezen, jinak vrací false.
 					 */
-					bool Search(const int X);
+					bool Search(const int X) const;
 
 					/**
 					 * Test je-li seznam prázdný.

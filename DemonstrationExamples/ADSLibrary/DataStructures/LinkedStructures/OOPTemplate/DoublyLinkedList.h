@@ -128,7 +128,7 @@ namespace ADSLibrary
 
 				template<typename T> DoublyLinkedList<T>::~DoublyLinkedList()
 				{
-
+					Clear();
 				}
 
 				template<typename T> bool DoublyLinkedList<T>::Search(T value)

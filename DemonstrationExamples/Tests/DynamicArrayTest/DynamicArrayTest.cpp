@@ -243,6 +243,57 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameterLoop)
 }
 
 /*
+* Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
+* Add, Contains, Remove
+* @param DynamicArrayOOPTemplate název struktury,
+* @param DynamicArrayOOPTemplateTestWithParameterLoop2 název unit testu
+*/
+TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameterLoop2)
+{
+	for (int i = 1; i <=10; i++)
+	{
+		list->Add(i);
+	}
+	list->Remove(5);
+	EXPECT_EQ(true, list->Contains(1));
+	EXPECT_EQ(true, list->Contains(2));
+	EXPECT_EQ(true, list->Contains(3));
+	EXPECT_EQ(true, list->Contains(4));
+	EXPECT_EQ(true, list->Contains(6));
+	EXPECT_EQ(true, list->Contains(7));
+	EXPECT_EQ(true, list->Contains(8));
+	EXPECT_EQ(true, list->Contains(9));
+	EXPECT_EQ(true, list->Contains(10));
+	
+}
+
+/*
+* Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
+* Add,  RemoveAt, 
+* @param DynamicArrayOOPTemplate název struktury,
+* @param DynamicArrayOOPTemplateTestWithParameterLoop3 název unit testu
+*/
+TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithParameterLoop3)
+{
+	for (int i = 1; i <= 10; i++)
+	{
+		list->Add(i);
+	}
+	list->RemoveAt(4);
+	EXPECT_EQ(true, list->Contains(1));
+	EXPECT_EQ(true, list->Contains(2));
+	EXPECT_EQ(true, list->Contains(3));
+	EXPECT_EQ(true, list->Contains(4));
+	EXPECT_EQ(false, list->Contains(5));
+	EXPECT_EQ(true, list->Contains(6));
+	EXPECT_EQ(true, list->Contains(7));
+	EXPECT_EQ(true, list->Contains(8));
+	EXPECT_EQ(true, list->Contains(9));
+	EXPECT_EQ(true, list->Contains(10));
+
+}
+
+/*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro DummyClass a string
 * Add, Size, Count(), LastItem
 * @param DynamicArrayOOPTemplate název struktury,

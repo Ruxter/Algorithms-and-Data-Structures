@@ -9,7 +9,7 @@ namespace ADSLibrary
 			namespace OOPTemplate
 			{
 				/**
-				 * DynamicArray je generické dynamické pole, které se zvìtšuje èi zmenšuje na základì poètu prvkù v nìm.
+				 * DynamicArray je generické dynamické pole, které se redukuje èi expanduje na základì poètu prvkù v nìm.
 				 */
 				template <class T> class DynamicArray
 				{
@@ -128,18 +128,18 @@ namespace ADSLibrary
 					/**
 					* Reprezentuje pole.
 					*/
-					T* m_array;
+					T* mArray;
 
 					/**
 					* Promìnná reprezentující kapacitu seznamu.
 					*/
-					int m_size;
+					int mSize;
 
 					/**
 					* Promìnná reprezentující poèet prvkù v seznamu.
 					*/
 
-					int m_count;
+					int mCount;
 					/**
 					* Metoda používaná pro rozšiøování, èi redukci velikosti pole.
 					*/
@@ -171,83 +171,83 @@ namespace ADSLibrary
 					/**
 					* Pomocná metoda pro Quick Sort, prohodí dva prvky.
 					* 
-					* @param m_array pole, které je procházeno quicksortem
+					* @param mArray pole, které je procházeno quicksortem
 					* @param left
 					* @param right
 					*/
-					void Swap(T m_array[], int left, int right);
+					void Swap(T mArray[], int left, int right);
 				};
 
-				template<typename T> DynamicArray<T>::DynamicArray() :m_count(0)
+				template<typename T> DynamicArray<T>::DynamicArray() :mCount(0)
 				{
-					m_size = DefaultMinimalSize;
-					m_array = new T[m_size];
+					mSize = DefaultMinimalSize;
+					mArray = new T[mSize];
 				}
-				template<typename T> DynamicArray<T>::DynamicArray(const int size) : m_count(0)
+				template<typename T> DynamicArray<T>::DynamicArray(const int size) : mCount(0)
 				{
-					if (size > DefaultMinimalSize) m_size = size;
-					else m_size = DefaultMinimalSize;
-					m_array = new T[m_size];
+					if (size > DefaultMinimalSize) mSize = size;
+					else mSize = DefaultMinimalSize;
+					mArray = new T[mSize];
 				}
 
-				template<typename T> DynamicArray<T>::DynamicArray(const DynamicArray& array) :m_count(array.m_count)
+				template<typename T> DynamicArray<T>::DynamicArray(const DynamicArray& array) :mCount(array.mCount)
 				{
-					m_size = array.m_size;
-					T* newArray = new T[m_size];
-					for (int i = 0; i < m_count; i++)
+					mSize = array.mSize;
+					T* newArray = new T[mSize];
+					for (int i = 0; i < mCount; i++)
 					{
 						newArray[i] = array[i];
 					}
 
-					m_array = newArray;
+					mArray = newArray;
 				}
 
 				template<typename T> DynamicArray<T>::~DynamicArray()
 				{
-					delete[] m_array;
+					delete[] mArray;
 				}
 
 				template <class T> T& DynamicArray<T>::operator[] (const int index)
 				{
-					return m_array[index];
+					return mArray[index];
 				}
 
 				template <class T> const T& DynamicArray<T>::operator[] (const int index) const
 				{
-					return m_array[index];
+					return mArray[index];
 				}
 
 				template<typename T> void DynamicArray<T>::Add(const T& Item)
 				{
-					if (m_count == m_size) Resize(m_size + AllocationDelta);
-					m_array[m_count++] = Item;
+					if (mCount == mSize) Resize(mSize + AllocationDelta);
+					mArray[mCount++] = Item;
 				}
 
 				template<typename T> void DynamicArray<T>::InsertAt(const int index, const T& Item)
 				{					
-					T* newArray = new T[m_size];
-					m_count++;
-					if (m_count == m_size) Resize(m_size + AllocationDelta);					
-					for (int i = 0; i <= m_count; ++i)
+					T* newArray = new T[mSize];
+					mCount++;
+					if (mCount == mSize) Resize(mSize + AllocationDelta);					
+					for (int i = 0; i <= mCount; ++i)
 					{
-						if (i < index)newArray[i] = m_array[i];
+						if (i < index)newArray[i] = mArray[i];
 						if (i == index)newArray[i] = Item;
-						if (i > index) newArray[i] = m_array[i - 1];
+						if (i > index) newArray[i] = mArray[i - 1];
 					}
-					delete[] m_array;
-					m_array = newArray;					
+					delete[] mArray;
+					mArray = newArray;					
 				}
 
 				template <class T> int DynamicArray<T>::Size() const
 				{
-					return m_size;
+					return mSize;
 				}
 
 				template <class T> bool DynamicArray<T>::Contains(const T& Item) const
 				{
-					for (int i = 0; i < m_count; i++)
+					for (int i = 0; i < mCount; i++)
 					{
-						if (m_array[i] == Item)
+						if (mArray[i] == Item)
 						{
 							return true;
 						}
@@ -260,30 +260,29 @@ namespace ADSLibrary
 					int position = 0;
 					if (!IsEmpty())
 					{
-						for (position; position < m_count; position++)
+						for (position; position < mCount; position++)
 						{
-							if (m_array[position] == Item) break;
+							if (mArray[position] == Item) break;
 						}
-						for (int i = position; i<m_count; i++)
+						for (int i = position; i < mCount; i++)
 						{
-							m_array[i] = m_array[i + 1];
+							mArray[i] = mArray[i + 1];
 						}
-						m_count--;
-						if (m_count <= m_size - AllocationDelta) Resize(m_size - AllocationDelta);
+						mCount--;
+						if (mCount <= mSize - AllocationDelta) Resize(mSize - AllocationDelta);
 					}
 				}
 
 				template<class T> bool DynamicArray<T>::RemoveAt(int index)
 				{
-					if (!IsEmpty() && index <= m_count)
+					if (!IsEmpty() && index <= mCount)
 					{
-						m_array[index] = NULL;
-						for (int i = index; i < m_count; i++)
+						for (int i = index; i < mCount; i++)
 						{
-							m_array[i] = m_array[i + 1];
+							mArray[i] = mArray[i + 1];
 						}
-						m_count--;
-						if (m_count <= m_size - AllocationDelta) Resize(m_size - AllocationDelta);
+						mCount--;
+						if (mCount <= mSize - AllocationDelta) Resize(mSize - AllocationDelta);
 						return true;
 					}
 					return false;
@@ -292,59 +291,59 @@ namespace ADSLibrary
 				template<typename T> void DynamicArray<T>::Resize(int size)
 				{
 					T* newArray = new T[size];
-					int n = (m_count <= m_size) ? m_count : m_size;
+					int n = (mCount <= mSize) ? mCount : mSize;
 					while (n--)
 					{
-						newArray[n] = m_array[n];
+						newArray[n] = mArray[n];
 					}
-					delete[] m_array;
-					m_array = newArray;
-					m_size = size;
+					delete[] mArray;
+					mArray = newArray;
+					mSize = size;
 				}
 
 				template<class T> void DynamicArray<T>::Clear()
 				{
-					m_count = 0;
-					m_size = DefaultMinimalSize;
-					Resize(m_size);
+					mCount = 0;
+					mSize = DefaultMinimalSize;
+					Resize(mSize);
 				}
 
 				template <class T> bool DynamicArray<T>::IsEmpty() const
 				{
-					return m_count == 0;
+					return mCount == 0;
 				}
 
 				template <class T> int DynamicArray<T>::Count() const
 				{
-					return m_count;
+					return mCount;
 				}
 
 				template <class T> void DynamicArray<T>::Sort()
 				{
-					if (m_count < 6000)InsertionSort();
-					else QuickSort(0, m_count);
+					if (mCount <= 10)InsertionSort();
+					else QuickSort(0, mCount);
 				}
 
 				template <class T> void DynamicArray<T>::InsertionSort()
 				{
 					T temp;
 					int j;
-					for (int i = 1; i <= (m_count - 1); i++) {
-						temp = m_array[i];
+					for (int i = 1; i <= (mCount - 1); i++) {
+						temp = mArray[i];
 						j = i - 1;
-						while ((j >= 0) && (m_array[j] > temp)) {
-							m_array[j + 1] = m_array[j];
+						while ((j >= 0) && (mArray[j] > temp)) {
+							mArray[j + 1] = mArray[j];
 							j--;
 						}
-						m_array[j + 1] = temp;
+						mArray[j + 1] = temp;
 					}
 				}
 
-				template<class T> void DynamicArray<T>::Swap(T m_array[], int left, int right)
+				template<class T> void DynamicArray<T>::Swap(T mArray[], int left, int right)
 				{
-					T tmp = m_array[right];
-					m_array[right] = m_array[left];
-					m_array[left] = tmp;
+					T tmp = mArray[right];
+					mArray[right] = mArray[left];
+					mArray[left] = tmp;
 				}
 
 				template <class T> void DynamicArray<T>::QuickSort(int left, int right)
@@ -352,32 +351,15 @@ namespace ADSLibrary
 					if (left < right) {
 						int pivot = left;
 						for (int i = left + 1; i < right; i++) {
-							if (m_array[i] < m_array[left]) {
-								Swap(m_array, i, ++pivot);
+							if (mArray[i] < mArray[left]) {
+								Swap(mArray, i, ++pivot);
 							}
 						}
-						Swap(m_array, left, pivot);
+						Swap(mArray, left, pivot);
 						QuickSort(left, pivot);
 						QuickSort(pivot + 1, right);
 					}
 				}
-
-				/*template <class T> void DynamicArray<T>::QuickSortObjects(int left, int right, IComparable<T> *cmp)
-				{
-					if (left < right) {
-						int pivot = left;
-						for (int i = left + 1; i < right; i++) {
-							if (!cmp->IsFirtsBigger(&m_array[i], &m_array[left])) {
-								T tmp = m_array[i];
-								m_array[i] = m_array[left];
-								m_array[left] = tmp;
-							}
-						}
-						Swap(m_array, left, pivot);
-						QuickSortObjects(left, pivot, cmp);
-						QuickSortObjects(pivot + 1, right, cmp);
-					}
-				}*/
 
 				template <class T> int DynamicArray<T>::BinarySearch(int startIndex, int endIndex, const T& Item)
 				{
@@ -385,11 +367,11 @@ namespace ADSLibrary
 
 					const int middle = startIndex + ((endIndex - startIndex) / 2);
 
-					if (m_array[middle] == Item)
+					if (mArray[middle] == Item)
 					{
 						return middle;
 					}
-					if (m_array[middle] > Item)
+					if (mArray[middle] > Item)
 					{
 						return BinarySearch(startIndex, middle - 1, Item);
 					}
@@ -400,18 +382,18 @@ namespace ADSLibrary
 				{
 					T temp;
 					int i;
-					for (i = 0; i < m_count / 2; ++i) {
-						temp = m_array[m_count - i - 1];
-						m_array[m_count - i - 1] = m_array[i];
-						m_array[i] = temp;
+					for (i = 0; i < mCount / 2; ++i) {
+						temp = mArray[mCount - i - 1];
+						mArray[mCount - i - 1] = mArray[i];
+						mArray[i] = temp;
 					}
 				}				
 
 				template <class T> void DynamicArray<T>::Report()
 				{
-					for (int i = 0; i < m_count; i++)
+					for (int i = 0; i < mCount; i++)
 					{
-						std::cout << i << " : " << m_array[i] << std::endl;
+						std::cout << i << " : " << mArray[i] << std::endl;
 					}
 				}
 			}

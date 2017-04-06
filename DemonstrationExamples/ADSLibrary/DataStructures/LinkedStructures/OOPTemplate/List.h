@@ -8,7 +8,11 @@ namespace ADSLibrary
 		{
 			namespace OOPTemplate
 			{
-				
+				/**
+				* \brief Seznam implementovaný pomocí spojových struktur s využitím %OOPTemplate
+				*
+				* Implementace jednosmìrného seznamu pomocí spojových struktur.
+				*/
 				template <typename T>
 				class List
 				{

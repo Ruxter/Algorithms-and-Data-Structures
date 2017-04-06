@@ -34,7 +34,7 @@ namespace ADSLibrary
 					mCurrent = mNil;
 				}
 
-				void ListWithSentinel::Insert(const int X)
+				void ListWithSentinel::Insert(const int X) const
 				{
 					ListItem* n = new ListItem;
 					n->Value = X;
@@ -44,7 +44,7 @@ namespace ADSLibrary
 					n->Prev = mNil;
 				}
 
-				void ListWithSentinel::Delete(const int X)
+				void ListWithSentinel::Delete(const int X) const 
 				{
 					ListItem* p;
 					for (p = mNil->Next; p != mNil; p = p->Next)
@@ -63,7 +63,7 @@ namespace ADSLibrary
 					delete p;
 				}
 
-				bool ListWithSentinel::Search(const int X)
+				bool ListWithSentinel::Search(const int X) const
 				{
 					ListItem* p = mNil->Next;
 					while (p != mNil)

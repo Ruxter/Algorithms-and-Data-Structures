@@ -79,7 +79,7 @@ TEST_F(HashSetOOPTemplate, HashSetOOPTemplateTest2)
 	set->Add(169);
 	EXPECT_EQ(true, set->Contains(69));
 	EXPECT_EQ(true, set->Contains(169));
-	//set->Report();
+	set->Report();
 }
 
 TEST_F(HashSetOOPTemplate, HashSetOOPTemplateTestIntersection)

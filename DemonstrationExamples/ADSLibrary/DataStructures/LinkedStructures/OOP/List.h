@@ -58,21 +58,21 @@ namespace ADSLibrary
 					 * @param X Hledaný prvek
 					 * @return Funkce vrací true v pøípadì, že je prvek X nalezen, jinak vrací false.
 					 */
-					bool Search(const int X);
+					bool Search(const int X) const;
 
 					/**
 					 * Test je-li seznam prázdný.
 					 * 
 					 * @return Funkce vrací true pokud je seznam prázdný, jinak false.
 					 */
-					bool IsEmpty();
+					bool IsEmpty() const;
 
 					/**
 					 * Funkce vrací poèet prvkù v seznamu.
 					 * 
 					 * @return Poèet prvkù v seznamu.
 					 */
-					int Count();
+					int Count() const;
 
 					/**
 					 * Reset iterátoru. Ukazatel na aktuální položku seznamu bude ukazovat na hlavu seznamu.
@@ -84,7 +84,7 @@ namespace ADSLibrary
 					 * 
 					 * @return Funkce vrací true pokud je iterace seznamem ukonèena, jinak false.
 					 */
-					bool IsEnd();
+					bool IsEnd() const;
 
 					/**
 					 * Posun ukazatele aktuální položky na další položku v seznamu.
@@ -96,7 +96,7 @@ namespace ADSLibrary
 					 * 
 					 * @return Funkce vrací prvek z aktuální položky seznamu pøi iteraci.
 					 */
-					int Current();
+					int Current() const;
 
 					/**
 					 * Pomocná funkce, která zobrazuje vnitøní strukturu seznamu.

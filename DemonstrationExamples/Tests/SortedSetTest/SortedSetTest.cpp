@@ -135,7 +135,7 @@ TEST_F(SortedSetOOPTemplate, SortedSetOOPTemplateTestRemove2)
 
 	set->Remove(50);
 	set->Remove(55);
-
+	set->Remove(52);
 	set->Add(51);
 	set->Add(48);
 }
