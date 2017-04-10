@@ -34,25 +34,25 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro vkládání prvku do množiny
-					* @param key hodnota vkládaného prvku
+					* @param key Hodnota vkládaného prvku
 					*/
 					void Add(const T& key);
 
 					/**
 					* Metoda pro odebrání prvku množiny
-					* @param key hodnota odebíraného prvku
+					* @param key Hodnota odebíraného prvku
 					*/
 					void Remove(const T& key);					
 
 					/**
 					* Metoda pro zjištìní velikosti množiny
-					* @return poèet prvkù
+					* @return Poèet prvkù
 					*/
 					int Size();
 
 					/**
 					* Metoda pro zjištìní existence daného prvku v množinì
-					* @param key hodnota vyhledávaného prvku
+					* @param key Hodnota vyhledávaného prvku
 					* @return true pokud existuje, jinak false
 					*/
 					bool Contains(const T& key) const;
@@ -85,22 +85,22 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro prùnik dvou množin
-					* @param set je vstupní množina, se kterou se provede prùnik
-					* @param setOut je výstupní množina po provedení operace
+					* @param set Vstupní množina, se kterou se provede prùnik
+					* @param setOut Výstupní množina po provedení operace
 					*/
 					void Intersect(const SortedSet* set, SortedSet* setOut);
 
 					/**
 					* Metoda pro sjednocení dvou množin
-					* @param set je vstupní množina, se kterou se provede prùnik
-					* @param setOut je výstupní množina po provedení operace
+					* @param set Vstupní množina, se kterou se provede prùnik
+					* @param setOut Výstupní množina po provedení operace
 					*/
 					void Union(SortedSet* set,  SortedSet* setOut);
 
 				private:
 					
 					/**
-					* Struktura reprezentující jeden prvek(list) v množinì(BST)
+					* Struktura reprezentující jeden prvek v množinì
 					*/
 					struct Node
 					{		
@@ -127,69 +127,69 @@ namespace ADSLibrary
 
 					/**
 					* Privátní rekurzivní metoda pro zkopírování množiny
-					* @param newNode reprezentuje nový element
-					* @param sourceNode reprezentuje zdrojový element
+					* @param newNode Reprezentuje nový element
+					* @param sourceNode Reprezentuje zdrojový element
 					*/
 					void CopyTree(Node*& newNode, Node*& sourceNode);
 
 					/**
 					* Privátní rekurzivní metoda pro vložení prvku na správné místo v množinì
-					* @param key reprezentuje hodnotu prvku
-					* @param root reprezentuje element, který se rekurzivnì pøedává
+					* @param key Reprezentuje hodnotu prvku
+					* @param root Reprezentuje element, který se rekurzivnì pøedává
 					*/
 					Node* Add(Node* root, const T& key);
 
 					/**
 					* Privátní rekurzivní metoda pro odebrání prvku z množiny a nahrazení tohoto místa vhodným prvkem 
-					* @param node reprezentuje element, který se rekurzivnì pøedává
-					* @param key reprezentuje hodnotu prvku 
-					* @return Node* vrací výsledný prvek, který se dále rekurzivnì pøedává
+					* @param node Reprezentuje element, který se rekurzivnì pøedává
+					* @param key Reprezentuje hodnotu prvku 
+					* @return vrací výsledný prvek, který se dále rekurzivnì pøedává
 					*/
 					Node* Remove(Node* node, const T& key);				
 
 					/**
 					* Privátní rekurzivní metoda pro korektní odebrání všech prkù z množiny a jejich dealokace
-					* @param node reprezentuje element, který se rekurzivnì pøedává jeden po druhém
+					* @param node Reprezentuje element, který se rekurzivnì pøedává jeden po druhém
 					*/
 					void Clear(const Node* node);
 
 					/**
 					* Privátní rekurzivní metoda pro spoèítání prvkù v množinì
-					* @param node reprezentuje element, který se rekurzivnì poèítá jeden po druhém
+					* @param node Reprezentuje element, který se rekurzivnì poèítá jeden po druhém
 					* @return poèet prvkù
 					*/
 					int Size(const Node* node);
 
 					/**
 					* Privátní rekurzivní metoda pro zjištìní existence prvku v množinì
-					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
-					* @param key hodnota prvku v množinì
+					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param key Hodnota hledaného prvku v množinì
 					* @return true pokud prvek existuje, false nikoliv
 					*/
 					bool Contains(const Node* node, const T& key) const;
 
 					/**
 					* Privátní rekurzivní metoda pro zjištìní nejpravìjšího prvku v levém podstromu
-					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					* @return prvek nutný pro další rekurze
 					*/
 					Node* FindMax(Node* node);
 
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí inorder
-					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void InOrder(Node* node);
 					
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí preoder
-					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void PreOrder(const Node* node);
 
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí postorder
-					* @param node reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void PostOrder(const Node* node);
 
