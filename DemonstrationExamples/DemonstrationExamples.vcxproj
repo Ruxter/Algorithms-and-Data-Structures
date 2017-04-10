@@ -88,6 +88,7 @@
     </ClCompile>
     <ClCompile Include="ADSLibrary\Algorithms\ArraySearchingAlgorithms\ArraySearchingAlgorithms.cpp" />
     <ClCompile Include="ADSLibrary\Algorithms\SortingAlgorithms\SortingAlgorithms.cpp" />
+    <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\AdjacencyMatrix.cpp" />
     <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Queue.cpp">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\ArrayBasedStructures\OOP\</ObjectFileName>
     </ClCompile>
@@ -137,6 +138,7 @@
     <ClCompile Include="Tests\DictionaryTest\DictionaryTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp" />
+    <ClCompile Include="Tests\GraphsTest\GraphsTest.cpp" />
     <ClCompile Include="Tests\HashSetTest\HashSetTest.cpp" />
     <ClCompile Include="Tests\LinkedStructuresTest\LinkedStructuresTest.cpp" />
     <ClCompile Include="Tests\OOPTemplateListTest\OOPTemplateListTest.cpp" />
@@ -151,6 +153,7 @@
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\DynamicArray.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\Stack.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\AdjacencyMatrix.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOP\Stack.h" />
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\List.h" />
@@ -180,6 +183,7 @@
     <ClInclude Include="Tests\AVLTreeTest\AVLTreeTest.h" />
     <ClInclude Include="Tests\DictionaryTest\DictionaryTest.h" />
     <ClInclude Include="Tests\DynamicArrayTest\DynamicArrayTest.h" />
+    <ClInclude Include="Tests\GraphsTest\GraphsTest.h" />
     <ClInclude Include="Tests\HashSetTest\HashSetTest.h" />
     <ClInclude Include="Tests\LinkedStructuresTest\LinkedStructuresTest.h" />
     <ClInclude Include="Tests\OOPTemplateListTest\OOPTemplateListTest.h" />
