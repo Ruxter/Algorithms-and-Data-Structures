@@ -15,8 +15,7 @@ namespace ADSLibrary
 				}
 				return false;
 			}
-
-
+			
 			int LinearSearch2(const int a[], const int n, const int x)
 			{
 				for (int i = 0; i < n; i++)
@@ -28,7 +27,6 @@ namespace ADSLibrary
 				}
 				return -1;
 			}
-
 
 			bool LinearSearchRecursive1(const int a[], const int n, const int x, const int i)
 			{
@@ -43,7 +41,6 @@ namespace ADSLibrary
 				return LinearSearchRecursive1(a, n, x, i + 1);
 			}
 
-
 			int LinearSearchRecursive2(const int a[], const int n, const int x, const int i)
 			{
 				if (i == n)
@@ -56,7 +53,6 @@ namespace ADSLibrary
 				}
 				return LinearSearchRecursive2(a, n, x, i + 1);
 			}
-
 
 			bool BinarySearch1(const int a[], const int n, const int x)
 			{
@@ -81,7 +77,6 @@ namespace ADSLibrary
 				return false;
 			}
 
-
 			int BinarySearch2(const int a[], const int n, const int x)
 			{
 				int l = 0;
@@ -104,7 +99,6 @@ namespace ADSLibrary
 				}
 				return -1;
 			}
-
 
 			int BinarySearch3(const int a[], const int n, const int x)
 			{
@@ -129,7 +123,6 @@ namespace ADSLibrary
 				return ~l;
 			}
 
-
 			bool BinarySearchRecursive1(const int a[], const int l, const int r, const int x)
 			{
 				if (l > r)
@@ -148,7 +141,6 @@ namespace ADSLibrary
 				return BinarySearchRecursive1(a, m + 1, r, x);
 			}
 
-
 			bool BinarySearchRecursive1a(const int a[], const int l, const int r, const int x)
 			{
 				if (l > r)
@@ -162,7 +154,6 @@ namespace ADSLibrary
 				}
 				return x < a[m] ? BinarySearchRecursive1a(a, l, m - 1, x) : BinarySearchRecursive1a(a, m + 1, r, x);
 			}
-
 
 			int BinarySearchRecursive2(const int a[], const int l, const int r, const int x)
 			{
@@ -181,7 +172,6 @@ namespace ADSLibrary
 				}
 				return BinarySearchRecursive2(a, m + 1, r, x);
 			}
-
 
 			int BinarySearchRecursive3(const int a[], const int l, const int r, const int x)
 			{

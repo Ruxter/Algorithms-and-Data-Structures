@@ -11,7 +11,7 @@ namespace ADSLibrary
 			namespace Set
 			{
 				/**
-				* Tøída reprezentující vnitøní strukturu prvku v množinì
+				* Struktura reprezentující vnitøní strukturu prvku v množinì
 				*/
 				template <typename T>
 				struct HashNode {

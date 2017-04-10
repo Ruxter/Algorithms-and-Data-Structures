@@ -115,8 +115,6 @@ namespace ADSLibrary
 				delete[]B;
 			}
 
-
-
 			double** AllocateMatrix(const int R, const int C)
 			{
 				double **a = new double*[R];

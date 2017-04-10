@@ -17,7 +17,7 @@ namespace ADSLibrary
 						mMatrix[i] = new int[mCount];
 						for (int j = 0; j < mCount; j++)
 						{
-							mMatrix[i][j] = false;
+							mMatrix[i][j] = 0;
 						}						
 					}
 				}
@@ -31,7 +31,7 @@ namespace ADSLibrary
 						mMatrix[i] = new int[mCount];
 						for (int j = 0; j < mCount; j++)
 						{
-							mMatrix[i][j] = false;
+							mMatrix[i][j] = 0;
 						}
 					}
 				}
@@ -79,7 +79,7 @@ namespace ADSLibrary
 					{
 						delete[] mMatrix[i];
 					}	
-					delete mMatrix;
+					delete[] mMatrix;
 				}
 
 				void AdjacencyMatrix::Report() const

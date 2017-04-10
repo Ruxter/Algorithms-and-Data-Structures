@@ -34,7 +34,7 @@ struct GraphsTestOOPTemplate : testing::Test
 * @param GraphsTestOOPTemplate název struktury,
 * @param GraphsTestOOPTemplate1 název unit testu
 */
-TEST_F(GraphsTestOOPTemplate, GraphsTestOOPTemplate1)
+TEST_F(GraphsTestOOPTemplate, GraphsTestOOP1)
 {
 	graph->AddEdge(5, 4);
 	graph->AddEdge(4, 3);
@@ -60,7 +60,7 @@ TEST_F(GraphsTestOOPTemplate, GraphsTestOOPTemplate1)
 * @param GraphsTestOOPTemplate název struktury,
 * @param GraphsTestOOPTemplate2 název unit testu
 */
-TEST_F(GraphsTestOOPTemplate, GraphsTestOOPTemplate2)
+TEST_F(GraphsTestOOPTemplate, GraphsTestOOP2)
 {
 	graph2->AddEdge(3, 5);
 	graph2->AddEdge(3, 2);
@@ -87,9 +87,9 @@ TEST_F(GraphsTestOOPTemplate, GraphsTestOOPTemplate2)
 * Unit test ArrayBasedStructures::OOP::AdjacencyMatrix - ctor s parametrem
 * AddEdge, Report, RemoveEdge, IsEdge
 * @param GraphsTestOOPTemplate název struktury,
-* @param GraphsTestOOPTemplate2 název unit testu
+* @param GraphsTestOOPTemplate3 název unit testu
 */
-TEST_F(GraphsTestOOPTemplate, GraphsTestOOPTemplate3)
+TEST_F(GraphsTestOOPTemplate, GraphsTestOOP3)
 {
 	graph3->AddEdge(351, 269);
 	graph3->AddEdge(1869, 746);
@@ -99,7 +99,7 @@ TEST_F(GraphsTestOOPTemplate, GraphsTestOOPTemplate3)
 	graph3->AddEdge(1785, 985);
 	graph3->AddEdge(2648, 1);
 	graph3->AddEdge(0, 0);
-	graph3->Report();
+	//graph3->Report();
 
 	EXPECT_EQ(true, graph3->IsEdge(351, 269));
 	EXPECT_EQ(true, graph3->IsEdge(1785, 985));
