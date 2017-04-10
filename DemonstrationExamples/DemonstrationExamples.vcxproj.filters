@@ -138,6 +138,9 @@
     <ClCompile Include="Tests\AlgorithmsTest\AlgorithmsTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tests\AVLTreeTest\AVLTreeTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h">
@@ -255,6 +258,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tests\AlgorithmsTest\AlgorithmsTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\AVLTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\AVLTreeTest\AVLTreeTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

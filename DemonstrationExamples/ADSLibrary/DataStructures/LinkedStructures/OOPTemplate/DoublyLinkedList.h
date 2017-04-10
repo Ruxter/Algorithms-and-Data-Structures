@@ -44,12 +44,12 @@ namespace ADSLibrary
 					bool Search(T value);
 															
 					/**
-					* Odebrání prvního prvku ze seznamu - head.	
+					* Odebrání prvního prvku ze seznamu - mHead.	
 					*/
 					void RemoveFirstItem();
 
 					/**
-					* Odebrání posledního prvku ze seznamu - tail.
+					* Odebrání posledního prvku ze seznamu - mTail.
 					*/
 					void RemoveLastItem();
 
@@ -89,41 +89,41 @@ namespace ADSLibrary
 						/**
 						* Hodnota obsažená v položce.
 						*/
-						T m_value;
+						T Value;
 
 						/**
 						* Ukazatel na další položku. Pokud taková položka neexistuje ukazatel má hodnotu NULL.
 						*/
-						Node* m_next = NULL;
+						Node* Next = nullptr;
 
 						/**
 						* Ukazatel na pøedchozí položku. Pokud taková položka neexistuje ukazatel má hodnotu NULL.
 						*/
-						Node* m_prev = NULL;
+						Node* Prev = nullptr;
 					};
 
 					/**
 					* Nejpøednìjší prvek seznamu
 					*/
-					Node* head;
+					Node* mHead;
 
 					/**
 					* Nejzadnìjší prvek seznamu
 					*/
-					Node* tail;
+					Node* mTail;
 
 					/**
 					* Velikost seznamu
 					*/
-					int m_size;
+					int mSize;
 				};
 
 
 				template<typename T> DoublyLinkedList<T>::DoublyLinkedList()
 				{
-					head = NULL;
-					tail = NULL;
-					m_size = 0;
+					mHead = nullptr;
+					mTail = nullptr;
+					mSize = 0;
 				}
 
 				template<typename T> DoublyLinkedList<T>::~DoublyLinkedList()
@@ -135,11 +135,11 @@ namespace ADSLibrary
 				{
 					if (!IsEmpty())
 					{
-						Node* node = head;
+						Node* node = mHead;
 						while (node)
 						{
-							if (node->m_value == value) return true;
-							node = node->m_next;
+							if (node->Value == value) return true;
+							node = node->Next;
 						}
 						return false;
 					}
@@ -150,49 +150,49 @@ namespace ADSLibrary
 				template <typename T> void DoublyLinkedList<T>::InsertBegin(T value)
 				{
 					Node* node = new Node();
-					node->m_value = value;
-					if (head == NULL)
+					node->Value = value;
+					if (mHead == nullptr)
 					{
-						head = node;
-						tail = node;
+						mHead = node;
+						mTail = node;
 					}
 					else
 					{
-						head->m_prev = node;
-						node->m_next = head;
-						head = node;
+						mHead->Prev = node;
+						node->Next = mHead;
+						mHead = node;
 					}
-					m_size++;
+					mSize++;
 				}
 
 				template <typename T> void DoublyLinkedList<T>::InsertEnd(T value)
 				{
 					Node* node = new Node();
-					node->m_value = value;
-					if (tail == NULL)
+					node->Value = value;
+					if (mTail == nullptr)
 					{
-						head = node;
-						tail = node;
+						mHead = node;
+						mTail = node;
 					}
 					else
 					{
-						tail->m_next = node;
-						node->m_prev = tail;
-						tail = node;
+						mTail->Next = node;
+						node->Prev = mTail;
+						mTail = node;
 					}
-					m_size++;
+					mSize++;
 				}
 
 				template <typename T> void DoublyLinkedList<T>::RemoveFirstItem()
 				{
 					if (!IsEmpty())
 					{
-						Node* node = head;
-						if (head == tail) tail = NULL;
-						head = node->m_next;
-						head->m_prev = NULL;
+						Node* node = mHead;
+						if (mHead == mTail) mTail = nullptr;
+						mHead = node->Next;
+						mHead->Prev = nullptr;
 						delete node;
-						m_size--;						
+						mSize--;						
 					}					
 				}
 
@@ -200,10 +200,10 @@ namespace ADSLibrary
 				{
 					if (!IsEmpty())
 					{
-						if (head == tail) head = NULL;							
-						tail = tail->m_prev;
-						tail->m_next = NULL;
-						m_size--;
+						if (mHead == mTail) mHead = nullptr;
+						mTail = mTail->Prev;
+						mTail->Next = nullptr;
+						mSize--;
 					}
 				}
 
@@ -219,37 +219,37 @@ namespace ADSLibrary
 
 				template<typename T> int DoublyLinkedList<T>::Count() const
 				{
-					Node* node = head;
+					Node* node = mHead;
 					int count = 0;
 					while (node)
 					{
 						count++;
-						node = node->m_next;
+						node = node->Next;
 					}
 					return count;
 				}
 
 				template<typename T> T DoublyLinkedList<T>::LastItem()
 				{
-					return tail->m_value;
+					return mTail->Value;
 				}
 
 				template<typename T> T DoublyLinkedList<T>::FirstItem()
 				{
-					return head->m_value;
+					return mHead->Value;
 				}
 
 				template<typename T> void DoublyLinkedList<T>::Clear()
 				{
-					Node* node= head;					
+					Node* node= mHead;					
 					while (node) 
 					{
-						head = head->m_next;
+						mHead = mHead->Next;
 						delete node;						
-						node = head;
+						node = mHead;
 					}					
-					tail = head = NULL;
-					m_size = 0;
+					mTail = mHead = nullptr;
+					mSize = 0;
 				}					
 			}
 		}

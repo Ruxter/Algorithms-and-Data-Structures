@@ -107,70 +107,70 @@ namespace ADSLibrary
 
 					/**
 					* Privátní rekurzivní metoda pro vložení elementu na správné místo ve slovníku
-					* @param pair element, který se rekurzivnì pøedává
-					* @param Key reprezentuje klíè prvku
-					* @param Value reprezentuje hodnotu prvku
+					* @param pair Element, který se rekurzivnì pøedává
+					* @param Key Reprezentuje klíè prvku
+					* @param Value Reprezentuje hodnotu prvku
 					*/
 					Pair* Add(Pair*& pair, const K& Key, const V& Value);
 
 					/**
 					* Privátní rekurzivní metoda pro zkopírování slovníku
-					* @param newNode reprezentuje nový element
-					* @param sourceNode reprezentuje zdrojový element
+					* @param newNode Reprezentuje nový element
+					* @param sourceNode Reprezentuje zdrojový element
 					*/
-					void CopyTree(Pair*&newNode, Pair*& sourceNode);
+					void CopyTree(Pair*& newNode, Pair*& sourceNode);
 
 					/**
 					* Privátní rekurzivní metoda pro odebrání prvku ze slovníku a nahrazení tohoto místa vhodným prvkem
-					* @param pair reprezentuje element, který se rekurzivnì pøedává
-					* @param Key reprezentuje hodnotu prvku
-					* @return Node* vrací výsledný prvek, který se dále rekurzivnì pøedává
+					* @param pair Reprezentuje element, který se rekurzivnì pøedává
+					* @param Key Reprezentuje hodnotu prvku
+					* @return Node* Vrací výsledný prvek, který se dále rekurzivnì pøedává
 					*/
 					Pair* Remove(Pair* pair, const K& Key);
 
 					/**
 					* Privátní rekurzivní metoda pro korektní odebrání všech elementù ze slovníku a jejich dealokace
-					* @param pair reprezentuje element, který se rekurzivnì pøedává jeden po druhém
+					* @param pair Reprezentuje element, který se rekurzivnì pøedává jeden po druhém
 					*/
 					void Clear(const Pair* pair);
 
 					/**
-					* Privátní rekurzivní metoda pro spoèítání elementù ve slovníku
-					* @param pair reprezentuje element, který se rekurzivnì poèítá jeden po druhém
-					* @return poèet prvkù
+					* Privátní Rekurzivní metoda pro spoèítání elementù ve slovníku
+					* @param pair Reprezentuje element, který se rekurzivnì poèítá jeden po druhém
+					* @return Poèet prvkù
 					*/
 					int Size(const Pair* pair);
 
 					/**
 					* Privátní rekurzivní metoda pro zjištìní existence elementu ve slovníku
-					* @param pair reprezentuje element, který se rekurzivnì prochází jeden po druhém
-					* @param Key klíè prvku ve slovníku
+					* @param pair Reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param Key Klíè prvku ve slovníku
 					* @return true pokud prvek existuje, false nikoliv
 					*/
 					bool Contains(const Pair* pair, const K& Key);
 
 					/**
 					* Privátní rekurzivní metoda pro zjištìní nejpravìjšího prvku v levém podstromu
-					* @param pair reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param pair Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					* @return prvek nutný pro další rekurze
 					*/
 					Pair* FindMax(Pair* pair);
 
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat ze slovníku v poøadí inorder
-					* @param pair reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param pair Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void InOrder(const Pair* pair);
 					
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat ze slovníku v poøadí preoder
-					* @param pair reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param pair Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void PreOrder(const Pair* pair);
 
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat ze slovníku v poøadí postorder
-					* @param pair reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param pair Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void PostOrder(const Pair* pair);
 

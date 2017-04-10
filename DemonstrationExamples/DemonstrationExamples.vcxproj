@@ -133,6 +133,7 @@
     <ClCompile Include="DummyClass.cpp" />
     <ClCompile Include="Tests\AlgorithmsTest\AlgorithmsTest.cpp" />
     <ClCompile Include="Tests\ArrayBasedTest\ArrayBasedTests.cpp" />
+    <ClCompile Include="Tests\AVLTreeTest\AVLTreeTest.cpp" />
     <ClCompile Include="Tests\DictionaryTest\DictionaryTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tests\DynamicArrayTest\DynamicArrayTest.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Dictionary\SortedDictionary.h" />
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\HashSet.h" />
     <ClInclude Include="ADSLibrary\DataStructures\CollectionsGenerics\Set\SortedSet.h" />
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\AVLTree.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\DoublyLinkedList.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Queue.h" />
@@ -175,6 +177,7 @@
     <ClInclude Include="DummyClass.h" />
     <ClInclude Include="Tests\AlgorithmsTest\AlgorithmsTest.h" />
     <ClInclude Include="Tests\ArrayBasedTest\ArrayBasedTests.h" />
+    <ClInclude Include="Tests\AVLTreeTest\AVLTreeTest.h" />
     <ClInclude Include="Tests\DictionaryTest\DictionaryTest.h" />
     <ClInclude Include="Tests\DynamicArrayTest\DynamicArrayTest.h" />
     <ClInclude Include="Tests\HashSetTest\HashSetTest.h" />

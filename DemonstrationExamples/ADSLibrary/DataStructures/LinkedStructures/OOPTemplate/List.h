@@ -56,7 +56,7 @@ namespace ADSLibrary
 					int Count() const;
 
 					/**
-					* Odebrání head prvku ze seznamu.
+					* Odebrání mHead prvku ze seznamu.
 					*/
 					void RemoveFirstItem();
 
@@ -83,28 +83,28 @@ namespace ADSLibrary
 						/**
 						* Hodnota obsažená v položce.
 						*/
-						T m_value;
+						T Value;
 						/**
 						* Ukazatel na další položku. Pokud taková položka neexistuje ukazatel má hodnotu NULL.
 						*/
-						Node* m_next = NULL;
+						Node* Next;
 					};
 
 					/**
 					* Nejpøednìjší prvek seznamu
 					*/
-					Node* head;
+					Node* mHead;
 					
 					/**
 					* Velikost seznamu
 					*/
-					int m_size;
+					int mSize;
 				};
 
 				template<typename T> List<T>::List()
 				{
-					head = NULL;
-					m_size = 0;
+					mHead = nullptr;
+					mSize = 0;
 				}
 
 				template<typename T> List<T>::~List()
@@ -115,15 +115,15 @@ namespace ADSLibrary
 				template<typename T> void List<T>::Insert(T value)
 				{
 					Node* node = new Node();
-					node->m_value = value;
-					node->m_next = head;
-					head = node;
-					m_size++;
+					node->Value = value;
+					node->Next = mHead;
+					mHead = node;
+					mSize++;
 				}
 
 				template<typename T> T List<T>::FirstItem()
 				{
-					return head->m_value;
+					return mHead->Value;
 				}
 
 				template<typename T> bool List<T>::IsEmpty() const
@@ -133,12 +133,12 @@ namespace ADSLibrary
 
 				template<typename T> int List<T>::Count() const
 				{
-					Node* node = head;
+					Node* node = mHead;
 					int count = 0;
 					while (node)
 					{
 						count++;
-						node = node->m_next;
+						node = node->Next;
 					}
 					return count;
 				}
@@ -147,8 +147,8 @@ namespace ADSLibrary
 				{
 					if(!IsEmpty())
 					{
-						head = head->m_next;
-						m_size--;
+						mHead = mHead->Next;
+						mSize--;
 					}					
 				}				
 
@@ -156,11 +156,11 @@ namespace ADSLibrary
 				{
 					if (!IsEmpty())
 					{
-						Node* node = head;
+						Node* node = mHead;
 						while (node)
 						{
-							if (node->m_value == value) return true;
-							node = node->m_next;
+							if (node->Value == value) return true;
+							node = node->Next;
 						}
 						return false;
 					}
@@ -169,15 +169,15 @@ namespace ADSLibrary
 
 				template<typename T> void List<T>::Clear()
 				{
-					Node* node = head;
+					Node* node = mHead;
 					while (node)
 					{
-						head = head->m_next;
+						mHead = mHead->Next;
 						delete node;
-						node = head;
+						node = mHead;
 					}
-					head = NULL;
-					m_size = 0;
+					mHead = nullptr;
+					mSize = 0;
 				}
 			}
 		}

@@ -11,7 +11,7 @@ namespace ADSLibrary
 				bool BinarySearchTree::SearchIterative(const string Key) const
 				{
 					Node* p = mRoot;
-					while (p != NULL)
+					while (p != nullptr)
 					{
 						if (p->Key == Key)
 						{
@@ -24,11 +24,11 @@ namespace ADSLibrary
 
 				void BinarySearchTree::InternalInsert(Node*& p, const string Key)
 				{
-					if (p == NULL)
+					if (p == nullptr)
 					{
 						p = new Node();
 						p->Key = Key;
-						p->Left = p->Right = NULL;
+						p->Left = p->Right = nullptr;
 						return;
 					}
 					if (Key < p->Key)
@@ -45,7 +45,7 @@ namespace ADSLibrary
 
 				void BinarySearchTree::InternalDelete(Node*& p, const string Key)
 				{
-					if (p == NULL)
+					if (p == nullptr)
 					{
 						return;
 					}
@@ -60,13 +60,13 @@ namespace ADSLibrary
 						return;
 					}
 					Node *q = p;
-					if (p->Right == NULL)
+					if (p->Right == nullptr)
 					{
 						p = p->Left;		// žádný nebo jen levý potomek
 					}
 					else
 					{
-						if (p->Left == NULL)
+						if (p->Left == nullptr)
 						{
 							p = p->Right;	// existuje jen pravý potomek
 						}
@@ -80,7 +80,7 @@ namespace ADSLibrary
 
 				void BinarySearchTree::InternalDeleteRightmostFromLeftSubtree(Node*& r, Node*& q)
 				{
-					if (r->Right != NULL)
+					if (r->Right != nullptr)
 						InternalDeleteRightmostFromLeftSubtree(r->Right, q);
 					else
 					{
@@ -93,7 +93,7 @@ namespace ADSLibrary
 
 				bool BinarySearchTree::InternalSearch(const Node* p, const string Key) const
 				{
-					if (p == NULL)
+					if (p == nullptr)
 					{
 						return false;
 					}
@@ -114,7 +114,7 @@ namespace ADSLibrary
 
 				void BinarySearchTree::InternalClear(const Node* p)
 				{
-					if (p != NULL)
+					if (p != nullptr)
 					{
 						InternalClear(p->Left);
 						InternalClear(p->Right);
@@ -124,7 +124,7 @@ namespace ADSLibrary
 
 				int BinarySearchTree::InternalCount(const Node* p) const
 				{
-					if (p == NULL)
+					if (p == nullptr)
 					{
 						return 0;
 					}
@@ -133,7 +133,7 @@ namespace ADSLibrary
 
 				void BinarySearchTree::InternalInorderTraversal(Node* p)
 				{
-					if (p != NULL)
+					if (p != nullptr)
 					{
 						InternalInorderTraversal(p->Left);
 						DoSomeAction(p);
@@ -143,7 +143,7 @@ namespace ADSLibrary
 
 				void BinarySearchTree::InternalPreorderTraversal(Node* p)
 				{
-					if (p != NULL)
+					if (p != nullptr)
 					{
 						DoSomeAction(p);
 						InternalPreorderTraversal(p->Left);
@@ -153,7 +153,7 @@ namespace ADSLibrary
 
 				void BinarySearchTree::InternalPostorderTraversal(Node* p)
 				{
-					if (p != NULL)
+					if (p != nullptr)
 					{
 						InternalPostorderTraversal(p->Left);
 						InternalPostorderTraversal(p->Right);
@@ -163,7 +163,7 @@ namespace ADSLibrary
 
 				void BinarySearchTree::InternalReportStructure(Node* p, const int Indentation) const
 				{
-					if (p != NULL)
+					if (p != nullptr)
 					{
 						for (int i = 0; i < Indentation; i++)
 							cout << "\t";
