@@ -58,8 +58,7 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 	EXPECT_EQ(5, LinearSearchRecursive2(a, numOfElements, 68, 0));
 
 
-	int numOfComparisons, numOfExchanges;
-	ADSLibrary::Algorithms::SortingAlgorithms::InsertSort(a, numOfElements, numOfComparisons, numOfExchanges); //sort potøebný pro binární vyhledávání
+	ADSLibrary::Algorithms::SortingAlgorithms::InsertSort(a, numOfElements); //sort potøebný pro binární vyhledávání
 
 	EXPECT_EQ(true, BinarySearch1(a, numOfElements, 2));
 	EXPECT_EQ(true, BinarySearch1(a, numOfElements, 1));
@@ -136,8 +135,7 @@ TEST_F(AlgStructTest, SearchingAlgTest2)
 	EXPECT_EQ(5, LinearSearchRecursive2(b, numOfElements, 68, 0));
 
 
-	int numOfComparisons, numOfExchanges;
-	ADSLibrary::Algorithms::SortingAlgorithms::InsertSort(b, numOfElements, numOfComparisons, numOfExchanges); //sort potøebný pro binární vyhledávání
+	ADSLibrary::Algorithms::SortingAlgorithms::InsertSort(b, numOfElements); //sort potøebný pro binární vyhledávání
 
 	EXPECT_EQ(true, BinarySearch1(b, numOfElements, 2));
 	EXPECT_EQ(true, BinarySearch1(b, numOfElements, 1));
@@ -192,10 +190,9 @@ using namespace ADSLibrary::Algorithms::SortingAlgorithms;
 TEST_F(AlgStructTest, SelectionSortTest)
 {	
 	const int numOfElements = 10;
-	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
 	ReportArray(a, numOfElements);
-	SelectSort(a, numOfElements, numOfComparisons, numOfExchanges);
+	SelectSort(a, numOfElements);
 	ReportArray(a, numOfElements);
 }
 
@@ -209,10 +206,9 @@ TEST_F(AlgStructTest, SelectionSortTest)
 TEST_F(AlgStructTest, InsertionsSortTest)
 {	
 	const int numOfElements = 10;
-	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
 	ReportArray(a, numOfElements);
-	InsertSort(a, numOfElements, numOfComparisons, numOfExchanges);
+	InsertSort(a, numOfElements);
 	ReportArray(a, numOfElements);
 }
 
@@ -226,7 +222,6 @@ TEST_F(AlgStructTest, InsertionsSortTest)
 TEST_F(AlgStructTest, BubbleSortsTest)
 {	
 	const int numOfElements = 10;
-	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
 	int b[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
 	int c[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
@@ -234,23 +229,23 @@ TEST_F(AlgStructTest, BubbleSortsTest)
 	int e[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
 
 	ReportArray(a, numOfElements);
-	BubbleSort0(a, numOfElements, numOfComparisons, numOfExchanges);
+	BubbleSort0(a, numOfElements);
 	ReportArray(a, numOfElements);
 
 	ReportArray(b, numOfElements);
-	BubbleSort1(b, numOfElements, numOfComparisons, numOfExchanges);
+	BubbleSort1(b, numOfElements);
 	ReportArray(b, numOfElements);
 
 	ReportArray(c, numOfElements);
-	BubbleSort2(c, numOfElements, numOfComparisons, numOfExchanges);
+	BubbleSort2(c, numOfElements);
 	ReportArray(c, numOfElements);
 
 	ReportArray(d, numOfElements);
-	BubbleSort3(d, numOfElements, numOfComparisons, numOfExchanges);
+	BubbleSort3(d, numOfElements);
 	ReportArray(d, numOfElements);
 
 	ReportArray(e, numOfElements);
-	BubbleSort4(e, numOfElements, numOfComparisons, numOfExchanges);
+	BubbleSort4(e, numOfElements);
 	ReportArray(e, numOfElements);
 }
 
@@ -264,10 +259,9 @@ TEST_F(AlgStructTest, BubbleSortsTest)
 TEST_F(AlgStructTest, ShakerSortTest)
 {
 	const int numOfElements = 10;
-	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
 	ReportArray(a, numOfElements);
-	ShakerSort(a, numOfElements, numOfComparisons, numOfExchanges);
+	ShakerSort(a, numOfElements);
 	ReportArray(a, numOfElements);
 }
 
@@ -281,10 +275,9 @@ TEST_F(AlgStructTest, ShakerSortTest)
 TEST_F(AlgStructTest, QuickSortTest)
 {
 	const int numOfElements = 10;
-	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
 	ReportArray(a, numOfElements);
-	QuickSort(a, numOfElements, numOfComparisons, numOfExchanges);
+	QuickSort(a, numOfElements);
 	ReportArray(a, numOfElements);
 }
 
@@ -298,10 +291,9 @@ TEST_F(AlgStructTest, QuickSortTest)
 TEST_F(AlgStructTest, HeapSortTest)
 {	
 	const int numOfElements = 10;
-	int numOfComparisons, numOfExchanges;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
 	ReportArray(a, numOfElements);
-	HeapSort(a, numOfElements, numOfComparisons, numOfExchanges);
+	HeapSort(a, numOfElements);
 	ReportArray(a, numOfElements);
 }
 
