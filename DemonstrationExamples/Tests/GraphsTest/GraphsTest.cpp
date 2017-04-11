@@ -2,7 +2,7 @@
 #include "../../ADSLibrary/DataStructures/ArrayBasedStructures/OOP/AdjacencyMatrix.h"
 
 /*
-* Soubor sloužící k testování neuspoøádané množiny
+* Soubor sloužící k testování neuspoøádané množiny. 
 */
 
 /*

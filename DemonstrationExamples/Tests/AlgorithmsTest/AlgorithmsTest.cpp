@@ -6,7 +6,7 @@
 using namespace ADSLibrary::Algorithms::ArraySearchingAlgorithms;
 
 /*
-* Soubor sloužící k testování algoritmù pro vyhledávání/øazení v poli
+* Soubor sloužící k testování algoritmù pro vyhledávání/øazení v poli. Otestováno pole o lichém, sudém poètu prvkù, i o jednom prvku.
 */
 
 /*
@@ -24,7 +24,6 @@ struct AlgStructTest : testing::Test
 	}
 };
 
-
 /*
 * Unit test Algorithms::ArraySearchingAlgorithms::ArraySearchingAlgorithms a Algorithms::SortingAlgorithms::SortingAlgorithms.h
 * Test algoritmù pro pole o sudém poètu prvkù.
@@ -37,26 +36,34 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 {
 	const int numOfElements = 10;
 	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
+	int one[1] = { 0 };
 	EXPECT_EQ(true, LinearSearch1(a, numOfElements, 2));
 	EXPECT_EQ(true, LinearSearch1(a, numOfElements, 1));
 	EXPECT_EQ(false, LinearSearch1(a, numOfElements, 33));
 	EXPECT_EQ(true, LinearSearch1(a, numOfElements, 68));
+
+	EXPECT_EQ(true, LinearSearch1(one, 1, 0));
 
 	EXPECT_EQ(1, LinearSearch2(a, numOfElements, 2));
 	EXPECT_EQ(8, LinearSearch2(a, numOfElements, 1));
 	EXPECT_EQ(-1, LinearSearch2(a, numOfElements, 33)); // -1 prvek není v daném poli
 	EXPECT_EQ(5, LinearSearch2(a, numOfElements, 68));
 
+	EXPECT_EQ(0, LinearSearch2(one, 1, 0));
+
 	EXPECT_EQ(true, LinearSearchRecursive1(a, numOfElements, 2, 0));
 	EXPECT_EQ(true, LinearSearchRecursive1(a, numOfElements, 1, 0));
 	EXPECT_EQ(false, LinearSearchRecursive1(a, numOfElements, 33, 0));
-	EXPECT_EQ(true, LinearSearchRecursive1(a, numOfElements, 68,0 ));
+	EXPECT_EQ(true, LinearSearchRecursive1(a, numOfElements, 68, 0));
+
+	EXPECT_EQ(true, LinearSearchRecursive1(one, 1, 0, 0));
 
 	EXPECT_EQ(1, LinearSearchRecursive2(a, numOfElements, 2, 0));
 	EXPECT_EQ(8, LinearSearchRecursive2(a, numOfElements, 1, 0));
 	EXPECT_EQ(-1, LinearSearchRecursive2(a, numOfElements, 33, 0)); 
 	EXPECT_EQ(5, LinearSearchRecursive2(a, numOfElements, 68, 0));
 
+	EXPECT_EQ(0, LinearSearchRecursive2(one, 1, 0, 0));
 
 	ADSLibrary::Algorithms::SortingAlgorithms::InsertSort(a, numOfElements); //sort potøebný pro binární vyhledávání
 
@@ -65,6 +72,8 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 	EXPECT_EQ(false, BinarySearch1(a, numOfElements, 33));
 	EXPECT_EQ(true, BinarySearch1(a, numOfElements, 68));
 
+	EXPECT_EQ(true, BinarySearch1(one, 1, 0));
+
 	EXPECT_EQ(1, BinarySearch2(a, numOfElements, 2));
 	EXPECT_EQ(0, BinarySearch2(a, numOfElements, 1));
 	EXPECT_EQ(9, BinarySearch2(a, numOfElements, 12071));
@@ -72,21 +81,29 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 	EXPECT_EQ(-1, BinarySearch2(a, numOfElements, 33));
 	EXPECT_EQ(6, BinarySearch2(a, numOfElements, 68));
 
+	EXPECT_EQ(0, BinarySearch2(one, 1, 0));
+
 	EXPECT_EQ(1, BinarySearch3(a, numOfElements, 2));
 	EXPECT_EQ(0, BinarySearch3(a, numOfElements, 1));
 	EXPECT_EQ(9, BinarySearch3(a, numOfElements, 12071));
 	EXPECT_EQ(5, BinarySearch3(a, numOfElements, 47));
 	EXPECT_EQ(-5, BinarySearch3(a, numOfElements, 33)); //vrací záporné èíslo, jež je bitovým doplòkem indexu v poli, kam mùže být prvek vložen bez narušení posloupnosti
 
+	EXPECT_EQ(0, BinarySearch2(one, 1, 0));
+
 	EXPECT_EQ(true, BinarySearchRecursive1(a, 0, numOfElements - 1, 2));
 	EXPECT_EQ(true, BinarySearchRecursive1(a, 0, numOfElements - 1, 1));
 	EXPECT_EQ(false, BinarySearchRecursive1(a, 0, numOfElements - 1, 33));
 	EXPECT_EQ(true, BinarySearchRecursive1(a, 0, numOfElements - 1, 68));
 
+	EXPECT_EQ(true, BinarySearchRecursive1(one, 0, 0, 0));
+
 	EXPECT_EQ(true, BinarySearchRecursive1a(a, 0, numOfElements - 1, 2));
 	EXPECT_EQ(true, BinarySearchRecursive1a(a, 0, numOfElements - 1, 1));
 	EXPECT_EQ(false, BinarySearchRecursive1a(a, 0, numOfElements - 1, 33));
 	EXPECT_EQ(true, BinarySearchRecursive1(a, 0, numOfElements - 1, 68));
+
+	EXPECT_EQ(true, BinarySearchRecursive1a(one, 0, 0, 0));
 
 	EXPECT_EQ(1, BinarySearchRecursive2(a, 0, numOfElements - 1, 2));
 	EXPECT_EQ(0, BinarySearchRecursive2(a, 0, numOfElements - 1, 1));
@@ -95,11 +112,15 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 	EXPECT_EQ(-1, BinarySearchRecursive2(a, 0, numOfElements - 1, 33));
 	EXPECT_EQ(6, BinarySearchRecursive2(a, 0, numOfElements - 1, 68));
 
+	EXPECT_EQ(0, BinarySearchRecursive2(one, 0, 0, 0));
+
 	EXPECT_EQ(1, BinarySearchRecursive3(a, 0, numOfElements - 1, 2));
 	EXPECT_EQ(0, BinarySearchRecursive3(a, 0, numOfElements - 1, 1));
 	EXPECT_EQ(9, BinarySearchRecursive3(a, 0, numOfElements - 1, 12071));
 	EXPECT_EQ(5, BinarySearchRecursive3(a, 0, numOfElements - 1, 47));
 	EXPECT_EQ(-5, BinarySearchRecursive3(a, 0, numOfElements - 1, 33));
+
+	EXPECT_EQ(0, BinarySearchRecursive3(one, 0, 0, 0));
 }
 
 /*
@@ -190,10 +211,15 @@ using namespace ADSLibrary::Algorithms::SortingAlgorithms;
 TEST_F(AlgStructTest, SelectionSortTest)
 {	
 	const int numOfElements = 10;
-	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };
+	int a[numOfElements] = { 16, 2, 77, 40, 12071, 68, 32, 47, 1, 5874 };	
 	ReportArray(a, numOfElements);
 	SelectSort(a, numOfElements);
 	ReportArray(a, numOfElements);
+
+	int one[1] = { 120 };
+	ReportArray(one, 1);
+	SelectSort(one, 1);
+	ReportArray(one, 1);
 }
 
 /*
@@ -210,6 +236,11 @@ TEST_F(AlgStructTest, InsertionsSortTest)
 	ReportArray(a, numOfElements);
 	InsertSort(a, numOfElements);
 	ReportArray(a, numOfElements);
+
+	int one[1] = { 120 };
+	ReportArray(one, 1);
+	InsertSort(one, 1);
+	ReportArray(one, 1);
 }
 
 /*
@@ -247,6 +278,15 @@ TEST_F(AlgStructTest, BubbleSortsTest)
 	ReportArray(e, numOfElements);
 	BubbleSort4(e, numOfElements);
 	ReportArray(e, numOfElements);
+
+	int one[1] = { 120 };
+	ReportArray(one, 1);
+	BubbleSort0(one, 1);
+	BubbleSort1(one, 1);
+	BubbleSort2(one, 1);
+	BubbleSort3(one, 1);
+	BubbleSort4(one, 1);
+	ReportArray(one, 1);
 }
 
 /*
@@ -263,6 +303,11 @@ TEST_F(AlgStructTest, ShakerSortTest)
 	ReportArray(a, numOfElements);
 	ShakerSort(a, numOfElements);
 	ReportArray(a, numOfElements);
+
+	int one[1] = { 120 };
+	ReportArray(one, 1);
+	ShakerSort(one, 1);
+	ReportArray(one, 1);
 }
 
 /*
@@ -279,6 +324,11 @@ TEST_F(AlgStructTest, QuickSortTest)
 	ReportArray(a, numOfElements);
 	QuickSort(a, numOfElements);
 	ReportArray(a, numOfElements);
+
+	int one[1] = { 120 };
+	ReportArray(one, 1);
+	QuickSort(one, 1);
+	ReportArray(one, 1);
 }
 
 /*
@@ -295,6 +345,11 @@ TEST_F(AlgStructTest, HeapSortTest)
 	ReportArray(a, numOfElements);
 	HeapSort(a, numOfElements);
 	ReportArray(a, numOfElements);
+
+	int one[1] = { 120 };
+	ReportArray(one, 1);
+	HeapSort(one, 1);
+	ReportArray(one, 1);
 }
 
 AlgorithmsTest::AlgorithmsTest()

@@ -50,6 +50,7 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	EXPECT_EQ(10, list->Size());
 	EXPECT_EQ(1, list->Count());
 	EXPECT_EQ(true, list->Contains(5));
+	EXPECT_EQ(false, list->IsEmpty());
 
 	list->Add(8);
 	EXPECT_EQ(2, list->Count());
@@ -87,7 +88,6 @@ TEST_F(DynamicArrayOOPTemplate, DynamicArrayOOPTemplateTestWithoutParameter)
 	list->InsertAt(2, 100);
 
 	list->Sort();
-
 }
 /*
 * Unit test ArrayBasedStructures::OOPTemplate::DynamicArray pro integer
