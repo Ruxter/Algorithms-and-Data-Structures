@@ -24,7 +24,8 @@ namespace ADSLibrary
 
 				AdjacencyMatrix::AdjacencyMatrix(int VertexCount)
 				{
-					mCount = VertexCount;
+					if (VertexCount >= 0) mCount = VertexCount;
+					else return;
 					mMatrix = new int*[mCount];
 					for (int i = 0; i < mCount; i++)
 					{
@@ -45,16 +46,8 @@ namespace ADSLibrary
 				{
 					if ((FirstVertex >= 0 && FirstVertex < mCount) && (SecondVertex >= 0 && SecondVertex < mCount))
 					{
-						if (FirstVertex == SecondVertex)
-						{
-							mMatrix[FirstVertex][SecondVertex] = 2;
-							mMatrix[SecondVertex][FirstVertex] = 2;
-						}
-						else
-						{
-							mMatrix[FirstVertex][SecondVertex] = 1;
-							mMatrix[SecondVertex][FirstVertex] = 1;
-						}						
+						mMatrix[FirstVertex][SecondVertex] = 1;
+						mMatrix[SecondVertex][FirstVertex] = 1;					
 					}					
 				}
 
@@ -69,7 +62,8 @@ namespace ADSLibrary
 
 				bool AdjacencyMatrix::IsEdge(int FirstVertex, int SecondVertex) const
 				{
-					if ((mMatrix[FirstVertex][SecondVertex] == 1) || (mMatrix[FirstVertex][SecondVertex] == 2)) return true;
+					if (FirstVertex > mCount || SecondVertex > mCount) return false;
+					if (mMatrix[FirstVertex][SecondVertex] == 1) return true;
 					return false;					
 				}
 

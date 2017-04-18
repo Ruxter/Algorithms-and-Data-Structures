@@ -13,7 +13,6 @@ namespace ADSLibrary
 				* Matice je fixní kapacity.
 				* Pokud je èíslo v matici 0 - mezi tìmito dvìma vrcholy není hrana
 				* Pokud je èíslo v matici 1 - mezi tìmito dvìma vrcholy existuje hrana
-				* Pokud je èíslo v matici 2 - Vrchol má self-loop
 				* Matice je symetrická podél diagonály. Tedy pokud vede hrana z vrcholu U do vrcholu V, tím pádem vede i z V do U.
 				*/
 				class AdjacencyMatrix

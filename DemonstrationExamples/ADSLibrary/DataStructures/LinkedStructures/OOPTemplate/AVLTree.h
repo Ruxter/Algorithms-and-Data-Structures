@@ -15,6 +15,7 @@ namespace ADSLibrary
 				class AVLTree
 				{
 				public:
+
 					/**
 					 * Konstruktor
 					 */
@@ -177,6 +178,9 @@ namespace ADSLibrary
 					*/
 					void PostOrder(const Node* node);
 
+					/**
+					 * Koøen AVL-stromu
+					 */
 					Node* mRoot;
 				};
 
@@ -202,7 +206,7 @@ namespace ADSLibrary
 
 				template<class T> void AVLTree<T>::Insert(const T& X)
 				{
-					bool rebalance = false; //pøíznak urèující, zda má být provedeno potenciální vyvažování
+					bool rebalance = false; //pøíznak urèující, zda má být provedeno potenciální vyvažování.
 					Insert(mRoot, X, rebalance);
 				}
 

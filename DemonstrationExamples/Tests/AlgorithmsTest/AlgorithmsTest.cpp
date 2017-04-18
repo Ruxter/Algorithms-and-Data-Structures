@@ -66,7 +66,7 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 	EXPECT_EQ(0, LinearSearchRecursive2(one, 1, 0, 0));
 
 	ADSLibrary::Algorithms::SortingAlgorithms::InsertSort(a, numOfElements); //sort potøebný pro binární vyhledávání
-
+	ReportArray(a, numOfElements);
 	EXPECT_EQ(true, BinarySearch1(a, numOfElements, 2));
 	EXPECT_EQ(true, BinarySearch1(a, numOfElements, 1));
 	EXPECT_EQ(false, BinarySearch1(a, numOfElements, 33));
@@ -82,15 +82,7 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 	EXPECT_EQ(6, BinarySearch2(a, numOfElements, 68));
 
 	EXPECT_EQ(0, BinarySearch2(one, 1, 0));
-
-	EXPECT_EQ(1, BinarySearch3(a, numOfElements, 2));
-	EXPECT_EQ(0, BinarySearch3(a, numOfElements, 1));
-	EXPECT_EQ(9, BinarySearch3(a, numOfElements, 12071));
-	EXPECT_EQ(5, BinarySearch3(a, numOfElements, 47));
-	EXPECT_EQ(-5, BinarySearch3(a, numOfElements, 33)); //vrací záporné èíslo, jež je bitovým doplòkem indexu v poli, kam mùže být prvek vložen bez narušení posloupnosti
-
-	EXPECT_EQ(0, BinarySearch2(one, 1, 0));
-
+	
 	EXPECT_EQ(true, BinarySearchRecursive1(a, 0, numOfElements - 1, 2));
 	EXPECT_EQ(true, BinarySearchRecursive1(a, 0, numOfElements - 1, 1));
 	EXPECT_EQ(false, BinarySearchRecursive1(a, 0, numOfElements - 1, 33));
@@ -113,14 +105,6 @@ TEST_F(AlgStructTest, SearchingAlgTest)
 	EXPECT_EQ(6, BinarySearchRecursive2(a, 0, numOfElements - 1, 68));
 
 	EXPECT_EQ(0, BinarySearchRecursive2(one, 0, 0, 0));
-
-	EXPECT_EQ(1, BinarySearchRecursive3(a, 0, numOfElements - 1, 2));
-	EXPECT_EQ(0, BinarySearchRecursive3(a, 0, numOfElements - 1, 1));
-	EXPECT_EQ(9, BinarySearchRecursive3(a, 0, numOfElements - 1, 12071));
-	EXPECT_EQ(5, BinarySearchRecursive3(a, 0, numOfElements - 1, 47));
-	EXPECT_EQ(-5, BinarySearchRecursive3(a, 0, numOfElements - 1, 33));
-
-	EXPECT_EQ(0, BinarySearchRecursive3(one, 0, 0, 0));
 }
 
 /*
@@ -170,12 +154,6 @@ TEST_F(AlgStructTest, SearchingAlgTest2)
 	EXPECT_EQ(-1, BinarySearch2(b, numOfElements, 33));
 	EXPECT_EQ(8, BinarySearch2(b, numOfElements, 68));
 
-	EXPECT_EQ(1, BinarySearch3(b, numOfElements, 2));
-	EXPECT_EQ(0, BinarySearch3(b, numOfElements, 1));
-	EXPECT_EQ(12, BinarySearch3(b, numOfElements, 12071));
-	EXPECT_EQ(6, BinarySearch3(b, numOfElements, 47));
-	EXPECT_EQ(-6, BinarySearch3(b, numOfElements, 33)); //vrací záporné èíslo, jež je bitovým doplòkem indexu v poli, kam mùže být prvek vložen bez narušení posloupnosti
-
 	EXPECT_EQ(true, BinarySearchRecursive1(b, 0, numOfElements - 1, 2));
 	EXPECT_EQ(true, BinarySearchRecursive1(b, 0, numOfElements - 1, 1));
 	EXPECT_EQ(false, BinarySearchRecursive1(b, 0, numOfElements - 1, 33));
@@ -192,12 +170,6 @@ TEST_F(AlgStructTest, SearchingAlgTest2)
 	EXPECT_EQ(6, BinarySearchRecursive2(b, 0, numOfElements - 1, 47));
 	EXPECT_EQ(-1, BinarySearchRecursive2(b, 0, numOfElements - 1, 33));
 	EXPECT_EQ(8, BinarySearchRecursive2(b, 0, numOfElements - 1, 68));
-
-	EXPECT_EQ(1, BinarySearchRecursive3(b, 0, numOfElements - 1, 2));
-	EXPECT_EQ(0, BinarySearchRecursive3(b, 0, numOfElements - 1, 1));
-	EXPECT_EQ(12, BinarySearchRecursive3(b, 0, numOfElements - 1, 12071));
-	EXPECT_EQ(6, BinarySearchRecursive3(b, 0, numOfElements - 1, 47));
-	EXPECT_EQ(-6, BinarySearchRecursive3(b, 0, numOfElements - 1, 33));
 }
 
 using namespace ADSLibrary::Algorithms::SortingAlgorithms;

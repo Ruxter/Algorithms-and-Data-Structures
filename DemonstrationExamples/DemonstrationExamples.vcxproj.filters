@@ -147,6 +147,9 @@
     <ClCompile Include="Tests\GraphsTest\GraphsTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\AdjacencyList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADSLibrary\Algorithms\ArraysAndPointers\ArraysAndPointers.h">
@@ -276,6 +279,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tests\GraphsTest\GraphsTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\AdjacencyList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

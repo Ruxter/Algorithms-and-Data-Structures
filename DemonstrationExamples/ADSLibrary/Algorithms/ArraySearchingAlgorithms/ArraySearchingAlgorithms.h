@@ -91,22 +91,7 @@ namespace ADSLibrary
 			* @return Funkce vrací index výskytu hledaného prvku v daném poli, jinak vrací -1.
 			*/
 			int BinarySearch2(const int a[], const int n, const int x);
-			
-			/**
-			* Hledání prvku ve vzestupnì setøídìném poli.
-			*
-			* Funkce testuje prostou pøítomnost èi nepøítomnost hledaného prvku v daném poli.
-			* Funkce nezkoumá poèet všech výskytù hledaného prvku v poli ani pøípadné indexy všech jeho výskytù.
-			* Funkce implementuje algoritmus vyhledávání pùlením intervalu. Složitost tohoto algoritmu je O(log_{2}N), kde N je poèet prvkù v poli.
-			*
-			* @param a Prohledávané pole
-			* @param n Délka prohledávaného pole
-			* @param x Hledaný prvek
-			* @return Funkce vrací index výskytu hledaného prvku v daném poli. Pokud se hledaný prvek v daném poli nenachází, vrací funkce záporné èíslo
-			* jehož bitový doplnìk udává pozici na kterou je pøípadnì možné hledaný prvek do pole vložit tak, aby bylo zachováno vzestupné uspoøádání daného pole.
-			*/
-			int BinarySearch3(const int a[], const int n, const int x);
-			
+						
 			/**
 			* Hledání prvku ve vzestupnì setøídìném poli.
 			*
@@ -151,23 +136,7 @@ namespace ADSLibrary
 			* @param x Hledaný prvek
 			* @return Funkce vrací index výskytu hledaného prvku v daném poli, jinak vrací -1.
 			*/
-			int BinarySearchRecursive2(const int a[], const int l, const int r, const int x);
-			
-			/**
-			* Hledání prvku ve vzestupnì setøídìném poli.
-			*
-			* Funkce testuje prostou pøítomnost èi nepøítomnost hledaného prvku v daném poli.
-			* Funkce nezkoumá poèet všech výskytù hledaného prvku v poli ani pøípadné indexy všech jeho výskytù.
-			* Funkce implementuje algoritmus vyhledávání pùlením intervalu pomocí rekurze. Složitost tohoto algoritmu je O(log_{2}N), kde N je poèet prvkù v poli.
-			*
-			* @param a Prohledávané pole
-			* @param l Levá mez prohledávaného úseku pole, inkluzivní. Pøi poèáteèním volání funkce nastavit tento parametr na 0.
-			* @param r Pravá mez prohledávaného úseku pole, inkluzivní. Pøi poèáteèním volání funkce nastavit tento parametr na N-1, kde N je poèet prvkù v poli.
-			* @param x Hledaný prvek
-			* @return Funkce vrací index výskytu hledaného prvku v daném poli. Pokud se hledaný prvek v daném poli nenachází, vrací funkce záporné èíslo
-			* jehož bitový doplnìk udává pozici na kterou je pøípadnì možné hledaný prvek do pole vložit tak, aby bylo zachováno vzestupné uspoøádání daného pole.
-			*/
-			int BinarySearchRecursive3(const int a[], const int l, const int r, const int x);
+			int BinarySearchRecursive2(const int a[], const int l, const int r, const int x);			
 		}
 	}
 }

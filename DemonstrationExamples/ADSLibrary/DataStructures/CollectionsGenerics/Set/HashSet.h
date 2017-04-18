@@ -23,15 +23,6 @@ namespace ADSLibrary
 						this->Key = Key;
 						this->Next = nullptr;
 					}
-
-					T getKey() {
-						return this->Key;
-					}
-
-					HashNode* getNext()
-					{
-						return this->Next;
-					}
 				};
 
 				/**
@@ -154,10 +145,10 @@ namespace ADSLibrary
 					HashNode<T> *prev = nullptr;
 					HashNode<T> *entry = table[hash];
 
-					while (entry != nullptr && entry->getKey() != Key)
+					while (entry != nullptr && entry->Key != Key)
 					{
 						prev = entry;
-						entry = entry->getNext();
+						entry = entry->Next;
 					}
 
 					if (entry == nullptr)
@@ -175,18 +166,18 @@ namespace ADSLibrary
 					if (table[hash] != nullptr) {
 						HashNode<T>* prevEntry = nullptr;
 						HashNode<T>* entry = table[hash];
-						while (entry->getNext() != nullptr && entry->getKey() != Key) {
+						while (entry->Next != nullptr && entry->Key != Key) {
 							prevEntry = entry;
-							entry = entry->getNext();
+							entry = entry->Next;
 						}
-						if (entry->getKey() == Key) {
+						if (entry->Key == Key) {
 							if (prevEntry == nullptr) {
-								HashNode<T>* nextEntry = entry->getNext();
+								HashNode<T>* nextEntry = entry->Next;
 								delete entry;
 								table[hash] = nextEntry;
 							}
 							else {
-								HashNode<T>* next = entry->getNext();
+								HashNode<T>* next = entry->Next;
 								delete entry;
 								prevEntry->Next = next;
 							}
@@ -249,19 +240,19 @@ namespace ADSLibrary
 							if (table[i] != nullptr)
 							{
 								if (set->table[j] == nullptr) continue;
-								if(set->table[j]->getKey() == table[i]->getKey())
+								if(set->table[j]->Key == table[i]->Key)
 								{
-									newTable->Add(table[i]->getKey());
+									newTable->Add(table[i]->Key);
 									entry = table[i];
 									while (entry != nullptr)
 									{
-										newTable->Add(entry->getKey());
+										newTable->Add(entry->Key);
 										entry = entry->Next;
 									}
 									entry = set->table[j];
 									while (entry != nullptr)
 									{
-										newTable->Add(entry->getKey());
+										newTable->Add(entry->Key);
 										entry = entry->Next;
 									}
 									break;
@@ -279,7 +270,7 @@ namespace ADSLibrary
 						entry = table[i];
 						while (entry != nullptr)
 						{
-							newTable->Add(entry->getKey());
+							newTable->Add(entry->Key);
 							entry = entry->Next;
 						}
 					}
@@ -289,7 +280,7 @@ namespace ADSLibrary
 						entry = set->table[j];
 						while (entry != nullptr)
 						{
-							newTable->Add(entry->getKey());
+							newTable->Add(entry->Key);
 							entry = entry->Next;
 						}
 					}
@@ -299,7 +290,7 @@ namespace ADSLibrary
 				{
 					for (int i = 0; i < mSize; i++)
 					{
-						if (table[i] != nullptr) std::cout << table[i]->getKey() << " NEXT:" << table[i]->getNext() << std::endl;
+						if (table[i] != nullptr) std::cout << table[i]->Key << " NEXT:" << table[i]->Next << std::endl;
 					}
 				}
 				
