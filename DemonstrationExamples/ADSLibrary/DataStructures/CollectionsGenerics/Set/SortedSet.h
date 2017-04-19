@@ -24,6 +24,8 @@ namespace ADSLibrary
 
 					/**
 					* Kopírovací konstruktor
+					* 
+					* @param set Kopírovaná množina
 					*/
 					SortedSet(const SortedSet& set);
 
@@ -34,31 +36,36 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro vkládání prvku do množiny
-					* @param key Hodnota vkládaného prvku
+					* 
+					* @param Key Hodnota vkládaného prvku
 					*/
-					void Add(const T& key);
+					void Add(const T& Key);
 
 					/**
 					* Metoda pro odebrání prvku množiny
-					* @param key Hodnota odebíraného prvku
+					* 
+					* @param Key Hodnota odebíraného prvku
 					*/
-					void Remove(const T& key);					
+					void Remove(const T& Key);
 
 					/**
 					* Metoda pro zjištìní velikosti množiny
+					* 
 					* @return Poèet prvkù
 					*/
 					int Size();
 
 					/**
 					* Metoda pro zjištìní existence daného prvku v množinì
-					* @param key Hodnota vyhledávaného prvku
+					* 
+					* @param Key Hodnota vyhledávaného prvku
 					* @return true pokud existuje, jinak false
 					*/
-					bool Contains(const T& key) const;
+					bool Contains(const T& Key) const;
 
 					/**
 					* Metoda pro zjištìní, zda je množina prázdná
+					* 
 					* @return true pokud ano, jinak false
 					*/
 					bool IsEmpty() const;
@@ -85,17 +92,19 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro prùnik dvou množin
+					* 
 					* @param set Vstupní množina, se kterou se provede prùnik
-					* @param setOut Výstupní množina po provedení operace
+					* @param SetOut Výstupní množina po provedení operace
 					*/
-					void Intersect(const SortedSet* set, SortedSet* setOut);
+					void Intersect(const SortedSet* set, SortedSet* SetOut);
 
 					/**
 					* Metoda pro sjednocení dvou množin
+					* 
 					* @param set Vstupní množina, se kterou se provede prùnik
-					* @param setOut Výstupní množina po provedení operace
+					* @param SetOut Výstupní množina po provedení operace
 					*/
-					void Union(SortedSet* set,  SortedSet* setOut);
+					void Union(SortedSet* set, SortedSet* SetOut);
 
 				private:
 					
@@ -123,96 +132,105 @@ namespace ADSLibrary
 					/**
 					* Koøen stromu
 					*/
-					Node* m_root;
+					Node* mRoot;
 
 					/**
 					* Privátní rekurzivní metoda pro zkopírování množiny
-					* @param newNode Reprezentuje nový element
-					* @param sourceNode Reprezentuje zdrojový element
+					* @param NewNode Reprezentuje nový element
+					* @param SourceNode Reprezentuje zdrojový element
 					*/
-					void CopyTree(Node* newNode, Node* sourceNode);
+					void CopyTree(Node* NewNode, Node* SourceNode);
 
 					/**
 					* Privátní rekurzivní metoda pro vložení prvku na správné místo v množinì
-					* @param key Reprezentuje hodnotu prvku
-					* @param root Reprezentuje element, který se rekurzivnì pøedává
+					* 
+					* @param Key Reprezentuje hodnotu prvku
+					* @param Root Reprezentuje element, který se rekurzivnì pøedává
 					*/
-					Node* Add(Node* root, const T& key);
+					Node* Add(Node* Root, const T& Key);
 
 					/**
 					* Privátní rekurzivní metoda pro odebrání prvku z množiny a nahrazení tohoto místa vhodným prvkem 
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì pøedává
-					* @param key Reprezentuje hodnotu prvku 
+					* @param Key Reprezentuje hodnotu prvku 
 					* @return vrací výsledný prvek, který se dále rekurzivnì pøedává
 					*/
-					Node* Remove(Node* node, const T& key);				
+					Node* Remove(Node* node, const T& Key);
 
 					/**
 					* Privátní rekurzivní metoda pro korektní odebrání všech prkù z množiny a jejich dealokace
-					* @param node Reprezentuje element, který se rekurzivnì pøedává jeden po druhém
+					* 
+					* @param Node Reprezentuje element, který se rekurzivnì pøedává jeden po druhém
 					*/
-					void Clear(const Node* node);
+					void Clear(const Node* Node);
 
 					/**
 					* Privátní rekurzivní metoda pro spoèítání prvkù v množinì
-					* @param node Reprezentuje element, který se rekurzivnì poèítá jeden po druhém
+					* 
+					* @param Node Reprezentuje element, který se rekurzivnì poèítá jeden po druhém
 					* @return poèet prvkù
 					*/
-					int Size(const Node* node);
+					int Size(const Node* Node);
 
 					/**
 					* Privátní rekurzivní metoda pro zjištìní existence prvku v množinì
-					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
-					* @param key Hodnota hledaného prvku v množinì
+					* 
+					* @param Node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* @param Key Hodnota hledaného prvku v množinì
 					* @return true pokud prvek existuje, false nikoliv
 					*/
-					bool Contains(const Node* node, const T& key) const;
+					bool Contains(const Node* Node, const T& Key) const;
 
 					/**
 					* Privátní rekurzivní metoda pro zjištìní nejpravìjšího prvku v levém podstromu
-					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* 
+					* @param Node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					* @return prvek nutný pro další rekurze
 					*/
-					Node* FindMax(Node* node);
+					Node* FindMax(Node* Node);
 
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí inorder
-					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* 
+					* @param Node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
-					void InOrder(Node* node);
+					void InOrder(Node* Node);
 					
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí preoder
-					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* 
+					* @param Node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
-					void PreOrder(const Node* node);
+					void PreOrder(const Node* Node);
 
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z množiny v poøadí postorder
-					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
+					* 
+					* @param Node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
-					void PostOrder(const Node* node);
+					void PostOrder(const Node* Node);
 
 					/**
 					* Pomocný zásobník pro práci s množinami
 					*/
-					std::stack<T> stack;
+					std::stack<T> mStack;
 				};
 
 				template<typename T> SortedSet<T>::SortedSet()
 				{
-					m_root = nullptr;
+					mRoot = nullptr;
 				}
 
 				template<typename T> SortedSet<T>::SortedSet(const SortedSet& set)
 				{
-					if (set->m_root == nullptr)
-						m_root = nullptr;
+					if (set->mRoot == nullptr)
+						mRoot = nullptr;
 					else
-						CopyTree(this->m_root, set->m_root);
+						CopyTree(this->mRoot, set->mRoot);
 				}
 
-				template<typename T> void SortedSet<T>::CopyTree(Node * newNode, Node * sourceNode)
+				template<typename T> void SortedSet<T>::CopyTree(Node* newNode, Node* sourceNode)
 				{
 					if (sourceNode == nullptr) newNode = nullptr;
 					else
@@ -226,19 +244,19 @@ namespace ADSLibrary
 				
 				template<typename T> SortedSet<T>::~SortedSet()
 				{
-					Clear(m_root);
+					Clear(mRoot);
 				}
 
 				template<typename T> void SortedSet<T>::Add(const T& key)
 				{
-					if (m_root != nullptr)
-						Add(m_root, key);
+					if (mRoot != nullptr)
+						Add(mRoot, key);
 					else
 					{
-						m_root = new Node();
-						m_root->Key = key;
-						m_root->Left = nullptr;
-						m_root->Right = nullptr;
+						mRoot = new Node();
+						mRoot->Key = key;
+						mRoot->Left = nullptr;
+						mRoot->Right = nullptr;
 					}
 				}
 
@@ -261,7 +279,7 @@ namespace ADSLibrary
 				
 				template<typename T> void SortedSet<T>::Remove(const T& Key)
 				{
-					Remove(m_root, Key);
+					Remove(mRoot, Key);
 				}
 
 				template<typename T> typename SortedSet<T>::Node* SortedSet<T>::Remove(Node* node, const T& Key)
@@ -305,7 +323,7 @@ namespace ADSLibrary
 
 				template<typename T> bool SortedSet<T>::Contains(const T& key) const
 				{
-					return Contains(m_root, key);
+					return Contains(mRoot, key);
 				}
 
 				template<typename T> bool SortedSet<T>::Contains(const Node* node, const T& key) const
@@ -318,7 +336,7 @@ namespace ADSLibrary
 
 				template<typename T> int SortedSet<T>::Size()
 				{
-					return Size(m_root);
+					return Size(mRoot);
 				}
 
 				template<typename T> int SortedSet<T>::Size(const Node* node)
@@ -332,13 +350,13 @@ namespace ADSLibrary
 
 				template<typename T> bool SortedSet<T>::IsEmpty() const
 				{
-					return m_root == nullptr;
+					return mRoot == nullptr;
 				}
 
 				template<typename T> void SortedSet<T>::Clear()
 				{
-					Clear(m_root);
-					m_root = nullptr;
+					Clear(mRoot);
+					mRoot = nullptr;
 				}
 
 				template<typename T> void SortedSet<T>::Clear(const Node* node)
@@ -353,7 +371,7 @@ namespace ADSLibrary
 
 				template <class T> void SortedSet<T>::InOrder()
 				{
-					InOrder(m_root);
+					InOrder(mRoot);
 				}
 
 				template <class T> void SortedSet<T>::InOrder(Node* node)
@@ -367,14 +385,14 @@ namespace ADSLibrary
 
 				template <class T> void SortedSet<T>::PreOrder()
 				{
-					PreOrder(m_root);
+					PreOrder(mRoot);
 				}
 
 				template <class T> void SortedSet<T>::PreOrder(const Node* node)
 				{
 					if (node) {
 						std::cout << node->Key << " ";
-						stack.push(node->Key); // Slouží k Intersection a Union množin
+						mStack.push(node->Key); // Slouží k Intersection a Union množin
 						PreOrder(node->Left);
 						PreOrder(node->Right);
 					}
@@ -382,7 +400,7 @@ namespace ADSLibrary
 
 				template <class T> void SortedSet<T>::PostOrder()
 				{
-					PostOrder(m_root);
+					PostOrder(mRoot);
 				}
 
 				template <class T> void SortedSet<T>::PostOrder(const Node* node)
@@ -396,19 +414,19 @@ namespace ADSLibrary
 
 				template <class T> void SortedSet<T>::Intersect(const SortedSet* set, SortedSet* setOut)
 				{
-					PreOrder(m_root);
+					PreOrder(mRoot);
 					T tmp; 
-					for (unsigned int i = 0; i < stack.size(); i++)
+					for (unsigned int i = 0; i < mStack.size(); i++)
 					{
-						tmp = stack.top();
+						tmp = mStack.top();
 						if (set->Contains(tmp))
 						{
 							setOut->Add(tmp);
-							stack.pop();
+							mStack.pop();
 							i--;
 						}
 						else {
-							stack.pop();
+							mStack.pop();
 							i--;
 						}
 					}
@@ -416,14 +434,14 @@ namespace ADSLibrary
 
 				template <class T> void SortedSet<T>::Union(SortedSet* set, SortedSet* newTable)
 				{
-					PreOrder(m_root);
+					PreOrder(mRoot);
 					T tmp;
-					CopyTree(newTable->m_root, set->m_root);
-					for (unsigned int i = 0; i < stack.size(); i++)
+					CopyTree(newTable->mRoot, set->mRoot);
+					for (unsigned int i = 0; i < mStack.size(); i++)
 					{
-						tmp = stack.top();
+						tmp = mStack.top();
 						newTable->Add(tmp);
-						stack.pop();
+						mStack.pop();
 						i--;
 					}
 				}

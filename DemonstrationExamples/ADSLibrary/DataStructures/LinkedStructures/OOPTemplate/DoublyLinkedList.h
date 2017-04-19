@@ -26,22 +26,22 @@ namespace ADSLibrary
 
 					/**
 					* Vložení prvku na zaèátek seznamu.
-					* @param value vkládaná hodnota
+					* @param Value vkládaná hodnota
 					*/
-					void InsertBegin(T value);
+					void InsertBegin(T Value);
 
 					/**
 					* Vložení prvku na konec seznamu.
-					* @param value vkládaná hodnota
+					* @param Value vkládaná hodnota
 					*/
-					void InsertEnd(T value);
+					void InsertEnd(T Value);
 
 					/**
 					* Nalezení prvku v listu.
-					* @param value hodnota kterou chceme zjistit
+					* @param Value hodnota kterou chceme zjistit
 					* @return vrací true pokud je daný element v seznamu, jinak false.
 					*/
-					bool Search(T value);
+					bool Search(T Value);
 															
 					/**
 					* Odebrání prvního prvku ze seznamu - mHead.	
@@ -131,14 +131,14 @@ namespace ADSLibrary
 					Clear();
 				}
 
-				template<typename T> bool DoublyLinkedList<T>::Search(T value)
+				template<typename T> bool DoublyLinkedList<T>::Search(T Value)
 				{
 					if (!IsEmpty())
 					{
 						Node* node = mHead;
 						while (node)
 						{
-							if (node->Value == value) return true;
+							if (node->Value == Value) return true;
 							node = node->Next;
 						}
 						return false;
@@ -147,10 +147,10 @@ namespace ADSLibrary
 				}
 							
 
-				template <typename T> void DoublyLinkedList<T>::InsertBegin(T value)
+				template <typename T> void DoublyLinkedList<T>::InsertBegin(T Value)
 				{
 					Node* node = new Node();
-					node->Value = value;
+					node->Value = Value;
 					if (mHead == nullptr)
 					{
 						mHead = node;
@@ -165,10 +165,10 @@ namespace ADSLibrary
 					mSize++;
 				}
 
-				template <typename T> void DoublyLinkedList<T>::InsertEnd(T value)
+				template <typename T> void DoublyLinkedList<T>::InsertEnd(T Value)
 				{
 					Node* node = new Node();
-					node->Value = value;
+					node->Value = Value;
 					if (mTail == nullptr)
 					{
 						mHead = node;

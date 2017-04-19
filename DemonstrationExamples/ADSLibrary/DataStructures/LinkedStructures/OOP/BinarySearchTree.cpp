@@ -62,13 +62,13 @@ namespace ADSLibrary
 					Node *q = p;
 					if (p->Right == nullptr)
 					{
-						p = p->Left;		// žádný nebo jen levý potomek
+						p = p->Left;// žádný nebo jen levý potomek
 					}
 					else
 					{
 						if (p->Left == nullptr)
 						{
-							p = p->Right;	// existuje jen pravý potomek
+							p = p->Right;// existuje jen pravý potomek
 						}
 						else
 						{

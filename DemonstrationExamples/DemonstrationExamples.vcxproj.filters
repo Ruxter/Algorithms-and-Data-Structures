@@ -96,9 +96,6 @@
     <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.cpp">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
     </ClCompile>
-    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.cpp">
-      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
-    </ClCompile>
     <ClCompile Include="DummyClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -201,9 +198,6 @@
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOPTemplate</Filter>
     </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.h">
-      <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
-    </ClInclude>
-    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.h">
       <Filter>ADSLibrary\DataStructures\LinkedStructures\OOP</Filter>
     </ClInclude>
     <ClInclude Include="ADSLibrary\DataStructures\ArrayBasedStructures\OOPTemplate\DynamicArray.h">

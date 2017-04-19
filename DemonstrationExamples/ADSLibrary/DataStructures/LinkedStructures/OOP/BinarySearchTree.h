@@ -103,16 +103,6 @@ namespace ADSLibrary
 					 */
 					void ReportStructure() const;
 
-
-					/**
-					 * Deklarace spøátelených tøíd, které implementují iterátory.
-					 * V tomto príkladì jsou iterátory implementovány oddìlenì, tudíž lze používat více iterátorù pro jeden strom souèasnì. Veškerá data nutná pro iterování skrz strom si uchovává iterátor.
-					 * Deklarace tìchto tøíd jako spøátelených tøíd znamená, že tyto tøídy mají pøístup k privátním èlenùm tøídy BinarySearchTree, ale souèasnì není nutné z tìchto privátních èlenù nic zveøejòovat.
-					 */
-					friend class BinaryTreeIteratorBase;
-					friend class BinaryTreeIterator;
-					friend class BinaryTreeReverseIterator;
-
 				private:
 					/**
 					 * Struktura reprezentující uzel ve stromu.
@@ -226,7 +216,7 @@ namespace ADSLibrary
 
 				inline BinarySearchTree::BinarySearchTree()
 				{
-					mRoot = NULL;
+					mRoot = nullptr;
 				}
 
 				inline BinarySearchTree::~BinarySearchTree()
@@ -252,12 +242,12 @@ namespace ADSLibrary
 				inline void BinarySearchTree::Clear()
 				{
 					InternalClear(mRoot);
-					mRoot = NULL;
+					mRoot = nullptr;
 				}
 
 				inline bool BinarySearchTree::IsEmpty() const
 				{
-					return mRoot == NULL;
+					return mRoot == nullptr;
 				}
 
 				inline int BinarySearchTree::Count() const

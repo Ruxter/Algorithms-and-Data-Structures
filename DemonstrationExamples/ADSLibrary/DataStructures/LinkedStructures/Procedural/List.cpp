@@ -11,28 +11,28 @@ namespace ADSLibrary
 			{
 				void Init(List& L)
 				{
-					L.Head = NULL;
-					L.Current = NULL;
+					L.Head = nullptr;
+					L.Current = nullptr;
 				}
 
 				void Clear(List& L)
 				{
-					while (L.Head != NULL)
+					while (L.Head != nullptr)
 					{
 						ListItem* p = L.Head;
 						L.Head = L.Head->Next;
 						delete p;
 					};
-					L.Current = NULL;
+					L.Current = nullptr;
 				}
 
 				void Insert(List& L, const int X)
 				{
 					ListItem* n = new ListItem;
 					n->Value = X;
-					n->Prev = NULL;
+					n->Prev = nullptr;
 					n->Next = L.Head;
-					if (L.Head != NULL)
+					if (L.Head != nullptr)
 					{
 						L.Head->Prev = n;
 					}
@@ -42,18 +42,18 @@ namespace ADSLibrary
 				void Delete(List& L, const int X)
 				{
 					ListItem* p;
-					for (p = L.Head; p != NULL; p = p->Next)
+					for (p = L.Head; p != nullptr; p = p->Next)
 					{
 						if (p->Value == X)
 						{
 							break;
 						}
 					}
-					if (p == NULL)
+					if (p == nullptr)
 					{
 						return;
 					}
-					if (p->Prev != NULL)
+					if (p->Prev != nullptr)
 					{
 						p->Prev->Next = p->Next;
 					}
@@ -61,7 +61,7 @@ namespace ADSLibrary
 					{
 						L.Head = p->Next;
 					}
-					if (p->Next != NULL)
+					if (p->Next != nullptr)
 					{
 						p->Next->Prev = p->Prev;
 					}
@@ -71,7 +71,7 @@ namespace ADSLibrary
 				bool Search(const List& L, const int X)
 				{
 					ListItem* p = L.Head;
-					while (p != NULL)
+					while (p != nullptr)
 					{
 						if (p->Value == X)
 							return true;
@@ -82,13 +82,13 @@ namespace ADSLibrary
 
 				bool IsEmpty(const List& L)
 				{
-					return L.Head == NULL;
+					return L.Head == nullptr;
 				}
 
 				int Count(const List& L)
 				{
 					int counter = 0;
-					for (ListItem* p = L.Head; p != NULL; p = p->Next)
+					for (ListItem* p = L.Head; p != nullptr; p = p->Next)
 					{
 						counter += 1;
 					}
@@ -102,7 +102,7 @@ namespace ADSLibrary
 
 				bool IsEnd(const List& L)
 				{
-					return L.Current == NULL;
+					return L.Current == nullptr;
 				}
 
 				void MoveNext(List& L)
@@ -121,7 +121,7 @@ namespace ADSLibrary
 					cout << "--------------------------" << endl;
 					cout << "Head: " << L.Head << endl;
 					cout << "Current: " << L.Current << endl;
-					for (ListItem* p = L.Head; p != NULL; p = p->Next)
+					for (ListItem* p = L.Head; p != nullptr; p = p->Next)
 					{
 						cout << p->Value << "\t" << p->Prev << "\t" << p->Next << endl;
 					}

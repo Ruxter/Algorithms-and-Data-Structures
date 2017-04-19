@@ -28,24 +28,28 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro pøidání prvku
+					* 
 					* @param X Vkládaný prvek
 					*/
 					void Insert(const T& X);
 
 					/**
 					* Metoda pro odebrání prvku
+					* 
 					* @param X Odebíraný prvek
 					*/
 					void Delete(const T& X);
 
 					/**
 					* Metoda pro zjištìní, zda je AVL strom prázdný
+					* 
 					* @return true pokud ano, jinak false
 					*/
 					bool IsEmpty() const;
 
 					/**
 					* Metoda pro zjištìní existence daného prvku v AVL stromu
+					* 
 					* @param X Hodnota vyhledávaného prvku
 					* @return true pokud existuje, jinak false
 					*/
@@ -53,6 +57,7 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro zjištìní velikosti AVL stromu
+					* 
 					* @return Poèet prvkù
 					*/
 					int Size();
@@ -102,12 +107,14 @@ namespace ADSLibrary
 
 					/**
 					* Privátní rekurzivní metoda pro korektní odebrání všech prkù z AVL stromu a jejich dealokace
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì pøedává jeden po druhém
 					*/
 					void  Clear(Node* node);
 
 					/**
 					* Privátní rekurzivní metoda pro vložení prvku na správné místo v AVL stromu
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì pøedává
 					* @param X Reprezentuje hodnotu vkládaného prvku
 					* @param rebalance Pøíznak urèující, zda má být provedeno potenciální vyvažování
@@ -116,6 +123,7 @@ namespace ADSLibrary
 
 					/**
 					* Privátní rekurzivní metoda pro odebrání prvku z AVL stromu
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì pøedává
 					* @param X Reprezentuje hodnotu odebíraného prvku
 					* @param rebalance Pøíznak urèující, zda má být provedeno potenciální vyvažování
@@ -124,6 +132,7 @@ namespace ADSLibrary
 
 					/**
 					 * Metoda pro vyvážení stromu pøi odebrání prvku v pøípadì, kdy se zmenší levý podstrom
+					 * 
 					 * @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					 * @param rebalance Pøíznak urèující, zda má být provedeno potenciální vyvažování
 					 */
@@ -131,6 +140,7 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro vyvážení stromu pøi odebrání prvku v pøípadì, kdy se zmenší pravý podstrom
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					* @param rebalance Pøíznak urèující, zda má být provedeno potenciální vyvažování
 					*/
@@ -139,6 +149,7 @@ namespace ADSLibrary
 					/**
 					* Pomocná metoda pro Delete
 					* Metoda pro nalezení nejpravìjšího potomka v levém podstromu, a nahrazení odebíraného prvku.
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					* @param node2 Reprezentuje element, který se rekurzivnì prochází jeden po druhém		
 					* @param rebalance	Pøíznak urèující, zda má být provedeno potenciální vyvažování		
@@ -147,6 +158,7 @@ namespace ADSLibrary
 
 					/**
 					* Privátní rekurzivní metoda pro zjištìní existence prvku v AVL stromu
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					* @param key Hodnota hledaného prvku v AVL stromu
 					* @return true pokud prvek existuje, false nikoliv
@@ -155,6 +167,7 @@ namespace ADSLibrary
 
 					/**
 					* Privátní rekurzivní metoda pro spoèítání prvkù v AVL stromu
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì poèítá jeden po druhém
 					* @return poèet prvkù
 					*/
@@ -162,18 +175,21 @@ namespace ADSLibrary
 
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z AVL stromu v poøadí inorder
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void InOrder(Node* node);
 
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z AVL stromu v poøadí preoder
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void PreOrder(const Node* node);
 
 					/**
 					* Privátní rekurzivní metoda pro získání a vypsání dat z AVL stromu v poøadí postorder
+					* 
 					* @param node Reprezentuje element, který se rekurzivnì prochází jeden po druhém
 					*/
 					void PostOrder(const Node* node);

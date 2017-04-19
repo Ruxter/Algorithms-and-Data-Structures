@@ -23,8 +23,10 @@ namespace ADSLibrary
 
 					/**
 					* Kopírovací konstruktor
+					* 
+					* @param Dic Kopírovaný slovník
 					*/
-					SortedDictionary(const SortedDictionary& dic);
+					SortedDictionary(const SortedDictionary& Dic);
 
 					/**
 					* Destruktor
@@ -33,6 +35,7 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro vkládání prvku do slovníku
+					* 
 					* @param Key klíè elementu
 					* @param Value hodnota elementu
 					*/
@@ -40,18 +43,21 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro odebrání elementu ze slovníku
+					* 
 					* @param Key hodnota odebíraného elementu
 					*/
 					void Remove(const K& Key);
 
 					/**
 					* Metoda pro zjištìní velikosti slovníku
+					* 
 					* @return poèet elementù
 					*/
 					int Size();
 
 					/**
 					* Metoda pro zjištìní existence daného elementu ve slovníku
+					* 
 					* @param Key klíè vyhledávaného elementu
 					* @return true pokud existuje, jinak false
 					*/
@@ -59,6 +65,7 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro zjištìní, zda je slovník prázdný
+					* 
 					* @return true pokud ano, jinak false
 					*/
 					bool IsEmpty() const;
@@ -107,35 +114,41 @@ namespace ADSLibrary
 
 					/**
 					* Privátní rekurzivní metoda pro vložení elementu na správné místo ve slovníku
+					* 
 					* @param pair Element, který se rekurzivnì pøedává
 					* @param Key Reprezentuje klíè prvku
 					* @param Value Reprezentuje hodnotu prvku
+					* @return Vrací výsledný prvek, který se dále rekurzivnì pøedává
 					*/
 					Pair* Add(Pair*& pair, const K& Key, const V& Value);
 
 					/**
 					* Privátní rekurzivní metoda pro zkopírování slovníku
-					* @param newNode Reprezentuje nový element
-					* @param sourceNode Reprezentuje zdrojový element
+					* 
+					* @param NewNode Reprezentuje nový element
+					* @param SourceNode Reprezentuje zdrojový element
 					*/
-					void CopyTree(Pair*& newNode, Pair*& sourceNode);
+					void CopyTree(Pair*& NewNode, Pair*& SourceNode);
 
 					/**
 					* Privátní rekurzivní metoda pro odebrání prvku ze slovníku a nahrazení tohoto místa vhodným prvkem
+					* 
 					* @param pair Reprezentuje element, který se rekurzivnì pøedává
 					* @param Key Reprezentuje hodnotu prvku
-					* @return Node* Vrací výsledný prvek, který se dále rekurzivnì pøedává
+					* @return Vrací výsledný prvek, který se dále rekurzivnì pøedává
 					*/
 					Pair* Remove(Pair* pair, const K& Key);
 
 					/**
 					* Privátní rekurzivní metoda pro korektní odebrání všech elementù ze slovníku a jejich dealokace
+					* 
 					* @param pair Reprezentuje element, který se rekurzivnì pøedává jeden po druhém
 					*/
 					void Clear(const Pair* pair);
 
 					/**
 					* Privátní Rekurzivní metoda pro spoèítání elementù ve slovníku
+					* 
 					* @param pair Reprezentuje element, který se rekurzivnì poèítá jeden po druhém
 					* @return Poèet prvkù
 					*/
@@ -181,22 +194,22 @@ namespace ADSLibrary
 					mRoot = nullptr;
 				}
 
-				template<typename K, typename V> SortedDictionary<K, V>::SortedDictionary(const SortedDictionary& dic)
+				template<typename K, typename V> SortedDictionary<K, V>::SortedDictionary(const SortedDictionary& Dic)
 				{
-					if (dic->mRoot == nullptr) mRoot = nullptr;
-					else CopyTree(this->mRoot, dic->mRoot);
+					if (Dic->mRoot == nullptr) mRoot = nullptr;
+					else CopyTree(this->mRoot, Dic->mRoot);
 				}
 
-				template<typename K, typename V> void SortedDictionary<K, V>::CopyTree(Pair*& newNode, Pair*& sourceNode)
+				template<typename K, typename V> void SortedDictionary<K, V>::CopyTree(Pair*& NewNode, Pair*& SourceNode)
 				{
-					if (sourceNode == nullptr) newNode = nullptr;
+					if (SourceNode == nullptr) NewNode = nullptr;
 					else
 					{
-						newNode = new Pair();
-						newNode->Key = sourceNode->Key;
-						newNode->Value = sourceNode->Value;
-						CopyTree(newNode->Left, sourceNode->Left);
-						CopyTree(newNode->Right, sourceNode->Right);
+						NewNode = new Pair();
+						NewNode->Key = SourceNode->Key;
+						NewNode->Value = SourceNode->Value;
+						CopyTree(NewNode->Left, SourceNode->Left);
+						CopyTree(NewNode->Right, SourceNode->Right);
 					}
 				}
 
@@ -335,12 +348,12 @@ namespace ADSLibrary
 					InOrder(mRoot);
 				}
 
-				template <typename K, typename V> void SortedDictionary<K, V>::InOrder(const Pair* node)
+				template <typename K, typename V> void SortedDictionary<K, V>::InOrder(const Pair* pair)
 				{
-					if (node) {
-						InOrder(node->Left);
-						std::cout << node->Key << " : " << node->Value << std::endl;
-						InOrder(node->Right);
+					if (pair) {
+						InOrder(pair->Left);
+						std::cout << pair->Key << " : " << pair->Value << std::endl;
+						InOrder(pair->Right);
 					}
 				}
 
@@ -349,12 +362,12 @@ namespace ADSLibrary
 					PreOrder(mRoot);
 				}
 
-				template <typename K, typename V> void SortedDictionary<K, V>::PreOrder(const Pair* node)
+				template <typename K, typename V> void SortedDictionary<K, V>::PreOrder(const Pair* pair)
 				{
-					if (node) {
-						std::cout << node->Key << " : " << node->Value << std::endl;
-						PreOrder(node->Left);
-						PreOrder(node->Right);
+					if (pair) {
+						std::cout << pair->Key << " : " << pair->Value << std::endl;
+						PreOrder(pair->Left);
+						PreOrder(pair->Right);
 					}
 				}
 
@@ -363,12 +376,12 @@ namespace ADSLibrary
 					PostOrder(mRoot);
 				}
 
-				template <typename K, typename V> void SortedDictionary<K, V>::PostOrder(const Pair* node)
+				template <typename K, typename V> void SortedDictionary<K, V>::PostOrder(const Pair* pair)
 				{
-					if (node) {
-						PostOrder(node->Left);
-						PostOrder(node->Right);
-						std::cout << node->Key << " : " << node->Value << std::endl;
+					if (pair) {
+						PostOrder(pair->Left);
+						PostOrder(pair->Right);
+						std::cout << pair->Key << " : " << pair->Value << std::endl;
 					}
 				}
 			}

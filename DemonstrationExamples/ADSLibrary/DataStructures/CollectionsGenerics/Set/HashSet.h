@@ -26,7 +26,7 @@ namespace ADSLibrary
 				};
 
 				/**
-				* HashSet je NEuspoøádaná množina realizována jako hashtable bez mapovaných hodnot.
+				* HashSet je NEuspoøádaná množina realizována jako hashmTable bez mapovaných hodnot.
 				*/
 				template <class T> class HashSet
 				{
@@ -44,12 +44,14 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro vložení prvku do slovníku
+					* 
 					* @param Key klíè vkládaného prvku, tento klíè se pøed vložením zhašuje
 					*/
 					void Add(const T& Key) const;
 
 					/**
 					* Metoda pro získání hodnoty HashNode podle daného klíèe
+					* 
 					* @param Key klíè, podle kterého se vyhledává prvek
 					* @return vrací generickou hodnotu HashNode
 					*/
@@ -57,35 +59,40 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro odebrání prvku ze slovníku
+					* 
 					* @param Key klíè, dle kterého se odebírá
 					*/
 					void Remove(const T& Key);
 
 					/**
 					* Metoda pro odspoèítání prvkù v množinì
+					* 
 					* @return vrací poèet prvkù
 					*/
 					int Count();
 
 					/**
 					* Metoda pro zjištìní, zda je množina prázdná
+					* 
 					* @return vrací true pokud je prázdná, jinak false
 					*/
 					bool IsEmpty();
 
 					/**
 					* Metoda pro prùnik dvou množin. Postupnì porovnává, zda obì množiny obsahují danou hodnotu. Pøeskakuje uzly NULL a prochází všechny uzly v dané pøihrádce hašovací tabulky.
+					* 
 					* @param set je množina, se kterou se provádí prùnik
-					* @param newTable je nová výstupní množina s prùnikem
+					* @param NewmTable je nová výstupní množina s prùnikem
 					*/
-					void Intersect(const HashSet* set, const HashSet* newTable);
+					void Intersect(const HashSet* set, const HashSet* NewmTable);
 
 					/**
 					* Metoda pro sjednocení dvou množin. Projde napøed jednu, pak druhou množinu a vloží do nové výstupní.
+					* 
 					* @param set je množina, se kterou se provádí prùnik
-					* @param newTable je nová výstupní množina s prùnikem
+					* @param NewmTable je nová výstupní množina s prùnikem
 					*/
-					void Union(const HashSet* set, const HashSet* newTable);
+					void Union(const HashSet* set, const HashSet* NewmTable);
 
 					/**
 					* Pomocná metoda pro výpis
@@ -95,7 +102,7 @@ namespace ADSLibrary
 				private:
 
 					/**
-					* Promìnná reprezentující poèet pøihrádek v hashtable
+					* Promìnná reprezentující poèet pøihrádek v hashmTable
 					*/
 					int mSize = 128;
 
@@ -109,21 +116,21 @@ namespace ADSLibrary
 					/**
 					* Reprezentuje hašovací tabulku
 					*/
-					HashNode<T>** table;
+					HashNode<T>** mTable;
 				};
 
 				template<typename T> HashSet<T>::HashSet()
 				{
-					table = new HashNode<T>*[mSize];
+					mTable = new HashNode<T>*[mSize];
 					for (int i = 0; i < mSize; i++)
-						table[i] = nullptr;
+						mTable[i] = nullptr;
 				}
 
 				template<typename T> HashSet<T>::~HashSet()
 				{
 					for (int i = 0; i < mSize; ++i)
 					{
-						HashNode<T>* entry = table[i];
+						HashNode<T>* entry = mTable[i];
 						while (entry != nullptr)
 						{
 							HashNode<T>* prev = entry;
@@ -131,7 +138,7 @@ namespace ADSLibrary
 							delete prev;
 						}
 					}
-					delete[] table;
+					delete[] mTable;
 				}
 
 				template<typename T> int HashSet<T>::HashFunc(const T& Key) const
@@ -143,7 +150,7 @@ namespace ADSLibrary
 				{
 					int hash = HashFunc(Key);
 					HashNode<T> *prev = nullptr;
-					HashNode<T> *entry = table[hash];
+					HashNode<T> *entry = mTable[hash];
 
 					while (entry != nullptr && entry->Key != Key)
 					{
@@ -154,7 +161,7 @@ namespace ADSLibrary
 					if (entry == nullptr)
 					{
 						entry = new HashNode<T>(Key);
-						if (prev == nullptr) table[hash] = entry;
+						if (prev == nullptr) mTable[hash] = entry;
 						else prev->Next = entry;
 					}
 					else entry->Key = Key;
@@ -163,9 +170,9 @@ namespace ADSLibrary
 				template<typename T> void HashSet<T>::Remove(const T& Key)
 				{
 					int hash = HashFunc(Key);
-					if (table[hash] != nullptr) {
+					if (mTable[hash] != nullptr) {
 						HashNode<T>* prev = nullptr;
-						HashNode<T>* entry = table[hash];
+						HashNode<T>* entry = mTable[hash];
 						while (entry->Next != nullptr && entry->Key != Key) {
 							prev = entry;
 							entry = entry->Next;
@@ -174,7 +181,7 @@ namespace ADSLibrary
 							if (prev == nullptr) {
 								HashNode<T>* nextEntry = entry->Next;
 								delete entry;
-								table[hash] = nextEntry;
+								mTable[hash] = nextEntry;
 							}
 							else {
 								HashNode<T>* next = entry->Next;
@@ -188,7 +195,7 @@ namespace ADSLibrary
 				template<typename T> bool HashSet<T>::Contains(const T& Key)
 				{
 					int hash = HashFunc(Key);
-					HashNode<T>* entry = table[hash];
+					HashNode<T>* entry = mTable[hash];
 					while (entry != nullptr)
 					{
 						if (entry->Key == Key)
@@ -203,10 +210,10 @@ namespace ADSLibrary
 				template<typename T> int HashSet<T>::Count()
 				{
 					int count = 0;
-					HashNode<T>* entry = table[0];
+					HashNode<T>* entry = mTable[0];
 					for (int i = 0; i < mSize; i++)
 					{
-						entry = table[i];
+						entry = mTable[i];
 						while (entry != nullptr)
 						{
 							count++;
@@ -221,7 +228,7 @@ namespace ADSLibrary
 					bool isEmpty = true;
 					for (int i = 0; i < mSize; i++)
 					{
-						if (table[i] != nullptr) 
+						if (mTable[i] != nullptr) 
 						{
 							isEmpty = false;
 							break;
@@ -230,29 +237,29 @@ namespace ADSLibrary
 					return isEmpty;
 				}
 
-				template<typename T> void HashSet<T>::Intersect(const HashSet* set, const HashSet* newTable)
+				template<typename T> void HashSet<T>::Intersect(const HashSet* set, const HashSet* NewTable)
 				{
 					HashNode<T>* entry = nullptr;
 					for(int i = 0; i < mSize; i++)
 					{
 						for (int j = 0; j < set->mSize; j++)
 						{
-							if (table[i] != nullptr)
+							if (mTable[i] != nullptr)
 							{
-								if (set->table[j] == nullptr) continue;
-								if(set->table[j]->Key == table[i]->Key)
+								if (set->mTable[j] == nullptr) continue;
+								if(set->mTable[j]->Key == mTable[i]->Key)
 								{
-									newTable->Add(table[i]->Key);
-									entry = table[i];
+									NewTable->Add(mTable[i]->Key);
+									entry = mTable[i];
 									while (entry != nullptr)
 									{
-										newTable->Add(entry->Key);
+										NewTable->Add(entry->Key);
 										entry = entry->Next;
 									}
-									entry = set->table[j];
+									entry = set->mTable[j];
 									while (entry != nullptr)
 									{
-										newTable->Add(entry->Key);
+										NewTable->Add(entry->Key);
 										entry = entry->Next;
 									}
 									break;
@@ -262,25 +269,25 @@ namespace ADSLibrary
 					}
 				}
 
-				template<typename T> void HashSet<T>::Union(const HashSet* set, const HashSet* newTable)
+				template<typename T> void HashSet<T>::Union(const HashSet* set, const HashSet* NewTable)
 				{
-					HashNode<T>* entry = table[0];
+					HashNode<T>* entry = mTable[0];
 					for (int i = 0; i < mSize; i++)
 					{
-						entry = table[i];
+						entry = mTable[i];
 						while (entry != nullptr)
 						{
-							newTable->Add(entry->Key);
+							NewTable->Add(entry->Key);
 							entry = entry->Next;
 						}
 					}
-					entry = set->table[0];
+					entry = set->mTable[0];
 					for (int j = 0; j < mSize; j++)
 					{
-						entry = set->table[j];
+						entry = set->mTable[j];
 						while (entry != nullptr)
 						{
-							newTable->Add(entry->Key);
+							NewTable->Add(entry->Key);
 							entry = entry->Next;
 						}
 					}
@@ -290,7 +297,7 @@ namespace ADSLibrary
 				{
 					for (int i = 0; i < mSize; i++)
 					{
-						if (table[i] != nullptr) std::cout << table[i]->Key << " NEXT:" << table[i]->Next << std::endl;
+						if (mTable[i] != nullptr) std::cout << mTable[i]->Key << " NEXT:" << mTable[i]->Next << std::endl;
 					}
 				}
 				

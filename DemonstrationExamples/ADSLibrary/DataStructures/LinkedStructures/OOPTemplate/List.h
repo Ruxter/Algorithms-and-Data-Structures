@@ -30,9 +30,9 @@ namespace ADSLibrary
 					/**
 					* Vložení prvku do seznamu. Prvek je vložen pøed souèasnou hlavu seznamu tj. stane se novou hlavou seznamu.
 					* 
-					* @param value Vkládaný prvek
+					* @param Value Vkládaný prvek
 					*/
-					void Insert(T value);
+					void Insert(T Value);
 
 					/**
 					* Vrací hlavu seznamu
@@ -63,10 +63,10 @@ namespace ADSLibrary
 					/**
 					* Hledání prvku v seznamu.
 					* 
-					* @param value Hledaný prvek
+					* @param Value Hledaný prvek
 					* @return Funkce vrací true v pøípadì, že je prvek X nalezen, jinak vrací false.
 					*/
-					bool Search(const T value);
+					bool Search(const T Value);
 
 					/**
 					* Smazání celého seznamu.
@@ -112,10 +112,10 @@ namespace ADSLibrary
 					
 				}
 
-				template<typename T> void List<T>::Insert(T value)
+				template<typename T> void List<T>::Insert(T Value)
 				{
 					Node* node = new Node();
-					node->Value = value;
+					node->Value = Value;
 					node->Next = mHead;
 					mHead = node;
 					mSize++;
@@ -152,14 +152,14 @@ namespace ADSLibrary
 					}					
 				}				
 
-				template<typename T> bool List<T>::Search(const T value)
+				template<typename T> bool List<T>::Search(const T Value)
 				{
 					if (!IsEmpty())
 					{
 						Node* node = mHead;
 						while (node)
 						{
-							if (node->Value == value) return true;
+							if (node->Value == Value) return true;
 							node = node->Next;
 						}
 						return false;
