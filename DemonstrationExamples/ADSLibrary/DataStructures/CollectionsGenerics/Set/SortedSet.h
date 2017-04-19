@@ -130,7 +130,7 @@ namespace ADSLibrary
 					* @param newNode Reprezentuje nový element
 					* @param sourceNode Reprezentuje zdrojový element
 					*/
-					void CopyTree(Node*& newNode, Node*& sourceNode);
+					void CopyTree(Node* newNode, Node* sourceNode);
 
 					/**
 					* Privátní rekurzivní metoda pro vložení prvku na správné místo v množinì
@@ -212,7 +212,7 @@ namespace ADSLibrary
 						CopyTree(this->m_root, set->m_root);
 				}
 
-				template<typename T> void SortedSet<T>::CopyTree(Node *& newNode, Node *& sourceNode)
+				template<typename T> void SortedSet<T>::CopyTree(Node * newNode, Node * sourceNode)
 				{
 					if (sourceNode == nullptr) newNode = nullptr;
 					else

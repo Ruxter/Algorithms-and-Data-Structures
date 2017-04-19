@@ -40,21 +40,27 @@ namespace ADSLibrary
 					* @param FirstVertex Uvedení prvního vrcholu
 					* @param SecondVertex Uvedení druhého vrcholu
 					*/
-					void AddEdge(int FirstVertex, int SecondVertex) const;
+					void AddEdge(int FirstVertex, int SecondVertex);
+
+					void AddVertex(const int Vertex);
+
+					void RemoveVertex(const int Vertex);
 
 					/**
 					* Metoda pro odebrání hrany mezi dvìma vrcholy, poøadí zadávaných vrcholù je bezpøedmìtné, jelikož se jedná o neorientovaný graf
 					* @param FirstVertex Poèet vrcholù
 					* @param SecondVertex Poèet vrcholù
 					*/
-					void RemoveEdge(int FirstVertex, int SecondVertex) const;
+					void RemoveEdge(int FirstVertex, int SecondVertex);
 
 					/**
 					* Metoda pro zjištìní, zda je mezi dvìma vrcholy hrana, poøadí zadávaných vrcholù je bezpøedmìtné, jelikož se jedná o neorientovaný graf
 					* @param FirstVertex Poèet vrcholù
 					* @param SecondVertex Poèet vrcholù
 					*/
-					bool IsEdge(int FirstVertex, int SecondVertex) const;
+					bool IsEdge(int FirstVertex, int SecondVertex);
+
+					bool IsVertex(const int Vertex) const;					
 
 					/**
 					* Metoda pro dealokaci matice
@@ -70,12 +76,16 @@ namespace ADSLibrary
 					/**
 					 * Velikost pole
 					 */
-					int mCount = 6;
+					int mCount = 6;					
 
 					/**
 					 * Matice
 					 */
 					int** mMatrix;
+
+					int* vertexes;
+					
+					int VertexIndex(const int Vertex) const;
 				};
 			}
 		}

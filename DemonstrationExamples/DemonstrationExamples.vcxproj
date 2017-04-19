@@ -104,7 +104,6 @@
     <ClCompile Include="ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\Stack.cpp">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\ArrayBasedStructures\Procedural\</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\AdjacencyList.cpp" />
     <ClCompile Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.cpp">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\ADSLibrary\DataStructures\LinkedStructures\OOP\</ObjectFileName>
     </ClCompile>
@@ -169,7 +168,6 @@
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\List.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Queue.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOPTemplate\Stack.h" />
-    <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\AdjacencyList.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\BinarySearchTree.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\Iterators.h" />
     <ClInclude Include="ADSLibrary\DataStructures\LinkedStructures\OOP\List.h" />

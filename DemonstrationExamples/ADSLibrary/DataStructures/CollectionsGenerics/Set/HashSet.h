@@ -164,14 +164,14 @@ namespace ADSLibrary
 				{
 					int hash = HashFunc(Key);
 					if (table[hash] != nullptr) {
-						HashNode<T>* prevEntry = nullptr;
+						HashNode<T>* prev = nullptr;
 						HashNode<T>* entry = table[hash];
 						while (entry->Next != nullptr && entry->Key != Key) {
-							prevEntry = entry;
+							prev = entry;
 							entry = entry->Next;
 						}
 						if (entry->Key == Key) {
-							if (prevEntry == nullptr) {
+							if (prev == nullptr) {
 								HashNode<T>* nextEntry = entry->Next;
 								delete entry;
 								table[hash] = nextEntry;
@@ -179,7 +179,7 @@ namespace ADSLibrary
 							else {
 								HashNode<T>* next = entry->Next;
 								delete entry;
-								prevEntry->Next = next;
+								prev->Next = next;
 							}
 						}
 					}
