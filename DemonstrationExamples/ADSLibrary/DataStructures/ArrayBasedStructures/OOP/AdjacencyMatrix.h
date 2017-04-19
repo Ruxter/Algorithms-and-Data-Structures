@@ -10,9 +10,10 @@ namespace ADSLibrary
 			{
 				/**
 				* Implementace neorientovaného grafu pomocí matice zpùsobem Adjacency Matrix
-				* Matice je fixní kapacity.
+				* Matice se umí expandovat a redukovat v závislosti na operacích s ní
 				* Pokud je èíslo v matici 0 - mezi tìmito dvìma vrcholy není hrana
 				* Pokud je èíslo v matici 1 - mezi tìmito dvìma vrcholy existuje hrana
+				* Pokud se nachází 1 na diagonále, jedná se o smyèku na daném uzlu
 				* Matice je symetrická podél diagonály. Tedy pokud vede hrana z vrcholu U do vrcholu V, tím pádem vede i z V do U.
 				*/
 				class AdjacencyMatrix
@@ -26,7 +27,7 @@ namespace ADSLibrary
 
 					/**
 					* Konstruktor s volbou kapacity pole
-					* @param VertexCount Poèet vrcholù
+					* @param VertexCount Poèet uzlù
 					*/
 					AdjacencyMatrix(const int VertexCount);
 
@@ -37,33 +38,46 @@ namespace ADSLibrary
 
 					/**
 					* Metoda pro vytvoøení hrany mezi dvìma vrcholy, poøadí zadávaných vrcholù je bezpøedmìtné, jelikož se jedná o neorientovaný graf
-					* @param FirstVertex Uvedení prvního vrcholu
-					* @param SecondVertex Uvedení druhého vrcholu
+					* @param FirstVertex Uvedení prvního uzlu
+					* @param SecondVertex Uvedení druhého uzlu
 					*/
-					void AddEdge(int FirstVertex, int SecondVertex);
+					void AddEdge(const int FirstVertex,const int SecondVertex);
 
+					/**
+					* Metoda pro vytvoøení uzlu, matice se pøípadnì expanduje
+					* Prvek se vždy vloží na konec posloupnosti
+					* @param Vertex Hodnota uzlu
+					*/
 					void AddVertex(const int Vertex);
 
+					/**
+					* Metoda pro odebrání uzlu, matice se redukuje a realokuje
+					* @param Vertex Hodnota uzlu
+					*/
 					void RemoveVertex(const int Vertex);
 
 					/**
 					* Metoda pro odebrání hrany mezi dvìma vrcholy, poøadí zadávaných vrcholù je bezpøedmìtné, jelikož se jedná o neorientovaný graf
-					* @param FirstVertex Poèet vrcholù
-					* @param SecondVertex Poèet vrcholù
+					* @param FirstVertex Hodnota uzlu
+					* @param SecondVertex Hodnota uzlu
 					*/
-					void RemoveEdge(int FirstVertex, int SecondVertex);
+					void RemoveEdge(const int FirstVertex, const int SecondVertex);
 
 					/**
 					* Metoda pro zjištìní, zda je mezi dvìma vrcholy hrana, poøadí zadávaných vrcholù je bezpøedmìtné, jelikož se jedná o neorientovaný graf
-					* @param FirstVertex Poèet vrcholù
-					* @param SecondVertex Poèet vrcholù
+					* @param FirstVertex Hodnota uzlu
+					* @param SecondVertex Hodnota uzlu
 					*/
-					bool IsEdge(int FirstVertex, int SecondVertex);
+					bool IsEdge(const int FirstVertex, const int SecondVertex);
 
+					/**
+					* Metoda pro zjištìní, zda existuje daný uzel
+					* @param Vertex Hodnota uzlu
+					*/
 					bool IsVertex(const int Vertex) const;					
 
 					/**
-					* Metoda pro dealokaci matice
+					* Nastaví všem hranám v matici 0
 					*/
 					void Clear() const;
 
@@ -71,20 +85,36 @@ namespace ADSLibrary
 					* Metoda pro výpis matice
 					*/
 					void Report() const;
+
+					/**
+					* Metoda pro výpis uzlù
+					*/
+					void PrintVertexes() const;
 				private:
 
 					/**
-					 * Velikost pole
+					 * Poèet uzlù
 					 */
-					int mCount = 6;					
+					int mCount;
+					
+					/**
+					* Výchozí poèet uzlù
+					*/
+					int mDefaultCount = 6;
 
 					/**
 					 * Matice
 					 */
 					int** mMatrix;
 
+					/**
+					 * Uzly
+					 */
 					int* vertexes;
 					
+					/**
+					* Zjistí index daného uzlu
+					*/
 					int VertexIndex(const int Vertex) const;
 				};
 			}

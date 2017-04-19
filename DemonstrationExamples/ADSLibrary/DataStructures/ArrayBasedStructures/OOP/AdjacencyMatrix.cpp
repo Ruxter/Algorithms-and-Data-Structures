@@ -11,6 +11,7 @@ namespace ADSLibrary
 			{
 				AdjacencyMatrix::AdjacencyMatrix()
 				{
+					mCount = mDefaultCount;
 					vertexes = new int[mCount];
 					for (int j = 0; j < mCount; j++)
 					{
@@ -27,10 +28,10 @@ namespace ADSLibrary
 					}
 				}
 
-				AdjacencyMatrix::AdjacencyMatrix(int VertexCount)
+				AdjacencyMatrix::AdjacencyMatrix(const int VertexCount)
 				{
 					if (VertexCount >= 0) mCount = VertexCount;
-					else return;
+					else mCount = mDefaultCount;
 					vertexes = new int[mCount];
 					for (int j = 0; j < mCount; j++)
 					{
@@ -48,7 +49,7 @@ namespace ADSLibrary
 				}
 
 				AdjacencyMatrix::~AdjacencyMatrix()
-				{
+				{	
 					for (int i = 0; i < mCount; i++)
 					{
 						delete[] mMatrix[i];
@@ -59,31 +60,89 @@ namespace ADSLibrary
 
 				void AdjacencyMatrix::AddVertex(const int Vertex)
 				{		
+					bool expand = true;
 					for (int i = 0; i < mCount; i++)
 					{
 						if (vertexes[i] == Vertex) return;
 						if (vertexes[i] == NULL) 
 						{
 							vertexes[i] = Vertex;
+							expand = false;
 							break;
 						}
+					}
+
+					if (expand)
+					{
+						mCount++;
+						int* newVertexes = new int[mCount];
+						for (int i = 0; i < mCount-1; i++)
+						{
+							newVertexes[i] = vertexes[i];
+						}
+						newVertexes[mCount-1] = Vertex;
+						delete[] vertexes;
+						vertexes = newVertexes;
+
+						int** newMatrix = new int*[mCount];
+						for (int x = 0; x < mCount; x++)
+						{
+							newMatrix[x] = new int[mCount];
+							for (int y = 0; y < mCount; y++)
+							{
+								newMatrix[x][y] = 0;
+							}
+						}
+
+						for (int x = 0; x < mCount-1; x++)
+						{
+							for (int y = 0; y < mCount-1; y++)
+							{
+								newMatrix[x][y] = mMatrix[x][y];
+							}
+						}						
+						mMatrix = newMatrix;
 					}
 				}
 
 				void AdjacencyMatrix::RemoveVertex(const int Vertex)
-				{
-					int position;
+				{					
 					for (int i = 0; i < mCount; i++)
 					{
 						if (vertexes[i] == Vertex)
 						{
-							position = i;
-							for (int j = position; j < mCount; j++)
+							for (int j = i; j < mCount-1; j++)
 							{
 								vertexes[j] = vertexes[j + 1];
-							}								
-							
-							mCount--;							
+							}							
+
+							int** newMatrix = new int*[mCount-1];
+							for (int x = 0; x < mCount; x++)
+							{
+								newMatrix[x] = new int[mCount-1];
+								for (int y = 0; y < mCount; y++)
+								{
+									newMatrix[x][y] = 0;
+								}
+							}
+							int removedVertex = i;
+							int p = 0;
+							for (int x = 0; x < mCount-1; ++x)
+							{
+								if (x == removedVertex)	continue;
+
+								int q = 0;
+								for (int y = 0; y < mCount-1; ++y)
+								{
+									if (y == removedVertex)	continue;
+
+									newMatrix[p][q] = mMatrix[x][y];
+									++q;
+								}
+								++p;
+							}			
+							mMatrix = newMatrix;
+							mCount--;
 						}						
 					}
 				}
@@ -106,7 +165,7 @@ namespace ADSLibrary
 					return -1;
 				}
 
-				void AdjacencyMatrix::AddEdge(int FirstVertex, int SecondVertex)
+				void AdjacencyMatrix::AddEdge(const int FirstVertex, const int SecondVertex)
 				{	
 					if (IsVertex(FirstVertex) && IsVertex(SecondVertex))
 					{
@@ -115,7 +174,7 @@ namespace ADSLibrary
 					}																		
 				}
 
-				void AdjacencyMatrix::RemoveEdge(int FirstVertex, int SecondVertex)
+				void AdjacencyMatrix::RemoveEdge(const int FirstVertex, const int SecondVertex)
 				{
 					if (IsEdge(FirstVertex, SecondVertex))
 					{
@@ -124,7 +183,7 @@ namespace ADSLibrary
 					}									
 				}
 
-				bool AdjacencyMatrix::IsEdge(int FirstVertex, int SecondVertex) 
+				bool AdjacencyMatrix::IsEdge(const int FirstVertex, const int SecondVertex) 
 				{
 					if (mMatrix[VertexIndex(FirstVertex)][VertexIndex(SecondVertex)] == 1) return true;
 					return false;					
@@ -138,12 +197,7 @@ namespace ADSLibrary
 						{
 							mMatrix[i][j] = 0;
 						}
-					}	
-
-					for (int i = 0; i < mCount; i++)
-					{
-						vertexes[i] = NULL;
-					}					
+					}				
 				}
 
 				void AdjacencyMatrix::Report() const
@@ -167,8 +221,15 @@ namespace ADSLibrary
 							std::cout << mMatrix[i][j] << ' ';
 						}
 						std::cout << std::endl;
+					}					
+				}
+				void AdjacencyMatrix::PrintVertexes() const
+				{
+					std::cout << std::endl << "   ";
+					for (int i = 0; i < mCount; i++)
+					{
+						std::cout << vertexes[i] << " ";
 					}
-					
 				}
 			}
 		}
