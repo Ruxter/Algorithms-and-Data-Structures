@@ -12,10 +12,10 @@ namespace ADSLibrary
 				AdjacencyMatrix::AdjacencyMatrix()
 				{
 					mCount = mDefaultCount;
-					vertexes = new int[mCount];
+					mVertexes = new int[mCount];
 					for (int j = 0; j < mCount; j++)
 					{
-						vertexes[j] = NULL;
+						mVertexes[j] = NULL;
 					}
 					mMatrix = new int*[mCount];
 					for (int i = 0; i < mCount; i++)
@@ -32,10 +32,10 @@ namespace ADSLibrary
 				{
 					if (VertexCount >= 0) mCount = VertexCount;
 					else mCount = mDefaultCount;
-					vertexes = new int[mCount];
+					mVertexes = new int[mCount];
 					for (int j = 0; j < mCount; j++)
 					{
-						vertexes[j] = NULL;
+						mVertexes[j] = NULL;
 					}
 					mMatrix = new int*[mCount];
 					for (int i = 0; i < mCount; i++)
@@ -49,13 +49,13 @@ namespace ADSLibrary
 				}
 
 				AdjacencyMatrix::~AdjacencyMatrix()
-				{	
-					for (int i = 0; i < mCount; i++)
+				{			
+					for (int x = 0; x < mCount; x++)
 					{
-						delete[] mMatrix[i];
+						delete[] mMatrix[x];
 					}
 					delete[] mMatrix;
-					delete[] vertexes;
+					delete[] mVertexes;
 				}
 
 				void AdjacencyMatrix::AddVertex(const int Vertex)
@@ -63,10 +63,10 @@ namespace ADSLibrary
 					bool expand = true;
 					for (int i = 0; i < mCount; i++)
 					{
-						if (vertexes[i] == Vertex) return;
-						if (vertexes[i] == NULL) 
+						if (mVertexes[i] == Vertex) return;
+						if (mVertexes[i] == NULL) 
 						{
-							vertexes[i] = Vertex;
+							mVertexes[i] = Vertex;
 							expand = false;
 							break;
 						}
@@ -75,14 +75,14 @@ namespace ADSLibrary
 					if (expand)
 					{
 						mCount++;
-						int* newVertexes = new int[mCount];
+						int* newmVertexes = new int[mCount];
 						for (int i = 0; i < mCount-1; i++)
 						{
-							newVertexes[i] = vertexes[i];
+							newmVertexes[i] = mVertexes[i];
 						}
-						newVertexes[mCount-1] = Vertex;
-						delete[] vertexes;
-						vertexes = newVertexes;
+						newmVertexes[mCount-1] = Vertex;
+						delete[] mVertexes;
+						mVertexes = newmVertexes;
 
 						int** newMatrix = new int*[mCount];
 						for (int x = 0; x < mCount; x++)
@@ -100,8 +100,13 @@ namespace ADSLibrary
 							{
 								newMatrix[x][y] = mMatrix[x][y];
 							}
-						}						
-						mMatrix = newMatrix;
+						}
+						for (int x = 0; x < mCount-1; x++)
+						{
+							delete[] mMatrix[x];
+						}
+						delete[] mMatrix;
+						mMatrix = newMatrix;						
 					}
 				}
 
@@ -109,17 +114,18 @@ namespace ADSLibrary
 				{					
 					for (int i = 0; i < mCount; i++)
 					{
-						if (vertexes[i] == Vertex)
+						if (mVertexes[i] == Vertex)
 						{
-							for (int j = i; j < mCount-1; j++)
+							mCount--;
+							for (int j = i; j < mCount; j++)
 							{
-								vertexes[j] = vertexes[j + 1];
+								mVertexes[j] = mVertexes[j + 1];
 							}							
 
-							int** newMatrix = new int*[mCount-1];
+							int** newMatrix = new int*[mCount];
 							for (int x = 0; x < mCount; x++)
 							{
-								newMatrix[x] = new int[mCount-1];
+								newMatrix[x] = new int[mCount];
 								for (int y = 0; y < mCount; y++)
 								{
 									newMatrix[x][y] = 0;
@@ -127,12 +133,12 @@ namespace ADSLibrary
 							}
 							int removedVertex = i;
 							int p = 0;
-							for (int x = 0; x < mCount-1; ++x)
+							for (int x = 0; x < mCount; ++x)
 							{
 								if (x == removedVertex)	continue;
 
 								int q = 0;
-								for (int y = 0; y < mCount-1; ++y)
+								for (int y = 0; y < mCount; ++y)
 								{
 									if (y == removedVertex)	continue;
 
@@ -140,9 +146,13 @@ namespace ADSLibrary
 									++q;
 								}
 								++p;
-							}			
+							}	
+							for (int x = 0; x < mCount; x++)
+							{
+								delete[] mMatrix[x];
+							}
+							delete[] mMatrix;
 							mMatrix = newMatrix;
-							mCount--;
 						}						
 					}
 				}
@@ -151,7 +161,7 @@ namespace ADSLibrary
 				{
 					for (int i = 0; i < mCount; i++)
 					{
-						if (vertexes[i] == Vertex) return true;
+						if (mVertexes[i] == Vertex) return true;
 					}
 					return false;
 				}
@@ -160,7 +170,7 @@ namespace ADSLibrary
 				{
 					for (int i = 0; i < mCount; i++)
 					{
-						if (vertexes[i] == Vertex) return i;
+						if (mVertexes[i] == Vertex) return i;
 					}
 					return -1;
 				}
@@ -205,7 +215,7 @@ namespace ADSLibrary
 					std::cout << std::endl << "   ";
 					for (int i = 0; i < mCount; i++)
 					{
-						std::cout << vertexes[i] << " ";
+						std::cout << mVertexes[i] << " ";
 					}
 					std::cout << std::endl << "   ";
 					for (int i = 0; i < mCount; i++)
@@ -215,7 +225,7 @@ namespace ADSLibrary
 
 					for (int i = 0; i < mCount; i++)
 					{
-						std::cout << std::endl << vertexes[i] << "| ";
+						std::cout << std::endl << mVertexes[i] << "| ";
 						for (int j = 0; j < mCount; ++j)
 						{
 							std::cout << mMatrix[i][j] << ' ';
@@ -228,7 +238,7 @@ namespace ADSLibrary
 					std::cout << std::endl << "   ";
 					for (int i = 0; i < mCount; i++)
 					{
-						std::cout << vertexes[i] << " ";
+						std::cout << mVertexes[i] << " ";
 					}
 				}
 			}

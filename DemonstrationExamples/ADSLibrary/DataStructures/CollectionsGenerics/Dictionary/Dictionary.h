@@ -13,8 +13,19 @@ namespace ADSLibrary
 				template <typename K, typename V>
 				struct HashNode {
 
+					/**
+					 * Klíè
+					 */
 					K Key;
+
+					/**
+					* Hodnota
+					*/
 					V Value;
+
+					/**
+					* Odkaz na další prvek
+					*/
 					HashNode * Next;
 
 					HashNode(K Key, V Value) {
@@ -22,23 +33,10 @@ namespace ADSLibrary
 						this->Value = Value;
 						this->Next = NULL;
 					}
-
-					K getKey() {
-						return this->Key;
-					}
-
-					V getValue() {
-						return this->Value;
-					}
-
-					HashNode* getNext()
-					{
-						return this->Next;
-					}
 				};
 
 				/**
-				* Dictionary je NEuspoøádaný slovník/mapa realizován/a jako hashtable.
+				* Dictionary je NEuspoøádaný slovník/mapa realizován/a jako hashmTable.
 				* Jeden element nazván HashNode v sobì nese nejen klíè, ale i hodnotu, proto Dictionary<K, V>
 				*/
 				template <class K, class V> class Dictionary
@@ -56,6 +54,7 @@ namespace ADSLibrary
 
 					/**
 					 * Metoda pro vložení prvku do slovníku
+					 * 
 					 * @param Key klíè vkládaného prvku, tento klíè se pøed vložením zhašuje
 					 * @param Value Hodnota vkládaného prvku
 					 */
@@ -63,6 +62,7 @@ namespace ADSLibrary
 					
 					/**
 					 * Metoda pro získání hodnoty HashNode podle daného klíèe
+					 * 
 					 * @param Key klíè, podle kterého se vyhledává prvek
 					 * @return vrací generickou hodnotu HashNode
 					 */
@@ -70,18 +70,21 @@ namespace ADSLibrary
 
 					/**
 					 * Metoda pro odebrání prvku ze slovníku
+					 * 
 					 * @param Key klíè, dle kterého se odebírá
 					 */
 					void Remove(const K& Key);
 
 					/**
 					* Metoda pro spoèítání prvkù ve slovníku
+					* 
 					* @return vrací poèet prvkù
 					*/
 					int Count();
 
 					/**
 					* Metoda pro zjištìní, zda je množina prázdná
+					* 
 					* @return vrací true pokud je prázdná, jinak false
 					*/
 					bool IsEmpty();
@@ -94,12 +97,13 @@ namespace ADSLibrary
 				private:
 
 					/**
-					 * Promìnná reprezentující poèet pøihrádek v hashtable
+					 * Promìnná reprezentující poèet pøihrádek v hashmTable
 					 */
-					int m_size = 128;
+					int mSize = 128;
 
 					/**
 					* Metoda pro zhašování klíèe prvku
+					* 
 					* @param Key hašovaný klíè
 					* @return vrací zhašovaný klíè
 					*/
@@ -108,21 +112,21 @@ namespace ADSLibrary
 					/**
 					* Reprezentuje hašovací tabulku
 					*/
-					HashNode<K, V>** table;
+					HashNode<K, V>** mTable;
 				};	
 
 				template<typename K, typename V> Dictionary<K, V>::Dictionary()
 				{
-					table = new HashNode<K, V>*[m_size];
-					for (int i = 0; i < m_size; i++)
-						table[i] = NULL;
+					mTable = new HashNode<K, V>*[mSize];
+					for (int i = 0; i < mSize; i++)
+						mTable[i] = NULL;
 				}
 
 				template<typename K, typename V> Dictionary<K, V>::~Dictionary()
 				{
-					for (int i = 0; i < m_size; ++i)
+					for (int i = 0; i < mSize; ++i)
 					{
-						HashNode<K,V>* entry = table[i];
+						HashNode<K,V>* entry = mTable[i];
 						while (entry != nullptr)
 						{
 							HashNode<K, V>* prev = entry;
@@ -130,30 +134,30 @@ namespace ADSLibrary
 							delete prev;
 						}
 					}
-					delete[] table;
+					delete[] mTable;
 				}	
 				
 				template<typename K, typename V> int Dictionary<K, V>::HashFunc(const K& Key)
 				{
-					return std::hash<K>()(Key) % m_size; 
+					return std::hash<K>()(Key) % mSize; 
 				}
 
 				template<typename K, typename V> void Dictionary<K, V>::Insert(const K& Key, const V& Value)
 				{
 					int hash = HashFunc(Key);
 					HashNode<K, V> *prev = nullptr;
-					HashNode<K, V> *entry = table[hash];
+					HashNode<K, V> *entry = mTable[hash];
 
-					while (entry != nullptr && entry->getKey() != Key) 
+					while (entry != nullptr && entry->Key != Key) 
 					{
 						prev = entry;
-						entry = entry->getNext();
+						entry = entry->Next;
 					}
 
 					if (entry == nullptr) 
 					{
 						entry = new HashNode<K, V>(Key, Value);
-						if (prev == nullptr) table[hash] = entry;
+						if (prev == nullptr) mTable[hash] = entry;
 						else prev->Next = entry;						
 					}
 					else entry->Value = Value;
@@ -162,7 +166,7 @@ namespace ADSLibrary
 				template<typename K, typename V> V Dictionary<K, V>::Get(const K& Key) 
 				{
 					int hash = HashFunc(Key);
-					HashNode<K, V>* entry = table[hash];
+					HashNode<K, V>* entry = mTable[hash];
 					while (entry != nullptr)
 					{
 						if (entry->Key == Key)
@@ -177,21 +181,21 @@ namespace ADSLibrary
 				template<typename K, typename V> void Dictionary<K, V>::Remove(const K& Key)
 				{
 					int hash = HashFunc(Key);
-					if (table[hash] != NULL) {
+					if (mTable[hash] != NULL) {
 						HashNode<K, V>* prevEntry = nullptr;
-						HashNode<K, V>* entry = table[hash];
-						while (entry->getNext() != NULL && entry->getKey() != Key) {
+						HashNode<K, V>* entry = mTable[hash];
+						while (entry->Next != NULL && entry->Key != Key) {
 							prevEntry = entry;
-							entry = entry->getNext();
+							entry = entry->Next;
 						}
-						if (entry->getKey() == Key) {
+						if (entry->Key == Key) {
 							if (prevEntry == nullptr) {
-								HashNode<K, V>* nextEntry = entry->getNext();
+								HashNode<K, V>* nextEntry = entry->Next;
 								delete entry;
-								table[hash] = nextEntry;
+								mTable[hash] = nextEntry;
 							}
 							else {
-								HashNode<K, V>* next = entry->getNext();
+								HashNode<K, V>* next = entry->Next;
 								delete entry;
 								prevEntry->Next = next;
 							}
@@ -202,10 +206,10 @@ namespace ADSLibrary
 				template<typename K, typename V> int Dictionary<K, V>::Count()
 				{
 					int count = 0;
-					HashNode<K, V>* entry = table[0];
-					for (int i = 0; i < m_size; i++)
+					HashNode<K, V>* entry = mTable[0];
+					for (int i = 0; i < mSize; i++)
 					{
-						entry = table[i];
+						entry = mTable[i];
 						while (entry != nullptr)
 						{
 							count++;
@@ -218,9 +222,9 @@ namespace ADSLibrary
 				template<typename K, typename V> bool Dictionary<K, V>::IsEmpty()
 				{
 					bool isEmpty = true;
-					for (int i = 0; i < m_size; i++)
+					for (int i = 0; i < mSize; i++)
 					{
-						if (table[i] != nullptr)
+						if (mTable[i] != nullptr)
 						{
 							isEmpty = false;
 							break;
@@ -231,9 +235,9 @@ namespace ADSLibrary
 
 				template<typename K, typename V> void Dictionary<K, V>::Report()
 				{
-					for(int i = 0; i < m_size; i++)
+					for(int i = 0; i < mSize; i++)
 					{
-						if(table[i] != nullptr) std::cout << table[i]->getKey() << " : " << table[i]->getValue() << " : " << table[i]->getNext() << std::endl;
+						if(mTable[i] != nullptr) std::cout << mTable[i]->Key << " : " << mTable[i]->Value << " : " << mTable[i]->Next << std::endl;
 					}
 				}
 			}

@@ -101,93 +101,93 @@ namespace ADSLibrary
 					/**
 					 * Pole obsahující data uložená do zásobníku.
 					 */
-					T* Items;
+					T* mItems;
 
 					/**
 					 * Velikost zásobníku.
 					 */
-					int StackSize;
+					int mStackSize;
 
 					/**
 					 * Ukazatel zásobníku.
 					 */
-					int StackPointer;					
+					int mStackPointer;					
 
 					/**
 					 * Výchozí (default) velikost zásobníku.
 					 */
-					static const int DefaultStackSize = 100;
+					static const int mDefaultStackSize = 100;
 				};
 
 				template <typename T> Stack<T>::Stack()
 				{					
-					this->StackSize = DefaultStackSize;
-					this->Items = new T[DefaultStackSize];
-					this->StackPointer = 0;
+					this->mStackSize = mDefaultStackSize;
+					this->mItems = new T[mDefaultStackSize];
+					this->mStackPointer = 0;
 				}
 
 				template <typename T> Stack<T>::Stack(const int StackSize)
 				{
-					this->StackSize = StackSize <= 0 ? DefaultStackSize : StackSize;
-					this->Items = new char[this->StackSize];
-					this->StackPointer = 0;
+					this->mStackSize = StackSize <= 0 ? mDefaultStackSize : StackSize;
+					this->mItems = new char[this->mStackSize];
+					this->mStackPointer = 0;
 				}
 
 				template <typename T> Stack<T>::~Stack()
 				{
-					delete[] this->Items;
+					delete[] this->mItems;
 				}
 
 				template <typename T> void Stack<T>::Push(const T X)
 				{
-					this->Items[this->StackPointer] = X;
-					this->StackPointer += 1;
+					this->mItems[this->mStackPointer] = X;
+					this->mStackPointer += 1;
 				}
 
 				template <typename T> T Stack<T>::Pop()
 				{
-					this->StackPointer -= 1;
-					return this->Items[this->StackPointer];
+					this->mStackPointer -= 1;
+					return this->mItems[this->mStackPointer];
 				}
 
 				template <typename T> T Stack<T>::Top() const
 				{					
-					return this->Items[this->StackPointer - 1];
+					return this->mItems[this->mStackPointer - 1];
 				}
 
 				template <typename T> int Stack<T>::Size() const
 				{
-					return this->StackSize;
+					return this->mStackSize;
 				}
 
 				template <typename T> int Stack<T>::Count() const
 				{
-					return this->StackPointer;
+					return this->mStackPointer;
 				}
 
 				template <typename T> bool Stack<T>::IsEmpty() const
 				{
-					return this->StackPointer == 0;
+					return this->mStackPointer == 0;
 				}
 
 				template <typename T> bool Stack<T>::IsFull() const
 				{
-					return this->StackPointer == this->StackSize;
+					return this->mStackPointer == this->mStackSize;
 				}
 
 				template <typename T> void Stack<T>::Clear()
 				{
-					this->StackPointer = 0;
+					this->mStackPointer = 0;
 				}
 				
 				template <class T> T& Stack<T>::operator[] (const int index)
 				{
-					return Items[index];
+					return mItems[index];
 				}
 
 				template <class T> const T& Stack<T>::operator[] (const int index) const
 				{
-					return Items[index];
+					return mItems[index];
 				}
 
 			}

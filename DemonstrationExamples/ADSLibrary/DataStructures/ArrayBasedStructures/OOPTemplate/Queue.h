@@ -86,91 +86,91 @@ namespace ADSLibrary
 					/**
 					 * Velikost fronty.
 					 */
-					int QueueSize;
+					int mQueueSize;
 
 					/**
 					 * Pole obsahující data uložená do fronty.
 					 */
-					T* Items;
+					T* mItems;
 
 					/**
-					 * Hlava fronty tj. ukazatel na první prvek fronty v poli {@link #mData}.
+					 * Hlava fronty tj. ukazatel na první prvek fronty v poli {@link #mData}\endlink.
 					 */
-					int Head;
+					int mHead;
 
 					/**
-					 * Ocas fronty tj. ukazatel na první volný prvek za koncem fronty v poli {@link #mData}.
+					 * Ocas fronty tj. ukazatel na první volný prvek za koncem fronty v poli {@link #mData}\endlink.
 					 */
-					int Tail;
+					int mTail;
 
 					/**
 					 * Výchozí (default) velikost fronty.
 					 */
-					const int DefaultQueueSize = 5;
+					const int mDefaultQueueSize = 5;
 				};
 
 
 				template<typename T> Queue<T>::Queue()
 				{
-					this->QueueSize = this->DefaultQueueSize;
-					this->Items = new T[this->DefaultQueueSize];
-					this->Head = 0;
-					this->Tail = 0;
+					this->mQueueSize = this->mDefaultQueueSize;
+					this->mItems = new T[this->mDefaultQueueSize];
+					this->mHead = 0;
+					this->mTail = 0;
 				}
 
 				template<typename T> Queue<T>::Queue(const int QueueSize)
 				{
 					if (QueueSize <= 0)
 					{
-						this->QueueSize = this->DefaultQueueSize;
+						this->mQueueSize = this->mDefaultQueueSize;
 					}
 					else
 					{
-						this->QueueSize = QueueSize;
+						this->mQueueSize = QueueSize;
 					}
-					this->Items = new T[this->QueueSize];
-					this->Head = 0;
-					this->Tail = 0;
+					this->mItems = new T[this->mQueueSize];
+					this->mHead = 0;
+					this->mTail = 0;
 				}
 
 				template<typename T> Queue<T>::~Queue()
 				{
-					delete[] this->Items;
+					delete[] this->mItems;
 				}
 
 				template<typename T> void Queue<T>::Enqueue(const T X)
 				{
-					this->Items[this->Tail] = X;
-					this->Tail = (this->Tail + 1) % this->QueueSize;
-					this->Head = (this->Head) % this->QueueSize;
+					this->mItems[this->mTail] = X;
+					this->mTail = (this->mTail + 1) % this->mQueueSize;
+					this->mHead = (this->mHead) % this->mQueueSize;
 				}
 
 				template<typename T> T Queue<T>::Dequeue()
 				{
-					T x = this->Items[this->Head];
-					this->Head = (this->Head + 1) % this->QueueSize;
+					T x = this->mItems[this->mHead];
+					this->mHead = (this->mHead + 1) % this->mQueueSize;
 					return x;
 				}
 
 				template<typename T> T Queue<T>::Peek()
 				{
-					return this->Items[this->Head];
+					return this->mItems[this->mHead];
 				}
 
 				template<typename T> bool Queue<T>::IsEmpty()
 				{
-					return this->Head == this->Tail;
+					return this->mHead == this->mTail;
 				}
 
 				template<typename T> bool Queue<T>::IsFull()
 				{
-					return this->Head == (this->Tail) % this->QueueSize;
+					return this->mHead == (this->mTail) % this->mQueueSize;
 				}
 
 				template<typename T> void Queue<T>::Clear()
 				{
-					this->Head = 0;
-					this->Tail = 0;
+					this->mHead = 0;
+					this->mTail = 0;
 				}
 			}
 		}

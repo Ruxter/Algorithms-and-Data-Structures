@@ -91,27 +91,27 @@ namespace ADSLibrary
 					/**
 					 * Velikost fronty.
 					 */
-					int QueueSize;
+					int mQueueSize;
 
 					/**
 					 * Pole obsahující data uložená do fronty.
 					 */
-					int* Items;
+					int* mItems;
 
 					/**
 					 * Hlava fronty tj. ukazatel na první prvek fronty v poli {@link #mData\endlink}.
 					 */
-					int Head;
+					int mHead;
 
 					/**
 					 * Ocas fronty tj. ukazatel na první volný prvek za koncem fronty v poli {@link #mData\endlink}.
 					 */
-					int Tail;
+					int mTail;
 
 					/**
 					 * Výchozí (default) velikost fronty.
 					 */
-					const int DefaultQueueSize = 5;
+					const int mDefaultQueueSize = 5;
 				};
 			}
 		}

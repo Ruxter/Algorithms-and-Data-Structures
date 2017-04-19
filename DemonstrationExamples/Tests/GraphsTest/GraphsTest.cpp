@@ -43,15 +43,35 @@ TEST_F(GraphsTestOOP, GraphsTestOOP1)
 	graph->AddEdge(8, 8);
 	graph->AddEdge(1, 7);
 
-	graph->Report();
+	//graph->Report();
 	graph->RemoveVertex(2);
-	graph->Report();
+	//graph->Report();
 	graph->AddVertex(2);
-	graph->Report();
+	//graph->Report();
 
 	graph->AddEdge(2, 8);
 	graph->AddEdge(8, 5);
-	graph->Report();
+	//graph->Report();
+
+	EXPECT_EQ(true, graph->IsEdge(8, 2));
+	graph->RemoveEdge(8, 2);
+	EXPECT_EQ(false, graph->IsEdge(2, 8));
+
+	//graph->Report();
+
+	graph->AddVertex(11);
+	graph->AddVertex(12);
+	graph->AddVertex(13);
+
+	graph->AddEdge(2, 12);
+
+	graph->RemoveVertex(8);
+	graph->RemoveVertex(9);
+	graph->RemoveVertex(7);
+
+	graph->AddEdge(13, 12);
+	graph->AddEdge(13, 13);
+	//graph->Report();
 }
 /*
 * Unit test ArrayBasedStructures::OOP::AdjacencyMatrix - ctor s parametrem
@@ -61,7 +81,7 @@ TEST_F(GraphsTestOOP, GraphsTestOOP1)
 */
 TEST_F(GraphsTestOOP, GraphsTestOOP2)
 {
-	graph2->Report();
+	//graph2->Report();
 	graph2->AddVertex(9);
 	graph2->AddVertex(5);
 	graph2->AddVertex(3);
@@ -76,13 +96,13 @@ TEST_F(GraphsTestOOP, GraphsTestOOP2)
 	graph2->AddEdge(1, 7);
 	graph2->AddEdge(3, 9);
 
-	graph2->Report();
+	//graph2->Report();
 
 	graph2->AddVertex(10);
-	graph2->Report();
+	//graph2->Report();
 
 	graph2->AddVertex(19);
-	graph2->Report();
+	//graph2->Report();
 	graph2->AddVertex(12);
 	graph2->Report();
 
@@ -91,5 +111,5 @@ TEST_F(GraphsTestOOP, GraphsTestOOP2)
 	EXPECT_EQ(false, graph2->IsEdge(1, 1));
 	graph2->Clear();
 	EXPECT_EQ(false, graph2->IsEdge(6, 6));
-	graph2->Report();
+	//graph2->Report();
 }

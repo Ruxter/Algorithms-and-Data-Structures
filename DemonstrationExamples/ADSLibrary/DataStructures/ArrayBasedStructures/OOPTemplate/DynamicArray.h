@@ -22,13 +22,17 @@ namespace ADSLibrary
 
 					/**
 					* Konstruktor s parametrem size
+					* 
+					* @param Size Nová výchozí kapacita pole
 					*/
-					DynamicArray(const int size);
+					DynamicArray(const int Size);
 
 					/**
 					* Kopírovací konstruktor
+					* 
+					* @param Array kopírované pole
 					*/
-					DynamicArray(const DynamicArray& array);
+					DynamicArray(const DynamicArray& Array);
 
 					/**
 					* Destuktor
@@ -38,22 +42,27 @@ namespace ADSLibrary
 					/**
 					* Pøetížení operátoru []
 					*/
-					T& operator[](const int index);
+					T& operator[](const int Index);
 
 					/**
 					* Pøetížení operátoru [] pro r-value
 					*/
-					const T& operator[](const int index) const;
+					const T& operator[](const int Index) const;
 
 					/**
 					* Metoda pro vložení prvku na konec posloupnosti v poli.
+					* 
+					* @param Item Vkládaný prvek
 					*/
 					void Add(const T& Item);
 
 					/**
 					* Metoda pro vložení prvku do pole na urèený index.
+					* 
+					* @param Index Místo v poli
+					* @param Item Vkládaný prvek
 					*/
-					void InsertAt(const int index, const T& Item);
+					void InsertAt(const int Index, const T& Item);
 
 					/**
 					* Metoda pro zjištìní velikosti datové struktury.
@@ -65,19 +74,25 @@ namespace ADSLibrary
 					/**
 					* Vyhledá daný prvek.
 					* 
+					* @param Item Hledaný prvek
 					* @return true pokud je prvek nalezen
 					*/
 					bool Contains(const T& Item) const;
 
 					/**
 					* Vyhledá a odstraní daný prvek.
+					* 
+					* @param Item Odebíraný prvek
 					*/
 					void Remove(const T& Item);
 
 					/**
 					* Vyhledá a odstraní prvek na daném indexu.
+					* 
+					* @param Index Místo odebíraného prvku
+					* @return true pokud byl odebrán, false pokud ne
 					*/
-					bool RemoveAt(int index);
+					bool RemoveAt(int Index);
 
 					/**
 					* Metoda pro vymazání prvkù z pole.
@@ -106,12 +121,12 @@ namespace ADSLibrary
 					/**
 					* Metoda pro vyhledávání prvku v poli. Pole MUSÍ být pøed zavoláním BinarySearch setøízené pomocí Sort().
 					* 
-					* @param startIndex levá hranice(index) pro vyhledávání v poli
-					* @param endIndex pravá hranice(index) pro vyhledávání v poli
+					* @param StartIndex levá hranice(index) pro vyhledávání v poli
+					* @param EndIndex pravá hranice(index) pro vyhledávání v poli
 					* @param Item vyhledávaný prvek
 					* @return -1 pokud daný prvek neexistuje, jinak index v poli
 					*/
-					int BinarySearch(int startIndex, int endIndex, const T& Item);
+					int BinarySearch(int StartIndex, int EndIndex, const T& Item);
 
 					/**
 					* Metoda pro "pøeklopení" pole. 
@@ -148,12 +163,12 @@ namespace ADSLibrary
 					/**
 					* Pole bude mít vždy tuto minimální velikost.
 					*/
-					const int DefaultMinimalSize = 10;
+					const int mDefaultMinimalSize = 10;
 
 					/**
 					* Promìnná používaná pøi rozšiøování, èi redukci velikosti pole.
 					*/
-					const int AllocationDelta = 16;
+					const int mAllocationDelta = 16;
 
 					/**
 					* Øadící algoritmus Insertion Sort.
@@ -180,13 +195,13 @@ namespace ADSLibrary
 
 				template<typename T> DynamicArray<T>::DynamicArray() :mCount(0)
 				{
-					mSize = DefaultMinimalSize;
+					mSize = mDefaultMinimalSize;
 					mArray = new T[mSize];
 				}
 				template<typename T> DynamicArray<T>::DynamicArray(const int size) : mCount(0)
 				{
-					if (size > DefaultMinimalSize) mSize = size;
-					else mSize = DefaultMinimalSize;
+					if (size > mDefaultMinimalSize) mSize = size;
+					else mSize = mDefaultMinimalSize;
 					mArray = new T[mSize];
 				}
 
@@ -219,7 +234,7 @@ namespace ADSLibrary
 
 				template<typename T> void DynamicArray<T>::Add(const T& Item)
 				{
-					if (mCount == mSize) Resize(mSize + AllocationDelta);
+					if (mCount == mSize) Resize(mSize + mAllocationDelta);
 					mArray[mCount++] = Item;
 				}
 
@@ -227,7 +242,7 @@ namespace ADSLibrary
 				{					
 					T* newArray = new T[mSize];
 					mCount++;
-					if (mCount == mSize) Resize(mSize + AllocationDelta);					
+					if (mCount == mSize) Resize(mSize + mAllocationDelta);					
 					for (int i = 0; i <= mCount; ++i)
 					{
 						if (i < index)newArray[i] = mArray[i];
@@ -269,7 +284,7 @@ namespace ADSLibrary
 							mArray[i] = mArray[i + 1];
 						}
 						mCount--;
-						if (mCount <= mSize - AllocationDelta) Resize(mSize - AllocationDelta);
+						if (mCount <= mSize - mAllocationDelta) Resize(mSize - mAllocationDelta);
 					}
 				}
 
@@ -282,7 +297,7 @@ namespace ADSLibrary
 							mArray[i] = mArray[i + 1];
 						}
 						mCount--;
-						if (mCount <= mSize - AllocationDelta) Resize(mSize - AllocationDelta);
+						if (mCount <= mSize - mAllocationDelta) Resize(mSize - mAllocationDelta);
 						return true;
 					}
 					return false;
@@ -304,7 +319,7 @@ namespace ADSLibrary
 				template<class T> void DynamicArray<T>::Clear()
 				{
 					mCount = 0;
-					mSize = DefaultMinimalSize;
+					mSize = mDefaultMinimalSize;
 					Resize(mSize);
 				}
 

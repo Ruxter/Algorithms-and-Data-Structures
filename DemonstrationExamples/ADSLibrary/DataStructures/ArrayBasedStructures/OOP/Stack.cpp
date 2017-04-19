@@ -10,65 +10,65 @@ namespace ADSLibrary
 			{
 				Stack::Stack()
 				{
-					this->StackSize = DefaultStackSize;
-					this->Items = new char[DefaultStackSize];
-					this->StackPointer = 0;
+					this->mStackSize = mDefaultStackSize;
+					this->mItems = new char[mDefaultStackSize];
+					this->mStackPointer = 0;
 				}
 
 				Stack::Stack(const int StackSize)
 				{
 					if (StackSize <= 0)
 					{
-						this->StackSize = DefaultStackSize;
+						this->mStackSize = mDefaultStackSize;
 					}
 					else
 					{
-						this->StackSize = StackSize;
+						this->mStackSize = StackSize;
 					}
-					this->Items = new char[this->StackSize];
-					this->StackPointer = 0;
+					this->mItems = new char[this->mStackSize];
+					this->mStackPointer = 0;
 				}
 
 				Stack::~Stack()
 				{
-					delete[] this->Items;
+					delete[] this->mItems;
 				}
 
 				void Stack::Push(const char X)
 				{
-					this->Items[this->StackPointer] = X;
-					this->StackPointer += 1;
+					this->mItems[this->mStackPointer] = X;
+					this->mStackPointer += 1;
 				}
 
 				char Stack::Pop()
 				{
-					this->StackPointer -= 1;					
-					return this->Items[this->StackPointer];
+					this->mStackPointer -= 1;					
+					return this->mItems[this->mStackPointer];
 				}
 
 				char Stack::Top() const
 				{
-					return this->Items[this->StackPointer - 1];
+					return this->mItems[this->mStackPointer - 1];
 				}
 
 				bool Stack::IsEmpty() const
 				{
-					return this->StackPointer == 0;
+					return this->mStackPointer == 0;
 				}
 
 				bool Stack::IsFull() const
 				{
-					return this->StackPointer >= this->StackSize;
+					return this->mStackPointer >= this->mStackSize;
 				}
 
 				int Stack::Count() const
 				{
-					return this->StackPointer;
+					return this->mStackPointer;
 				}
 
 				void Stack::Clear()
 				{
-					this->StackPointer = 0;
+					this->mStackPointer = 0;
 				}
 			}
 		}

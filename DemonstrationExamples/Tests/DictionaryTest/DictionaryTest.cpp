@@ -63,7 +63,19 @@ TEST_F(DictionaryOOPTemplate, DictionarOOPTemplateTest)
 	dic->Remove(257);
 	EXPECT_EQ(-1, dic->Get(257));
 
-	//dic->Report();	
+	dic->Remove(457);
+	dic->Remove(8566);
+	dic->Remove(6);
+	dic->Remove(120);
+
+	EXPECT_EQ(-1, dic->Get(457));
+	EXPECT_EQ(-1, dic->Get(8566));
+	EXPECT_EQ(-1, dic->Get(6));
+	EXPECT_EQ(-1, dic->Get(120));
+
+	EXPECT_EQ(2000, dic->Get(4));
+
+	dic->Report();	
 }
 
 /*

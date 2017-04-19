@@ -84,22 +84,22 @@ namespace ADSLibrary
 					/**
 					 * Pole obsahující data uložená do zásobníku.
 					 */
-					char* Items;
+					char* mItems;
 
 					/**
 					 * Velikost zásobníku.
 					 */
-					int StackSize;
+					int mStackSize;
 
 					/**
 					 * Ukazatel zásobníku (stack pointer).
 					 */
-					int StackPointer;
+					int mStackPointer;
 
 					/**
 					 * Výchozí (default) velikost zásobníku.
 					 */
-					static const int DefaultStackSize = 100;
+					static const int mDefaultStackSize = 100;
 				};
 			}
 		}

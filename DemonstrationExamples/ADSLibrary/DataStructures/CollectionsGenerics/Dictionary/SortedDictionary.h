@@ -103,7 +103,7 @@ namespace ADSLibrary
 					/**
 					* Koøen stromu
 					*/
-					Pair* m_root;
+					Pair* mRoot;
 
 					/**
 					* Privátní rekurzivní metoda pro vložení elementu na správné místo ve slovníku
@@ -178,13 +178,13 @@ namespace ADSLibrary
 
 				template<typename K, typename V> SortedDictionary<K, V>::SortedDictionary()
 				{
-					m_root = nullptr;
+					mRoot = nullptr;
 				}
 
 				template<typename K, typename V> SortedDictionary<K, V>::SortedDictionary(const SortedDictionary& dic)
 				{
-					if (dic->m_root == nullptr) m_root = nullptr;
-					else CopyTree(this->m_root, dic->m_root);
+					if (dic->mRoot == nullptr) mRoot = nullptr;
+					else CopyTree(this->mRoot, dic->mRoot);
 				}
 
 				template<typename K, typename V> void SortedDictionary<K, V>::CopyTree(Pair*& newNode, Pair*& sourceNode)
@@ -207,15 +207,15 @@ namespace ADSLibrary
 
 				template<typename K, typename V> void SortedDictionary<K, V>::Add(const K& Key, const V& Value)
 				{
-					if (m_root != nullptr)
-						Add(m_root, Key, Value);
+					if (mRoot != nullptr)
+						Add(mRoot, Key, Value);
 					else
 					{
-						m_root = new Pair();
-						m_root->Key = Key;
-						m_root->Value = Value;
-						m_root->Left = nullptr;
-						m_root->Right = nullptr;
+						mRoot = new Pair();
+						mRoot->Key = Key;
+						mRoot->Value = Value;
+						mRoot->Left = nullptr;
+						mRoot->Right = nullptr;
 					}
 				}
 
@@ -239,7 +239,7 @@ namespace ADSLibrary
 
 				template<typename K, typename V> void SortedDictionary<K, V>::Remove(const K& Key)
 				{
-					Remove(m_root, Key);
+					Remove(mRoot, Key);
 				}
 
 				template<typename K, typename V> typename SortedDictionary<K, V>::Pair* SortedDictionary<K, V>::Remove(Pair* pair, const K& Key)
@@ -287,7 +287,7 @@ namespace ADSLibrary
 
 				template<typename K, typename V> bool SortedDictionary<K, V>::Contains(const K& Key)
 				{
-					return Contains(m_root, Key);
+					return Contains(mRoot, Key);
 				}
 
 				template<typename K, typename V> bool SortedDictionary<K, V>::Contains(const Pair* pair, const K& Key)
@@ -300,7 +300,7 @@ namespace ADSLibrary
 
 				template<typename K, typename V> int SortedDictionary<K, V>::Size()
 				{
-					return Size(m_root);
+					return Size(mRoot);
 				}
 
 				template<typename K, typename V> int SortedDictionary<K, V>::Size(const Pair* pair)
@@ -311,13 +311,13 @@ namespace ADSLibrary
 
 				template<typename K, typename V> bool SortedDictionary<K, V>::IsEmpty() const
 				{
-					return m_root == nullptr;
+					return mRoot == nullptr;
 				}
 
 				template<typename K, typename V> void SortedDictionary<K, V>::Clear()
 				{
-					Clear(m_root);
-					m_root = nullptr;
+					Clear(mRoot);
+					mRoot = nullptr;
 				}
 
 				template<typename K, typename V> void SortedDictionary<K, V>::Clear(const Pair* pair)
@@ -332,7 +332,7 @@ namespace ADSLibrary
 
 				template <typename K, typename V> void SortedDictionary<K, V>::InOrder()
 				{
-					InOrder(m_root);
+					InOrder(mRoot);
 				}
 
 				template <typename K, typename V> void SortedDictionary<K, V>::InOrder(const Pair* node)
@@ -346,7 +346,7 @@ namespace ADSLibrary
 
 				template <typename K, typename V> void SortedDictionary<K, V>::PreOrder()
 				{
-					PreOrder(m_root);
+					PreOrder(mRoot);
 				}
 
 				template <typename K, typename V> void SortedDictionary<K, V>::PreOrder(const Pair* node)
@@ -360,7 +360,7 @@ namespace ADSLibrary
 
 				template <typename K, typename V> void SortedDictionary<K, V>::PostOrder()
 				{
-					PostOrder(m_root);
+					PostOrder(mRoot);
 				}
 
 				template <typename K, typename V> void SortedDictionary<K, V>::PostOrder(const Pair* node)
